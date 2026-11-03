@@ -18,12 +18,39 @@ export default function Home() {
       {/* Optional Royal Intro */}
       <RoyalIntro />
 
-      {/* Slim Royal Blue Marquee & Crisp White Sticky Navigation */}
+      {/* Top Sub-Navbar & Clean White Primary Navbar */}
       <Header onOpenQuery={() => setIsModalOpen(true)} />
 
       <main className="flex-1">
         {/* Editorial Split Hero Section & Statistical Metrics Ticker */}
         <Hero onOpenQuery={() => setIsModalOpen(true)} />
+
+        {/* RUNNING BLUE MARQUEE ITEM PLACED DIRECTLY AFTER HERO SECTION */}
+        <div className="w-full bg-[#0020D6] text-white overflow-hidden py-2.5 border-y border-blue-700/40 shadow-sm relative z-20">
+          <div className="animate-marquee whitespace-nowrap text-[11px] sm:text-xs tracking-[0.14em] uppercase font-sans font-medium flex items-center">
+            <span className="mx-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-300 animate-pulse" />
+              Admissions Open 2026–2027 • BCA &amp; BBA Programs • Utkal University Affiliated
+            </span>
+            <span className="mx-6 text-white/50">✦</span>
+            <span className="mx-6">
+              100% Placement Assistance with Tier-1 Tech Recruiters
+            </span>
+            <span className="mx-6 text-white/50">✦</span>
+            <span className="mx-6">
+              Merit Scholarships for High-Performing Intermediate Scholars
+            </span>
+            <span className="mx-6 text-white/50">✦</span>
+            <span className="mx-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-300 animate-pulse" />
+              Admissions Open 2026–2027 • BCA &amp; BBA Programs • Utkal University Affiliated
+            </span>
+            <span className="mx-6 text-white/50">✦</span>
+            <span className="mx-6">
+              100% Placement Assistance with Tier-1 Tech Recruiters
+            </span>
+          </div>
+        </div>
 
         {/* ADVANCED ANIMATED 3D HANGING RIBBON CARDS */}
         <AdmissionRibbons onOpenQuery={() => setIsModalOpen(true)} />
