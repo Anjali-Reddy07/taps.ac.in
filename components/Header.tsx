@@ -16,23 +16,18 @@ export default function Header({ onOpenQuery }: HeaderProps) {
       <header className="sticky top-0 z-40 w-full bg-white shadow-xs border-b border-gray-200">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-20">
           
-          {/* LEFT: Circular Trident Multi-Color Emblem + Stacked Title matching TACT */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group py-1" aria-label="TAPS Home">
-            <div className="relative w-11 h-11 sm:w-13 sm:h-13 shrink-0 transition-transform group-hover:scale-105">
+          {/* LEFT: Official Trident Logo from TAPS */}
+          <Link href="/" className="flex items-center shrink-0 group py-1" aria-label="TAPS Home">
+            <div className="relative w-48 sm:w-56 md:w-64 h-12 sm:h-14 md:h-16 shrink-0 transition-transform group-hover:scale-[1.02]">
               <Image
-                src="/images/tact-logo.png"
-                alt="Trident Academy Logo"
+                src="/asset/logo.png"
+                alt="Trident Academy of Professional Studies"
                 fill
                 priority
-                className="object-contain"
-                sizes="(max-width: 768px) 48px, 60px"
+                className="object-contain object-left"
+                sizes="(max-width: 768px) 192px, 256px"
               />
             </div>
-            <span className="flex flex-col justify-between h-11 sm:h-12 py-0.5 font-bold uppercase text-[#001D4A] text-[11px] sm:text-[12.5px] lg:text-[13px] leading-[1.12] tracking-wide whitespace-nowrap">
-              <span>Trident</span>
-              <span>Academy of</span>
-              <span>Professional Studies</span>
-            </span>
           </Link>
 
           {/* CENTER / RIGHT: Navigation Items with Vertical Dividers matching TACT */}
@@ -137,18 +132,14 @@ export default function Header({ onOpenQuery }: HeaderProps) {
           <div className="relative w-full max-w-xs bg-white text-[#001D4A] h-full shadow-2xl flex flex-col justify-between p-6 z-10 overflow-y-auto">
             <div>
               <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-                <div className="flex items-center gap-2">
-                  <div className="relative w-9 h-9">
-                    <Image
-                      src="/images/tact-logo.png"
-                      alt="Trident Academy"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <span className="font-bold uppercase text-[11px] leading-tight text-[#001D4A]">
-                    Trident Academy<br />of Professional Studies
-                  </span>
+                <div className="relative w-44 h-11">
+                  <Image
+                    src="/asset/logo.png"
+                    alt="Trident Academy of Professional Studies"
+                    fill
+                    className="object-contain object-left"
+                    sizes="180px"
+                  />
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
