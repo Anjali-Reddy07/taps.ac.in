@@ -23,7 +23,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* SECTION 1: HERO CAROUSEL ("Where Ambition Finds Its Direction") */}
-        <TactHero onOpenQuery={() => setIsModalOpen(true)} />
+        <TactHero />
 
         {/* SECTION 2: ADMISSIONS OPEN BORDER-BEAM BANNER */}
         <TactAdmissionsBar onOpenQuery={() => setIsModalOpen(true)} />

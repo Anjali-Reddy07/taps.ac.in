@@ -107,3 +107,4 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
     </section>
   );
 }
+
