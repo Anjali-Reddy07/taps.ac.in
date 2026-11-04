@@ -9,7 +9,7 @@ interface TactFooterProps {
 
 export default function TactFooter({ onOpenQuery }: TactFooterProps) {
   return (
-    <footer className="relative z-10 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white border-t border-zinc-800 overflow-hidden">
+    <footer className="relative z-10 bg-transparent text-white border-t border-zinc-800 overflow-hidden">
       {/* Background Decorative Ambient Radial Glow */}
       <div 
         className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(255,255,255,0.05),transparent)] pointer-events-none" 

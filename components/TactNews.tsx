@@ -29,7 +29,7 @@ export default function TactNews() {
   ];
 
   return (
-    <section id="notices" className="relative py-16 sm:py-20 bg-white overflow-hidden">
+    <section id="notices" className="relative py-16 sm:py-20 bg-transparent overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Section Header */}

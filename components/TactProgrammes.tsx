@@ -161,7 +161,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
   return (
     <section 
       id="programmes" 
-      className="relative py-20 sm:py-24 lg:py-28 bg-zinc-50 border-y border-zinc-200 overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-transparent overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         

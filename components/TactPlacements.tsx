@@ -29,7 +29,7 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
   ];
 
   return (
-    <section id="placements" className="relative py-16 sm:py-24 bg-black text-white border-y border-zinc-800 overflow-hidden">
+    <section id="placements" className="relative py-16 sm:py-24 bg-transparent text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Header */}

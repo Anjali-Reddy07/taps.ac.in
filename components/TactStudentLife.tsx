@@ -46,7 +46,7 @@ export default function TactStudentLife() {
   ];
 
   return (
-    <section id="student-life" className="relative py-20 sm:py-24 lg:py-32 bg-zinc-50 border-t border-zinc-200 overflow-hidden scroll-mt-20">
+    <section id="student-life" className="relative py-20 sm:py-24 lg:py-32 bg-transparent overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Top Header */}

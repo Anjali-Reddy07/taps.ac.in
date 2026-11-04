@@ -6,7 +6,7 @@ interface TactAdmissionsBarProps {
 
 export default function TactAdmissionsBar({ onOpenQuery }: TactAdmissionsBarProps) {
   return (
-    <section className="bg-zinc-950 text-white py-3.5 sm:py-4 px-4 sm:px-6 lg:px-8 border-b border-zinc-800 shadow-sm relative z-20 overflow-hidden">
+    <section className="bg-transparent text-white py-3.5 sm:py-4 px-4 sm:px-6 lg:px-8 border-b border-zinc-800 shadow-sm relative z-20 overflow-hidden">
       {/* Animated subtle shimmer line */}
       <div className="absolute bottom-0 left-0 right-0 h-[1px] animate-shimmer" />
 

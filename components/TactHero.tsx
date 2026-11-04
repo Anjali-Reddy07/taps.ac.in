@@ -67,7 +67,7 @@ export default function TactHero() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured highlights"
-      className="relative h-[72vh] sm:h-[70vh] min-h-[480px] sm:min-h-[540px] max-h-[720px] overflow-hidden bg-black text-white"
+      className="relative h-[72vh] sm:h-[70vh] min-h-[480px] sm:min-h-[540px] max-h-[720px] overflow-hidden bg-transparent text-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

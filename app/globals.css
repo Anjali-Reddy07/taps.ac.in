@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@source "../components";
 
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -46,6 +45,20 @@ html, body {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
+}
+
+/* Continuous Grid & Dot Travel Animation */
+@keyframes gridTravel {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.animate-grid-travel {
+  animation: gridTravel 24s linear infinite;
 }
 
 /* Infinite Recruiter & Ticker Marquee Animation */

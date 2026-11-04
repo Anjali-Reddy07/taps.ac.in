@@ -121,7 +121,7 @@ export default function TactTestimonials() {
   return (
     <section 
       aria-label="Alumni Speak"
-      className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-zinc-200 overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-transparent overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         

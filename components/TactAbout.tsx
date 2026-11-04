@@ -157,22 +157,9 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   ];
 
   return (
-    <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
       
-      {/* 1. AMBIENT ANIMATED BACKGROUND */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        {/* Faint Geometric Dot Matrix */}
-        <div 
-          className="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-80" 
-        />
-
-        {/* Oversized Monochrome Animated Radial Blur Orbs */}
-        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-zinc-400/10 blur-[130px] animate-drift-slow" />
-        <div className="absolute top-1/2 -right-32 w-[600px] h-[600px] rounded-full bg-zinc-600/10 blur-[140px] animate-drift-reverse" />
-        <div className="absolute -bottom-32 left-1/3 w-[500px] h-[500px] rounded-full bg-zinc-500/10 blur-[120px] animate-drift-slow" />
-      </div>
-
-      {/* 2. INFINITE RUNNING MARQUEE STRIP (Seamless Institutional Milestones) */}
+      {/* 1. INFINITE RUNNING MARQUEE STRIP (Seamless Institutional Milestones) */}
       <div className="mb-14 sm:mb-18 border-y border-zinc-800 bg-zinc-950 text-white relative z-10 overflow-hidden py-3 shadow-md">
         <div className="relative overflow-hidden w-full">
           {/* Left and Right Fade Masks */}
