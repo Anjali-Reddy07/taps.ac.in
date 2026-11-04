@@ -126,13 +126,24 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </a>
             </div>
 
-            {/* Right Corner: Search Icon Symbol & Bar */}
-            <div className="flex items-center gap-2">
+            {/* Right Corner: Quick Links & Search */}
+            <div className="flex items-center gap-3">
+              <nav aria-label="Top menu" className="hidden lg:flex items-center text-[11px] text-slate-500 font-medium">
+                <Link href="/" className="px-2.5 py-0.5 hover:text-[#0020D6] transition-colors border-r border-slate-200">Home</Link>
+                <Link href="/admission" className="px-2.5 py-0.5 hover:text-[#0020D6] transition-colors border-r border-slate-200">Alumni</Link>
+                <Link href="/contact" className="px-2.5 py-0.5 hover:text-[#0020D6] transition-colors border-r border-slate-200">Grievance</Link>
+                <Link href="#about" className="px-2.5 py-0.5 hover:text-[#0020D6] transition-colors border-r border-slate-200">Mandatory Disclosure</Link>
+                <Link href="#about" className="px-2.5 py-0.5 hover:text-[#0020D6] transition-colors">AICTE Approvals</Link>
+              </nav>
+
+              <span className="hidden lg:inline text-blue-200">|</span>
+
+              {/* Search Icon Symbol & Bar */}
               <div className="relative flex items-center">
                 <input
                   type="text"
                   placeholder="Search TAPS..."
-                  className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-blue-200 rounded-full focus:outline-none focus:border-[#0020D6] text-[#001D4A] placeholder-slate-400 w-28 sm:w-36 focus:w-48 transition-all"
+                  className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-blue-200 rounded-full focus:outline-none focus:border-[#0020D6] text-[#001D4A] placeholder-slate-400 w-24 sm:w-32 focus:w-40 transition-all"
                 />
                 <svg className="w-3.5 h-3.5 text-[#0052CC] absolute left-2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

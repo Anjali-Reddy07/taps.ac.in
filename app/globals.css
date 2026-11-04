@@ -10,6 +10,16 @@
   --color-blue-deep: #002B66;
   --color-blue-light: #EFF6FF;
   --color-blue-border: #DBEAFE;
+
+  /* TACT Design Tokens in White & Royal Blue Theme */
+  --brand-primary: #0020D6;
+  --brand-accent: #0020D6;
+  --brand-accent-hover: #0018b3;
+  --brand-dark: #001D4A;
+  --brand-sky: #38bdf8;
+  --brand-light: #EFF6FF;
+  --color-surface: #F8FAFC;
+  --color-border: #E2E8F0;
 }
 
 body {
@@ -46,6 +56,28 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Border Beam Shimmer */
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
 }
 
 /* Custom Micro-Animations */
