@@ -31,13 +31,16 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
           {/* Column 1: Institutional Identity */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-4">
             <Link href="/" className="inline-block group py-1" aria-label="TAPS Home">
-              <div className="relative w-56 sm:w-64 h-12 flex-shrink-0">
-                <Image
-                  src="/asset/logo.png"
-                  alt="Trident Academy of Professional Studies"
-                  fill
-                  className="object-contain object-left brightness-0 invert"
-                />
+              <div className="bg-white rounded-xl px-4 py-2 inline-flex items-center shadow-md">
+                <div className="relative w-48 sm:w-56 h-10 sm:h-11 flex-shrink-0">
+                  <Image
+                    src="/asset/logo.png"
+                    alt="Trident Academy of Professional Studies"
+                    fill
+                    className="object-contain object-left"
+                    sizes="(max-width: 640px) 192px, 224px"
+                  />
+                </div>
               </div>
             </Link>
 
