@@ -10,6 +10,14 @@ interface HeaderProps {
 
 export default function Header({ onOpenQuery }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const academicsList = [
+    { name: "BCA — Computer Applications", href: "#programmes", desc: "3-Year Degree • Cloud, AI foundations & full-stack development" },
+    { name: "BBA — Business Administration", href: "#programmes", desc: "3-Year Degree • Managerial finance, marketing & strategy" },
+    { name: "B.Sc (Hons) — Computer Science", href: "#programmes", desc: "3-Year Degree • Algorithmic science & computational theory" },
+    { name: "B.Sc (Hons) — Biotechnology", href: "#programmes", desc: "3-Year Degree • Molecular research, genetics & bioprocess" },
+  ];
 
   return (
     <>
@@ -30,60 +38,93 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             </div>
           </Link>
 
-          {/* CENTER / RIGHT: Navigation Items with Vertical Dividers matching TACT */}
+          {/* CENTER / RIGHT: Navigation Items with Vertical Dividers */}
           <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0 h-full">
             <nav aria-label="Main menu" className="flex items-stretch h-full border-r border-[#001D4A]/15">
               <Link
                 href="/about"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
               >
                 About
               </Link>
-              <Link
-                href="#programmes"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+
+              {/* Academics with Dropdown */}
+              <div
+                className="relative flex items-stretch cursor-pointer group/acad"
+                onMouseEnter={() => setActiveDropdown("academics")}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                Academics
-              </Link>
+                <button
+                  type="button"
+                  className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center gap-1 text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] group-hover/acad:text-[#0020D6] group-hover/acad:bg-slate-50 transition-colors cursor-pointer"
+                >
+                  <span>Academics</span>
+                  <svg className="w-3 h-3 text-slate-500 group-hover/acad:text-[#0020D6] group-hover/acad:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {activeDropdown === "academics" && (
+                  <div className="absolute top-full left-0 pt-1 w-80 z-50">
+                    <div className="bg-white border border-blue-100 rounded-xl p-3 shadow-xl space-y-1 animate-fadeIn">
+                      <div className="text-[10px] tracking-wider uppercase font-bold text-[#0052CC] px-2.5 py-1 border-b border-blue-50">
+                        Undergraduate Programs
+                      </div>
+                      {academicsList.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="block p-2 rounded-lg hover:bg-blue-50 transition-colors"
+                        >
+                          <div className="text-xs font-bold text-[#001D4A] hover:text-[#0020D6]">
+                            {item.name}
+                          </div>
+                          <div className="text-[11px] text-slate-500 mt-0.5">
+                            {item.desc}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Notices */}
               <Link
-                href="#about"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+                href="#notices"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
               >
-                Research
+                Notices
               </Link>
+
+              {/* Facilities */}
               <Link
                 href="#facilities"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
-              >
-                Activities
-              </Link>
-              <Link
-                href="#placements"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
-              >
-                Training &amp; Placement
-              </Link>
-              <Link
-                href="#about"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
-              >
-                Best Practices
-              </Link>
-              <Link
-                href="#facilities"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
               >
                 Facilities
               </Link>
+
+              {/* Training & Placement */}
+              <Link
+                href="#placements"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+              >
+                Training &amp; Placement
+              </Link>
+
+              {/* Admission */}
               <Link
                 href="/admission"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
               >
                 Admission
               </Link>
+
+              {/* Contact */}
               <Link
                 href="/contact"
-                className="px-2 xl:px-3 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
+                className="px-2.5 xl:px-3.5 2xl:px-4 flex items-center text-[11px] xl:text-[12px] 2xl:text-[13px] font-bold uppercase whitespace-nowrap border-l border-[#001D4A]/15 text-[#001D4A] hover:text-[#0020D6] hover:bg-slate-50 transition-colors"
               >
                 Contact
               </Link>
@@ -166,32 +207,11 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   Academics
                 </Link>
                 <Link
-                  href="#about"
+                  href="#notices"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
                 >
-                  Research
-                </Link>
-                <Link
-                  href="#facilities"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
-                >
-                  Activities
-                </Link>
-                <Link
-                  href="#placements"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
-                >
-                  Training &amp; Placement
-                </Link>
-                <Link
-                  href="#about"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
-                >
-                  Best Practices
+                  Notices
                 </Link>
                 <Link
                   href="#facilities"
@@ -199,6 +219,13 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
                 >
                   Facilities
+                </Link>
+                <Link
+                  href="#placements"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
+                >
+                  Training &amp; Placement
                 </Link>
                 <Link
                   href="/admission"
