@@ -70,16 +70,17 @@ export default function TactStudentLife() {
             <div className="relative rounded-3xl overflow-hidden border border-zinc-200 shadow-2xl bg-black group hover-lift">
               <div className="relative h-[380px] sm:h-[440px] w-full">
                 <Image
+                  key={activities[activeItem].image}
                   src={activities[activeItem].image}
                   alt={activities[activeItem].title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale-[25%]"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale-[20%] animate-fadeIn"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
                 {/* Floating Active Item Badge */}
-                <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div key={activities[activeItem].title} className="absolute bottom-6 left-6 right-6 text-white animate-fadeIn">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black border border-zinc-700 text-[11px] font-bold uppercase tracking-wider mb-2">
                     <span>{activities[activeItem].badge}</span>
                   </div>

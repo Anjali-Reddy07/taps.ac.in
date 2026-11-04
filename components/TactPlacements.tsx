@@ -45,8 +45,8 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           </p>
         </div>
 
-        {/* 3 Large Stat Counters */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-12 sm:mb-16 divide-y sm:divide-y-0 sm:divide-x divide-zinc-800 bg-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+        {/* 3 Large Stat Counters with subtle floating effect */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-14 divide-y sm:divide-y-0 sm:divide-x divide-zinc-800 bg-zinc-950/90 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl animate-float">
           {stats.map((st) => (
             <div key={st.label} className="text-center py-4 sm:py-2 px-4">
               <div className="text-4xl sm:text-5xl md:text-6xl font-light text-white tracking-tight mb-1 font-serif">
@@ -62,21 +62,42 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           ))}
         </div>
 
-        {/* Recruiter Logos / Badges */}
-        <div className="mb-14">
+        {/* Recruiter Logos - Smooth Continuous Marquee Animation */}
+        <div className="mb-14 overflow-hidden relative">
           <div className="text-center text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-400 mb-6 font-semibold">
             Premier Corporate Recruiting Partners
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto">
-            {recruiters.map((rec) => (
-              <div
-                key={rec}
-                className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm sm:text-[15px] font-medium text-zinc-300 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all duration-300 shadow-xs hover-lift"
-              >
-                {rec}
-              </div>
-            ))}
+          {/* Fade gradients on edges */}
+          <div className="absolute left-0 top-10 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-10 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
+          {/* Animated Marquee Strip Row 1 */}
+          <div className="flex overflow-hidden py-2">
+            <div className="animate-marquee flex gap-3 sm:gap-4 shrink-0">
+              {[...recruiters, ...recruiters].map((rec, idx) => (
+                <div
+                  key={`${rec}-${idx}`}
+                  className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm sm:text-[15px] font-medium text-zinc-300 hover:bg-zinc-800 hover:border-zinc-400 hover:text-white transition-all duration-300 shadow-xs hover-lift whitespace-nowrap cursor-default"
+                >
+                  {rec}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Animated Marquee Strip Row 2 (Reverse direction) */}
+          <div className="flex overflow-hidden py-2 mt-2">
+            <div className="animate-marquee-reverse flex gap-3 sm:gap-4 shrink-0">
+              {[...recruiters.slice().reverse(), ...recruiters.slice().reverse()].map((rec, idx) => (
+                <div
+                  key={`rev-${rec}-${idx}`}
+                  className="px-5 py-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800/90 text-sm sm:text-[15px] font-medium text-zinc-300 hover:bg-zinc-800 hover:border-zinc-400 hover:text-white transition-all duration-300 shadow-xs hover-lift whitespace-nowrap cursor-default"
+                >
+                  {rec}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
