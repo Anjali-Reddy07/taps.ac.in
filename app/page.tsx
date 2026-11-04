@@ -25,7 +25,7 @@ export default function Home() {
       <main className="flex-1">
         {/* SECTION 1: HERO CAROUSEL ("Where Ambition Finds Its Direction") */}
         <AnimatedBackground variant="dark">
-          <TactHero />
+          <TactHero onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
         {/* SECTION 2: ADMISSIONS OPEN BORDER-BEAM BANNER */}

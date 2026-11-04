@@ -169,7 +169,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                     width={260}
                     height={91}
                     priority
-                    className="h-11 sm:h-12 md:h-13 w-auto object-contain block"
+                    className="h-10 sm:h-12 w-auto object-contain block"
                   />
                 </div>
               </Link>
