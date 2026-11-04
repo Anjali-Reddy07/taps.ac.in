@@ -48,13 +48,13 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         
         {/* Section Heading */}
         <div className="max-w-3xl mb-12 sm:mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-900 font-bold mb-3 bg-zinc-200/80 px-3 py-1 rounded-full border border-zinc-300">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
             Academic Programmes
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
             Programmes Offered
           </h2>
-          <p className="text-base sm:text-lg text-zinc-700 mt-3 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
             Premier three-year undergraduate degree programmes in Computer Applications and Business Administration, affiliated to Utkal University and permanently approved by the Higher Education Department, Govt. of Odisha.
           </p>
         </div>
@@ -115,14 +115,14 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={onOpenQuery}
-                    className="px-6 py-2.5 rounded-xl bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover-lift cursor-pointer whitespace-nowrap"
+                    className="px-6 py-2.5 rounded-xl bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover-lift active:scale-95 cursor-pointer whitespace-nowrap"
                   >
                     Apply for {prog.num === "01" ? "BCA" : "BBA"}
                   </button>
 
                   <Link
                     href={prog.href}
-                    className="w-10 h-10 rounded-full bg-zinc-100 group-hover:bg-black text-zinc-900 group-hover:text-white flex items-center justify-center transition-all shrink-0 shadow-xs"
+                    className="w-10 h-10 rounded-full bg-zinc-100 group-hover:bg-black text-zinc-900 group-hover:text-white flex items-center justify-center transition-all duration-200 shrink-0 shadow-xs active:scale-95"
                     aria-label={`Explore ${prog.title}`}
                   >
                     <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

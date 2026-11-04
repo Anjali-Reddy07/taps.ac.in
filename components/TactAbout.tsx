@@ -48,23 +48,23 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           
           {/* Left Column: Institutional Profile */}
           <div className="lg:col-span-5 space-y-5 animate-fadeInUp">
-            <div className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-900 font-bold bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
               About Us
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-light text-zinc-900 leading-tight tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 leading-tight tracking-tight">
               Trident Academy of Professional Studies
             </h2>
 
-            <p className="text-base sm:text-lg font-bold text-zinc-900">
+            <p className="text-base sm:text-lg font-semibold text-zinc-900">
               Premier BCA &amp; BBA Institution • Where Ambition Finds Its Direction
             </p>
 
-            <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
               Trident Academy of Professional Studies (TAPS), functioning under the aegis of the renowned Trident Group (TACT Trust), is recognized as the undisputed No. 1 college under Utkal University for Bachelor of Business Administration (BBA) and Bachelor of Computer Application (BCA).
             </p>
 
-            <p className="text-sm sm:text-base text-zinc-700 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
               Permanently recognized by the Higher Education Department, Govt. of Odisha, and approved by AICTE, TAPS integrates computational rigor, managerial acumen, and holistic training into an unmatched undergraduate learning journey at Infocity, Bhubaneswar.
             </p>
 
@@ -89,7 +89,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             <div className="pt-4 flex flex-wrap items-center gap-3.5">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white text-sm sm:text-base font-semibold hover:bg-zinc-800 transition-all duration-300 shadow-md hover-lift"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white text-sm sm:text-base font-semibold hover:bg-zinc-800 transition-all duration-200 shadow-md hover-lift active:scale-95"
               >
                 <span>Know More About TAPS</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
               <button
                 onClick={onOpenQuery}
-                className="px-6 py-3 rounded-xl border-2 border-black text-zinc-900 hover:bg-black hover:text-white text-sm sm:text-base font-semibold transition-all duration-300 hover-lift cursor-pointer"
+                className="px-6 py-3 rounded-xl border-2 border-black text-zinc-900 hover:bg-black hover:text-white text-sm sm:text-base font-semibold transition-all duration-200 hover-lift active:scale-95 cursor-pointer"
               >
                 Download Brochure
               </button>
@@ -123,7 +123,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 <span className="w-2 h-2 rounded-full bg-black" />
               </h3>
 
-              <div className="space-y-3.5 text-sm sm:text-[15px] text-zinc-700 leading-relaxed font-normal">
+              <div className="space-y-3.5 text-sm sm:text-[15px] text-zinc-600 leading-relaxed font-normal">
                 <p>
                   To achieve and sustain reputation for <strong className="text-zinc-950 font-semibold">Excellence in Teaching, Learning, Research and Industry Mentorship</strong> whilst upholding enduring human values.
                 </p>
@@ -149,7 +149,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 <span className="w-2 h-2 rounded-full bg-black" />
               </h3>
 
-              <div className="space-y-3.5 text-sm sm:text-[15px] text-zinc-700 leading-relaxed font-normal">
+              <div className="space-y-3.5 text-sm sm:text-[15px] text-zinc-600 leading-relaxed font-normal">
                 <p>
                   To provide the <strong className="text-zinc-950 font-semibold">best of technical skills, business ethics, and practical acumen</strong> to undergraduate scholars.
                 </p>
@@ -175,10 +175,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-zinc-900 font-bold block mb-2 bg-zinc-100 border border-zinc-300 w-fit px-3 py-1 rounded-full">
+              <span className="text-xs uppercase tracking-widest font-semibold text-zinc-900 block mb-2 bg-zinc-100 border border-zinc-300 w-fit px-3 py-1 rounded-full shadow-2xs">
                 Inside TAPS Campus
               </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-zinc-950 tracking-tight">
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
                 World-Class Academic Infrastructure
               </h3>
               <p className="text-sm sm:text-base text-zinc-600 mt-2 max-w-2xl font-normal leading-relaxed">
@@ -188,14 +188,14 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             
             <Link
               href="/admission"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-zinc-900 hover:text-black uppercase tracking-wider transition-colors group shrink-0"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-zinc-900 hover:text-black uppercase tracking-wider transition-colors group shrink-0 active:scale-95"
             >
               <span>Schedule Campus Tour</span>
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 
-          {/* 4-Column Sleek Facility Image Cards with Aspect-Ratio & Refined Bottom Scrim */}
+          {/* 4-Column Sleek Facility Image Cards with Aspect-Ratio, Smooth Scale-Up & Refined Bottom Scrim */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {facilityHighlights.map((facility) => (
               <div
@@ -210,6 +210,9 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out filter grayscale-[20%] group-hover:grayscale-0"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
+
+                {/* Subtle Hover Darkening Overlay */}
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-500 pointer-events-none" />
 
                 {/* Top Ambient Scrim for Floating Badge */}
                 <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
@@ -226,7 +229,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
                 {/* Caption Content Directly on the Bottom Scrim */}
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 flex flex-col justify-end text-white">
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-zinc-300 font-semibold mb-1">
+                  <div className="text-[11px] uppercase tracking-widest text-zinc-300 font-semibold mb-1">
                     {facility.subtitle}
                   </div>
 
@@ -243,7 +246,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     <span className="text-[11px] font-semibold text-zinc-200 uppercase tracking-wider">
                       Infocity Campus
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-white text-white group-hover:text-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-white text-white group-hover:text-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shrink-0 active:scale-95">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>

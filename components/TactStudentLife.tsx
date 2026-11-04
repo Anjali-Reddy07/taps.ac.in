@@ -51,13 +51,13 @@ export default function TactStudentLife() {
         
         {/* Top Header */}
         <div className="max-w-2xl mb-12 sm:mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-zinc-900 font-bold mb-3 bg-zinc-200/80 px-3 py-1 rounded-full border border-zinc-300">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
             Student Life
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
             Life Beyond the Classroom
           </h2>
-          <p className="text-base sm:text-lg text-zinc-700 mt-3 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
             Festivals, clubs, sports and social service. Campus life at TAPS is where foundational learning turns into leadership, teamwork, and lifelong friendships.
           </p>
         </div>

@@ -262,7 +262,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               {/* Apply Now Signature Black Button */}
               <button
                 onClick={onOpenQuery}
-                className="bg-black hover:bg-zinc-800 text-white font-bold text-xs xl:text-sm tracking-wide px-5 xl:px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-[0.98] shadow-md shadow-black/20 cursor-pointer ml-1 whitespace-nowrap hover-lift"
+                className="bg-black hover:bg-zinc-800 text-white font-bold text-xs xl:text-sm tracking-wide px-5 xl:px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-black/20 cursor-pointer ml-1 whitespace-nowrap hover-lift"
               >
                 Apply Now
               </button>
@@ -272,7 +272,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={onOpenQuery}
-                className="bg-black text-white font-semibold text-xs px-4 py-2 rounded-full shadow-sm"
+                className="bg-black text-white font-semibold text-xs px-4 py-2 rounded-full shadow-sm active:scale-95 cursor-pointer"
               >
                 Apply Now
               </button>

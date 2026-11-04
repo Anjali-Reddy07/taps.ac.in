@@ -34,13 +34,13 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 animate-fadeInUp">
-          <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-300 font-bold mb-3 bg-zinc-900 border border-zinc-700 inline-block px-3.5 py-1 rounded-full">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-3 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
             Placements &amp; Careers
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4 text-white">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light tracking-tight leading-tight mb-4 text-white">
             Where Our Students Go Next
           </h2>
-          <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
             A dedicated Training &amp; Placement Cell, year-round industry immersion, and alumni mentoring prepare every TAPS BCA and BBA graduate for competitive campus drives.
           </p>
         </div>
@@ -106,14 +106,14 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           <div className="inline-flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/admission"
-              className="px-8 py-3.5 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 hover:bg-zinc-900 text-white text-sm sm:text-base font-bold uppercase tracking-wider transition-all duration-300 shadow-xl hover-lift"
+              className="px-8 py-3.5 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 hover:bg-zinc-900 text-white text-sm sm:text-base font-bold uppercase tracking-wider transition-all duration-200 shadow-xl hover-lift active:scale-95"
             >
               Placement Details &amp; Records
             </Link>
 
             <button
               onClick={onOpenQuery}
-              className="px-7 py-3.5 rounded-xl bg-black border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-900 text-zinc-300 hover:text-white text-sm sm:text-base font-semibold transition-all duration-300 cursor-pointer hover-lift"
+              className="px-7 py-3.5 rounded-xl bg-black border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-900 text-zinc-300 hover:text-white text-sm sm:text-base font-semibold transition-all duration-200 cursor-pointer hover-lift active:scale-95"
             >
               Recruiter Inquiry
             </button>

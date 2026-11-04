@@ -102,7 +102,7 @@ export default function TactHero() {
               <div className="max-w-2xl animate-fadeInUp">
                 
                 {/* Category Tag */}
-                <div className="text-xs sm:text-sm uppercase tracking-[0.25em] text-zinc-300 font-semibold mb-2 sm:mb-4">
+                <div className="text-xs uppercase tracking-widest text-zinc-300 font-semibold mb-2 sm:mb-4">
                   {slide.tag}
                 </div>
 
@@ -112,14 +112,14 @@ export default function TactHero() {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-200 mb-6 sm:mb-8 font-light line-clamp-3 sm:line-clamp-none leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-zinc-200 mb-6 sm:mb-8 font-light line-clamp-3 sm:line-clamp-none leading-relaxed">
                   {slide.subtitle}
                 </p>
 
                 {/* Primary Black Button */}
                 <Link
                   href={slide.buttonHref}
-                  className="relative inline-flex items-center justify-center px-7 sm:px-9 py-3 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 text-white text-sm sm:text-base font-semibold hover:bg-zinc-900 transition-all duration-300 shadow-xl hover-lift"
+                  className="relative inline-flex items-center justify-center px-7 sm:px-9 py-3 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 text-white text-sm sm:text-base font-semibold hover:bg-zinc-900 transition-all duration-200 shadow-xl hover-lift active:scale-95"
                 >
                   <span>{slide.buttonText}</span>
                   <span className="ml-2">→</span>
@@ -135,7 +135,7 @@ export default function TactHero() {
       <button
         onClick={prevSlide}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 cursor-pointer"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
@@ -146,7 +146,7 @@ export default function TactHero() {
       <button
         onClick={nextSlide}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 cursor-pointer"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />

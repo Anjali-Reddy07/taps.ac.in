@@ -35,17 +35,17 @@ export default function TactNews() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-14 animate-fadeInUp">
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-zinc-900 font-bold mb-2 bg-zinc-100 border border-zinc-300 inline-block px-3 py-1 rounded-full">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-2 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
               What’s Happening
             </div>
-            <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
               News &amp; Events
             </h2>
           </div>
 
           <Link
             href="#notices"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-900 hover:text-black transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-900 hover:text-black transition-colors active:scale-95"
           >
             <span>All News &amp; Circulars</span>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
