@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 interface TactAboutProps {
@@ -138,6 +139,76 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
           </div>
 
+        </div>
+
+        {/* Real Campus & Academic Infrastructure Showcase from Drive */}
+        <div className="pt-6 border-t border-blue-100">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <span className="text-xs uppercase tracking-[0.2em] text-[#0020D6] font-bold block mb-1">
+                Inside TAPS Campus
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-light text-[#001D4A]">
+                World-Class Academic Infrastructure
+              </h3>
+            </div>
+            <Link
+              href="#facilities"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0020D6] hover:text-[#0018b3] transition-colors"
+            >
+              <span>Explore All Facilities</span>
+              <span>→</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                title: "Computer Applications Lab",
+                subtitle: "High-Performance Cloud & AI Systems",
+                image: "/images/drive/computer-lab.jpg",
+              },
+              {
+                title: "Smart Lecture Theatres",
+                subtitle: "Interactive Multi-Media Classrooms",
+                image: "/images/drive/smart-classroom.jpg",
+              },
+              {
+                title: "Central Research Library",
+                subtitle: "Over 50,000 Volumes & Digital Journals",
+                image: "/images/drive/central-library.jpg",
+              },
+              {
+                title: "Infocity Campus Grounds",
+                subtitle: "Patia, Bhubaneswar, Odisha",
+                image: "/images/drive/campus-walkway.jpg",
+              },
+            ].map((infra) => (
+              <div
+                key={infra.title}
+                className="group relative rounded-2xl overflow-hidden border border-blue-100 bg-white shadow-xs hover:shadow-lg transition-all duration-300"
+              >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={infra.image}
+                    alt={infra.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001D4A]/80 via-transparent to-transparent" />
+                </div>
+                <div className="p-4 bg-white">
+                  <h4 className="text-sm sm:text-base font-bold text-[#001D4A] group-hover:text-[#0020D6] transition-colors">
+                    {infra.title}
+                  </h4>
+                  <p className="text-xs text-slate-600 mt-0.5">
+                    {infra.subtitle}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

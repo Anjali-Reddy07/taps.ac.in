@@ -6,6 +6,7 @@ import TactHero from "@/components/TactHero";
 import TactAdmissionsBar from "@/components/TactAdmissionsBar";
 import TactAbout from "@/components/TactAbout";
 import TactProgrammes from "@/components/TactProgrammes";
+import TactVideoSection from "@/components/TactVideoSection";
 import TactNews from "@/components/TactNews";
 import TactPlacements from "@/components/TactPlacements";
 import TactStudentLife from "@/components/TactStudentLife";
@@ -34,7 +35,10 @@ export default function Home() {
         {/* SECTION 4: PROGRAMMES OFFERED (01 BCA, 02 BBA) */}
         <TactProgrammes onOpenQuery={() => setIsModalOpen(true)} />
 
-        {/* SECTION 5: NEWS & EVENTS / WHAT'S HAPPENING (Featured Story & Circulars) */}
+        {/* SECTION 5: CAMPUS IN MOTION (Official Walkthrough & Leadership Videos from Drive) */}
+        <TactVideoSection />
+
+        {/* SECTION 6: NEWS & EVENTS / WHAT'S HAPPENING (Featured Story & Circulars) */}
         <TactNews />
 
         {/* SECTION 6: PLACEMENTS ("Where Our Students Go Next" with 3 Stat Counters & Recruiter Marquee) */}

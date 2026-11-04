@@ -13,30 +13,35 @@ export default function TactStudentLife() {
       badge: "Annual Flagship Festival",
       desc: "The premier multi-day spring festival uniting sports tournaments, coding hackathons, literary debates, fine arts, and vibrant cultural music nights.",
       icon: "🎉",
+      image: "/images/drive/trifest-celebration.jpg",
     },
     {
       title: "Kartavya",
       badge: "Community & Social Outreach",
       desc: "An active student-led volunteer society committed to community welfare, disaster relief drives, blood donation camps, and environmental plantation.",
       icon: "🤝",
+      image: "/images/drive/campus-grounds.jpg",
     },
     {
       title: "Hostels",
       badge: "In-Campus Residential Living",
       desc: "Dedicated, secure hostels for boys and girls accommodating over 1,200 students with spacious furnished rooms, 24/7 high-speed Wi-Fi, and warden care.",
       icon: "🏢",
+      image: "/images/drive/hostel-residential.jpg",
     },
     {
       title: "Food Centers",
       badge: "Central Food Courts & Dining",
       desc: "Hygienic multi-cuisine cafeteria providing fresh, balanced breakfast, lunch, evening snacks, and dinner in a lively communal setting.",
       icon: "🍽️",
+      image: "/images/drive/cafeteria.jpg",
     },
     {
-      title: "Sports & Games",
+      title: "Sports & Campus Grounds",
       badge: "Athletics & Physical Wellness",
-      desc: "Full-size cricket ground, football turf, volleyball, basketball, badminton courts, indoor table tennis, gymnasium, and a holistic yoga center.",
+      desc: "Full-size cricket ground, football turf, volleyball, basketball, badminton courts, indoor table tennis, gymnasium, and outdoor recreation walkway.",
       icon: "⚽",
+      image: "/images/drive/campus-walkway.jpg",
     },
   ];
 
@@ -68,8 +73,8 @@ export default function TactStudentLife() {
             <div className="relative rounded-3xl overflow-hidden border border-blue-200/80 shadow-2xl bg-white group">
               <div className="relative h-[380px] sm:h-[440px] w-full">
                 <Image
-                  src="/asset/campus-banner.png"
-                  alt="Life at Trident Academy of Professional Studies"
+                  src={activities[activeItem].image}
+                  alt={activities[activeItem].title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"

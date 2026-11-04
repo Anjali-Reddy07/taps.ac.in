@@ -65,7 +65,7 @@ export default function TactNews() {
           <div className="lg:col-span-7 bg-[#F8FAFC] border border-blue-100 rounded-2xl overflow-hidden shadow-xs hover:shadow-lg transition-all flex flex-col justify-between group">
             <div className="relative h-64 sm:h-72 w-full overflow-hidden">
               <Image
-                src="/asset/campus-banner.png"
+                src="/images/drive/innovation-mela.png"
                 alt="Featured Story Campus Event"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

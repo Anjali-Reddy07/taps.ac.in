@@ -25,7 +25,7 @@ export default function TactHero() {
         "Undergraduate programmes in computer applications (BCA) and business administration (BBA), built on the Trident legacy of quality education since 2000.",
       buttonText: "Explore Programmes",
       buttonHref: "#programmes",
-      image: "/images/tact-building.webp",
+      image: "/images/drive/campus-building.png",
     },
     {
       tag: "INDUSTRY CONNECT",
@@ -34,7 +34,7 @@ export default function TactHero() {
         "Conclaves, expert talks and MoUs bring leaders from industry and academia onto our campus every semester.",
       buttonText: "Industry Connect",
       buttonHref: "#about",
-      image: "/images/slide-conclave.jpg",
+      image: "/images/drive/academic-infrastructure.png",
     },
     {
       tag: "STUDENT ACTIVITIES",
@@ -43,7 +43,7 @@ export default function TactHero() {
         "From hackathons and national seminars to sustainability conclaves, our students learn by doing.",
       buttonText: "Student Activities",
       buttonHref: "#facilities",
-      image: "/images/slide-campus.jpg",
+      image: "/images/drive/hack-day.png",
     },
   ];
 
