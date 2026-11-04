@@ -8,12 +8,43 @@ interface TactAboutProps {
 }
 
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
+  const facilityHighlights = [
+    {
+      badge: "TECH LAB 01",
+      title: "Computer Applications Lab",
+      subtitle: "Cloud & AI Computing Nodes",
+      spec: "High-performance virtualization clusters, dedicated GPU rigs & 24/7 gigabit fiber network.",
+      image: "/images/drive/computer-lab.jpg",
+    },
+    {
+      badge: "ACADEMICS 02",
+      title: "Smart Lecture Theatres",
+      subtitle: "Multimedia Amphitheatres",
+      spec: "Acoustic architecture, 4K interactive projection, wireless podiums & lecture capture systems.",
+      image: "/images/drive/smart-classroom.jpg",
+    },
+    {
+      badge: "RESEARCH 03",
+      title: "Central Research Library",
+      subtitle: "Digital & Physical Archives",
+      spec: "Over 50,000 reference volumes, DELNET subscriptions & air-conditioned study pods.",
+      image: "/images/drive/central-library.jpg",
+    },
+    {
+      badge: "CAMPUS 04",
+      title: "Infocity Campus Grounds",
+      subtitle: "Patia, Bhubaneswar",
+      spec: "Lush landscaped gardens, athletic turf, pedestrian walkways & open-air study gazebos.",
+      image: "/images/drive/campus-walkway.jpg",
+    },
+  ];
+
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         
         {/* Top Grid: Profile (Left) and Vision/Mission (Right) */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-16">
           
           {/* Left Column: Institutional Profile */}
           <div className="lg:col-span-5 space-y-5 animate-fadeInUp">
@@ -54,7 +85,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               ))}
             </div>
 
-            {/* Primary & Secondary Buttons - strictly black and white */}
+            {/* Primary & Secondary Buttons */}
             <div className="pt-4 flex flex-wrap items-center gap-3.5">
               <Link
                 href="/about"
@@ -138,74 +169,92 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
         </div>
 
-        {/* Real Campus & Academic Infrastructure Showcase */}
-        <div className="pt-6 border-t border-zinc-200">
-          <div className="flex items-center justify-between mb-6">
+        {/* 2. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS GRID */}
+        <div id="facilities" className="pt-12 sm:pt-16 border-t border-zinc-200 scroll-mt-24">
+          
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
             <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-zinc-900 font-bold block mb-1">
+              <span className="text-xs uppercase tracking-[0.25em] text-zinc-900 font-bold block mb-2 bg-zinc-100 border border-zinc-300 w-fit px-3 py-1 rounded-full">
                 Inside TAPS Campus
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light text-zinc-900">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-zinc-950 tracking-tight">
                 World-Class Academic Infrastructure
               </h3>
+              <p className="text-sm sm:text-base text-zinc-600 mt-2 max-w-2xl font-normal leading-relaxed">
+                Purpose-built computing centers, amphitheatre classrooms, and comprehensive research repositories at Infocity, Bhubaneswar.
+              </p>
             </div>
+            
             <Link
-              href="#facilities"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-zinc-900 hover:text-black transition-colors"
+              href="/admission"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-zinc-900 hover:text-black uppercase tracking-wider transition-colors group shrink-0"
             >
-              <span>Explore All Facilities</span>
-              <span>→</span>
+              <span>Schedule Campus Tour</span>
+              <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              {
-                title: "Computer Applications Lab",
-                subtitle: "High-Performance Cloud & AI Systems",
-                image: "/images/drive/computer-lab.jpg",
-              },
-              {
-                title: "Smart Lecture Theatres",
-                subtitle: "Interactive Multi-Media Classrooms",
-                image: "/images/drive/smart-classroom.jpg",
-              },
-              {
-                title: "Central Research Library",
-                subtitle: "Over 50,000 Volumes & Digital Journals",
-                image: "/images/drive/central-library.jpg",
-              },
-              {
-                title: "Infocity Campus Grounds",
-                subtitle: "Patia, Bhubaneswar, Odisha",
-                image: "/images/drive/campus-walkway.jpg",
-              },
-            ].map((infra) => (
+          {/* 4-Column Sleek Facility Image Cards with Aspect-Ratio & Refined Bottom Scrim */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {facilityHighlights.map((facility) => (
               <div
-                key={infra.title}
-                className="group relative rounded-2xl overflow-hidden border border-zinc-200 bg-white shadow-xs hover:border-black hover:shadow-xl transition-all duration-300 hover-lift"
+                key={facility.title}
+                className="group relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-md hover:shadow-2xl hover:border-black transition-all duration-500 hover-lift"
               >
-                <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={infra.image}
-                    alt={infra.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                {/* Background Image with Smooth Scale-up on Hover */}
+                <Image
+                  src={facility.image}
+                  alt={facility.title}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out filter grayscale-[20%] group-hover:grayscale-0"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+
+                {/* Top Ambient Scrim for Floating Badge */}
+                <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
+
+                {/* Top Floating Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="bg-white/95 backdrop-blur-md text-zinc-950 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/20">
+                    {facility.badge}
+                  </span>
                 </div>
-                <div className="p-4 bg-white">
-                  <h4 className="text-sm sm:text-base font-bold text-zinc-900 group-hover:text-black transition-colors">
-                    {infra.title}
+
+                {/* Refined Gradient Bottom Scrim for High-Contrast Legible Captions */}
+                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/70 via-50% to-transparent pointer-events-none" />
+
+                {/* Caption Content Directly on the Bottom Scrim */}
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 flex flex-col justify-end text-white">
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-zinc-300 font-semibold mb-1">
+                    {facility.subtitle}
+                  </div>
+
+                  <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-white transition-colors">
+                    {facility.title}
                   </h4>
-                  <p className="text-xs text-zinc-600 mt-0.5">
-                    {infra.subtitle}
+
+                  <p className="text-xs text-zinc-300 mt-1.5 font-light leading-relaxed line-clamp-2">
+                    {facility.spec}
                   </p>
+
+                  {/* Micro-interaction arrow reveal */}
+                  <div className="pt-3 flex items-center justify-between border-t border-white/15 mt-3">
+                    <span className="text-[11px] font-semibold text-zinc-200 uppercase tracking-wider">
+                      Infocity Campus
+                    </span>
+                    <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-white text-white group-hover:text-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shrink-0">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             ))}
           </div>
+
         </div>
 
       </div>
