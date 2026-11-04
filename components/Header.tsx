@@ -26,8 +26,8 @@ export default function Header({ onOpenQuery }: HeaderProps) {
   }, []);
 
   const academicsList = [
-    { name: "BCA — Computer Applications", href: "#programmes", desc: "3-Year Degree • Cloud, AI foundations & full-stack development" },
-    { name: "BBA — Business Administration", href: "#programmes", desc: "3-Year Degree • Managerial finance, marketing & strategy" },
+    { name: "BCA — Computer Applications", href: "/programmes", desc: "3-Year Degree • Cloud, AI foundations & full-stack development" },
+    { name: "BBA — Business Administration", href: "/programmes", desc: "3-Year Degree • Managerial finance, marketing & strategy" },
   ];
 
   return (
@@ -190,12 +190,15 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 onMouseEnter={() => setActiveDropdown("academics")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-black after:transition-all after:duration-300">
+                <Link 
+                  href="/programmes"
+                  className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                >
                   <span>Academics</span>
                   <svg className="w-3.5 h-3.5 text-zinc-500 group-hover:text-black group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
-                </button>
+                </Link>
 
                 {activeDropdown === "academics" && (
                   <div className="absolute top-full left-0 pt-2 w-84 z-50">
@@ -223,14 +226,14 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </div>
 
               <Link
-                href="#facilities"
+                href="/facilities"
                 className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
               >
                 Facilities
               </Link>
 
               <Link
-                href="#placements"
+                href="/placements"
                 className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300 whitespace-nowrap"
               >
                 Training &amp; Placement
@@ -238,7 +241,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
 
               {/* NOTICES */}
               <Link
-                href="#notices"
+                href="/notices"
                 className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
               >
                 Notices
@@ -320,28 +323,28 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   About
                 </Link>
                 <Link
-                  href="#programmes"
+                  href="/programmes"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-zinc-900 hover:text-black border-b border-zinc-100"
                 >
                   Academics
                 </Link>
                 <Link
-                  href="#facilities"
+                  href="/facilities"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-zinc-900 hover:text-black border-b border-zinc-100"
                 >
                   Facilities
                 </Link>
                 <Link
-                  href="#placements"
+                  href="/placements"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-zinc-900 hover:text-black border-b border-zinc-100"
                 >
                   Training &amp; Placement
                 </Link>
                 <Link
-                  href="#notices"
+                  href="/notices"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-zinc-900 hover:text-black border-b border-zinc-100"
                 >

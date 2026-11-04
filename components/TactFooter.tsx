@@ -67,11 +67,11 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
             </div>
             <ul className="space-y-2 text-xs sm:text-[13px] text-zinc-400">
               {[
-                { name: "About TAPS", href: "#about" },
-                { name: "Programmes Offered", href: "#programmes" },
-                { name: "Campus Facilities", href: "#facilities" },
-                { name: "Notice Board & News", href: "#notices" },
-                { name: "Training & Placements", href: "#placements" },
+                { name: "About TAPS", href: "/about" },
+                { name: "Programmes Offered", href: "/programmes" },
+                { name: "Campus Facilities", href: "/facilities" },
+                { name: "Notice Board & News", href: "/notices" },
+                { name: "Training & Placements", href: "/placements" },
                 { name: "Online Admission Form", href: "/admission" },
               ].map((link) => (
                 <li key={link.name}>
@@ -93,11 +93,11 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
             </div>
             <ul className="space-y-2 text-xs sm:text-[13px] text-zinc-400">
               {[
-                { name: "BCA — Computer Applications (3 Yrs)", href: "/admission" },
-                { name: "BBA — Business Administration (3 Yrs)", href: "/admission" },
-                { name: "Academic Regulations & Syllabi", href: "/admission" },
-                { name: "Utkal University Regulations", href: "/admission" },
-                { name: "Semester Examination Calendar", href: "/admission" },
+                { name: "BCA — Computer Applications (3 Yrs)", href: "/programmes" },
+                { name: "BBA — Business Administration (3 Yrs)", href: "/programmes" },
+                { name: "Academic Regulations & Syllabi", href: "/programmes" },
+                { name: "Utkal University Regulations", href: "/about" },
+                { name: "Semester Examination Calendar", href: "/notices" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link 

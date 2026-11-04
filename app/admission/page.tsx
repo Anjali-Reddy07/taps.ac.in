@@ -1,0 +1,441 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Header from "@/components/Header";
+import TactFooter from "@/components/TactFooter";
+import QueryModal from "@/components/QueryModal";
+import AnimatedBackground from "@/components/AnimatedBackground";
+
+export default function AdmissionPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Form State
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    course: "BCA",
+    stream12th: "Science (+2)",
+    score12th: "",
+    city: "",
+    notes: "",
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Valid email address is required";
+    }
+    if (!formData.phone.trim() || !/^\+?[0-9]{10,13}$/.test(formData.phone.replace(/[\s-]/g, ""))) {
+      newErrors.phone = "Valid 10-digit phone number is required";
+    }
+    if (!formData.score12th.trim()) {
+      newErrors.score12th = "Percentage / Expected score is required";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 800);
+  };
+
+  const steps = [
+    {
+      step: "01",
+      title: "Application Submission",
+      desc: "Fill the online enquiry form on this portal or collect the official application booklet from the TAPS Admission Cell at Infocity with application fee of ₹200.",
+    },
+    {
+      step: "02",
+      title: "Document Verification",
+      desc: "Submit self-attested copies of 10th & 12th pass certificates, marksheets, conduct certificate, and 4 passport photographs for eligibility verification under Utkal University norms.",
+    },
+    {
+      step: "03",
+      title: "Counseling & Merit Evaluation",
+      desc: "Attend an in-person or telephonic academic counseling round to discuss course specialization tracks, faculty mentorship, and career aspirations.",
+    },
+    {
+      step: "04",
+      title: "Seat Allotment & Provisional Booking",
+      desc: "Admissions operate strictly on first-cum-first-serve basis. In case +2 results are awaited, candidates can provisionally reserve a seat with ₹20,000 (adjustable against 1st semester fees).",
+    },
+  ];
+
+  const scholarships = [
+    {
+      name: "Odisha State Medhabruti Scholarship",
+      eligibility: "Top rankers in CHSE / CBSE +2 examinations belonging to Odisha domicile.",
+      benefit: "Direct tuition assistance disbursed annually by Govt. of Odisha Higher Education Department.",
+    },
+    {
+      name: "Post-Matric PRERANA Scholarship",
+      eligibility: "Eligible SC, ST, OBC, and SEBC candidates as per Govt. of Odisha social welfare criteria.",
+      benefit: "Comprehensive maintenance allowance and course fee reimbursement.",
+    },
+    {
+      name: "TACT Trust Academic Merit Award",
+      eligibility: "Students scoring 85%+ aggregate in qualifying Higher Secondary Board exams.",
+      benefit: "Institutional tuition fee waiver and dedicated laptop grants for top semester performers.",
+    },
+  ];
+
+  return (
+    <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-black selection:text-white">
+      <Header onOpenQuery={() => setIsModalOpen(true)} />
+
+      <main className="flex-1">
+        {/* HERO BANNER: DARK VARIANT */}
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
+          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+            <div className="max-w-3xl animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
+                Admissions Session 2026-27 Open
+              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Begin Your Professional Journey at TAPS
+              </h1>
+              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
+                Applications are invited for full-time three-year undergraduate degrees in 
+                <strong className="text-white font-medium"> BCA (Bachelor of Computer Applications)</strong> and 
+                <strong className="text-white font-medium"> BBA (Bachelor of Business Administration)</strong> affiliated to Utkal University. 
+                Seats are allocated on first-cum-first-serve basis.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400">
+                <div className="flex items-center gap-2 bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-800">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulseGlow" />
+                  <span>Admissions Helpline: +91 63715 12551</span>
+                </div>
+                <div className="flex items-center gap-2 bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-800">
+                  <span>Application Fee: ₹200</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </AnimatedBackground>
+
+        {/* 2-COLUMN LAYOUT: ADMISSION ENQUIRY FORM & TIMELINE */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+              
+              {/* Left Column: Interactive Admission Enquiry Form */}
+              <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs animate-fadeInUp">
+                <div className="border-b border-zinc-100 pb-6 mb-8">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+                    Online Lead Registration
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
+                    Submit Admission Enquiry 2026
+                  </h2>
+                  <p className="text-xs sm:text-sm text-zinc-600 mt-2 font-normal">
+                    Complete the form below. Our institutional admission counseling desk will review your details and contact you within 24 hours.
+                  </p>
+                </div>
+
+                {isSubmitted ? (
+                  <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200 text-center space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mx-auto text-xl">
+                      ✓
+                    </div>
+                    <h3 className="text-xl font-medium text-zinc-950">
+                      Application Enquiry Received!
+                    </h3>
+                    <p className="text-xs sm:text-sm text-zinc-600 max-w-md mx-auto leading-relaxed">
+                      Thank you, <strong className="text-zinc-950">{formData.fullName}</strong>. Your enquiry for{" "}
+                      <strong className="text-zinc-950">{formData.course}</strong> has been logged in our admission roster. 
+                      A senior counselor will reach out via WhatsApp / phone at{" "}
+                      <strong className="text-zinc-950">{formData.phone}</strong>.
+                    </p>
+                    <button
+                      onClick={() => {
+                        setIsSubmitted(false);
+                        setFormData({
+                          fullName: "",
+                          email: "",
+                          phone: "",
+                          course: "BCA",
+                          stream12th: "Science (+2)",
+                          score12th: "",
+                          city: "",
+                          notes: "",
+                        });
+                      }}
+                      className="px-6 py-2.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-zinc-800 transition-colors"
+                    >
+                      Submit Another Enquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Full Name */}
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                        Applicant Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.fullName}
+                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                        placeholder="e.g., Ananya Mohapatra"
+                        className={`w-full px-4 py-2.5 rounded-xl border text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black ${
+                          errors.fullName ? "border-red-500 bg-red-50/20" : "border-zinc-200 bg-zinc-50"
+                        }`}
+                      />
+                      {errors.fullName && <p className="text-red-600 text-xs mt-1">{errors.fullName}</p>}
+                    </div>
+
+                    {/* Email & Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder="name@example.com"
+                          className={`w-full px-4 py-2.5 rounded-xl border text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black ${
+                            errors.email ? "border-red-500 bg-red-50/20" : "border-zinc-200 bg-zinc-50"
+                          }`}
+                        />
+                        {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email}</p>}
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          WhatsApp / Mobile No *
+                        </label>
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="e.g., 9876543210"
+                          className={`w-full px-4 py-2.5 rounded-xl border text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black ${
+                            errors.phone ? "border-red-500 bg-red-50/20" : "border-zinc-200 bg-zinc-50"
+                          }`}
+                        />
+                        {errors.phone && <p className="text-red-600 text-xs mt-1">{errors.phone}</p>}
+                      </div>
+                    </div>
+
+                    {/* Course & 12th Stream */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          Preferred Degree Track *
+                        </label>
+                        <select
+                          value={formData.course}
+                          onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        >
+                          <option value="BCA">BCA — Bachelor of Computer Applications</option>
+                          <option value="BBA">BBA — Bachelor of Business Administration</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          12th / +2 Stream *
+                        </label>
+                        <select
+                          value={formData.stream12th}
+                          onChange={(e) => setFormData({ ...formData, stream12th: e.target.value })}
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        >
+                          <option value="Science (+2)">+2 Science (PCM / PCMB)</option>
+                          <option value="Commerce (+2)">+2 Commerce</option>
+                          <option value="Arts (+2)">+2 Arts</option>
+                          <option value="Diploma / Polytechnic">3-Year Polytechnic Diploma</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 12th Score & City */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          12th Marks (%) / Expected *
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.score12th}
+                          onChange={(e) => setFormData({ ...formData, score12th: e.target.value })}
+                          placeholder="e.g., 78% or Result Awaited"
+                          className={`w-full px-4 py-2.5 rounded-xl border text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black ${
+                            errors.score12th ? "border-red-500 bg-red-50/20" : "border-zinc-200 bg-zinc-50"
+                          }`}
+                        />
+                        {errors.score12th && <p className="text-red-600 text-xs mt-1">{errors.score12th}</p>}
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                          Current City / District
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.city}
+                          onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                          placeholder="e.g., Bhubaneswar, Cuttack, Rourkela"
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        >
+                        </input>
+                      </div>
+                    </div>
+
+                    {/* Additional Notes */}
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-900 mb-1.5 uppercase tracking-wider">
+                        Questions / Specific Inquiries (Optional)
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={formData.notes}
+                        onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                        placeholder="Hostel requirements, scholarship queries, or timing preferences..."
+                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm tracking-wide transition-all duration-300 shadow-md cursor-pointer disabled:opacity-50"
+                    >
+                      {isSubmitting ? "Registering Lead..." : "Submit Application Enquiry →"}
+                    </button>
+                  </form>
+                )}
+              </div>
+
+              {/* Right Column: Step-by-Step Procedure */}
+              <div className="lg:col-span-5 space-y-8 animate-fadeInUp">
+                <div>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+                    Step-by-Step Guide
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
+                    Admission Procedure Timeline
+                  </h2>
+                </div>
+
+                <div className="space-y-6">
+                  {steps.map((st) => (
+                    <div
+                      key={st.step}
+                      className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs hover:border-zinc-400 transition-all duration-300"
+                    >
+                      <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-1">
+                        STEP {st.step}
+                      </div>
+                      <h3 className="text-base font-semibold text-zinc-950 mb-2">
+                        {st.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                        {st.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+        </AnimatedBackground>
+
+        {/* SCHOLARSHIPS SECTION: LIGHT VARIANT */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            
+            <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+                Financial Assistance
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Scholarships &amp; Fee Concessions
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                TAPS actively facilitates central, state, and institutional merit scholarships to ensure economic status never inhibits academic ambition.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {scholarships.map((sch) => (
+                <div
+                  key={sch.name}
+                  className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-base font-semibold text-zinc-950 mb-3">
+                      {sch.name}
+                    </h3>
+                    <div className="text-xs text-zinc-600 space-y-2">
+                      <p>
+                        <strong className="text-zinc-800">Eligibility:</strong> {sch.eligibility}
+                      </p>
+                      <p>
+                        <strong className="text-zinc-800">Assistance:</strong> {sch.benefit}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </section>
+        </AnimatedBackground>
+
+        {/* CONTACT ADMISSION CELL: DARK VARIANT */}
+        <AnimatedBackground variant="dark" className="border-t border-zinc-800">
+          <section className="py-16 sm:py-20 max-w-5xl mx-auto px-6 text-center text-white">
+            <h2 className="text-2xl sm:text-4xl font-light text-white mb-4 tracking-tight">
+              Questions Regarding Admission 2026?
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+              Speak directly with our senior admission counselors at the Infocity campus or connect via our official WhatsApp inquiry desk.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="https://wa.me/916371512551"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors shadow-md"
+              >
+                Connect on WhatsApp (+91 63715 12551)
+              </a>
+              <Link
+                href="/contact"
+                className="px-8 py-3.5 rounded-lg bg-zinc-900 text-white border border-zinc-700 font-semibold text-sm hover:border-zinc-400 transition-colors"
+              >
+                Visit Admission Desk
+              </Link>
+            </div>
+          </section>
+        </AnimatedBackground>
+      </main>
+
+      <TactFooter onOpenQuery={() => setIsModalOpen(true)} />
+      <QueryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
+  );
+}
