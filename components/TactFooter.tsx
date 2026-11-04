@@ -93,10 +93,7 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
                 <Link href="/admission" className="hover:text-white transition-colors block">BBA — Business Administration (3 Yrs)</Link>
               </li>
               <li>
-                <Link href="/admission" className="hover:text-white transition-colors block">B.Sc (Hons) Computer Science</Link>
-              </li>
-              <li>
-                <Link href="/admission" className="hover:text-white transition-colors block">B.Sc (Hons) Biotechnology</Link>
+                <Link href="/admission" className="hover:text-white transition-colors block">Academic Regulations &amp; Syllabi</Link>
               </li>
               <li>
                 <Link href="/admission" className="hover:text-white transition-colors block">Utkal University Regulations</Link>

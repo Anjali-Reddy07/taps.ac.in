@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "Trident Academy of Professional Studies (TAPS) | Bhubaneswar",
-  description: "Premier undergraduate institution affiliated to Utkal University offering BCA, BBA, and B.Sc Honours programmes in Bhubaneswar, Odisha.",
+  description: "Premier undergraduate institution affiliated to Utkal University offering BCA and BBA degree programmes in Bhubaneswar, Odisha.",
 };
 
 export default function RootLayout({

@@ -55,7 +55,7 @@ export default function TactStudentLife() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#001D4A] tracking-tight">
             Life Beyond the Classroom
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-3 font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-700 mt-3 font-normal leading-relaxed">
             Festivals, clubs, sports and social service. Campus life at TAPS is where foundational learning turns into leadership, teamwork, and lifelong friendships.
           </p>
         </div>
@@ -118,17 +118,17 @@ export default function TactStudentLife() {
 
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-base sm:text-lg font-bold text-[#001D4A]">
+                        <h4 className="text-lg sm:text-xl font-bold text-[#001D4A]">
                           {act.title}
                         </h4>
-                        <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                        <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
                           isSelected ? "bg-[#0020D6] text-white" : "bg-slate-100 text-slate-600"
                         }`}>
                           {act.badge}
                         </span>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                      <p className="text-sm sm:text-[15px] text-slate-600 mt-1.5 leading-relaxed font-normal">
                         {act.desc}
                       </p>
                     </div>

@@ -11,42 +11,34 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
     {
       num: "01",
       title: "Bachelor of Computer Applications",
-      degree: "BCA · Undergraduate",
+      degree: "BCA · Undergraduate Degree",
       duration: "3 Years · Full Time",
-      desc: "Full-stack software engineering, cloud computing, AI foundations, data structures, and database systems with extensive hands-on lab projects.",
-      eligibility: "10+2 with Mathematics / Stats / CS",
+      desc: "Comprehensive software engineering, cloud computing, AI foundations, data structures, and database systems with extensive hands-on lab projects and industry certifications.",
+      eligibility: "10+2 with Mathematics / Statistics / Computer Science",
+      highlights: [
+        "Full-Stack Web & Mobile App Development",
+        "Cloud Computing, Data Analytics & AI Foundations",
+        "Dedicated High-Performance Computing Labs",
+        "100% Placement Assistance with Tier-1 Tech Recruiters",
+      ],
       href: "/admission",
       tag: "Highest Campus Placement",
     },
     {
       num: "02",
       title: "Bachelor of Business Administration",
-      degree: "BBA · Undergraduate",
+      degree: "BBA · Undergraduate Degree",
       duration: "3 Years · Full Time",
-      desc: "Comprehensive managerial training across corporate finance, marketing analytics, human resource dynamics, and entrepreneurial leadership.",
-      eligibility: "10+2 in Any Stream (Science / Arts / Comm)",
+      desc: "Strategic managerial education covering corporate finance, marketing analytics, human resource dynamics, supply chain, and business leadership with corporate case studies.",
+      eligibility: "10+2 in Any Stream (Science / Commerce / Arts)",
+      highlights: [
+        "Corporate Finance, Marketing & HR Specializations",
+        "Business Incubation & Leadership Modeling",
+        "Executive Mentorship by Industry Leaders",
+        "Internships with Fortune 500 & Banking Giants",
+      ],
       href: "/admission",
       tag: "Corporate Mentorship",
-    },
-    {
-      num: "03",
-      title: "B.Sc (Hons) Computer Science",
-      degree: "B.Sc (CS) · Undergraduate",
-      duration: "3 Years · Full Time",
-      desc: "Core algorithmic rigor, computational theory, operating systems, networking architectures, and modern software design.",
-      eligibility: "10+2 Science with Mathematics",
-      href: "/admission",
-      tag: "Computational Rigor",
-    },
-    {
-      num: "04",
-      title: "B.Sc (Hons) Biotechnology",
-      degree: "B.Sc (Biotech) · Undergraduate",
-      duration: "3 Years · Full Time",
-      desc: "Advanced laboratory-driven curriculum in molecular biology, genetics, bioprocess engineering, bioinformatics, and immunology.",
-      eligibility: "10+2 Science with Biology (PCB / PCMB)",
-      href: "/admission",
-      tag: "Research Labs & Genetics",
     },
   ];
 
@@ -59,116 +51,93 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
-        {/* Section Heading matching TACT Section 4 */}
-        <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[#0020D6] font-bold mb-3">
-            Academics
+        {/* Section Heading */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.2em] text-[#0020D6] font-bold mb-3">
+            Academic Programmes
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-[#001D4A] tracking-tight leading-tight">
             Programmes Offered
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-3 font-light leading-relaxed">
-            Three-year undergraduate degree programmes, affiliated to Utkal University and permanently approved by the Higher Education Department, Govt. of Odisha.
+          <p className="text-base sm:text-lg text-slate-700 mt-3 font-normal leading-relaxed">
+            Premier three-year undergraduate degree programmes in Computer Applications and Business Administration, affiliated to Utkal University and permanently approved by the Higher Education Department, Govt. of Odisha.
           </p>
         </div>
 
-        {/* Programmes Grid matching TACT card style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Flagship Programmes Grid: 2 Cards Side-by-Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {programmes.map((prog) => (
             <div
               key={prog.num}
-              className="bg-white border border-blue-100 rounded-2xl p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-blue-300 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
+              className="bg-white border-2 border-blue-100 rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-sm hover:shadow-2xl hover:border-[#0020D6]/40 transition-all duration-300 group hover:-translate-y-1.5 relative overflow-hidden"
             >
               {/* Card Header */}
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl sm:text-3xl font-extralight text-[#0020D6] group-hover:scale-110 transition-transform origin-left font-serif">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-3xl sm:text-4xl font-extralight text-[#0020D6] group-hover:scale-110 transition-transform origin-left font-serif">
                     {prog.num}
                   </span>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-[#0020D6] border border-blue-200">
+                  <span className="text-xs uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0020D6] border border-blue-200">
                     {prog.tag}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-[#001D4A] group-hover:text-[#0020D6] transition-colors mb-2 leading-snug">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#001D4A] group-hover:text-[#0020D6] transition-colors mb-2.5 leading-snug">
                   {prog.title}
                 </h3>
 
-                <div className="text-xs font-semibold text-[#0052CC] mb-4 flex items-center gap-2">
+                <div className="text-sm sm:text-base font-semibold text-[#0052CC] mb-5 flex items-center gap-2.5">
                   <span>{prog.degree}</span>
                   <span>•</span>
                   <span>{prog.duration}</span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-6 font-normal">
                   {prog.desc}
                 </p>
+
+                {/* Key Course Highlights */}
+                <div className="mb-8 space-y-2.5 pt-4 border-t border-slate-100">
+                  <div className="text-xs uppercase tracking-wider text-[#001D4A] font-bold">
+                    Curriculum Highlights:
+                  </div>
+                  {prog.highlights.map((item) => (
+                    <div key={item} className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
+                      <span className="w-2 h-2 rounded-full bg-[#0020D6] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Card Footer */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+              <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-slate-600 font-bold block">Eligibility</span>
-                  <span className="text-slate-700 font-medium">{prog.eligibility}</span>
+                  <span className="text-xs uppercase tracking-wider text-slate-500 font-bold block">Eligibility</span>
+                  <span className="text-sm sm:text-base text-slate-800 font-semibold">{prog.eligibility}</span>
                 </div>
 
-                <Link
-                  href={prog.href}
-                  className="w-9 h-9 rounded-full bg-blue-50 group-hover:bg-[#0020D6] text-[#0020D6] group-hover:text-white flex items-center justify-center transition-all shrink-0"
-                  aria-label={`Explore ${prog.title}`}
-                >
-                  <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={onOpenQuery}
+                    className="px-5 py-2.5 rounded-xl bg-[#0020D6] hover:bg-[#0018b3] text-white text-xs sm:text-sm font-semibold transition-colors shadow-sm cursor-pointer whitespace-nowrap"
+                  >
+                    Apply for {prog.num === "01" ? "BCA" : "BBA"}
+                  </button>
+
+                  <Link
+                    href={prog.href}
+                    className="w-10 h-10 rounded-full bg-blue-50 group-hover:bg-[#0020D6] text-[#0020D6] group-hover:text-white flex items-center justify-center transition-all shrink-0"
+                    aria-label={`Explore ${prog.title}`}
+                  >
+                    <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
-
-          {/* 5th Card: Explore More Opportunities (Matching TACT Section 4) */}
-          <div className="bg-gradient-to-br from-[#001D4A] to-[#0020D6] rounded-2xl p-7 sm:p-8 text-white flex flex-col justify-between shadow-lg relative overflow-hidden group">
-            {/* Ambient light */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-sky-400/20 rounded-full blur-2xl pointer-events-none" />
-
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-sky-300 font-semibold mb-3">
-                Academic Ecosystem
-              </div>
-              <h3 className="text-2xl font-light mb-3">
-                Explore More Opportunities
-              </h3>
-              <p className="text-xs sm:text-sm text-blue-100 leading-relaxed mb-6 font-light">
-                Departments, high-performance computing centers, library resources, examination calendars, and faculty credentials.
-              </p>
-
-              <div className="space-y-2 text-xs text-blue-100">
-                <div className="flex items-center gap-2">
-                  <span className="text-sky-300">✦</span>
-                  <span>Utkal University Semester Regulations</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sky-300">✦</span>
-                  <span>Special Tutoring &amp; Remedial Classes</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sky-300">✦</span>
-                  <span>Student Innovation &amp; Hackathon Hub</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-white/20 mt-6 flex items-center justify-between">
-              <span className="text-xs font-bold tracking-wider uppercase text-sky-200">
-                Admission Desk
-              </span>
-              <button
-                onClick={onOpenQuery}
-                className="px-5 py-2.5 rounded-lg bg-white text-[#001D4A] hover:bg-sky-50 text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
-              >
-                Apply Now
-              </button>
-            </div>
-          </div>
         </div>
 
       </div>

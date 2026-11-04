@@ -31,7 +31,7 @@ export default function Home() {
         {/* SECTION 3: ABOUT US (TAPS Institutional Profile, Vision & Mission Cards) */}
         <TactAbout onOpenQuery={() => setIsModalOpen(true)} />
 
-        {/* SECTION 4: PROGRAMMES OFFERED (01 BCA, 02 BBA, 03 B.Sc CS, 04 B.Sc Biotech, 05 Explore More) */}
+        {/* SECTION 4: PROGRAMMES OFFERED (01 BCA, 02 BBA) */}
         <TactProgrammes onOpenQuery={() => setIsModalOpen(true)} />
 
         {/* SECTION 5: NEWS & EVENTS / WHAT'S HAPPENING (Featured Story & Circulars) */}

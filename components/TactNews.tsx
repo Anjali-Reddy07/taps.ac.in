@@ -9,21 +9,21 @@ export default function TactNews() {
       date: "12 Oct 2026",
       title: "Expert Talk on Full-Stack Cloud Architecture & Cyber Security",
       category: "Technical Workshop",
-      desc: "Distinguished alumni from Tier-1 tech firms conduct hands-on cloud deployment sessions for BCA and B.Sc Computer Science students.",
+      desc: "Distinguished alumni from Tier-1 tech firms conduct hands-on cloud deployment sessions for BCA and BBA students.",
       href: "#notices",
     },
     {
       date: "22 Sep 2026",
       title: "Utkal University Inter-College Academic & Cultural Carnival 2026",
       category: "University Event",
-      desc: "TAPS students clinch top honors in Business Plan presentations, coding hackathons, and scientific research symposiums.",
+      desc: "TAPS students clinch top honors in Business Plan presentations, coding hackathons, and managerial symposiums.",
       href: "#notices",
     },
     {
       date: "17 Sep 2026",
       title: "Inauguration of AKASHYAAN & PARAKRAM Student Innovation Cells",
       category: "Innovation Cell",
-      desc: "Dedicated incubation wings launched for undergraduate research in generative intelligence, fintech modeling, and bioinformatics.",
+      desc: "Dedicated incubation wings launched for undergraduate research in generative intelligence, fintech modeling, and data analytics.",
       href: "#notices",
     },
   ];
@@ -79,28 +79,28 @@ export default function TactNews() {
                 </span>
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="text-xs text-sky-300 font-semibold tracking-wide">
+              <div className="absolute bottom-5 left-5 right-5 text-white">
+                <span className="text-xs sm:text-sm text-sky-300 font-semibold tracking-wide">
                   14 September 2026
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold mt-1 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-bold mt-1.5 leading-snug">
                   TAPS Celebrates Annual Orientation &amp; Academic Honours with Festive Spirit
                 </h3>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 space-y-4">
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <div className="p-7 space-y-4">
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                 Faculty, staff, and scholars of Trident Academy of Professional Studies (TAPS) gathered to celebrate the commencement of the new academic session, felicitating merit scholarship winners and inaugurating the 2026 corporate internship chapters.
               </p>
 
               <div className="pt-2 flex items-center justify-between">
-                <span className="text-xs text-[#001D4A] font-semibold">
+                <span className="text-xs sm:text-sm text-[#001D4A] font-semibold">
                   Organized by: Academic &amp; Cultural Council
                 </span>
                 <Link
                   href="#notices"
-                  className="text-xs font-bold text-[#0020D6] hover:text-[#0018b3] inline-flex items-center gap-1 group/btn"
+                  className="text-xs sm:text-sm font-bold text-[#0020D6] hover:text-[#0018b3] inline-flex items-center gap-1 group/btn"
                 >
                   <span>Read Full Story</span>
                   <span className="transform group-hover/btn:translate-x-1 transition-transform">→</span>
@@ -114,21 +114,21 @@ export default function TactNews() {
             {events.map((evt) => (
               <div
                 key={evt.title}
-                className="bg-white border border-blue-100 rounded-2xl p-5 sm:p-6 hover:border-blue-300 hover:shadow-md transition-all group flex flex-col justify-between"
+                className="bg-white border border-blue-100 rounded-2xl p-6 hover:border-blue-300 hover:shadow-md transition-all group flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-bold text-[#0020D6] bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-xs font-bold text-[#0020D6] bg-blue-50 border border-blue-200 px-3 py-0.5 rounded-full">
                       {evt.category}
                     </span>
-                    <span className="text-xs text-slate-600 font-medium">{evt.date}</span>
+                    <span className="text-xs sm:text-sm text-slate-600 font-medium">{evt.date}</span>
                   </div>
 
-                  <h4 className="text-sm sm:text-base font-bold text-[#001D4A] group-hover:text-[#0020D6] transition-colors leading-snug mb-2">
+                  <h4 className="text-base sm:text-lg font-bold text-[#001D4A] group-hover:text-[#0020D6] transition-colors leading-snug mb-2">
                     {evt.title}
                   </h4>
 
-                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
                     {evt.desc}
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export default function TactNews() {
                 <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-end">
                   <Link
                     href={evt.href}
-                    className="text-xs font-bold text-[#0020D6] hover:text-[#0018b3] flex items-center gap-1"
+                    className="text-xs sm:text-sm font-bold text-[#0020D6] hover:text-[#0018b3] flex items-center gap-1"
                   >
                     <span>Read circular</span>
                     <span>→</span>

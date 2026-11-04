@@ -10,17 +10,17 @@ export default function TactAdmissionsBar({ onOpenQuery }: TactAdmissionsBarProp
       <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         
         {/* Left Text matching TACT screenshot */}
-        <div className="text-sm sm:text-base font-normal tracking-wide text-center sm:text-left">
+        <div className="text-base sm:text-lg font-medium tracking-wide text-center sm:text-left">
           Admissions open for BCA &amp; BBA — begin your journey with TAPS.
         </div>
 
         {/* Right Button matching TACT screenshot: White pill with "Apply Now →" */}
         <button
           onClick={onOpenQuery}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded bg-white text-[#001D4A] hover:bg-slate-100 text-xs sm:text-sm font-semibold transition-colors shadow-sm shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-white text-[#001D4A] hover:bg-slate-100 text-sm sm:text-base font-bold transition-colors shadow-sm shrink-0 cursor-pointer"
         >
           <span>Apply Now</span>
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </button>

@@ -28,8 +28,6 @@ export default function Header({ onOpenQuery }: HeaderProps) {
   const academicsList = [
     { name: "BCA — Computer Applications", href: "#programmes", desc: "3-Year Degree • Cloud, AI foundations & full-stack development" },
     { name: "BBA — Business Administration", href: "#programmes", desc: "3-Year Degree • Managerial finance, marketing & strategy" },
-    { name: "B.Sc (Hons) — Computer Science", href: "#programmes", desc: "3-Year Degree • Algorithmic science & computational theory" },
-    { name: "B.Sc (Hons) — Biotechnology", href: "#programmes", desc: "3-Year Degree • Molecular research, genetics & bioprocess" },
   ];
 
   return (
@@ -178,10 +176,10 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             </div>
 
             {/* RIGHT: NAVIGATION ITEMS MATCHING SCREENSHOT */}
-            <div className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-7">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
               <Link
                 href="/about"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
                 About
               </Link>
@@ -192,29 +190,29 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 onMouseEnter={() => setActiveDropdown("academics")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300">
+                <button className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300">
                   <span>Academics</span>
-                  <svg className="w-3 h-3 text-[#0052CC] group-hover:text-[#0020D6] group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 text-[#0052CC] group-hover:text-[#0020D6] group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
                 {activeDropdown === "academics" && (
-                  <div className="absolute top-full left-0 pt-2 w-80 z-50">
-                    <div className="bg-white border border-blue-100 rounded-2xl p-4 shadow-[0_16px_36px_rgba(0,32,214,0.1)] space-y-1.5 animate-fadeIn">
-                      <div className="text-[10px] tracking-[0.2em] uppercase font-bold text-[#0052CC] px-3 pt-1 pb-1 border-b border-blue-50">
-                        Degree Programs
+                  <div className="absolute top-full left-0 pt-2 w-84 z-50">
+                    <div className="bg-white border border-blue-100 rounded-2xl p-4 shadow-[0_16px_36px_rgba(0,32,214,0.12)] space-y-2 animate-fadeIn">
+                      <div className="text-[11px] tracking-[0.2em] uppercase font-bold text-[#0052CC] px-3 pt-1 pb-1.5 border-b border-blue-50">
+                        Undergraduate Degree Programs
                       </div>
                       {academicsList.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block p-2.5 rounded-xl hover:bg-blue-50/70 transition-all group/item"
+                          className="block p-3 rounded-xl hover:bg-blue-50/80 transition-all group/item"
                         >
-                          <div className="text-xs font-bold text-[#001D4A] group-hover/item:text-[#0020D6] group-hover/item:translate-x-0.5 transition-all">
+                          <div className="text-sm font-bold text-[#001D4A] group-hover/item:text-[#0020D6] group-hover/item:translate-x-0.5 transition-all">
                             {item.name}
                           </div>
-                          <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">
+                          <div className="text-xs text-slate-600 mt-1 leading-relaxed">
                             {item.desc}
                           </div>
                         </Link>
@@ -226,22 +224,22 @@ export default function Header({ onOpenQuery }: HeaderProps) {
 
               <Link
                 href="#facilities"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
                 Facilities
               </Link>
 
               <Link
                 href="#placements"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300 whitespace-nowrap"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300 whitespace-nowrap"
               >
                 Training &amp; Placement
               </Link>
 
-              {/* NOTICES (Now after Training & Placement) */}
+              {/* NOTICES */}
               <Link
                 href="#notices"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
                 Notices
               </Link>
@@ -249,14 +247,14 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               {/* ADMISSION */}
               <Link
                 href="/admission"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
                 Admission
               </Link>
 
               <Link
                 href="/contact"
-                className="relative py-1 text-[11px] xl:text-xs 2xl:text-[13px] tracking-[0.08em] xl:tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
                 Contact
               </Link>
@@ -264,7 +262,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               {/* Apply Now Pill CTA Button */}
               <button
                 onClick={onOpenQuery}
-                className="bg-[#0020D6] hover:bg-[#0018b3] text-white font-semibold text-xs xl:text-[13px] tracking-wide px-5 xl:px-6 py-2 xl:py-2.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-blue-600/25 cursor-pointer ml-0.5 xl:ml-1 whitespace-nowrap"
+                className="bg-[#0020D6] hover:bg-[#0018b3] text-white font-bold text-xs xl:text-sm tracking-wide px-5 xl:px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-blue-600/25 cursor-pointer ml-1 whitespace-nowrap"
               >
                 Apply Now
               </button>

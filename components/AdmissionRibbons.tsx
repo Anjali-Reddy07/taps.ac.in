@@ -20,7 +20,7 @@ export default function AdmissionRibbons({ onOpenQuery }: AdmissionRibbonsProps)
           "TRIDENT ACADEMY OF PROFESSIONAL STUDIES (TAPS)\n" +
           "AFFILIATED TO UTKAL UNIVERSITY, BHUBANESWAR\n\n" +
           "APPLICATION FORM FOR ADMISSION (2026–2027)\n" +
-          "Courses: BCA | BBA | B.Sc (Biotech / CS)\n\n" +
+          "Courses: BCA | BBA\n\n" +
           "Candidate Name: _______________________________\n" +
           "Parent/Guardian: _______________________________\n" +
           "Contact Number: _______________________________\n" +

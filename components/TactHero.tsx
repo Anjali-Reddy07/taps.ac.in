@@ -22,7 +22,7 @@ export default function TactHero() {
       tag: "WELCOME TO TAPS",
       title: "Where Ambition Finds Its Direction",
       subtitle:
-        "Undergraduate programmes in computer applications, management and biotechnology, built on the Trident legacy of quality education since 2000.",
+        "Undergraduate programmes in computer applications (BCA) and business administration (BBA), built on the Trident legacy of quality education since 2000.",
       buttonText: "Explore Programmes",
       buttonHref: "#programmes",
       image: "/images/tact-building.webp",

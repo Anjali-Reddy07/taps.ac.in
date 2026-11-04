@@ -6,8 +6,8 @@ export default function Footer() {
   const academicLinks = [
     { name: "BCA — Computer Applications", href: "/admission" },
     { name: "BBA — Business Administration", href: "/admission" },
-    { name: "B.Sc (Hons) — Biotechnology", href: "/admission" },
-    { name: "B.Sc (Hons) — Computer Science", href: "/admission" },
+    { name: "Academic Regulations & Syllabi", href: "#" },
+    { name: "Utkal University Regulations", href: "#" },
     { name: "Semester Examination Calendar", href: "#" },
   ];
 

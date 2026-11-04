@@ -36,7 +36,7 @@ export default function TactTestimonials() {
       name: "DambaruDhara Behera",
       role: "Senior Solutions Architect",
       company: "Computer Science Corporation, New York, USA",
-      batch: "B.Sc & BCA Alumnus",
+      batch: "BCA Alumnus",
     },
   ];
 
@@ -75,19 +75,19 @@ export default function TactTestimonials() {
           </div>
 
           <div className="relative z-10 pt-4">
-            <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-light leading-relaxed mb-8 italic">
+            <p className="text-lg sm:text-xl lg:text-2xl text-slate-800 font-normal leading-relaxed mb-8 italic">
               {t.quote}
             </p>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100">
               <div>
-                <h4 className="text-base sm:text-lg font-bold text-[#001D4A]">
+                <h4 className="text-lg sm:text-xl font-bold text-[#001D4A]">
                   {t.name}
                 </h4>
-                <div className="text-xs sm:text-sm text-[#0020D6] font-medium">
+                <div className="text-sm sm:text-base text-[#0020D6] font-semibold">
                   {t.role} • {t.company}
                 </div>
-                <div className="text-[11px] text-slate-600 font-medium mt-0.5">
+                <div className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
                   {t.batch}
                 </div>
               </div>
