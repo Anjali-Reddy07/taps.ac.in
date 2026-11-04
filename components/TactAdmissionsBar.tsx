@@ -7,14 +7,14 @@ interface TactAdmissionsBarProps {
 export default function TactAdmissionsBar({ onOpenQuery }: TactAdmissionsBarProps) {
   return (
     <section className="bg-transparent text-white py-3.5 sm:py-4 px-4 sm:px-6 lg:px-8 border-b border-zinc-800 shadow-sm relative z-20 overflow-hidden">
-      {/* Animated subtle shimmer line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] animate-shimmer" />
+      {/* Animated vibrant colorful gradient line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-cyan-400 via-indigo-500 via-purple-500 to-pink-500 animate-gradient-beam" />
 
       <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         
         {/* Left Text */}
         <div className="text-base sm:text-lg font-medium tracking-wide text-center sm:text-left text-zinc-100 flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0 shadow-xs shadow-emerald-400 animate-pulseGlow" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_12px_rgba(52,211,153,0.9)] animate-pulseGlow" />
           <span>Admissions open for BCA &amp; BBA — begin your journey with TAPS.</span>
         </div>
 

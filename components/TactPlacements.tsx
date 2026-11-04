@@ -48,8 +48,8 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
         {/* 3 Large Stat Counters with subtle floating effect */}
         <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-14 divide-y sm:divide-y-0 sm:divide-x divide-zinc-800 bg-zinc-950/90 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl animate-float">
           {stats.map((st) => (
-            <div key={st.label} className="text-center py-4 sm:py-2 px-4">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-light text-white tracking-tight mb-1 font-serif">
+            <div key={st.label} className="text-center py-4 sm:py-2 px-4 group">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-1 font-serif bg-gradient-to-r from-white via-cyan-200 to-indigo-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                 {st.value}
               </div>
               <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-zinc-200 mb-1">
