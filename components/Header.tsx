@@ -164,14 +164,14 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </button>
 
               <Link href="/" className="flex items-center group py-0.5" aria-label="Trident Academy Home">
-                <div className="relative w-48 sm:w-56 md:w-64 h-11 sm:h-12 md:h-13 flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.02]">
                   <Image
                     src="/asset/logo.png"
                     alt="Trident Academy of Professional Studies"
-                    fill
+                    width={260}
+                    height={91}
                     priority
-                    className="object-contain object-left"
-                    sizes="(max-width: 768px) 190px, 260px"
+                    className="h-11 sm:h-12 md:h-13 w-auto object-contain block"
                   />
                 </div>
               </Link>
