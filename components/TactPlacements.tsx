@@ -29,46 +29,42 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
   ];
 
   return (
-    <section id="placements" className="relative py-16 sm:py-24 bg-[#001D4A] text-white overflow-hidden">
-      {/* Background Radial Light Accents matching TACT Section 6 */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#0020D6]/20 rounded-full blur-3xl pointer-events-none -z-0" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-sky-400/10 rounded-full blur-3xl pointer-events-none -z-0" />
-
+    <section id="placements" className="relative py-16 sm:py-24 bg-black text-white border-y border-zinc-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-sky-300 font-bold mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-14 animate-fadeInUp">
+          <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-300 font-bold mb-3 bg-zinc-900 border border-zinc-700 inline-block px-3.5 py-1 rounded-full">
             Placements &amp; Careers
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4 text-white">
             Where Our Students Go Next
           </h2>
-          <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
             A dedicated Training &amp; Placement Cell, year-round industry immersion, and alumni mentoring prepare every TAPS BCA and BBA graduate for competitive campus drives.
           </p>
         </div>
 
-        {/* 3 Large Stat Counters matching TACT Section 6 */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-12 sm:mb-16 divide-y sm:divide-y-0 sm:divide-x divide-white/15 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
+        {/* 3 Large Stat Counters */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-12 sm:mb-16 divide-y sm:divide-y-0 sm:divide-x divide-zinc-800 bg-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl">
           {stats.map((st) => (
             <div key={st.label} className="text-center py-4 sm:py-2 px-4">
               <div className="text-4xl sm:text-5xl md:text-6xl font-light text-white tracking-tight mb-1 font-serif">
                 {st.value}
               </div>
-              <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-sky-300 mb-1">
+              <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-zinc-200 mb-1">
                 {st.label}
               </div>
-              <div className="text-xs sm:text-sm text-slate-300 font-normal">
+              <div className="text-xs sm:text-sm text-zinc-400 font-normal">
                 {st.sub}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Recruiter Logos / Marquee Banner */}
+        {/* Recruiter Logos / Badges */}
         <div className="mb-14">
-          <div className="text-center text-xs sm:text-sm uppercase tracking-[0.2em] text-slate-300 mb-6 font-semibold">
+          <div className="text-center text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-400 mb-6 font-semibold">
             Premier Corporate Recruiting Partners
           </div>
 
@@ -76,7 +72,7 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
             {recruiters.map((rec) => (
               <div
                 key={rec}
-                className="px-5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-sm sm:text-[15px] font-medium text-slate-200 hover:bg-[#0020D6] hover:border-blue-400 hover:text-white transition-all shadow-xs"
+                className="px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm sm:text-[15px] font-medium text-zinc-300 hover:bg-zinc-800 hover:border-zinc-500 hover:text-white transition-all duration-300 shadow-xs hover-lift"
               >
                 {rec}
               </div>
@@ -84,19 +80,19 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* Call to Action - Black Buttons */}
         <div className="text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/admission"
-              className="px-8 py-3.5 rounded-xl bg-[#0020D6] hover:bg-[#0018b3] text-white text-sm sm:text-base font-bold uppercase tracking-wider transition-all shadow-lg shadow-blue-900/50 hover:scale-105 active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 hover:bg-zinc-900 text-white text-sm sm:text-base font-bold uppercase tracking-wider transition-all duration-300 shadow-xl hover-lift"
             >
               Placement Details &amp; Records
             </Link>
 
             <button
               onClick={onOpenQuery}
-              className="px-7 py-3.5 rounded-xl border border-white/20 hover:bg-white/10 text-white text-sm sm:text-base font-semibold transition-colors cursor-pointer"
+              className="px-7 py-3.5 rounded-xl bg-black border border-zinc-800 hover:border-zinc-500 hover:bg-zinc-900 text-zinc-300 hover:text-white text-sm sm:text-base font-semibold transition-all duration-300 cursor-pointer hover-lift"
             >
               Recruiter Inquiry
             </button>
@@ -107,4 +103,3 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
     </section>
   );
 }
-

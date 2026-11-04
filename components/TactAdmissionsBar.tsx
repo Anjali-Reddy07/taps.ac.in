@@ -6,18 +6,19 @@ interface TactAdmissionsBarProps {
 
 export default function TactAdmissionsBar({ onOpenQuery }: TactAdmissionsBarProps) {
   return (
-    <section className="bg-[#0060DF] text-white py-3.5 sm:py-4 px-4 sm:px-6 lg:px-8 border-b border-blue-600/40 shadow-sm relative z-20">
+    <section className="bg-zinc-950 text-white py-3.5 sm:py-4 px-4 sm:px-6 lg:px-8 border-b border-zinc-800 shadow-sm relative z-20">
       <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         
-        {/* Left Text matching TACT screenshot */}
-        <div className="text-base sm:text-lg font-medium tracking-wide text-center sm:text-left">
-          Admissions open for BCA &amp; BBA — begin your journey with TAPS.
+        {/* Left Text */}
+        <div className="text-base sm:text-lg font-medium tracking-wide text-center sm:text-left text-zinc-100 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-white shrink-0 animate-pulseGlow" />
+          <span>Admissions open for BCA &amp; BBA — begin your journey with TAPS.</span>
         </div>
 
-        {/* Right Button matching TACT screenshot: White pill with "Apply Now →" */}
+        {/* Right Button: Signature Black Button with sleek border */}
         <button
           onClick={onOpenQuery}
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-white text-[#001D4A] hover:bg-slate-100 text-sm sm:text-base font-bold transition-colors shadow-sm shrink-0 cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-black text-white border border-zinc-700 hover:border-zinc-300 hover:bg-zinc-900 text-sm sm:text-base font-bold transition-all duration-300 shadow-md hover-lift shrink-0 cursor-pointer"
         >
           <span>Apply Now</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -51,65 +51,63 @@ export default function TactTestimonials() {
   const t = testimonials[currentTestimonial];
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 bg-[#F8FAFC] border-t border-blue-100 overflow-hidden">
-      {/* Background Subtle Mesh */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
-
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-white border-t border-zinc-200 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 text-center relative z-10">
         
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12">
-          <div className="text-xs uppercase tracking-[0.2em] text-[#0020D6] font-bold mb-2">
+        <div className="mb-10 sm:mb-12 animate-fadeInUp">
+          <div className="text-xs uppercase tracking-[0.2em] text-zinc-900 font-bold mb-2 bg-zinc-100 border border-zinc-300 inline-block px-3 py-1 rounded-full">
             Alumni Speak
           </div>
-          <h2 className="text-3xl sm:text-4xl font-light text-[#001D4A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 tracking-tight">
             Testimonials
           </h2>
         </div>
 
-        {/* Testimonial Card matching TACT Section 8 */}
-        <div className="bg-white border border-blue-100 rounded-3xl p-8 sm:p-12 shadow-xl shadow-blue-900/5 relative text-left">
+        {/* Testimonial Card */}
+        <div className="bg-zinc-50 border border-zinc-200 hover:border-black rounded-3xl p-8 sm:p-12 shadow-lg relative text-left transition-all duration-300 hover-lift">
           {/* Large Quote Mark */}
-          <div className="text-6xl sm:text-7xl font-serif text-[#0020D6]/20 leading-none absolute top-6 left-8 select-none">
+          <div className="text-6xl sm:text-7xl font-serif text-black/10 leading-none absolute top-6 left-8 select-none">
             “
           </div>
 
           <div className="relative z-10 pt-4">
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-800 font-normal leading-relaxed mb-8 italic">
+            <p className="text-lg sm:text-xl lg:text-2xl text-zinc-800 font-normal leading-relaxed mb-8 italic">
               {t.quote}
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-zinc-200">
               <div>
-                <h4 className="text-lg sm:text-xl font-bold text-[#001D4A]">
+                <h4 className="text-lg sm:text-xl font-bold text-zinc-900">
                   {t.name}
                 </h4>
-                <div className="text-sm sm:text-base text-[#0020D6] font-semibold">
+                <div className="text-sm sm:text-base text-zinc-700 font-semibold">
                   {t.role} • {t.company}
                 </div>
-                <div className="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">
+                <div className="text-xs sm:text-sm text-zinc-500 font-medium mt-0.5">
                   {t.batch}
                 </div>
               </div>
 
-              {/* Prev / Next Buttons */}
+              {/* Prev / Next Black & White Buttons */}
               <div className="flex items-center gap-2 self-end sm:self-center">
                 <button
                   onClick={prevTestimonial}
                   aria-label="Previous testimonial"
-                  className="w-10 h-10 rounded-full border border-blue-200 text-[#001D4A] hover:bg-[#0020D6] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-10 h-10 rounded-full border border-zinc-300 text-zinc-900 hover:border-black hover:bg-black hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs hover:scale-105"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
+
                 <button
                   onClick={nextTestimonial}
                   aria-label="Next testimonial"
-                  className="w-10 h-10 rounded-full border border-blue-200 text-[#001D4A] hover:bg-[#0020D6] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-10 h-10 rounded-full border border-zinc-300 text-zinc-900 hover:border-black hover:bg-black hover:text-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-xs hover:scale-105"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
@@ -117,10 +115,10 @@ export default function TactTestimonials() {
           </div>
         </div>
 
-        {/* Global Alumni Network Tagline matching TACT Section 8 */}
+        {/* Global Alumni Network Banner */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-blue-200 text-xs font-semibold text-[#001D4A] shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          <div className="inline-flex items-center gap-2 bg-zinc-100 border border-zinc-300 rounded-full py-2.5 px-6 text-xs sm:text-sm text-zinc-800 font-medium shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-black shrink-0 animate-pulseGlow" />
             <span>Global Alumni Network: TAPS graduates working with leading tech and corporate organizations worldwide.</span>
           </div>
         </div>
@@ -129,4 +127,3 @@ export default function TactTestimonials() {
     </section>
   );
 }
-

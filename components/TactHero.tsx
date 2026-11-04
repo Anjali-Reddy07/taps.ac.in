@@ -67,11 +67,11 @@ export default function TactHero() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured highlights"
-      className="relative h-[72vh] sm:h-[70vh] min-h-[480px] sm:min-h-[540px] max-h-[720px] overflow-hidden bg-[#04315d] text-white"
+      className="relative h-[72vh] sm:h-[70vh] min-h-[480px] sm:min-h-[540px] max-h-[720px] overflow-hidden bg-black text-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Slides with Cross-Fade matching TACT */}
+      {/* Slides with Cross-Fade */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
         return (
@@ -89,20 +89,20 @@ export default function TactHero() {
                 alt={slide.title}
                 fill
                 priority={index === 0}
-                className="object-cover object-center"
+                className="object-cover object-center filter grayscale-[35%]"
                 sizes="100vw"
               />
             </div>
 
-            {/* Gradient Overlay matching TACT Section 1 */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#04315d]/95 via-[#04315d]/75 to-[#04315d]/40 sm:bg-gradient-to-r sm:from-[#04315d]/90 sm:via-[#04315d]/60 sm:to-transparent" />
+            {/* Gradient Overlay in Monochrome */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 sm:bg-gradient-to-r sm:from-black/95 sm:via-black/75 sm:to-black/30" />
 
             {/* Slide Text Content */}
             <div className="relative h-full max-w-[1600px] mx-auto px-6 sm:px-12 md:px-16 flex items-center">
-              <div className="max-w-2xl">
+              <div className="max-w-2xl animate-fadeInUp">
                 
                 {/* Category Tag */}
-                <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[#38bdf8] font-semibold mb-2 sm:mb-4">
+                <div className="text-xs sm:text-sm uppercase tracking-[0.25em] text-zinc-300 font-semibold mb-2 sm:mb-4">
                   {slide.tag}
                 </div>
 
@@ -112,16 +112,17 @@ export default function TactHero() {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 mb-6 sm:mb-8 font-light line-clamp-3 sm:line-clamp-none leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-zinc-200 mb-6 sm:mb-8 font-light line-clamp-3 sm:line-clamp-none leading-relaxed">
                   {slide.subtitle}
                 </p>
 
-                {/* Primary Button */}
+                {/* Primary Black Button */}
                 <Link
                   href={slide.buttonHref}
-                  className="relative inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded bg-[#0060DF] text-white text-sm sm:text-base font-semibold hover:bg-[#004dc0] transition overflow-hidden shadow-md"
+                  className="relative inline-flex items-center justify-center px-7 sm:px-9 py-3 rounded-xl bg-black border border-zinc-700 hover:border-zinc-300 text-white text-sm sm:text-base font-semibold hover:bg-zinc-900 transition-all duration-300 shadow-xl hover-lift"
                 >
                   <span>{slide.buttonText}</span>
+                  <span className="ml-2">→</span>
                 </Link>
 
               </div>
@@ -134,7 +135,7 @@ export default function TactHero() {
       <button
         onClick={prevSlide}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-xs transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
@@ -145,7 +146,7 @@ export default function TactHero() {
       <button
         onClick={nextSlide}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center backdrop-blur-xs transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105 cursor-pointer"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
@@ -159,8 +160,8 @@ export default function TactHero() {
             key={i}
             onClick={() => setCurrentSlide(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all rounded-full ${
-              i === currentSlide ? "w-6 h-2 bg-white" : "w-2 h-2 bg-white/50 hover:bg-white/80"
+            className={`transition-all rounded-full cursor-pointer ${
+              i === currentSlide ? "w-7 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/70"
             }`}
           />
         ))}
