@@ -51,13 +51,13 @@ export default function TactStudentLife() {
         
         {/* Top Header */}
         <div className="max-w-2xl mb-12 sm:mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
             Student Life
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
             Life Beyond the Classroom
           </h2>
-          <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 mt-3 font-normal leading-relaxed">
             Festivals, clubs, sports and social service. Campus life at TAPS is where foundational learning turns into leadership, teamwork, and lifelong friendships.
           </p>
         </div>
@@ -67,33 +67,33 @@ export default function TactStudentLife() {
           
           {/* Left Column: Campus Life Showcase Image Card */}
           <div className="lg:col-span-6 relative order-last lg:order-first">
-            <div className="relative rounded-3xl overflow-hidden border border-zinc-200 shadow-2xl bg-black group hover-lift">
+            <div className="relative rounded-3xl overflow-hidden border border-indigo-100 shadow-2xl bg-[#070D21] group hover-lift">
               <div className="relative h-[380px] sm:h-[440px] w-full">
                 <Image
                   key={activities[activeItem].image}
                   src={activities[activeItem].image}
                   alt={activities[activeItem].title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale-[20%] animate-fadeIn"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale-[10%] group-hover:grayscale-0 animate-fadeIn"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/95 via-[#070D21]/40 to-transparent" />
 
                 {/* Floating Active Item Badge */}
                 <div key={activities[activeItem].title} className="absolute bottom-6 left-6 right-6 text-white animate-fadeIn">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black border border-zinc-700 text-[11px] font-bold uppercase tracking-wider mb-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[11px] font-bold uppercase tracking-wider mb-2 shadow-xs">
                     <span>{activities[activeItem].badge}</span>
                   </div>
                   <h3 className="text-2xl font-bold">
                     {activities[activeItem].title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-1 line-clamp-2 font-light">
+                  <p className="text-xs sm:text-sm text-indigo-100/90 mt-1 line-clamp-2 font-light">
                     {activities[activeItem].desc}
                   </p>
                 </div>
 
                 {/* Campus Tag */}
-                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-zinc-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-zinc-200 shadow-sm">
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-blue-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-indigo-100 shadow-sm">
                   Infocity Campus • Patia
                 </div>
               </div>
@@ -110,28 +110,28 @@ export default function TactStudentLife() {
                   onClick={() => setActiveItem(index)}
                   className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? "bg-white border-2 border-black shadow-xl translate-x-1"
-                      : "bg-white border-zinc-200 hover:border-zinc-400 shadow-xs hover-lift"
+                      ? "bg-white border-2 border-blue-600 shadow-xl shadow-blue-500/10 translate-x-1"
+                      : "bg-white/90 border-indigo-100 hover:border-indigo-300 shadow-xs hover-lift"
                   }`}
                 >
                   <div className="flex items-start gap-4">
-                    <span className="text-2xl sm:text-3xl p-2 rounded-xl bg-zinc-100 border border-zinc-200 shrink-0">
+                    <span className="text-2xl sm:text-3xl p-2 rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 border border-indigo-100 shrink-0">
                       {act.icon}
                     </span>
 
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-lg sm:text-xl font-bold text-zinc-900">
+                        <h4 className="text-lg sm:text-xl font-bold text-slate-900">
                           {act.title}
                         </h4>
                         <span className={`text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                          isSelected ? "bg-black text-white" : "bg-zinc-100 text-zinc-600"
+                          isSelected ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white" : "bg-indigo-50 text-indigo-700"
                         }`}>
                           {act.badge}
                         </span>
                       </div>
 
-                      <p className="text-sm sm:text-[15px] text-zinc-600 mt-1.5 leading-relaxed font-normal">
+                      <p className="text-sm sm:text-[15px] text-slate-600 mt-1.5 leading-relaxed font-normal">
                         {act.desc}
                       </p>
                     </div>
@@ -143,7 +143,7 @@ export default function TactStudentLife() {
             <div className="pt-2 flex items-center justify-end">
               <Link
                 href="/admission"
-                className="text-xs font-bold uppercase tracking-wider text-zinc-900 hover:text-black flex items-center gap-1.5"
+                className="text-xs font-bold uppercase tracking-wider text-blue-700 hover:text-blue-900 flex items-center gap-1.5"
               >
                 <span>Explore All Campus Amenities</span>
                 <span>→</span>

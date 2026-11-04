@@ -68,7 +68,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
     <section
       aria-roledescription="carousel"
       aria-label="Campus highlights"
-      className="relative w-full h-[75vh] min-h-[550px] max-h-[750px] overflow-hidden bg-zinc-950 text-white"
+      className="relative w-full h-[75vh] min-h-[550px] max-h-[750px] overflow-hidden bg-[#070D21] text-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -90,21 +90,21 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                 alt="Trident Academy of Professional Studies Campus"
                 fill
                 priority={index === 0}
-                className="object-cover object-center filter grayscale-[30%]"
+                className="object-cover object-center filter grayscale-[20%]"
                 sizes="100vw"
               />
             </div>
 
-            {/* Heavy Dark Gradient Scrim Overlay for Complete Contrast & Monochrome Balance */}
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/40 z-10" />
+            {/* Heavy Dark Gradient Scrim Overlay in Midnight Blue & Lavender */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/80 to-[#0B1536]/40 z-10" />
 
             {/* Slide Content */}
             <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center">
               <div className="max-w-4xl animate-fadeInUp">
                 
                 {/* 1. Eyebrow Pill Badge */}
-                <div className="inline-flex items-center gap-2 bg-white/10 text-zinc-300 border border-white/20 px-3 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0 animate-pulseGlow" />
+                <div className="inline-flex items-center gap-2 bg-blue-900/50 text-blue-200 border border-blue-400/40 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulseGlow" />
                   <span>{slide.eyebrow}</span>
                 </div>
 
@@ -114,22 +114,22 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                 </h1>
 
                 {/* 3. Subheadline */}
-                <p className="text-zinc-300 text-base sm:text-lg max-w-2xl font-light mt-4 sm:mt-5 leading-relaxed">
+                <p className="text-blue-100/90 text-base sm:text-lg max-w-2xl font-light mt-4 sm:mt-5 leading-relaxed">
                   {slide.subheadline}
                 </p>
 
-                {/* 4. CTA Row */}
+                {/* 4. CTA Row: White Blue Lavender Palette */}
                 <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mt-8">
                   <button
                     onClick={onOpenQuery}
-                    className="bg-white text-zinc-950 px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide hover:bg-zinc-200 transition-all duration-200 shadow-xl hover-lift cursor-pointer active:scale-95"
+                    className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-xl shadow-blue-600/30 hover-lift cursor-pointer active:scale-95"
                   >
                     Apply for 2026 Batch →
                   </button>
 
                   <Link
                     href="/programmes"
-                    className="border border-zinc-500 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-xs active:scale-95"
+                    className="border border-indigo-300/50 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-xs active:scale-95"
                   >
                     Explore Programmes (BCA &amp; BBA)
                   </Link>

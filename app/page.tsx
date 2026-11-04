@@ -18,8 +18,8 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-black selection:text-white">
-      {/* 1. TOP SUB-NAVBAR & MAIN NAVIGATION (Black & White Theme) */}
+    <div className="flex min-h-screen flex-col bg-[#FBFBFF] text-slate-900 selection:bg-blue-600 selection:text-white">
+      {/* 1. TOP SUB-NAVBAR & MAIN NAVIGATION (White, Blue, Lavender Theme) */}
       <Header onOpenQuery={() => setIsModalOpen(true)} />
 
       <main className="flex-1">
@@ -29,7 +29,7 @@ export default function Home() {
         </AnimatedBackground>
 
         {/* SECTION 2: ADMISSIONS OPEN BORDER-BEAM BANNER */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
+        <AnimatedBackground variant="dark" className="border-b border-indigo-900/40">
           <TactAdmissionsBar onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
@@ -39,7 +39,7 @@ export default function Home() {
         </AnimatedBackground>
 
         {/* SECTION 4: PROGRAMMES OFFERED (01 BCA, 02 BBA) */}
-        <AnimatedBackground variant="light" className="border-y border-zinc-200">
+        <AnimatedBackground variant="light" className="border-y border-indigo-100">
           <TactProgrammes onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
@@ -49,17 +49,17 @@ export default function Home() {
         </AnimatedBackground>
 
         {/* SECTION 6: PLACEMENTS ("Where Our Students Go Next" with 3 Stat Counters & Recruiter Badges) */}
-        <AnimatedBackground variant="dark" className="border-y border-zinc-800">
+        <AnimatedBackground variant="dark" className="border-y border-indigo-900/40">
           <TactPlacements onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
         {/* SECTION 7: STUDENT LIFE ("Life Beyond the Classroom" - Trifest, Kartavya, Hostels, Food Centers, Sports) */}
-        <AnimatedBackground variant="light" className="border-t border-zinc-200">
+        <AnimatedBackground variant="light" className="border-t border-indigo-100">
           <TactStudentLife />
         </AnimatedBackground>
 
         {/* SECTION 8: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
-        <AnimatedBackground variant="light" className="border-t border-zinc-200">
+        <AnimatedBackground variant="light" className="border-t border-indigo-100">
           <TactTestimonials />
         </AnimatedBackground>
       </main>

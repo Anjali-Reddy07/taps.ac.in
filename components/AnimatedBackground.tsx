@@ -21,12 +21,12 @@ export default function AnimatedBackground({
     <div
       id={id}
       className={`relative w-full overflow-hidden transition-colors duration-500 ${
-        isDark ? "bg-zinc-950 text-white" : "bg-[#FAFAFA] text-zinc-900"
+        isDark ? "bg-[#070D21] text-white" : "bg-[#FBFBFF] text-slate-900"
       } ${className}`}
     >
-      {/* 1. TOP PRISMATIC GRADIENT BEAM ACCENT (Continuous Linear Shimmer) */}
+      {/* 1. TOP BLUE & LAVENDER PRISMATIC GRADIENT BEAM ACCENT */}
       <div 
-        className="absolute top-0 left-0 right-0 h-[2px] w-full bg-gradient-to-r from-violet-600 via-cyan-400 via-pink-500 via-emerald-400 to-indigo-600 animate-gradient-beam opacity-85 z-20 pointer-events-none" 
+        className="absolute top-0 left-0 right-0 h-[2.5px] w-full bg-gradient-to-r from-blue-600 via-indigo-500 via-purple-500 to-violet-400 animate-gradient-beam opacity-90 z-20 pointer-events-none" 
         aria-hidden="true"
       />
 
@@ -46,27 +46,27 @@ export default function AnimatedBackground({
         <div
           className={`absolute inset-[-48px] animate-grid-travel ${
             isDark
-              ? "bg-[radial-gradient(rgba(255,255,255,0.14)_1.2px,transparent_1.2px)]"
-              : "bg-[radial-gradient(rgba(99,102,241,0.10)_1.2px,transparent_1.2px)]"
+              ? "bg-[radial-gradient(rgba(196,181,253,0.18)_1.2px,transparent_1.2px)]"
+              : "bg-[radial-gradient(rgba(99,102,241,0.12)_1.2px,transparent_1.2px)]"
           } [background-size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)] opacity-80`}
         />
 
-        {/* 3. Dynamic Colorful Aurora & Iridescent Gradient Blur Spheres */}
+        {/* 3. Dynamic Colorful Aurora & Iridescent Gradient Blur Spheres (Blue & Lavender) */}
         {isDark ? (
           <>
-            {/* Dark Variant: Luminous Cosmic Orbs (Indigo, Purple, Cyan, Emerald, Rose) */}
-            <div className="absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-indigo-600/40 via-purple-600/35 to-pink-500/30 blur-[130px] animate-aurora" />
-            <div className="absolute top-1/3 -right-32 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-cyan-500/35 via-blue-600/30 to-emerald-400/25 blur-[140px] animate-aurora-reverse" />
-            <div className="absolute -bottom-32 left-1/4 w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-rose-500/30 via-violet-600/25 to-amber-400/20 blur-[135px] animate-drift-slow" />
-            <div className="absolute top-2/3 -left-28 w-[520px] h-[520px] rounded-full bg-gradient-to-r from-emerald-500/25 via-teal-400/20 to-blue-500/25 blur-[125px] animate-drift-reverse" />
+            {/* Dark Variant: Deep Midnight Sapphire, Royal Blue, Indigo & Radiant Lavender Orbs */}
+            <div className="absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-blue-600/40 via-indigo-600/35 to-purple-600/30 blur-[130px] animate-aurora" />
+            <div className="absolute top-1/3 -right-32 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-indigo-500/35 via-purple-600/30 to-violet-500/25 blur-[140px] animate-aurora-reverse" />
+            <div className="absolute -bottom-32 left-1/4 w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-sky-500/30 via-blue-600/25 to-indigo-500/20 blur-[135px] animate-drift-slow" />
+            <div className="absolute top-2/3 -left-28 w-[520px] h-[520px] rounded-full bg-gradient-to-r from-purple-600/25 via-violet-500/20 to-blue-500/25 blur-[125px] animate-drift-reverse" />
           </>
         ) : (
           <>
-            {/* Light Variant: Prismatic Pastel Aurora Orbs (Soft Indigo, Sky Cyan, Blush Rose, Mint) */}
-            <div className="absolute -top-32 -left-32 w-[580px] h-[580px] rounded-full bg-gradient-to-tr from-indigo-300/40 via-purple-300/35 to-pink-200/30 blur-[120px] animate-aurora" />
-            <div className="absolute top-1/3 -right-32 w-[640px] h-[640px] rounded-full bg-gradient-to-br from-cyan-200/45 via-sky-300/35 to-emerald-200/30 blur-[130px] animate-aurora-reverse" />
-            <div className="absolute -bottom-32 left-1/4 w-[540px] h-[540px] rounded-full bg-gradient-to-tl from-rose-200/35 via-violet-200/30 to-amber-100/25 blur-[120px] animate-drift-slow" />
-            <div className="absolute top-2/3 -left-28 w-[490px] h-[490px] rounded-full bg-gradient-to-r from-teal-200/30 via-emerald-200/25 to-blue-200/30 blur-[115px] animate-drift-reverse" />
+            {/* Light Variant: Soft Prismatic Blue, Periwinkle & Lavender Pastel Orbs */}
+            <div className="absolute -top-32 -left-32 w-[580px] h-[580px] rounded-full bg-gradient-to-tr from-blue-300/35 via-indigo-300/30 to-purple-300/30 blur-[120px] animate-aurora" />
+            <div className="absolute top-1/3 -right-32 w-[640px] h-[640px] rounded-full bg-gradient-to-br from-purple-200/40 via-indigo-200/35 to-sky-200/30 blur-[130px] animate-aurora-reverse" />
+            <div className="absolute -bottom-32 left-1/4 w-[540px] h-[540px] rounded-full bg-gradient-to-tl from-sky-200/35 via-blue-200/30 to-purple-100/25 blur-[120px] animate-drift-slow" />
+            <div className="absolute top-2/3 -left-28 w-[490px] h-[490px] rounded-full bg-gradient-to-r from-indigo-200/30 via-purple-200/25 to-blue-200/30 blur-[115px] animate-drift-reverse" />
           </>
         )}
       </div>

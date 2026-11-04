@@ -167,13 +167,13 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
             Academic Programmes
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
             Interactive Programme Explorer
           </h2>
-          <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 mt-3 font-normal leading-relaxed">
             Choose between our premier three-year undergraduate degree tracks. Compare curricula, career trajectories, lab infrastructure, and eligibility criteria in a clean, unified view.
           </p>
         </div>
@@ -196,13 +196,13 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             }}
             className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex items-center justify-between group active:scale-95 ${
               selectedCourse === "bca"
-                ? "bg-black text-white border-black shadow-lg hover:bg-zinc-900"
-                : "bg-white text-zinc-800 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 shadow-2xs"
+                ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/20"
+                : "bg-white text-slate-800 border-indigo-100 hover:border-indigo-300 hover:bg-indigo-50/40 shadow-2xs"
             }`}
           >
             <div className="flex items-center gap-3.5">
               <span className={`text-2xl font-serif font-light ${
-                selectedCourse === "bca" ? "text-zinc-300" : "text-zinc-400 group-hover:text-black"
+                selectedCourse === "bca" ? "text-blue-100" : "text-indigo-400 group-hover:text-blue-700"
               }`}>
                 01
               </span>
@@ -211,7 +211,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                   BCA
                 </div>
                 <div className={`text-xs ${
-                  selectedCourse === "bca" ? "text-zinc-300" : "text-zinc-500"
+                  selectedCourse === "bca" ? "text-blue-100" : "text-slate-500"
                 }`}>
                   Computer Applications (3 Yrs)
                 </div>
@@ -220,8 +220,8 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
 
             <span className={`text-xs uppercase font-semibold px-2.5 py-1 rounded-md border tracking-wider ${
               selectedCourse === "bca"
-                ? "bg-zinc-900 text-zinc-200 border-zinc-700"
-                : "bg-zinc-100 text-zinc-700 border-zinc-200 group-hover:border-zinc-300"
+                ? "bg-white/20 text-white border-white/30"
+                : "bg-blue-50 text-blue-700 border-blue-200 group-hover:border-blue-300"
             }`}>
               Tech &amp; AI
             </span>
@@ -239,13 +239,13 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             }}
             className={`p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer flex items-center justify-between group active:scale-95 ${
               selectedCourse === "bba"
-                ? "bg-black text-white border-black shadow-lg hover:bg-zinc-900"
-                : "bg-white text-zinc-800 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 shadow-2xs"
+                ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/20"
+                : "bg-white text-slate-800 border-indigo-100 hover:border-indigo-300 hover:bg-indigo-50/40 shadow-2xs"
             }`}
           >
             <div className="flex items-center gap-3.5">
               <span className={`text-2xl font-serif font-light ${
-                selectedCourse === "bba" ? "text-zinc-300" : "text-zinc-400 group-hover:text-black"
+                selectedCourse === "bba" ? "text-purple-100" : "text-indigo-400 group-hover:text-blue-700"
               }`}>
                 02
               </span>
@@ -254,7 +254,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                   BBA
                 </div>
                 <div className={`text-xs ${
-                  selectedCourse === "bba" ? "text-zinc-300" : "text-zinc-500"
+                  selectedCourse === "bba" ? "text-purple-100" : "text-slate-500"
                 }`}>
                   Business Administration (3 Yrs)
                 </div>
@@ -263,8 +263,8 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
 
             <span className={`text-xs uppercase font-semibold px-2.5 py-1 rounded-md border tracking-wider ${
               selectedCourse === "bba"
-                ? "bg-zinc-900 text-zinc-200 border-zinc-700"
-                : "bg-zinc-100 text-zinc-700 border-zinc-200 group-hover:border-zinc-300"
+                ? "bg-white/20 text-white border-white/30"
+                : "bg-purple-50 text-purple-700 border-purple-200 group-hover:border-purple-300"
             }`}>
               Management
             </span>
@@ -276,30 +276,30 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           role="tabpanel"
           id={`course-panel-${selectedCourse}`}
           aria-labelledby={`course-tab-${selectedCourse}`}
-          className="bg-white border border-zinc-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(0,0,0,0.04)] animate-fadeIn"
+          className="bg-white/95 backdrop-blur-sm border border-indigo-100 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-[0_16px_40px_rgba(37,99,235,0.06)] animate-fadeIn"
         >
           {/* Course Banner Header */}
-          <div className="border-b border-zinc-200 pb-8 mb-8">
+          <div className="border-b border-indigo-100 pb-8 mb-8">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               
               <div className="space-y-2 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-black text-white">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs">
                     {current.code} • 2026–27
                   </span>
-                  <span className="text-xs uppercase font-semibold px-3 py-1 rounded-full bg-zinc-100 text-zinc-900 border border-zinc-300">
+                  <span className="text-xs uppercase font-semibold px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
                     {current.tag}
                   </span>
-                  <span className="text-xs text-zinc-500 font-medium hidden sm:inline">
+                  <span className="text-xs text-slate-500 font-medium hidden sm:inline">
                     {current.affiliation}
                   </span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-zinc-950 tracking-tight leading-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
                   {current.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-zinc-600 font-normal leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                   {current.tagline}
                 </p>
               </div>
@@ -308,14 +308,14 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
               <div className="flex flex-wrap items-center gap-3 shrink-0">
                 <button
                   onClick={onOpenQuery}
-                  className="px-6 py-3 rounded-xl bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md hover-lift active:scale-95 cursor-pointer whitespace-nowrap"
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/25 hover-lift active:scale-95 cursor-pointer whitespace-nowrap"
                 >
                   Apply for {current.code}
                 </button>
 
                 <button
                   onClick={onOpenQuery}
-                  className="px-5 py-3 rounded-xl border border-zinc-300 hover:border-black hover:bg-zinc-50 text-zinc-900 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
+                  className="px-5 py-3 rounded-xl border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/60 text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer whitespace-nowrap"
                 >
                   Request Brochure
                 </button>
@@ -324,16 +324,16 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             </div>
 
             {/* 4 Quick Metrics Bar */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-zinc-100">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-indigo-50">
               {current.metrics.map((m) => (
-                <div key={m.label} className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200/80">
-                  <div className="text-xs uppercase tracking-wider text-zinc-500 font-bold mb-1">
+                <div key={m.label} className="p-3.5 rounded-xl bg-gradient-to-br from-indigo-50/50 to-purple-50/30 border border-indigo-100">
+                  <div className="text-xs uppercase tracking-wider text-indigo-700 font-bold mb-1">
                     {m.label}
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight font-serif">
+                  <div className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight font-serif">
                     {m.value}
                   </div>
-                  <div className="text-[11px] text-zinc-600 mt-0.5">
+                  <div className="text-[11px] text-slate-600 mt-0.5">
                     {m.sub}
                   </div>
                 </div>
@@ -345,7 +345,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           <div 
             role="tablist" 
             aria-label={`${current.code} Detailed Sections`}
-            className="flex items-center gap-2 border-b border-zinc-200 pb-4 mb-8 overflow-x-auto scrollbar-none"
+            className="flex items-center gap-2 border-b border-indigo-100 pb-4 mb-8 overflow-x-auto scrollbar-none"
           >
             {[
               { id: "curriculum", label: "Curriculum & Semesters" },
@@ -362,8 +362,8 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                   onClick={() => setActiveSubTab(tab.id as typeof activeSubTab)}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap active:scale-95 ${
                     isActive
-                      ? "bg-black text-white shadow-xs"
-                      : "bg-zinc-100 text-zinc-600 hover:text-black hover:bg-zinc-200/70"
+                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs"
+                      : "bg-indigo-50/70 text-indigo-900 hover:text-blue-700 hover:bg-indigo-100"
                   }`}
                 >
                   {tab.label}
@@ -379,26 +379,26 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                 {current.curriculum.map((year, idx) => (
                   <div 
                     key={year.period} 
-                    className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200/90 hover:border-black transition-all duration-300 hover-lift flex flex-col justify-between"
+                    className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 hover:border-indigo-400 transition-all duration-300 hover-lift flex flex-col justify-between shadow-2xs"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-xs uppercase font-mono font-bold tracking-wider text-zinc-500">
+                        <span className="text-xs uppercase font-mono font-bold tracking-wider text-blue-700">
                           {year.period}
                         </span>
-                        <span className="text-xs font-serif text-zinc-400 font-bold">
+                        <span className="text-xs font-serif text-indigo-300 font-bold">
                           0{idx + 1}
                         </span>
                       </div>
 
-                      <h4 className="text-base font-bold text-zinc-950 mb-4 leading-snug">
+                      <h4 className="text-base font-bold text-slate-900 mb-4 leading-snug">
                         {year.title}
                       </h4>
 
                       <ul className="space-y-2.5">
                         {year.topics.map((item) => (
-                          <li key={item} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-zinc-700 leading-relaxed">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0 mt-1.5" />
+                          <li key={item} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -414,17 +414,17 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           {activeSubTab === "careers" && (
             <div className="space-y-8 animate-fadeIn">
               <div>
-                <h4 className="text-base sm:text-lg font-bold text-zinc-950 mb-4">
+                <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-4">
                   Graduation Job Profiles &amp; Career Trajectories
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {current.careers.profiles.map((p) => (
-                    <div key={p.role} className="p-5 rounded-2xl bg-zinc-50 border border-zinc-200">
+                    <div key={p.role} className="p-5 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 shadow-2xs">
                       <div className="flex items-center gap-2 mb-1.5">
-                        <span className="w-2 h-2 rounded-full bg-black shrink-0" />
-                        <h5 className="text-sm font-bold text-zinc-950">{p.role}</h5>
+                        <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
+                        <h5 className="text-sm font-bold text-slate-900">{p.role}</h5>
                       </div>
-                      <p className="text-xs sm:text-[13px] text-zinc-600 pl-4 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-[13px] text-slate-600 pl-4 leading-relaxed font-normal">
                         {p.desc}
                       </p>
                     </div>
@@ -432,15 +432,15 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-zinc-200">
-                <div className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-3">
+              <div className="pt-6 border-t border-indigo-100">
+                <div className="text-xs uppercase tracking-widest text-indigo-700 font-semibold mb-3">
                   Leading Recruiters for {current.code} Candidates
                 </div>
                 <div className="flex flex-wrap items-center gap-2.5">
                   {current.careers.hiringPartners.map((rec) => (
                     <span 
                       key={rec}
-                      className="px-4 py-2 rounded-xl bg-zinc-100 border border-zinc-300 text-xs font-semibold text-zinc-800 shadow-2xs"
+                      className="px-4 py-2 rounded-xl bg-white border border-indigo-200 text-xs font-semibold text-slate-800 shadow-2xs hover:border-indigo-400 transition-colors"
                     >
                       {rec}
                     </span>
@@ -454,47 +454,47 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           {activeSubTab === "eligibility" && (
             <div className="space-y-6 animate-fadeIn">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-3">
-                  <div className="text-xs uppercase tracking-wider font-bold text-zinc-500">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 space-y-3 shadow-2xs">
+                  <div className="text-xs uppercase tracking-wider font-bold text-blue-700">
                     Academic Minimum Requirement
                   </div>
-                  <h4 className="text-base font-bold text-zinc-950">
+                  <h4 className="text-base font-bold text-slate-900">
                     10+2 Qualification
                   </h4>
-                  <p className="text-xs sm:text-[13px] text-zinc-700 leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                     {current.eligibility.criteria}
                   </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-3">
-                  <div className="text-xs uppercase tracking-wider font-bold text-zinc-500">
+                <div className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 space-y-3 shadow-2xs">
+                  <div className="text-xs uppercase tracking-wider font-bold text-blue-700">
                     Admission &amp; Counseling
                   </div>
-                  <h4 className="text-base font-bold text-zinc-950">
+                  <h4 className="text-base font-bold text-slate-900">
                     Counseling &amp; Seat Allocation
                   </h4>
-                  <p className="text-xs sm:text-[13px] text-zinc-700 leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed">
                     {current.eligibility.selectionProcess}
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-zinc-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-6 rounded-2xl bg-[#0B132E] text-white border border-indigo-900/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
                 <div>
-                  <div className="text-xs uppercase tracking-widest text-zinc-400 font-bold mb-1">
+                  <div className="text-xs uppercase tracking-widest text-indigo-300 font-bold mb-1">
                     Sanctioned Intake
                   </div>
-                  <div className="text-sm sm:text-base font-medium text-zinc-200">
+                  <div className="text-sm sm:text-base font-medium text-white">
                     {current.eligibility.intake}
                   </div>
-                  <div className="text-xs text-zinc-400 mt-1">
+                  <div className="text-xs text-indigo-200/80 mt-1">
                     {current.eligibility.scholarships}
                   </div>
                 </div>
 
                 <button
                   onClick={onOpenQuery}
-                  className="px-6 py-2.5 rounded-xl bg-white text-black text-xs sm:text-sm font-bold hover:bg-zinc-200 transition-colors shrink-0 active:scale-95 cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-bold shadow-md shadow-blue-500/25 transition-all shrink-0 active:scale-95 cursor-pointer"
                 >
                   Check Seat Availability
                 </button>
@@ -506,15 +506,15 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           {activeSubTab === "labs" && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fadeIn">
               {current.labs.map((lab, i) => (
-                <div key={lab.name} className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 flex flex-col justify-between">
+                <div key={lab.name} className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 flex flex-col justify-between shadow-2xs">
                   <div>
-                    <span className="text-xs font-mono font-bold text-zinc-400 block mb-2">
+                    <span className="text-xs font-mono font-bold text-blue-600 block mb-2">
                       LAB FACILITY 0{i + 1}
                     </span>
-                    <h4 className="text-base font-bold text-zinc-950 mb-2 leading-snug">
+                    <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
                       {lab.name}
                     </h4>
-                    <p className="text-xs sm:text-[13px] text-zinc-600 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                       {lab.spec}
                     </p>
                   </div>
@@ -524,13 +524,13 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
           )}
 
           {/* Bottom Card Summary Bar */}
-          <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-zinc-500">
+          <div className="mt-8 pt-6 border-t border-indigo-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-500">
             <div>
               Affiliated to Utkal University • AICTE Approved • Permanent Recognition by Govt. of Odisha
             </div>
             <Link
               href="/admission"
-              className="text-xs font-semibold text-zinc-900 hover:text-black flex items-center gap-1 group active:scale-95"
+              className="text-xs font-semibold text-blue-700 hover:text-blue-900 flex items-center gap-1 group active:scale-95"
             >
               <span>Download Detailed {current.code} Syllabus PDF</span>
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>

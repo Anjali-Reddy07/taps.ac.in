@@ -89,20 +89,20 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drawer Header */}
-        <div className="bg-zinc-50 px-6 sm:px-8 py-5 border-b border-zinc-200 flex items-center justify-between shrink-0">
+        <div className="bg-gradient-to-r from-blue-50/80 to-purple-50/80 px-6 sm:px-8 py-5 border-b border-indigo-100 flex items-center justify-between shrink-0">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[10px] uppercase font-mono font-bold tracking-widest text-zinc-600 mb-1">
+            <div className="inline-flex items-center gap-1.5 text-[10px] uppercase font-mono font-bold tracking-widest text-blue-700 mb-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulseGlow" />
               <span>Admissions Desk • 2026–27</span>
             </div>
-            <h3 id="drawer-title" className="text-xl font-bold tracking-tight text-zinc-950">
+            <h3 id="drawer-title" className="text-xl font-bold tracking-tight text-slate-900">
               Quick Academic Enquiry
             </h3>
           </div>
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full border border-zinc-300 bg-white flex items-center justify-center text-zinc-500 hover:text-black hover:border-black transition-all active:scale-95 cursor-pointer"
+            className="w-9 h-9 rounded-full border border-indigo-200 bg-white flex items-center justify-center text-slate-500 hover:text-blue-700 hover:border-blue-500 transition-all active:scale-95 cursor-pointer shadow-2xs"
             aria-label="Close Enquiry Drawer"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,19 +115,19 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
         <div className="p-6 sm:p-8 flex-1 overflow-y-auto">
           {status === "success" ? (
             <div className="py-12 text-center space-y-4">
-              <div className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold shadow-lg">
+              <div className="w-14 h-14 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold shadow-lg shadow-blue-500/25">
                 ✓
               </div>
-              <h4 className="text-xl font-bold text-zinc-950">
+              <h4 className="text-xl font-bold text-slate-900">
                 Enquiry Transmitted Successfully
               </h4>
-              <p className="text-xs sm:text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
                 Thank you for your interest in TAPS. Our admissions counseling cell will reach out to you within one business day with prospectus and merit seat allocation details.
               </p>
               <div className="pt-4">
                 <button
                   onClick={onClose}
-                  className="bg-black hover:bg-zinc-800 text-white text-xs sm:text-sm font-semibold px-7 py-3 rounded-xl transition-all shadow-md hover-lift active:scale-95 cursor-pointer"
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs sm:text-sm font-semibold px-7 py-3 rounded-xl transition-all shadow-md shadow-blue-500/20 hover-lift active:scale-95 cursor-pointer"
                 >
                   Close Drawer
                 </button>
@@ -137,7 +137,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Candidate Name */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-zinc-900 mb-1.5">
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-800 mb-1.5">
                   Candidate Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -148,8 +148,8 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                     if (errors.name) setErrors({ ...errors, name: "" });
                   }}
                   placeholder="e.g. Aditi Mohapatra"
-                  className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-zinc-50 border rounded-xl outline-none transition-colors text-zinc-900 placeholder-zinc-400 ${
-                    errors.name ? "border-red-400 bg-red-50/20" : "border-zinc-200 focus:border-black focus:bg-white"
+                  className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border rounded-xl outline-none transition-colors text-slate-900 placeholder-slate-400 ${
+                    errors.name ? "border-red-400 bg-red-50/20" : "border-indigo-100 focus:border-blue-600 focus:bg-white"
                   }`}
                 />
                 {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
@@ -158,7 +158,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
               {/* Phone & Email Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-zinc-900 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-slate-800 mb-1.5">
                     Contact Number <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -169,15 +169,15 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                       if (errors.phone) setErrors({ ...errors, phone: "" });
                     }}
                     placeholder="10-digit mobile"
-                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-zinc-50 border rounded-xl outline-none transition-colors text-zinc-900 placeholder-zinc-400 ${
-                      errors.phone ? "border-red-400 bg-red-50/20" : "border-zinc-200 focus:border-black focus:bg-white"
+                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border rounded-xl outline-none transition-colors text-slate-900 placeholder-slate-400 ${
+                      errors.phone ? "border-red-400 bg-red-50/20" : "border-indigo-100 focus:border-blue-600 focus:bg-white"
                     }`}
                   />
                   {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-semibold text-zinc-900 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-semibold text-slate-800 mb-1.5">
                     Email Address
                   </label>
                   <input
@@ -188,8 +188,8 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                       if (errors.email) setErrors({ ...errors, email: "" });
                     }}
                     placeholder="aditi@example.com"
-                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-zinc-50 border rounded-xl outline-none transition-colors text-zinc-900 placeholder-zinc-400 ${
-                      errors.email ? "border-red-400 bg-red-50/20" : "border-zinc-200 focus:border-black focus:bg-white"
+                    className={`w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border rounded-xl outline-none transition-colors text-slate-900 placeholder-slate-400 ${
+                      errors.email ? "border-red-400 bg-red-50/20" : "border-indigo-100 focus:border-blue-600 focus:bg-white"
                     }`}
                   />
                   {errors.email && <p className="text-[11px] text-red-500 mt-1">{errors.email}</p>}
@@ -198,13 +198,13 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
 
               {/* Interested Program */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-zinc-900 mb-1.5">
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-800 mb-1.5">
                   Interested Undergraduate Program
                 </label>
                 <select
                   value={formData.course}
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:border-black focus:bg-white text-zinc-900 cursor-pointer font-medium"
+                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border border-indigo-100 rounded-xl outline-none focus:border-blue-600 focus:bg-white text-slate-900 cursor-pointer font-medium"
                 >
                   <option value="bca">BCA — Bachelor of Computer Applications (3 Years)</option>
                   <option value="bba">BBA — Bachelor of Business Administration (3 Years)</option>
@@ -213,7 +213,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
 
               {/* Inquiry Details */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-semibold text-zinc-900 mb-1.5">
+                <label className="block text-xs uppercase tracking-wider font-semibold text-slate-800 mb-1.5">
                   Specific Questions / Remarks
                 </label>
                 <textarea
@@ -221,7 +221,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Inquire about seat eligibility, semester fee structure, merit grants, or hostel facilities..."
-                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-zinc-50 border border-zinc-200 rounded-xl outline-none focus:border-black focus:bg-white text-zinc-900 placeholder-zinc-400"
+                  className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border border-indigo-100 rounded-xl outline-none focus:border-blue-600 focus:bg-white text-slate-900 placeholder-slate-400"
                 />
               </div>
 
@@ -230,7 +230,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-5 py-2.5 border border-zinc-300 bg-white rounded-xl text-xs font-semibold text-zinc-700 hover:text-black hover:border-black transition-colors active:scale-95 cursor-pointer"
+                  className="px-5 py-2.5 border border-indigo-200 bg-white rounded-xl text-xs font-semibold text-slate-700 hover:text-blue-700 hover:border-blue-400 transition-colors active:scale-95 cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -238,7 +238,7 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="px-7 py-2.5 bg-black hover:bg-zinc-800 text-white rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 shadow-md hover-lift disabled:opacity-50 active:scale-95 cursor-pointer"
+                  className="px-7 py-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl text-xs sm:text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-blue-500/25 hover-lift disabled:opacity-50 active:scale-95 cursor-pointer"
                 >
                   {status === "submitting" ? "Transmitting..." : "Submit Enquiry"}
                 </button>
@@ -248,9 +248,9 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
         </div>
 
         {/* Drawer Footer Info */}
-        <div className="bg-zinc-50 px-6 sm:px-8 py-3.5 border-t border-zinc-200 text-xs text-zinc-500 flex items-center justify-between shrink-0">
+        <div className="bg-indigo-50/50 px-6 sm:px-8 py-3.5 border-t border-indigo-100 text-xs text-slate-500 flex items-center justify-between shrink-0">
           <span>Infocity Campus, Bhubaneswar</span>
-          <span className="font-mono text-[11px] text-zinc-400">Admissions 2026–27</span>
+          <span className="font-mono text-[11px] text-indigo-400">Admissions 2026–27</span>
         </div>
       </div>
     </div>

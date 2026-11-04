@@ -160,20 +160,20 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
       
       {/* 1. INFINITE RUNNING MARQUEE STRIP (Seamless Institutional Milestones) */}
-      <div className="mb-14 sm:mb-18 border-y border-zinc-800 bg-zinc-950 text-white relative z-10 overflow-hidden py-3 shadow-md">
+      <div className="mb-14 sm:mb-18 border-y border-indigo-900/40 bg-[#070D21] text-white relative z-10 overflow-hidden py-3 shadow-md">
         <div className="relative overflow-hidden w-full">
           {/* Left and Right Fade Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#070D21] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#070D21] to-transparent z-10 pointer-events-none" />
 
           {/* Marquee Track */}
           <div className="flex animate-marquee gap-8 sm:gap-12 items-center shrink-0">
             {[...milestones, ...milestones].map((item, idx) => (
               <div 
                 key={`${item}-${idx}`} 
-                className="flex items-center gap-2.5 shrink-0 text-xs sm:text-[13px] tracking-wide text-zinc-300 font-medium"
+                className="flex items-center gap-2.5 shrink-0 text-xs sm:text-[13px] tracking-wide text-blue-100 font-medium"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0 animate-pulseGlow" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulseGlow" />
                 <span className="whitespace-nowrap">{item}</span>
               </div>
             ))}
@@ -191,21 +191,21 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             
             <div className="space-y-4">
               {/* Monospace Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-zinc-900 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
                 ABOUT TAPS
               </div>
 
               {/* Editorial Heading */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 leading-tight tracking-tight">
                 Trident Academy of Professional Studies
               </h2>
 
-              <p className="text-base sm:text-lg font-semibold text-zinc-900">
+              <p className="text-base sm:text-lg font-semibold text-slate-800">
                 Premier BCA &amp; BBA Institution • Where Ambition Finds Its Direction
               </p>
 
               {/* Tight, High-Impact Introductory Narrative */}
-              <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 Functioning under the aegis of the renowned Trident Group (TACT Trust), TAPS is recognized as the undisputed No. 1 college under Utkal University for Bachelor of Business Administration (BBA) and Bachelor of Computer Application (BCA). Approved by AICTE and permanently recognized by the Higher Education Department, Govt. of Odisha, TAPS combines computational rigor with executive boardroom leadership.
               </p>
             </div>
@@ -215,17 +215,17 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               {accreditations.map((item) => (
                 <div
                   key={item.title}
-                  className="p-4 rounded-2xl bg-zinc-50/90 border border-zinc-200/90 hover:border-black transition-all duration-300 shadow-2xs hover-lift group"
+                  className="p-4 rounded-2xl bg-white border border-indigo-100 hover:border-indigo-400 hover:shadow-md hover:shadow-indigo-500/10 transition-all duration-300 shadow-2xs hover-lift group"
                 >
                   <div className="flex items-center gap-2.5 mb-1.5">
-                    <span className="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                    <span className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                       {item.icon}
                     </span>
-                    <h3 className="text-sm font-bold text-zinc-950 tracking-tight">
+                    <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-xs text-zinc-600 pl-9 leading-relaxed font-normal">
+                  <p className="text-xs text-slate-600 pl-9 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
@@ -236,7 +236,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-all duration-200 shadow-md hover-lift active:scale-95 group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/25 hover-lift active:scale-95 group"
               >
                 <span>Explore Academic Legacy</span>
                 <span className="transform group-hover:translate-x-1 transition-transform">→</span>
@@ -244,7 +244,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
               <button
                 onClick={onOpenQuery}
-                className="px-6 py-3 rounded-xl border border-zinc-300 hover:border-black hover:bg-zinc-50 text-zinc-900 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer"
+                className="px-6 py-3 rounded-full border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/60 text-indigo-900 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer"
               >
                 Download Institutional Prospectus
               </button>
@@ -254,17 +254,17 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
           {/* RIGHT BENTO CELL: Interactive Executive Card (Our Vision & Our Mission) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
-            <div className="relative h-full bg-zinc-950 text-white rounded-3xl p-7 sm:p-9 border border-zinc-800 shadow-2xl flex flex-col justify-between overflow-hidden">
+            <div className="relative h-full bg-[#0B132E] text-white rounded-3xl p-7 sm:p-9 border border-indigo-900/60 shadow-2xl flex flex-col justify-between overflow-hidden">
               
-              {/* Ambient Inner Dark Glow */}
-              <div className="absolute top-0 right-0 w-72 h-72 bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Ambient Inner Glow */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
               <div>
                 {/* Active Pill Toggle Segmented Controller */}
                 <div 
                   role="tablist"
                   aria-label="Vision and Mission Selector"
-                  className="inline-flex p-1 rounded-xl bg-zinc-900 border border-zinc-800 mb-7"
+                  className="inline-flex p-1 rounded-xl bg-[#070D21] border border-indigo-900/70 mb-7"
                 >
                   <button
                     role="tab"
@@ -272,8 +272,8 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     onClick={() => setActiveTab("vision")}
                     className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer active:scale-95 ${
                       activeTab === "vision"
-                        ? "bg-white text-black shadow-md font-bold"
-                        : "text-zinc-400 hover:text-white"
+                        ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 font-bold"
+                        : "text-indigo-200/80 hover:text-white"
                     }`}
                   >
                     Our Vision
@@ -285,8 +285,8 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     onClick={() => setActiveTab("mission")}
                     className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-200 cursor-pointer active:scale-95 ${
                       activeTab === "mission"
-                        ? "bg-white text-black shadow-md font-bold"
-                        : "text-zinc-400 hover:text-white"
+                        ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 font-bold"
+                        : "text-indigo-200/80 hover:text-white"
                     }`}
                   >
                     Our Mission
@@ -297,9 +297,9 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 <div className="mb-6">
                   <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
                     <span>{activeTab === "vision" ? "Strategic Vision for 2030" : "Core Institutional Mission"}</span>
-                    <span className="w-2 h-2 rounded-full bg-white shrink-0 animate-pulseGlow" />
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulseGlow" />
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-1 font-light">
+                  <p className="text-xs sm:text-sm text-indigo-200/80 mt-1 font-light">
                     {activeTab === "vision"
                       ? "Pioneering collegiate education that elevates capability into leadership."
                       : "Four pillars sustaining technical, managerial, and ethical rigor."}
@@ -311,10 +311,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   {(activeTab === "vision" ? visionPoints : missionPoints).map((point, i) => (
                     <div 
                       key={point.label}
-                      className="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800/90 hover:border-zinc-700 transition-colors group"
+                      className="p-4 rounded-2xl bg-[#0E183E]/90 border border-indigo-900/60 hover:border-indigo-500/60 transition-colors group"
                     >
                       <div className="flex items-start gap-3">
-                        <span className="w-8 h-8 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center shrink-0 text-white mt-0.5 group-hover:scale-105 transition-transform">
+                        <span className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-600/30 to-purple-600/30 border border-indigo-500/40 flex items-center justify-center shrink-0 text-blue-200 mt-0.5 group-hover:scale-105 transition-transform">
                           {point.icon}
                         </span>
 
@@ -323,11 +323,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                             <h4 className="text-sm font-bold text-white tracking-wide">
                               {point.label}
                             </h4>
-                            <span className="text-[10px] font-mono text-zinc-500">
+                            <span className="text-[10px] font-mono text-indigo-300">
                               0{i + 1}
                             </span>
                           </div>
-                          <p className="text-xs text-zinc-300 mt-1 leading-relaxed font-normal">
+                          <p className="text-xs text-indigo-100/90 mt-1 leading-relaxed font-normal">
                             {point.text}
                           </p>
                         </div>
@@ -338,9 +338,9 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               </div>
 
               {/* Bottom Card Micro-Badge */}
-              <div className="pt-6 mt-6 border-t border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-500">
+              <div className="pt-6 mt-6 border-t border-indigo-900/70 flex items-center justify-between text-[11px] text-indigo-300/80">
                 <span>Trident Trust • Established 2000</span>
-                <span className="font-mono text-zinc-400">Patia, Bhubaneswar</span>
+                <span className="font-mono text-indigo-200">Patia, Bhubaneswar</span>
               </div>
 
             </div>
@@ -349,25 +349,25 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
         </div>
 
         {/* 4. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS GRID */}
-        <div id="facilities" className="pt-12 sm:pt-16 border-t border-zinc-200 scroll-mt-24">
+        <div id="facilities" className="pt-12 sm:pt-16 border-t border-indigo-100 scroll-mt-24">
           
           {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
             <div>
-              <span className="text-xs uppercase tracking-widest font-mono font-bold text-zinc-900 block mb-2 bg-zinc-100 border border-zinc-300 w-fit px-3 py-1 rounded-full shadow-2xs">
+              <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 block mb-2 bg-blue-50 border border-blue-200 w-fit px-3 py-1 rounded-full shadow-2xs">
                 INSIDE TAPS CAMPUS
               </span>
-              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
                 World-Class Academic Infrastructure
               </h3>
-              <p className="text-sm sm:text-base text-zinc-600 mt-2 max-w-2xl font-normal leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl font-normal leading-relaxed">
                 Purpose-built computing centers, amphitheatre classrooms, and comprehensive research repositories at Infocity, Bhubaneswar.
               </p>
             </div>
             
             <Link
               href="/admission"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-zinc-900 hover:text-black uppercase tracking-wider transition-colors group shrink-0 active:scale-95"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-700 hover:text-blue-900 uppercase tracking-wider transition-colors group shrink-0 active:scale-95"
             >
               <span>Schedule Campus Tour</span>
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>

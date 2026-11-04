@@ -175,11 +175,11 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </Link>
             </div>
 
-            {/* RIGHT: NAVIGATION ITEMS MATCHING MONOCHROME THEME */}
+            {/* RIGHT: NAVIGATION ITEMS MATCHING WHITE BLUE LAVENDER THEME */}
             <div className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
               <Link
                 href="/about"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
                 About
               </Link>
@@ -192,30 +192,30 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               >
                 <Link 
                   href="/programmes"
-                  className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                  className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
                 >
                   <span>Academics</span>
-                  <svg className="w-3.5 h-3.5 text-zinc-500 group-hover:text-black group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                   </svg>
                 </Link>
 
                 {activeDropdown === "academics" && (
                   <div className="absolute top-full left-0 pt-2 w-84 z-50">
-                    <div className="bg-white border border-zinc-200 rounded-2xl p-4 shadow-[0_16px_36px_rgba(0,0,0,0.12)] space-y-2 animate-fadeIn">
-                      <div className="text-[11px] tracking-[0.2em] uppercase font-bold text-zinc-500 px-3 pt-1 pb-1.5 border-b border-zinc-100">
+                    <div className="bg-white border border-indigo-100 rounded-2xl p-4 shadow-[0_16px_36px_rgba(79,70,229,0.12)] space-y-2 animate-fadeIn">
+                      <div className="text-[11px] tracking-[0.2em] uppercase font-bold text-indigo-500 px-3 pt-1 pb-1.5 border-b border-indigo-50">
                         Undergraduate Degree Programs
                       </div>
                       {academicsList.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block p-3 rounded-xl hover:bg-zinc-100 transition-all group/item"
+                          className="block p-3 rounded-xl hover:bg-indigo-50/60 transition-all group/item"
                         >
-                          <div className="text-sm font-bold text-zinc-900 group-hover/item:text-black group-hover/item:translate-x-0.5 transition-all">
+                          <div className="text-sm font-bold text-slate-900 group-hover/item:text-blue-600 group-hover/item:translate-x-0.5 transition-all">
                             {item.name}
                           </div>
-                          <div className="text-xs text-zinc-600 mt-1 leading-relaxed">
+                          <div className="text-xs text-slate-600 mt-1 leading-relaxed">
                             {item.desc}
                           </div>
                         </Link>
@@ -227,22 +227,23 @@ export default function Header({ onOpenQuery }: HeaderProps) {
 
               <Link
                 href="/facilities"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
                 Facilities
               </Link>
 
+              {/* PLACEMENTS: Cleaned up as requested */}
               <Link
                 href="/placements"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300 whitespace-nowrap"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300 whitespace-nowrap"
               >
-                Training &amp; Placement
+                Placements
               </Link>
 
               {/* NOTICES */}
               <Link
                 href="/notices"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
                 Notices
               </Link>
@@ -250,22 +251,22 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               {/* ADMISSION */}
               <Link
                 href="/admission"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
                 Admission
               </Link>
 
               <Link
                 href="/contact"
-                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-zinc-900 hover:text-black transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-black after:transition-all after:duration-300"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
                 Contact
               </Link>
 
-              {/* Apply Now Signature Black Button */}
+              {/* Apply Now Royal Blue / Lavender Gradient Button */}
               <button
                 onClick={onOpenQuery}
-                className="bg-black hover:bg-zinc-800 text-white font-bold text-xs xl:text-sm tracking-wide px-5 xl:px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-black/20 cursor-pointer ml-1 whitespace-nowrap hover-lift"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xs xl:text-sm tracking-wide px-5 xl:px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-blue-500/25 cursor-pointer ml-1 whitespace-nowrap hover-lift"
               >
                 Apply Now
               </button>
@@ -275,7 +276,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={onOpenQuery}
-                className="bg-black text-white font-semibold text-xs px-4 py-2 rounded-full shadow-sm active:scale-95 cursor-pointer"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-xs px-4 py-2 rounded-full shadow-sm active:scale-95 cursor-pointer"
               >
                 Apply Now
               </button>
@@ -339,9 +340,9 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 <Link
                   href="/placements"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-zinc-900 hover:text-black border-b border-zinc-100"
+                  className="block py-2 text-slate-800 hover:text-blue-600 border-b border-indigo-50"
                 >
-                  Training &amp; Placement
+                  Placements
                 </Link>
                 <Link
                   href="/notices"
@@ -373,7 +374,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   setMobileMenuOpen(false);
                   if (onOpenQuery) onOpenQuery();
                 }}
-                className="w-full bg-black text-white font-bold py-3 rounded-full text-center text-xs tracking-wider uppercase shadow-md hover:bg-zinc-800 transition-colors"
+                className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold py-3 rounded-full text-center text-xs tracking-wider uppercase shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-purple-700 transition-colors"
               >
                 Apply Online Now
               </button>
