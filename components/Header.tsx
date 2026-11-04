@@ -110,6 +110,20 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </a>
+
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/916371512551"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-emerald-50 hover:text-[#25D366] transition-colors"
+                title="WhatsApp"
+                aria-label="WhatsApp"
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.183 1.571 5.932l-1.667 6.096 6.273-1.644c1.687.923 3.626 1.446 5.823 1.446 6.627 0 12-5.373 12-12s-5.373-12-12-12zm0 21.6c-1.896 0-3.663-.538-5.167-1.469l-.371-.228-3.722.976.994-3.627-.25-.397c-1.02-1.62-1.558-3.504-1.558-5.461 0-5.293 4.307-9.6 9.6-9.6 5.293 0 9.6 4.307 9.6 9.6 0 5.293-4.307 9.6-9.6 9.6z"/>
+                </svg>
+              </a>
             </div>
 
             {/* Right Corner: Search Icon Symbol & Bar */}
@@ -210,15 +224,12 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 )}
               </div>
 
-              {/* NOTICES BAR: with NEW badge */}
+              {/* NOTICES */}
               <Link
                 href="#notices"
-                className="relative py-1 text-xs tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300 flex items-center gap-1.5"
+                className="relative py-1 text-xs tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
-                <span>Notices</span>
-                <span className="text-[9px] bg-blue-50 text-[#0020D6] border border-blue-200 px-1.5 py-[1px] rounded-full font-bold leading-none">
-                  NEW
-                </span>
+                Notices
               </Link>
 
               <Link
@@ -235,16 +246,12 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 Training &amp; Placement
               </Link>
 
-              {/* ADMISSION: with 2026-27 badge */}
+              {/* ADMISSION */}
               <Link
                 href="/admission"
-                className="relative py-1 text-xs tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300 flex items-center gap-1.5"
+                className="relative py-1 text-xs tracking-[0.12em] uppercase font-bold text-[#001D4A] hover:text-[#0020D6] transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-[#0020D6] after:transition-all after:duration-300"
               >
-                <span>Admission</span>
-                <span className="inline-flex flex-col items-center justify-center bg-[#0020D6] text-white text-[7.5px] font-bold leading-[8px] px-1.5 py-0.5 rounded-full shadow-xs">
-                  <span>2026–</span>
-                  <span>27</span>
-                </span>
+                Admission
               </Link>
 
               <Link
@@ -347,7 +354,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2 text-[#001D4A] hover:text-[#0020D6] border-b border-slate-100"
                 >
-                  Admission (2026–27)
+                  Admission
                 </Link>
                 <Link
                   href="/contact"
