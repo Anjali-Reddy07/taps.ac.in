@@ -107,6 +107,26 @@ export default function TactNews() {
 
           {/* Right: Event List Column */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-4">
+            {/* Featured Event Photo Badge */}
+            <div className="relative h-44 rounded-2xl overflow-hidden border border-indigo-100 shadow-xs group">
+              <Image
+                src="/images/drive_second/alumni2.jpg"
+                alt="Academic Medal Felicitation"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-3 left-4 right-4 text-white">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                  Merit Honours
+                </span>
+                <div className="text-sm font-bold mt-0.5">
+                  Silver Medal of Distinction Felicitation Ceremony
+                </div>
+              </div>
+            </div>
+
             {events.map((evt) => (
               <div
                 key={evt.title}

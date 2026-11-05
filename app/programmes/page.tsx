@@ -256,8 +256,22 @@ export default function ProgrammesPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/1721020760290.jpg"
+              alt="Trident School of Computing"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Undergraduate Degree Programmes
@@ -418,9 +432,10 @@ export default function ProgrammesPage() {
               </div>
             )}
 
-            {/* Sub-Tab 3: Eligibility */}
+            {/* Sub-Tab 3: Eligibility with Photo */}
             {activeTab === "eligibility" && (
-              <div className="bg-white border border-zinc-200 rounded-3xl p-8 max-w-3xl animate-fadeInUp">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeInUp">
+                <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8">
                 <h3 className="text-xl font-medium text-zinc-950 mb-6">
                   Utkal University Eligibility Guidelines for {current.code}
                 </h3>
@@ -462,11 +477,65 @@ export default function ProgrammesPage() {
                   </Link>
                 </div>
               </div>
+
+              <div className="lg:col-span-5 relative h-96 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+                <Image
+                  src="/images/drive_third/ClassRooms__MG_2339.JPG"
+                  alt="Faculty Mentored Academic Amphitheatre"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
+                    Academic Standard
+                  </span>
+                  <div className="text-base font-bold mt-2">
+                    100% NET / Ph.D Mentorship Ecosystem
+                  </div>
+                  <p className="text-xs text-zinc-300 font-light mt-1">
+                    Direct merit-based counseling under Utkal University criteria.
+                  </p>
+                </div>
+              </div>
+            </div>
             )}
 
-            {/* Sub-Tab 4: Careers */}
+            {/* Sub-Tab 4: Careers with Corporate Photo Banner */}
             {activeTab === "careers" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeInUp">
+              <div className="space-y-8 animate-fadeInUp">
+                <div className="relative h-56 sm:h-64 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+                  <Image
+                    src="/images/drive_third/Placement_DSC_2425.JPG"
+                    alt="Corporate Campus Placement Desk"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="100vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  <div className="absolute bottom-5 left-6 right-6 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                    <div>
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white shadow-xs">
+                        Placement Pipeline
+                      </span>
+                      <h4 className="text-lg sm:text-xl font-bold mt-2">
+                        Tier-1 Corporate Recruitment Drives &amp; Mock Technical Interviews
+                      </h4>
+                      <p className="text-xs text-zinc-300 font-light mt-0.5">
+                        Over 124+ visiting companies annually recruiting TAPS BCA &amp; BBA graduates.
+                      </p>
+                    </div>
+                    <Link
+                      href="/placements"
+                      className="px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-colors shrink-0 shadow-sm"
+                    >
+                      View Placement Statistics →
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {current.careers.map((c, idx) => (
                   <div
                     key={idx}
@@ -483,6 +552,7 @@ export default function ProgrammesPage() {
                     </div>
                   </div>
                 ))}
+                </div>
               </div>
             )}
 

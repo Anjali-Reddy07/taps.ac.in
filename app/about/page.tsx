@@ -108,8 +108,22 @@ export default function AboutPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Background Image with Dark Vignette */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
+              alt="Trident Academy Colonnade Avenue"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 About Trident Academy of Professional Studies
@@ -189,10 +203,75 @@ export default function AboutPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* 2 Authentic Academic Photos in Left Column */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="relative h-40 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                    <Image
+                      src="/images/drive_third/ClassRooms__MG_2339.JPG"
+                      alt="Tiered Lecture Theatres"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                        Academic Theatres
+                      </span>
+                      <span className="text-xs font-semibold">
+                        Faculty Mentored Pedagogy
+                      </span>
+                    </div>
+                  </div>
+                  <div className="relative h-40 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                    <Image
+                      src="/images/drive_third/Library_Library.JPG"
+                      alt="Central Research Library"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                        Knowledge Vault
+                      </span>
+                      <span className="text-xs font-semibold">
+                        Central DELNET Library
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Right Column: Interactive Vision, Mission & Values Card */}
-              <div className="lg:col-span-5 animate-fadeInUp">
+              {/* Right Column: Interactive Vision, Mission & Values Card + Campus Showcase */}
+              <div className="lg:col-span-5 animate-fadeInUp flex flex-col gap-6">
+                {/* Real Campus Showcase Photo Card */}
+                <div className="relative h-56 sm:h-64 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+                  <Image
+                    src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
+                    alt="Trident Technoplex Campus Infocity"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
+                      11-Acre Technoplex
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                      Infocity IT Corridor, Patia
+                    </div>
+                    <div className="text-base font-bold text-white mt-0.5">
+                      Flanked by Infosys, TCS &amp; Wipro Campus
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 shadow-sm">
                   {/* Tab Switcher */}
                   <div className="flex rounded-xl bg-zinc-100 p-1 mb-6 border border-zinc-200">
@@ -428,8 +507,20 @@ export default function AboutPage() {
         </AnimatedBackground>
 
         {/* HISTORICAL TIMELINE: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Background Image with Scrim */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/1746352355680.jpg"
+              alt="Trident Campus Heritage"
+              fill
+              className="object-cover object-center filter contrast-105 opacity-25"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#070D21] via-[#070D21]/95 to-[#070D21]" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-2xl mb-14 animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-3 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Milestones &amp; Evolution
@@ -442,21 +533,70 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="relative border-l border-zinc-800 pl-6 sm:pl-8 ml-2 sm:ml-4 space-y-10">
-              {milestones.map((m) => (
-                <div key={m.year} className="relative group">
-                  <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white group-hover:scale-125 transition-transform" />
-                  <div className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest mb-1">
-                    {m.year}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+              <div className="lg:col-span-7 relative border-l border-zinc-800 pl-6 sm:pl-8 ml-2 sm:ml-4 space-y-10">
+                {milestones.map((m) => (
+                  <div key={m.year} className="relative group">
+                    <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white group-hover:scale-125 transition-transform" />
+                    <div className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest mb-1">
+                      {m.year}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-medium text-white mb-2">
+                      {m.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl">
+                      {m.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-medium text-white mb-2">
-                    {m.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light max-w-2xl">
-                    {m.desc}
-                  </p>
+                ))}
+              </div>
+
+              {/* 2 Legacy & Alumni Archive Photo Cards */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="relative h-60 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl group">
+                  <Image
+                    src="/images/drive_second/alumni3.jpg"
+                    alt="Annual Alumni Homecoming"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white">
+                      Alumni Network
+                    </span>
+                    <h4 className="text-base font-bold mt-1">
+                      Over 2,936+ Graduates Placed Worldwide
+                    </h4>
+                    <p className="text-xs text-zinc-300 font-light mt-0.5">
+                      Leading Fortune 500 corporations and global IT enterprises.
+                    </p>
+                  </div>
                 </div>
-              ))}
+
+                <div className="relative h-60 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl group">
+                  <Image
+                    src="/images/drive_second/Activities.jpg"
+                    alt="Campus Festivals and Cultural Distinction"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-purple-600 text-white">
+                      Campus Culture
+                    </span>
+                    <h4 className="text-base font-bold mt-1">
+                      Trifest &amp; Annual Cultural Celebrations
+                    </h4>
+                    <p className="text-xs text-zinc-300 font-light mt-0.5">
+                      Fostering creativity, theatrical arts, hackathons, and leadership.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </AnimatedBackground>
@@ -467,4 +607,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

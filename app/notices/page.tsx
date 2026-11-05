@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -115,8 +116,22 @@ export default function NoticesPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
+              alt="Trident Campus Notice Board"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Official Institutional Circulars
@@ -155,6 +170,57 @@ export default function NoticesPage() {
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
+            {/* 2 Official Academic & Corporate Bulletin Photo Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              <div className="relative h-48 sm:h-56 rounded-3xl overflow-hidden border border-zinc-200 shadow-sm group">
+                <Image
+                  src="/images/drive_third/ClassRooms_Academic.JPG"
+                  alt="Academic & Examination Circulars"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
+                    Academic Notices
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                    Utkal University CBCS Schedules
+                  </div>
+                  <div className="text-base font-bold text-white mt-0.5">
+                    Semester Forms, Evaluation Rubrics &amp; Timetables
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-48 sm:h-56 rounded-3xl overflow-hidden border border-zinc-200 shadow-sm group">
+                <Image
+                  src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
+                  alt="Corporate Placement Circulars"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white shadow-xs">
+                    Placement Circulars
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                    Campus Recruitment Schedules
+                  </div>
+                  <div className="text-base font-bold text-white mt-0.5">
+                    TCS, Infosys, Wipro, Capgemini &amp; CGI Drive Dates
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Category Filter Pills */}
             <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-zinc-200">
               <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mr-2">

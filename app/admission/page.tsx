@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -100,8 +101,22 @@ export default function AdmissionPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
+              alt="Trident Campus Admission Cell"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Admissions Session 2026-27 Open
@@ -119,7 +134,7 @@ export default function AdmissionPage() {
               <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-400">
                 <div className="flex items-center gap-2 bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-800">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulseGlow" />
-                  <span>Admissions Helpline: +91 63715 12551</span>
+                  <span>Admissions Cell • Infocity Campus</span>
                 </div>
                 <div className="flex items-center gap-2 bg-zinc-900 px-4 py-2 rounded-lg border border-zinc-800">
                   <span>Application Fee: ₹200</span>
@@ -327,8 +342,49 @@ export default function AdmissionPage() {
                 )}
               </div>
 
-              {/* Right Column: Step-by-Step Procedure */}
+              {/* Right Column: Step-by-Step Procedure with Campus Media */}
               <div className="lg:col-span-5 space-y-8 animate-fadeInUp">
+                {/* 2 Authentic Campus Media Cards for Admission Candidates */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                    <Image
+                      src="/images/drive_third/ClassRooms_Academic.JPG"
+                      alt="Academic Lecture Amphitheatre"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                        Academic Theatres
+                      </span>
+                      <span className="text-xs font-semibold">
+                        BCA &amp; BBA Smart Lecture Halls
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                    <Image
+                      src="/images/drive_third/Placement_DSC_2425.JPG"
+                      alt="Academic Counseling & Mentorship"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 1024px) 100vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                    <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                        Counseling Desk
+                      </span>
+                      <span className="text-xs font-semibold">
+                        Personal Academic Guidance
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
                 <div>
                   <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
                     Step-by-Step Guide
@@ -379,6 +435,47 @@ export default function AdmissionPage() {
               </p>
             </div>
 
+            {/* 2 Photos for Financial & Merit Support */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 max-w-4xl mx-auto">
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                <Image
+                  src="/images/drive_third/Library_Library.JPG"
+                  alt="Central Research Library"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                    Academic Merit Grants
+                  </span>
+                  <div className="text-sm font-bold mt-0.5">
+                    Central Research Library &amp; Quiet Study Pods
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
+                <Image
+                  src="/images/drive_third/Sports_IMG20260205104055.jpg"
+                  alt="Athletic Excellence Grants"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                    Sports &amp; Extracurricular Grants
+                  </span>
+                  <div className="text-sm font-bold mt-0.5">
+                    Annual Athletic Track &amp; Sports Complex
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {scholarships.map((sch) => (
                 <div
@@ -406,8 +503,19 @@ export default function AdmissionPage() {
         </AnimatedBackground>
 
         {/* CONTACT ADMISSION CELL: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-t border-zinc-800">
-          <section className="py-16 sm:py-20 max-w-5xl mx-auto px-6 text-center text-white">
+        <AnimatedBackground variant="dark" className="border-t border-zinc-800 relative overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
+              alt="Trident Colonnades"
+              fill
+              className="object-cover object-center filter contrast-105 opacity-25"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/90 to-[#070D21]" />
+          </div>
+
+          <section className="relative z-10 py-16 sm:py-20 max-w-5xl mx-auto px-6 text-center text-white">
             <h2 className="text-2xl sm:text-4xl font-light text-white mb-4 tracking-tight">
               Questions Regarding Admission 2026?
             </h2>
@@ -421,7 +529,7 @@ export default function AdmissionPage() {
                 rel="noopener noreferrer"
                 className="px-8 py-3.5 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors shadow-md"
               >
-                Connect on WhatsApp (+91 63715 12551)
+                Connect on WhatsApp ↗
               </a>
               <Link
                 href="/contact"

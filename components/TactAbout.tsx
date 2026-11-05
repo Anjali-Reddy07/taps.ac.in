@@ -202,6 +202,47 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 ))}
               </div>
 
+              {/* 2 Authentic Academic Atmosphere Previews */}
+              <div className="grid grid-cols-2 gap-3.5 pt-1">
+                <div className="relative h-28 sm:h-32 rounded-xl overflow-hidden border border-indigo-100 shadow-xs group">
+                  <Image
+                    src="/images/drive_third/ClassRooms__MG_2339.JPG"
+                    alt="Tiered Lecture Amphitheatres"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  <div className="absolute bottom-2 left-2.5 right-2 text-white">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                      Pedagogy
+                    </span>
+                    <span className="text-[11px] font-bold line-clamp-1">
+                      Tiered Smart Amphitheatres
+                    </span>
+                  </div>
+                </div>
+
+                <div className="relative h-28 sm:h-32 rounded-xl overflow-hidden border border-indigo-100 shadow-xs group">
+                  <Image
+                    src="/images/drive_third/MBA_seminar_1.jpeg"
+                    alt="Corporate Business Seminars"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  <div className="absolute bottom-2 left-2.5 right-2 text-white">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                      Case Studies
+                    </span>
+                    <span className="text-[11px] font-bold line-clamp-1">
+                      Executive Seminar Suites
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               {/* Action Bar with Arrow Micro-Interaction */}
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link

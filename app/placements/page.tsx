@@ -81,8 +81,22 @@ export default function PlacementsPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Placement Tower Background */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/_DSC1852.JPG"
+              alt="Trident Training and Placement Hub"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Training &amp; Placement Cell
@@ -274,7 +288,7 @@ export default function PlacementsPage() {
         <AnimatedBackground variant="dark" className="border-t border-zinc-800">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             
-            <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-3 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Corporate Partners
               </div>
@@ -284,6 +298,31 @@ export default function PlacementsPage() {
               <p className="text-sm sm:text-base text-zinc-300 mt-3 font-normal leading-relaxed">
                 Global consultancies, product engineering organizations, and tier-1 banks that conduct regular campus recruitment drives.
               </p>
+            </div>
+
+            {/* Official Recruiters Infographic Banner */}
+            <div className="max-w-4xl mx-auto mb-14 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl bg-zinc-950 relative h-64 sm:h-80 group">
+              <Image
+                src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
+                alt="Major Corporate Recruiters at Trident"
+                fill
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 1024px) 100vw, 70vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-6 right-6 text-white flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] font-mono text-cyan-300 uppercase tracking-widest font-bold">
+                    Official Placement Portfolio
+                  </span>
+                  <div className="text-base sm:text-lg font-bold">
+                    TCS, Infosys, Wipro, Capgemini, Deloitte, SAP &amp; Mindtree
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-zinc-400 hidden sm:inline-block">
+                  Annual Campus Placement Record
+                </span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
