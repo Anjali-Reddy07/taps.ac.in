@@ -146,79 +146,68 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      
-      {/* Left-Side Atmospheric Background Image */}
-      <div className="absolute left-0 top-0 bottom-0 w-full lg:w-[58%] pointer-events-none overflow-hidden z-0 select-none opacity-20 sm:opacity-25">
-        <Image
-          src="/images/drive/campus-pathway.jpg"
-          alt="Trident Campus Grounds"
-          fill
-          className="object-cover object-center filter saturate-75"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FBFBFF]/50 to-[#FBFBFF]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FBFBFF] via-transparent to-[#FBFBFF]" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* 3. ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Interactive Executive Card (Right) */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch mb-20 sm:mb-24">
           
-          {/* LEFT BENTO CELL: Institutional Overview & 2x2 Feature Chips with Full Campus Image Background */}
-          <div className="lg:col-span-7 relative flex flex-col justify-between animate-fadeInUp p-6 sm:p-8 lg:p-9 rounded-3xl bg-white/70 backdrop-blur-sm border border-indigo-100 shadow-[0_16px_40px_rgba(79,70,229,0.06)] overflow-hidden">
+          {/* LEFT BENTO CELL: Institutional Overview & 2x2 Feature Chips with Full High-Visibility Campus Image Background */}
+          <div className="lg:col-span-7 relative flex flex-col justify-between animate-fadeInUp p-6 sm:p-8 lg:p-9 rounded-3xl border border-indigo-200/90 shadow-xl overflow-hidden group">
             
-            {/* Campus Pathway Photo in Background of this Entire Left Bento Card */}
+            {/* Campus Pathway Photo in Background - High Visibility & Natural Color */}
             <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
               <Image
                 src="/images/drive/campus-pathway.jpg"
                 alt="Trident Campus Architecture"
                 fill
-                className="object-cover object-center opacity-30 filter contrast-125 saturate-110"
+                className="object-cover object-center filter contrast-105 saturate-105 transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/88 to-white/80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/85" />
+              {/* Very light ambient vignette to ground edges without obscuring the campus architecture */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-slate-950/10" />
             </div>
 
-            <div className="relative z-10 flex flex-col justify-between h-full space-y-7">
-              <div className="space-y-4">
+            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+              
+              {/* Text Header Block with Frosted Glass Scrim for Maximum Contrast & Legibility */}
+              <div className="space-y-3.5 bg-white/85 backdrop-blur-md p-6 sm:p-7 rounded-2xl border border-white/80 shadow-xs">
                 {/* Monospace Eyebrow Badge */}
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50/90 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-xs">
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
                   ABOUT TAPS
                 </div>
 
                 {/* Editorial Heading */}
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 leading-tight tracking-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 leading-tight tracking-tight">
                   Trident Academy of Professional Studies
                 </h2>
 
-                <p className="text-base sm:text-lg font-semibold text-slate-800">
+                <p className="text-base sm:text-lg font-semibold text-blue-900">
                   Premier BCA &amp; BBA Institution • Where Ambition Finds Its Direction
                 </p>
 
                 {/* Tight, High-Impact Introductory Narrative */}
-                <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
                   Functioning under the aegis of the renowned Trident Group (TACT Trust), TAPS is recognized as the undisputed No. 1 college under Utkal University for Bachelor of Business Administration (BBA) and Bachelor of Computer Application (BCA). Approved by AICTE and permanently recognized by the Higher Education Department, Govt. of Odisha, TAPS combines computational rigor with executive boardroom leadership.
                 </p>
               </div>
 
               {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
                 {accreditations.map((item) => (
                   <div
                     key={item.title}
-                    className="p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-indigo-100/90 hover:border-indigo-400 hover:bg-white hover:shadow-md hover:shadow-indigo-500/10 transition-all duration-300 shadow-2xs hover-lift group"
+                    className="p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 hover:border-blue-400 hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 shadow-sm hover-lift group"
                   >
                     <div className="flex items-center gap-2.5 mb-1.5">
                       <span className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
                         {item.icon}
                       </span>
-                      <h3 className="text-sm font-bold text-slate-900 tracking-tight">
+                      <h3 className="text-sm font-bold text-slate-950 tracking-tight">
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-xs text-slate-600 pl-9 leading-relaxed font-normal">
+                    <p className="text-xs text-slate-700 pl-9 leading-relaxed font-normal">
                       {item.desc}
                     </p>
                   </div>
@@ -237,7 +226,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
                 <button
                   onClick={onOpenQuery}
-                  className="px-6 py-3 rounded-full border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/80 text-indigo-900 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer backdrop-blur-xs"
+                  className="px-6 py-3 rounded-full bg-white/90 backdrop-blur-md border border-indigo-200 hover:border-indigo-400 hover:bg-white text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer shadow-xs"
                 >
                   Download Institutional Prospectus
                 </button>
