@@ -123,10 +123,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
     {
       badge: "ACADEMICS 02",
-      title: "Smart Lecture Theatres",
-      subtitle: "Multimedia Amphitheatres",
-      spec: "Acoustic architecture, 4K interactive projection, wireless podiums & lecture capture systems.",
-      image: "/images/drive/smart-classroom.jpg",
+      title: "School of Computing",
+      subtitle: "Block-4 Computing Wing",
+      spec: "Multimedia smart theatres, acoustic lecture rooms & interactive programming consoles.",
+      image: "/images/drive_new/1721020760290.jpg",
     },
     {
       badge: "RESEARCH 03",
@@ -136,11 +136,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
       image: "/images/drive/central-library.jpg",
     },
     {
-      badge: "CAMPUS 04",
-      title: "Infocity Campus Grounds",
-      subtitle: "Patia, Bhubaneswar",
-      spec: "Lush landscaped gardens, athletic turf, pedestrian walkways & open-air study gazebos.",
-      image: "/images/drive/campus-pathway.jpg",
+      badge: "ATHLETICS 04",
+      title: "Twilight Sports Arena",
+      subtitle: "Floodlit Basketball & Turf",
+      spec: "Multi-sport athletic grounds, basketball court, outdoor yoga pavilions & recreational greens.",
+      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
     },
   ];
 

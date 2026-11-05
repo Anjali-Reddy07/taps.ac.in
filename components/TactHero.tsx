@@ -12,39 +12,52 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Real campus facility photographs (No oversized blue logo stage backdrops)
+  // Curated High-Definition Drive Photographs
   const slides = [
     {
       eyebrow: "TACT(U) • ESTD. 2000",
       headline: "Trident Academy of Professional Studies",
       subheadline:
         "Where Ambition Finds Its Direction • Premier BBA & BCA Programs under Utkal University",
-      image: "/images/drive/campus-building.png",
-      tag: "INFOCITY TECHNOPLEX",
+      image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+      tag: "CAMPUS PROMENADE",
+      location: "Infocity, Bhubaneswar",
     },
     {
-      eyebrow: "ACCREDITED EXCELLENCE",
-      headline: "Trident Academy of Professional Studies",
+      eyebrow: "RANK #1 UNDER UTKAL UNIVERSITY",
+      headline: "Where Academic Rigor Meets Leadership",
       subheadline:
-        "Rank #1 Private BBA & BCA Institution under Utkal University • AICTE Approved & Govt. of Odisha Recognized",
-      image: "/images/drive/academic-infrastructure.png",
-      tag: "ACADEMIC WING",
+        "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
+      image: "/images/drive_new/_DSC1848.JPG",
+      tag: "MAIN GATEWAY & ARCHITECTURE",
+      location: "Patia Campus",
     },
     {
-      eyebrow: "ADVANCED COMPUTING",
-      headline: "Trident Academy of Professional Studies",
+      eyebrow: "SCHOOL OF COMPUTING (BCA)",
+      headline: "Cutting-Edge Computer Applications",
       subheadline:
-        "Hands-on Cloud, Python, Java & AI Clusters with Round-the-Clock Gigabit Fiber Connectivity",
-      image: "/images/drive/computer-lab.jpg",
-      tag: "COMPUTER APPLICATIONS LAB",
+        "High-Performance Cloud Labs, Full-Stack Software Engineering, AI Foundational Tracks & 24/7 Gigabit Fiber Network",
+      image: "/images/drive_new/1721020760290.jpg",
+      tag: "BLOCK-4 COMPUTING WING",
+      location: "Technology Cluster",
     },
     {
-      eyebrow: "RESEARCH VAULT",
-      headline: "Trident Academy of Professional Studies",
+      eyebrow: "INFOCITY CAMPUS LIFE",
+      headline: "Holistic Student Growth & Athletics",
       subheadline:
-        "Central Research Library with 50,000+ Volumes, DELNET Subscriptions & Digital Knowledge Archives",
-      image: "/images/drive/central-library.jpg",
-      tag: "CENTRAL RESEARCH LIBRARY",
+        "Floodlit Basketball Arena, Multi-Sport Grounds, Open-Air Yoga Pavilions & High-Energy Cultural Fests",
+      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+      tag: "SPORTS ARENA & ATRIUM",
+      location: "Twilight Campus View",
+    },
+    {
+      eyebrow: "CORPORATE SYNERGY & PLACEMENTS",
+      headline: "95%+ Direct Campus Placements",
+      subheadline:
+        "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 100+ Annual Corporate Recruitment Partners",
+      image: "/images/drive_new/_MG_1203.JPG",
+      tag: "RESEARCH & PLACEMENTS HUB",
+      location: "Academic Enclave",
     },
   ];
 
@@ -83,14 +96,16 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
               isActive ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
             }`}
           >
-            {/* Contained Real Campus Background Image */}
-            <div className="absolute inset-0">
+            {/* Contained Real Campus Background Image with Ken Burns Zoom Effect */}
+            <div className="absolute inset-0 overflow-hidden">
               <Image
                 src={slide.image}
                 alt="Trident Academy of Professional Studies Campus"
                 fill
                 priority={index === 0}
-                className="object-cover object-center filter grayscale-[20%]"
+                className={`object-cover object-center filter contrast-105 transition-transform duration-[7000ms] ease-out ${
+                  isActive ? "scale-105" : "scale-100"
+                }`}
                 sizes="100vw"
               />
             </div>
@@ -98,12 +113,20 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             {/* Heavy Dark Gradient Scrim Overlay in Midnight Blue & Lavender */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/80 to-[#0B1536]/40 z-10" />
 
+            {/* Top Right Floating Campus Location Tag */}
+            <div className="absolute top-6 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] text-indigo-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+              <span className="font-bold text-white uppercase tracking-wider">{slide.tag}</span>
+              <span className="text-indigo-400">•</span>
+              <span>{slide.location}</span>
+            </div>
+
             {/* Slide Content */}
             <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center">
               <div className="max-w-4xl animate-fadeInUp">
                 
                 {/* 1. Eyebrow Pill Badge */}
-                <div className="inline-flex items-center gap-2 bg-blue-900/50 text-blue-200 border border-blue-400/40 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-xs">
+                <div className="inline-flex items-center gap-2 bg-blue-900/60 text-blue-200 border border-blue-400/40 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulseGlow" />
                   <span>{slide.eyebrow}</span>
                 </div>
@@ -162,17 +185,27 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         </svg>
       </button>
 
-      {/* Pagination Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
-        {slides.map((_, i) => (
+      {/* Pagination Indicators with Animated Progress Line */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
+        {slides.map((slide, i) => (
           <button
-            key={i}
+            key={slide.tag}
             onClick={() => setCurrentSlide(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all rounded-full cursor-pointer ${
-              i === currentSlide ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40 hover:bg-white/70"
-            }`}
-          />
+            className="group relative py-2 cursor-pointer"
+          >
+            <div className={`h-1.5 rounded-full overflow-hidden transition-all duration-300 ${
+              i === currentSlide ? "w-10 sm:w-14 bg-white/20" : "w-3 sm:w-4 bg-white/30 hover:bg-white/50"
+            }`}>
+              {i === currentSlide && (
+                <div 
+                  className={`h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 rounded-full ${
+                    !isPaused ? "animate-[progress_6.5s_linear_infinite]" : "w-full"
+                  }`} 
+                />
+              )}
+            </div>
+          </button>
         ))}
       </div>
     </section>

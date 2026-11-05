@@ -9,6 +9,7 @@ import TactProgrammes from "@/components/TactProgrammes";
 import TactNews from "@/components/TactNews";
 import TactPlacements from "@/components/TactPlacements";
 import TactStudentLife from "@/components/TactStudentLife";
+import CampusGallery from "@/components/CampusGallery";
 import TactTestimonials from "@/components/TactTestimonials";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -56,7 +57,12 @@ export default function Home() {
           <TactStudentLife />
         </AnimatedBackground>
 
-        {/* SECTION 8: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
+        {/* SECTION 8: CAMPUS GALLERY (Interactive Filterable Bento Media Showcase) */}
+        <AnimatedBackground variant="light" className="border-t border-indigo-100">
+          <CampusGallery />
+        </AnimatedBackground>
+
+        {/* SECTION 9: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
         <AnimatedBackground variant="light" className="border-t border-indigo-100">
           <TactTestimonials />
         </AnimatedBackground>

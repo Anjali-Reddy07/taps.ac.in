@@ -9,39 +9,46 @@ export default function TactStudentLife() {
 
   const activities = [
     {
-      title: "Trifest",
+      title: "Trifest & Cultural Fests",
       badge: "Annual Flagship Festival",
       desc: "The premier multi-day spring festival uniting sports tournaments, coding hackathons, literary debates, fine arts, and vibrant cultural music nights.",
       icon: "🎉",
-      image: "/images/drive/trifest-celebration.jpg",
+      image: "/images/drive_new/408597638_857092866203351_6503007961027605194_n.jpg",
     },
     {
-      title: "Kartavya",
+      title: "Kartavya & Yoga Center",
       badge: "Community & Social Outreach",
-      desc: "An active student-led volunteer society committed to community welfare, disaster relief drives, blood donation camps, and environmental plantation.",
-      icon: "🤝",
-      image: "/images/drive/campus-grounds.jpg",
+      desc: "An active student-led volunteer society committed to community welfare, disaster relief drives, open-air yoga, blood donation camps, and environmental plantation.",
+      icon: "🧘",
+      image: "/images/drive_new/_DSC1854.JPG",
     },
     {
-      title: "Hostels",
+      title: "In-Campus Hostels",
       badge: "In-Campus Residential Living",
       desc: "Dedicated, secure hostels for boys and girls accommodating over 1,200 students with spacious furnished rooms, 24/7 high-speed Wi-Fi, and warden care.",
       icon: "🏢",
-      image: "/images/drive/hostel-residential.jpg",
+      image: "/images/drive_new/1414409430Capture.webp",
     },
     {
-      title: "Food Centers",
+      title: "Sports & Athletics Arena",
+      badge: "Athletics & Physical Wellness",
+      desc: "Floodlit full-scale basketball court, cricket pitch, athletic turf, volleyball, badminton courts, indoor table tennis, gymnasium, and outdoor recreation walkway.",
+      icon: "🏀",
+      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+    },
+    {
+      title: "Infocity Green Avenues",
+      badge: "Collegiate Environment",
+      desc: "Lush landscaped pedestrian walkways, royal palm tree groves, circular paved stone promenades, and serene open-air discussion gazebos.",
+      icon: "🌿",
+      image: "/images/drive_new/1746352355680.jpg",
+    },
+    {
+      title: "Food Courts & Cafeteria",
       badge: "Central Food Courts & Dining",
       desc: "Hygienic multi-cuisine cafeteria providing fresh, balanced breakfast, lunch, evening snacks, and dinner in a lively communal setting.",
       icon: "🍽️",
       image: "/images/drive/cafeteria.jpg",
-    },
-    {
-      title: "Sports & Campus Grounds",
-      badge: "Athletics & Physical Wellness",
-      desc: "Full-size cricket ground, football turf, volleyball, basketball, badminton courts, indoor table tennis, gymnasium, and outdoor recreation walkway.",
-      icon: "⚽",
-      image: "/images/drive/campus-walkway.jpg",
     },
   ];
 

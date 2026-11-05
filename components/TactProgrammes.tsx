@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface TactProgrammesProps {
@@ -82,6 +83,9 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         { name: "Cloud Computing & AI Innovation Wing", spec: "Dedicated AWS Academy sandbox, high-speed GPU accelerators & Docker containers." },
         { name: "Network & Cyber Architecture Lab", spec: "Cisco managed switches, hardware firewalls & protocol packet analysis tools." },
       ],
+      buildingImage: "/images/drive_new/1721020760290.jpg",
+      buildingTitle: "Block-4 Trident School of Computing",
+      buildingTag: "School of Computing & AI Wings",
     },
     bba: {
       code: "BBA",
@@ -153,6 +157,9 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         { name: "Executive Boardroom & GD-PI Amphitheatre", spec: "Acoustically treated corporate discussion chamber with HD presentation consoles." },
         { name: "AKASHYAAN Student Innovation & Startup Cell", spec: "Seed grant incubator with corporate mentor desks for student entrepreneurs." },
       ],
+      buildingImage: "/images/drive_new/_DSC1852.JPG",
+      buildingTitle: "Block-5 Management & Placement Tower",
+      buildingTag: "Center for Business Analytics & T&P",
     },
   };
 
@@ -502,24 +509,58 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             </div>
           )}
 
-          {/* SUB-TAB PANEL 4: LABS */}
+          {/* SUB-TAB PANEL 4: LABS & INFRASTRUCTURE */}
           {activeSubTab === "labs" && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fadeIn">
-              {current.labs.map((lab, i) => (
-                <div key={lab.name} className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 flex flex-col justify-between shadow-2xs">
-                  <div>
-                    <span className="text-xs font-mono font-bold text-blue-600 block mb-2">
-                      LAB FACILITY 0{i + 1}
-                    </span>
-                    <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug">
-                      {lab.name}
-                    </h4>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                      {lab.spec}
-                    </p>
-                  </div>
+            <div className="space-y-6 animate-fadeIn">
+              {/* Featured Faculty Infrastructure Card */}
+              <div className="relative rounded-3xl overflow-hidden border border-indigo-100/90 shadow-xl bg-slate-950 group h-64 sm:h-72 w-full">
+                <Image
+                  src={current.buildingImage}
+                  alt={current.buildingTitle}
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
+                  sizes="(max-width: 1024px) 100vw, 80vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
+                
+                {/* Floating Tag */}
+                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                  <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/40">
+                    {current.buildingTag}
+                  </span>
+                  <span className="bg-blue-600/90 text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                    Infocity Campus
+                  </span>
                 </div>
-              ))}
+
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    {current.buildingTitle}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-indigo-100/90 mt-1 font-light leading-relaxed">
+                    Dedicated academic wings equipped with modern smart theatres, enterprise servers, and specialized departmental laboratories.
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 Detailed Lab Facilities Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {current.labs.map((lab, i) => (
+                  <div key={lab.name} className="p-6 rounded-2xl bg-gradient-to-br from-white to-indigo-50/30 border border-indigo-100 flex flex-col justify-between shadow-2xs hover-lift group">
+                    <div>
+                      <span className="text-xs font-mono font-bold text-blue-600 block mb-2">
+                        LAB FACILITY 0{i + 1}
+                      </span>
+                      <h4 className="text-base font-bold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
+                        {lab.name}
+                      </h4>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                        {lab.spec}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
