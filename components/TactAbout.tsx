@@ -146,6 +146,19 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
+      
+      {/* Right Side Campus Architectural Background Accent */}
+      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] pointer-events-none overflow-hidden z-0 opacity-20 sm:opacity-25 select-none">
+        <Image
+          src="/images/drive/campus-pathway.jpg"
+          alt="Trident Campus Grounds"
+          fill
+          className="object-cover object-center filter saturate-75"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBFBFF] via-[#FBFBFF]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FBFBFF] via-transparent to-[#FBFBFF]" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* 3. ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Interactive Executive Card (Right) */}
@@ -221,10 +234,22 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="relative h-full bg-[#0B132E] text-white rounded-3xl p-7 sm:p-9 border border-indigo-900/60 shadow-2xl flex flex-col justify-between overflow-hidden">
               
-              {/* Ambient Inner Glow */}
-              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Textured Campus Photo with Luxury Dark Scrim Overlay */}
+              <div className="absolute inset-0 pointer-events-none z-0 select-none">
+                <Image
+                  src="/images/drive/campus-pathway.jpg"
+                  alt="Trident Campus Infrastructure"
+                  fill
+                  className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0B132E]/92 via-[#0B132E]/85 to-[#0B132E]/95" />
+              </div>
 
-              <div>
+              {/* Ambient Inner Glow */}
+              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none z-0" />
+
+              <div className="relative z-10">
                 {/* Active Pill Toggle Segmented Controller */}
                 <div 
                   role="tablist"
@@ -303,7 +328,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               </div>
 
               {/* Bottom Card Micro-Badge */}
-              <div className="pt-6 mt-6 border-t border-indigo-900/70 flex items-center justify-between text-[11px] text-indigo-300/80">
+              <div className="relative z-10 pt-6 mt-6 border-t border-indigo-900/70 flex items-center justify-between text-[11px] text-indigo-300/80">
                 <span>Trident Trust • Established 2000</span>
                 <span className="font-mono text-indigo-200">Patia, Bhubaneswar</span>
               </div>
