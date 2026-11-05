@@ -257,18 +257,19 @@ export default function ProgrammesPage() {
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Campus Background Image */}
+          {/* Authentic Academic Lecture Classroom Background Image */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
-              src="/images/drive_new/1721020760290.jpg"
-              alt="Trident School of Computing"
+              src="/images/academics-classroom-hero.jpg"
+              alt="TAPS Undergraduate Lecture Theatre with Faculty and Students in Uniform"
               fill
               priority
-              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              className="object-cover object-[65%_35%] filter contrast-105 opacity-45 scale-105"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+            {/* Smooth scrim: deep dark on left for text legibility, slightly visible on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/80 to-[#070D21]/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/50" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
