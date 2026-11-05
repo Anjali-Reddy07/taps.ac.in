@@ -146,19 +146,6 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      
-      {/* Right Side Campus Architectural Background Accent */}
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[48%] pointer-events-none overflow-hidden z-0 opacity-20 sm:opacity-25 select-none">
-        <Image
-          src="/images/drive/campus-pathway.jpg"
-          alt="Trident Campus Grounds"
-          fill
-          className="object-cover object-center filter saturate-75"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FBFBFF] via-[#FBFBFF]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FBFBFF] via-transparent to-[#FBFBFF]" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* 3. ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Interactive Executive Card (Right) */}
@@ -188,24 +175,38 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               </p>
             </div>
 
-            {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS */}
+            {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS WITH CAMPUS IMAGE BACKGROUND */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {accreditations.map((item) => (
                 <div
                   key={item.title}
-                  className="p-4 rounded-2xl bg-white border border-indigo-100 hover:border-indigo-400 hover:shadow-md hover:shadow-indigo-500/10 transition-all duration-300 shadow-2xs hover-lift group"
+                  className="relative overflow-hidden p-4 rounded-2xl bg-white border border-indigo-100 hover:border-indigo-400 hover:shadow-md hover:shadow-indigo-500/10 transition-all duration-300 shadow-2xs hover-lift group"
                 >
-                  <div className="flex items-center gap-2.5 mb-1.5">
-                    <span className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                      {item.icon}
-                    </span>
-                    <h3 className="text-sm font-bold text-slate-900 tracking-tight">
-                      {item.title}
-                    </h3>
+                  {/* Campus Pathway Photo in Background */}
+                  <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+                    <Image
+                      src="/images/drive/campus-pathway.jpg"
+                      alt="Trident Campus Grounds"
+                      fill
+                      className="object-cover object-center opacity-25 group-hover:opacity-35 group-hover:scale-105 transition-all duration-500 filter contrast-125 saturate-110"
+                      sizes="(max-width: 640px) 100vw, 350px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/92 via-white/85 to-indigo-50/75 group-hover:from-white/88 group-hover:via-white/78 group-hover:to-indigo-50/65 transition-colors" />
                   </div>
-                  <p className="text-xs text-slate-600 pl-9 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2.5 mb-1.5">
+                      <span className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                        {item.icon}
+                      </span>
+                      <h3 className="text-sm font-bold text-slate-900 tracking-tight">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-slate-700 pl-9 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -234,22 +235,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="relative h-full bg-[#0B132E] text-white rounded-3xl p-7 sm:p-9 border border-indigo-900/60 shadow-2xl flex flex-col justify-between overflow-hidden">
               
-              {/* Textured Campus Photo with Luxury Dark Scrim Overlay */}
-              <div className="absolute inset-0 pointer-events-none z-0 select-none">
-                <Image
-                  src="/images/drive/campus-pathway.jpg"
-                  alt="Trident Campus Infrastructure"
-                  fill
-                  className="object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0B132E]/92 via-[#0B132E]/85 to-[#0B132E]/95" />
-              </div>
-
               {/* Ambient Inner Glow */}
-              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none z-0" />
+              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="relative z-10">
+              <div>
                 {/* Active Pill Toggle Segmented Controller */}
                 <div 
                   role="tablist"
