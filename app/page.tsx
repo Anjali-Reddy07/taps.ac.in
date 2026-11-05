@@ -28,10 +28,8 @@ export default function Home() {
           <TactHero onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
-        {/* SECTION 2: ADMISSIONS OPEN BORDER-BEAM BANNER */}
-        <AnimatedBackground variant="dark" className="border-b border-indigo-900/40">
-          <TactAdmissionsBar onOpenQuery={() => setIsModalOpen(true)} />
-        </AnimatedBackground>
+        {/* SECTION 2: ADMISSIONS OPEN BORDER-BEAM BANNER & LIVE MARQUEE STRIP (ZERO GAP) */}
+        <TactAdmissionsBar onOpenQuery={() => setIsModalOpen(true)} />
 
         {/* SECTION 3: ABOUT US (TAPS Institutional Profile, Vision & Mission Cards) */}
         <AnimatedBackground variant="light">
@@ -64,10 +62,8 @@ export default function Home() {
         </AnimatedBackground>
       </main>
 
-      {/* COMPREHENSIVE INSTITUTIONAL FOOTER */}
-      <AnimatedBackground variant="dark">
-        <TactFooter onOpenQuery={() => setIsModalOpen(true)} />
-      </AnimatedBackground>
+      {/* COMPREHENSIVE INSTITUTIONAL FOOTER (SOLID BLACK) */}
+      <TactFooter onOpenQuery={() => setIsModalOpen(true)} />
 
       {/* INTERACTIVE ADMISSION QUERY MODAL */}
       <QueryModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

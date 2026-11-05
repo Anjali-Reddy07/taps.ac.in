@@ -11,18 +11,6 @@ interface TactAboutProps {
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   const [activeTab, setActiveTab] = useState<"vision" | "mission">("vision");
 
-  // Institutional Milestones for Infinite Marquee
-  const milestones = [
-    "#1 BCA & BBA College under Utkal University",
-    "124+ Annual Corporate Recruiters",
-    "2,936+ Campus Placements Over 5 Years",
-    "Permanent Recognition by Govt. of Odisha",
-    "Approved by AICTE, New Delhi",
-    "100% NET / Ph.D Pursuing Faculty",
-    "State Medhabruti & Merit Scholarship Matrix",
-    "Active MoUs with Tier-1 Tech Giants",
-  ];
-
   // 2x2 Accreditation Metrics
   const accreditations = [
     {
@@ -158,29 +146,6 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      
-      {/* 1. INFINITE RUNNING MARQUEE STRIP (Seamless Institutional Milestones) */}
-      <div className="mb-14 sm:mb-18 border-y border-indigo-900/40 bg-[#070D21] text-white relative z-10 overflow-hidden py-3 shadow-md">
-        <div className="relative overflow-hidden w-full">
-          {/* Left and Right Fade Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#070D21] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#070D21] to-transparent z-10 pointer-events-none" />
-
-          {/* Marquee Track */}
-          <div className="flex animate-marquee gap-8 sm:gap-12 items-center shrink-0">
-            {[...milestones, ...milestones].map((item, idx) => (
-              <div 
-                key={`${item}-${idx}`} 
-                className="flex items-center gap-2.5 shrink-0 text-xs sm:text-[13px] tracking-wide text-blue-100 font-medium"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.8)] animate-pulseGlow" />
-                <span className="whitespace-nowrap">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* 3. ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Interactive Executive Card (Right) */}
