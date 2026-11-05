@@ -28,9 +28,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Where Academic Rigor Meets Leadership",
       subheadline:
         "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
-      image: "/images/drive_new/_DSC1848.JPG",
-      tag: "MAIN GATEWAY & ARCHITECTURE",
-      location: "Patia Campus",
+      image: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
+      tag: "CENTRAL PROMENADE & ARCHITECTURE",
+      location: "Infocity Campus",
     },
     {
       eyebrow: "SCHOOL OF COMPUTING (BCA)",
@@ -55,8 +55,8 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "95%+ Direct Campus Placements",
       subheadline:
         "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 100+ Annual Corporate Recruitment Partners",
-      image: "/images/drive_new/_MG_1203.JPG",
-      tag: "RESEARCH & PLACEMENTS HUB",
+      image: "/images/drive_new/_DSC1852.JPG",
+      tag: "TRAINING & PLACEMENTS (BLOCK-5)",
       location: "Academic Enclave",
     },
   ];

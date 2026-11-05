@@ -13,7 +13,7 @@ export default function TactStudentLife() {
       badge: "Annual Flagship Festival",
       desc: "The premier multi-day spring festival uniting sports tournaments, coding hackathons, literary debates, fine arts, and vibrant cultural music nights.",
       icon: "🎉",
-      image: "/images/drive_new/408597638_857092866203351_6503007961027605194_n.jpg",
+      image: "/images/drive_second/Activities.jpg",
     },
     {
       title: "Kartavya & Yoga Center",
