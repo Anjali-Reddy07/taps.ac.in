@@ -6,7 +6,7 @@ import Image from "next/image";
 interface GalleryItem {
   id: string;
   title: string;
-  category: "all" | "architecture" | "tech" | "sports" | "nature";
+  category: "all" | "architecture" | "tech" | "sports" | "nature" | "events";
   tag: string;
   location: string;
   src: string;
@@ -15,7 +15,7 @@ interface GalleryItem {
 }
 
 export default function CampusGallery() {
-  const [activeFilter, setActiveFilter] = useState<"all" | "architecture" | "tech" | "sports" | "nature">("all");
+  const [activeFilter, setActiveFilter] = useState<"all" | "architecture" | "tech" | "sports" | "nature" | "events">("all");
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryItem | null>(null);
 
   const galleryItems: GalleryItem[] = [
@@ -31,25 +31,34 @@ export default function CampusGallery() {
     },
     {
       id: "2",
+      title: "Trifest Theatrical Stage Performance",
+      category: "events",
+      tag: "Cultural Fest",
+      location: "Main Stage Arena",
+      src: "/images/drive_second/Activities.jpg",
+      description: "High-energy dramatic dance & mask theatre performance on the illuminated festival stage during annual Trifest.",
+      featured: true,
+    },
+    {
+      id: "3",
       title: "Twilight Floodlit Sports Arena",
       category: "sports",
       tag: "Athletics & Life",
       location: "Sports Complex",
       src: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
       description: "Vibrant purple and lavender dusk skies over the floodlit full-court basketball and collegiate grounds.",
-      featured: true,
-    },
-    {
-      id: "3",
-      title: "Historic Traditional Archway",
-      category: "architecture",
-      tag: "Heritage",
-      location: "Main Gateway",
-      src: "/images/drive_new/_DSC1848.JPG",
-      description: "Grand traditional Odishan terracotta tiled entrance arch with incoming scholars and lush tree canopy.",
     },
     {
       id: "4",
+      title: "Annual Alumni Meet (TRANSCEND)",
+      category: "events",
+      tag: "Alumni Network",
+      location: "Shovana Hall Auditorium",
+      src: "/images/drive_second/alumni3.jpg",
+      description: "Over 100 distinguished graduates and senior faculty members celebrating the annual alumni homecoming.",
+    },
+    {
+      id: "5",
       title: "School of Computing (BCA)",
       category: "tech",
       tag: "Computing Hub",
@@ -58,7 +67,25 @@ export default function CampusGallery() {
       description: "Home of computer applications, high-performance virtualization labs, and AI innovation clusters.",
     },
     {
-      id: "5",
+      id: "6",
+      title: "Student Executive Secretariat",
+      category: "events",
+      tag: "Leadership",
+      location: "Registration Desk",
+      src: "/images/drive_second/IMG_5521.JPG",
+      description: "Student council coordinators in corporate blazers managing registrations and symposium logistics.",
+    },
+    {
+      id: "7",
+      title: "Historic Traditional Archway",
+      category: "architecture",
+      tag: "Heritage",
+      location: "Main Gateway",
+      src: "/images/drive_new/_DSC1848.JPG",
+      description: "Grand traditional Odishan terracotta tiled entrance arch with incoming scholars and lush tree canopy.",
+    },
+    {
+      id: "8",
       title: "Training & Placement Tower",
       category: "tech",
       tag: "Corporate Synergy",
@@ -67,7 +94,25 @@ export default function CampusGallery() {
       description: "Multi-floor Training & Placement cell paired with the Center for Business Analytics and Sustainability Research.",
     },
     {
-      id: "6",
+      id: "9",
+      title: "Alumni Medal Felicitation",
+      category: "events",
+      tag: "Academic Distinction",
+      location: "Auditorium Stage",
+      src: "/images/drive_second/alumni2.jpg",
+      description: "Senior professors awarding the silver medal of distinction to an accomplished Trident alumnus.",
+    },
+    {
+      id: "10",
+      title: "Academic Organizing Committee",
+      category: "events",
+      tag: "Student Council",
+      location: "Main Stage",
+      src: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+      description: "Student executive delegates and mentors coordinating inter-collegiate conference proceedings.",
+    },
+    {
+      id: "11",
       title: "Blooming Academic Promenade",
       category: "nature",
       tag: "Gardens",
@@ -76,16 +121,7 @@ export default function CampusGallery() {
       description: "Manicured shrubbery and floral planters welcoming students into the central administrative atrium.",
     },
     {
-      id: "7",
-      title: "Outdoor Athletic Turf",
-      category: "sports",
-      tag: "Recreation",
-      location: "Patia Grounds",
-      src: "/images/drive_new/486750513_1163654158880552_1418339819625812433_n.jpg",
-      description: "Spacious green athletic turf and basketball facilities under open skies.",
-    },
-    {
-      id: "8",
+      id: "12",
       title: "Central Stone Walkway",
       category: "nature",
       tag: "Campus Greenery",
@@ -125,7 +161,8 @@ export default function CampusGallery() {
             className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-indigo-100 shadow-sm"
           >
             {[
-              { id: "all", label: "All Photos" },
+              { id: "all", label: "All Highlights" },
+              { id: "events", label: "Events & Alumni" },
               { id: "architecture", label: "Architecture" },
               { id: "tech", label: "Tech & Labs" },
               { id: "sports", label: "Athletics" },
@@ -270,3 +307,4 @@ export default function CampusGallery() {
     </section>
   );
 }
+

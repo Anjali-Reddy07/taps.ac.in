@@ -61,8 +61,8 @@ export default function TactNews() {
           <div className="lg:col-span-7 bg-white/95 border border-indigo-100 hover:border-indigo-400 rounded-2xl overflow-hidden shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover-lift">
             <div className="relative h-64 sm:h-72 w-full overflow-hidden">
               <Image
-                src="/images/drive/innovation-mela.png"
-                alt="Featured Story Campus Event"
+                src="/images/drive_second/IMG_5567.JPG"
+                alt="Student Keynote Address at Trident Academic Symposium"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 60vw"
