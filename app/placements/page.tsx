@@ -82,17 +82,18 @@ export default function PlacementsPage() {
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Corporate Placement Interview Background Image */}
+          {/* Authentic Student Campus Placement Interview Background Image */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
               src="/images/placement-interview-hero.jpg"
-              alt="Corporate Campus Placement & Technical Interview Session"
+              alt="TAPS Undergraduate Student in Campus Placement Interview"
               fill
               priority
-              className="object-cover object-center filter contrast-105 opacity-45 scale-105"
+              className="object-cover object-[75%_30%] filter contrast-105 opacity-45 scale-105"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/80 to-[#070D21]/55" />
+            {/* Smooth scrim: deep dark on left for text legibility, slightly visible on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/75 to-[#070D21]/45" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/50" />
           </div>
 
