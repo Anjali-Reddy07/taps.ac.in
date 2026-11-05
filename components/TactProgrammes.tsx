@@ -83,9 +83,9 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         { name: "Cloud Computing & AI Innovation Wing", spec: "Dedicated AWS Academy sandbox, high-speed GPU accelerators & Docker containers." },
         { name: "Network & Cyber Architecture Lab", spec: "Cisco managed switches, hardware firewalls & protocol packet analysis tools." },
       ],
-      buildingImage: "/images/drive_new/1721020760290.jpg",
-      buildingTitle: "Block-4 Trident School of Computing",
-      buildingTag: "School of Computing & AI Wings",
+      buildingImage: "/images/drive_third/ClassRooms_Academic.JPG",
+      buildingTitle: "Trident School of Computing & Smart Amphitheatres",
+      buildingTag: "Smart Computing & Tech Wing",
     },
     bba: {
       code: "BBA",
@@ -157,9 +157,9 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
         { name: "Executive Boardroom & GD-PI Amphitheatre", spec: "Acoustically treated corporate discussion chamber with HD presentation consoles." },
         { name: "AKASHYAAN Student Innovation & Startup Cell", spec: "Seed grant incubator with corporate mentor desks for student entrepreneurs." },
       ],
-      buildingImage: "/images/drive_new/_DSC1852.JPG",
-      buildingTitle: "Block-5 Management & Placement Tower",
-      buildingTag: "Center for Business Analytics & T&P",
+      buildingImage: "/images/drive_third/MBA_seminar_1.jpeg",
+      buildingTitle: "Executive Management & Business Seminar Hall",
+      buildingTag: "Center for Business Leadership & Case Studies",
     },
   };
 

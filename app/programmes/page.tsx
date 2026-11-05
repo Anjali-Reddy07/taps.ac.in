@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -19,6 +20,8 @@ export default function ProgrammesPage() {
       degree: "3-Year Full-Time Degree • 6 Semesters",
       affiliation: "Affiliated to Utkal University • Approved by AICTE, New Delhi",
       intake: "128 Seats Approved",
+      photo: "/images/drive_third/ClassRooms_Academic.JPG",
+      photoCaption: "Smart Computing Amphitheatre • Official TACT Lecture Theatre",
       tagline: "High-Performance Computational Systems, Full-Stack Development & AI Foundations",
       summary:
         "The BCA programme at TAPS is engineered to transform students into enterprise-ready software developers, cloud architects, and data engineers. Taught by 100% NET/Ph.D qualified faculty with round-the-clock access to cloud computing clusters.",
@@ -134,6 +137,8 @@ export default function ProgrammesPage() {
       affiliation: "Affiliated to Utkal University • Approved by AICTE, New Delhi",
       intake: "128 Seats Approved",
       tagline: "Strategic Leadership, Financial Acumen, Corporate Analytics & Entrepreneurship",
+      photo: "/images/drive_third/MBA_seminar_1.jpeg",
+      photoCaption: "Corporate Business Seminar Hall • Management Case Study Sessions",
       summary:
         "The BBA programme at TAPS builds executive competencies, commercial acumen, and strategic managerial thought. Designed in alignment with Utkal University's CBCS syllabus with specialized industry immersions in FinTech, Digital Marketing, and Supply Chain Analytics.",
       highlights: [

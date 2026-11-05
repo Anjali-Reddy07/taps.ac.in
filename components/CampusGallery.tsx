@@ -129,6 +129,42 @@ export default function CampusGallery() {
       src: "/images/drive_new/1746352355680.jpg",
       description: "Symmetrical paved pathway framed by royal palms, flower borders, and open discussion areas.",
     },
+    {
+      id: "13",
+      title: "Smart Amphitheatre Lecture Theatre",
+      category: "tech",
+      tag: "Academic Amphitheatre",
+      location: "Lecture Theatre 1",
+      src: "/images/drive_third/ClassRooms_Academic.JPG",
+      description: "Undergraduate scholars attending an interactive lecture in the multimedia smart amphitheatre.",
+    },
+    {
+      id: "14",
+      title: "Live Corporate Campus Interview",
+      category: "events",
+      tag: "Campus Placements",
+      location: "Block-5 Interview Suites",
+      src: "/images/drive_third/Placement_DSC_2425.JPG",
+      description: "Visiting corporate recruiter conducting a one-on-one technical assessment with a final-year candidate.",
+    },
+    {
+      id: "15",
+      title: "Annual Campus Athletic Sprint Meet",
+      category: "sports",
+      tag: "Annual Sports",
+      location: "Athletic Sprint Track",
+      src: "/images/drive_third/Sports_IMG20260205104055.jpg",
+      description: "Student sprinters competing at the starting blocks during the annual campus athletics championship.",
+    },
+    {
+      id: "16",
+      title: "Central Research & DELNET Library",
+      category: "architecture",
+      tag: "Knowledge Vault",
+      location: "Central Library",
+      src: "/images/drive_third/Library_Library.JPG",
+      description: "Scholars researching reference volumes, journals, and digital periodicals in the quiet study wing.",
+    },
   ];
 
   const filteredItems =

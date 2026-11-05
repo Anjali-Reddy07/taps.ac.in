@@ -38,7 +38,7 @@ export default function FacilitiesPage() {
         "High-Lumen HD Projectors with Surround Audio",
         "Integrated Hybrid Video Conferencing for Expert Talks",
       ],
-      image: "/images/drive/smart-classroom.jpg",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
     },
     {
       id: "central-library",
@@ -52,7 +52,7 @@ export default function FacilitiesPage() {
         "Air-Conditioned Quiet Study Enclosures & Research Cubicles",
         "Fully Automated Barcode & RFID Book Circulation",
       ],
-      image: "/images/drive/central-library.jpg",
+      image: "/images/drive_third/Library_Library.JPG",
     },
     {
       id: "hostels",
@@ -94,7 +94,7 @@ export default function FacilitiesPage() {
         "Experienced Drivers & Conductor Support",
         "Comfortable High-Back Seating & Emergency Toolkits",
       ],
-      image: "/images/drive/transportation.png",
+      image: "/images/drive_third/Facilities_transportation.png",
     },
     {
       id: "sports-grounds",
@@ -108,7 +108,7 @@ export default function FacilitiesPage() {
         "Indoor Table Tennis, Chess & Carrom Chambers",
         "Modern Fitness Gymnasium with Certified Trainer",
       ],
-      image: "/images/drive/campus-grounds.jpg",
+      image: "/images/drive_third/Sports_IMG20260205104055.jpg",
     },
     {
       id: "campus-walkway",

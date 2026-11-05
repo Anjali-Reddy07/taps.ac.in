@@ -123,24 +123,24 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
     {
       badge: "ACADEMICS 02",
-      title: "School of Computing",
-      subtitle: "Block-4 Computing Wing",
-      spec: "Multimedia smart theatres, acoustic lecture rooms & interactive programming consoles.",
-      image: "/images/drive_new/1721020760290.jpg",
+      title: "Smart Lecture Amphitheatres",
+      subtitle: "Interactive Computing Theatres",
+      spec: "Multimedia smart theatres, acoustic lecture halls & interactive presentation consoles.",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
     },
     {
       badge: "RESEARCH 03",
       title: "Central Research Library",
       subtitle: "Digital & Physical Archives",
       spec: "Over 50,000 reference volumes, DELNET subscriptions & air-conditioned study pods.",
-      image: "/images/drive/central-library.jpg",
+      image: "/images/drive_third/Library_Library.JPG",
     },
     {
       badge: "ATHLETICS 04",
-      title: "Twilight Sports Arena",
-      subtitle: "Floodlit Basketball & Turf",
-      spec: "Multi-sport athletic grounds, basketball court, outdoor yoga pavilions & recreational greens.",
-      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+      title: "Athletic Meet Grounds & Arena",
+      subtitle: "Full-Track Sports Complex",
+      spec: "Multi-sport athletic grounds, sprint tracks, basketball courts & recreational greens.",
+      image: "/images/drive_third/Sports_IMG20260205104055.jpg",
     },
   ];
 

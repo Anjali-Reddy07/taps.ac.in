@@ -32,9 +32,9 @@ export default function TactStudentLife() {
     {
       title: "Sports & Athletics Arena",
       badge: "Athletics & Physical Wellness",
-      desc: "Floodlit full-scale basketball court, cricket pitch, athletic turf, volleyball, badminton courts, indoor table tennis, gymnasium, and outdoor recreation walkway.",
+      desc: "Floodlit full-scale basketball court, cricket pitch, athletic turf, sprint tracks, volleyball, gymnasium, and outdoor recreation walkway.",
       icon: "🏀",
-      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+      image: "/images/drive_third/Sports_IMG20260205104055.jpg",
     },
     {
       title: "Infocity Green Avenues",

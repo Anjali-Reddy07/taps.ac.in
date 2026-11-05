@@ -113,6 +113,87 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           </div>
         </div>
 
+        {/* Live Corporate Recruitment Lifecycle Showcase */}
+        <div className="mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-300 uppercase tracking-widest mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              On-Campus Recruitment Infrastructure
+            </div>
+            <h3 className="text-xl sm:text-3xl font-light text-white tracking-tight">
+              From Pre-Placement Talk to Final Offer Rollout
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                step: "01",
+                title: "Aptitude & Screening",
+                desc: "High-capacity computer-based examination halls with invigilation for preliminary screening tests.",
+                img: "/images/drive_third/Placement_Trident-Placement-2.jpg",
+                badge: "Phase 1: Online Test",
+              },
+              {
+                step: "02",
+                title: "Executive GD Chambers",
+                desc: "Acoustically insulated discussion suites for corporate case study debates and group evaluation.",
+                img: "/images/drive_third/Placement_GD-Halls.jpg",
+                badge: "Phase 2: Group Discussion",
+              },
+              {
+                step: "03",
+                title: "Corporate Interview Desks",
+                desc: "Dedicated personal interview cabins where recruiters from TCS, Infosys, and Deloitte interact 1-on-1.",
+                img: "/images/drive_third/Placement_DSC_2425.JPG",
+                badge: "Phase 3: Technical & HR",
+              },
+              {
+                step: "04",
+                title: "Tier-1 Recruiter Network",
+                desc: "Direct corporate tie-ups with Fortune 500 IT giants, consulting firms, and premier financial institutions.",
+                img: "/images/drive_third/Placement_Trident-Placement-1.jpeg",
+                badge: "Phase 4: Final Offers",
+              },
+            ].map((item) => (
+              <div
+                key={item.step}
+                className="group relative rounded-2xl overflow-hidden border border-indigo-900/70 bg-[#0B132E] shadow-xl hover:border-indigo-400/80 transition-all duration-300 hover-lift flex flex-col justify-between"
+              >
+                <div className="relative h-44 w-full overflow-hidden bg-slate-950">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B132E] via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600/90 text-white backdrop-blur-xs shadow-xs">
+                      {item.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="text-[11px] font-mono text-cyan-300 font-bold mb-1">
+                      STEP {item.step}
+                    </div>
+                    <h4 className="text-base font-bold text-white tracking-tight mb-1.5 group-hover:text-cyan-200 transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-indigo-200/80 font-light leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Recruiter Logos - Smooth Continuous Marquee Animation */}
         <div className="mb-14 overflow-hidden relative">
           <div className="text-center text-xs sm:text-sm uppercase tracking-[0.2em] text-indigo-300 mb-6 font-semibold">

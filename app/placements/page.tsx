@@ -137,6 +137,80 @@ export default function PlacementsPage() {
           </section>
         </AnimatedBackground>
 
+        {/* ON-CAMPUS RECRUITMENT INFRASTRUCTURE & PROCESS */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+                Live Drive Infrastructure
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Dedicated Campus Placement Suites
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                From online assessments to final HR interviews, TAPS hosts visiting recruiters across modern facilities within the campus.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Aptitude Examination Halls",
+                  desc: "Spacious test centers equipped for concurrent online screening exams.",
+                  img: "/images/drive_third/Placement_Trident-Placement-2.jpg",
+                  tag: "Testing Halls",
+                },
+                {
+                  title: "Group Discussion Suites",
+                  desc: "Acoustically optimized round-table rooms for candidate evaluation.",
+                  img: "/images/drive_third/Placement_GD-Halls.jpg",
+                  tag: "GD Suites",
+                },
+                {
+                  title: "Corporate Interview Desks",
+                  desc: "Executive interview booths for technical and managerial rounds.",
+                  img: "/images/drive_third/Placement_DSC_2425.JPG",
+                  tag: "Interview Cabins",
+                },
+                {
+                  title: "Major Recruiter Network",
+                  desc: "Over 100 corporate recruiting partners visiting each season.",
+                  img: "/images/drive_third/Placement_Trident-Placement-1.jpeg",
+                  tag: "Hiring Partners",
+                },
+              ].map((c) => (
+                <div
+                  key={c.title}
+                  className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-2xs hover:border-zinc-400 transition-all duration-300 group"
+                >
+                  <div className="relative h-44 w-full overflow-hidden bg-zinc-100">
+                    <Image
+                      src={c.img}
+                      alt={c.title}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
+                        {c.tag}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-sm sm:text-base font-bold text-zinc-950 mb-1">
+                      {c.title}
+                    </h4>
+                    <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                      {c.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </AnimatedBackground>
+
         {/* 3-TIER TRAINING PIPELINE: LIGHT VARIANT */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">

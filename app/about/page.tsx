@@ -352,6 +352,81 @@ export default function AboutPage() {
           </section>
         </AnimatedBackground>
 
+        {/* CAMPUS ENVIRONMENT & ACADEMIC CULTURE VISUAL SHOWCASE */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            <div className="text-center max-w-2xl mx-auto mb-14 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+                Campus Atmosphere
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Where Academic Rigor Meets Corporate Readiness
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                Take a glimpse into our modern amphitheatre lecture halls, central reference libraries, and executive seminar environments.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Tiered Lecture Theatres",
+                  subtitle: "Faculty-Mentored Pedagogy",
+                  desc: "Acoustically engineered amphitheatre rooms hosting interactive BCA & BBA lectures and code reviews.",
+                  img: "/images/drive_third/ClassRooms__MG_2339.JPG",
+                  tag: "Lecture Theatres",
+                },
+                {
+                  title: "Central Research Library",
+                  subtitle: "50,000+ Volume Archives",
+                  desc: "Spacious reading halls with full DELNET access, research journals, and air-conditioned individual study pods.",
+                  img: "/images/drive_third/Library_Library.JPG",
+                  tag: "Knowledge Hub",
+                },
+                {
+                  title: "Executive Seminar Halls",
+                  subtitle: "Industry Colloquium & Case Studies",
+                  desc: "Smart presentation suites where corporate leaders, visiting faculty, and scholars debate real-world market cases.",
+                  img: "/images/drive_third/MBA_seminar_1.jpeg",
+                  tag: "Seminar Suites",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white border border-zinc-200 rounded-3xl overflow-hidden shadow-2xs hover:border-zinc-400 transition-all duration-300 group hover-lift flex flex-col justify-between"
+                >
+                  <div className="relative h-56 w-full overflow-hidden bg-zinc-100">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-black backdrop-blur-xs shadow-xs">
+                        {item.tag}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 font-bold mb-1">
+                      {item.subtitle}
+                    </div>
+                    <h3 className="text-lg font-bold text-zinc-950 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </AnimatedBackground>
+
         {/* HISTORICAL TIMELINE: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
