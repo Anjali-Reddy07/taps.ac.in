@@ -89,12 +89,12 @@ export default function PlacementsPage() {
               alt="TAPS Undergraduate Student in Campus Placement Interview"
               fill
               priority
-              className="object-cover object-[75%_30%] filter contrast-105 opacity-45 scale-105"
+              className="object-cover object-[75%_30%] filter contrast-105 saturate-105 opacity-85 scale-100"
               sizes="100vw"
             />
-            {/* Smooth scrim: deep dark on left for text legibility, slightly visible on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/75 to-[#070D21]/45" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/50" />
+            {/* Smooth scrim: deep dark on left for text legibility, clear and visible on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/92 via-[#070D21]/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-[#070D21]/20" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
