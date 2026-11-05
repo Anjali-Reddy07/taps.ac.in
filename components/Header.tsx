@@ -11,7 +11,6 @@ interface HeaderProps {
 export default function Header({ onOpenQuery }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +23,6 @@ export default function Header({ onOpenQuery }: HeaderProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const academicsList = [
-    { name: "BCA — Computer Applications", href: "/programmes", desc: "3-Year Degree • Cloud, AI foundations & full-stack development" },
-    { name: "BBA — Business Administration", href: "/programmes", desc: "3-Year Degree • Managerial finance, marketing & strategy" },
-  ];
 
   return (
     <>
@@ -184,46 +178,13 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 About
               </Link>
 
-              {/* Academics Dropdown */}
-              <div
-                className="relative py-1 cursor-pointer group"
-                onMouseEnter={() => setActiveDropdown("academics")}
-                onMouseLeave={() => setActiveDropdown(null)}
+              {/* Academics: Direct Clean Link (No Dropdown) */}
+              <Link
+                href="/programmes"
+                className="relative py-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
               >
-                <Link 
-                  href="/programmes"
-                  className="flex items-center gap-1 text-xs xl:text-[13px] 2xl:text-sm tracking-[0.08em] xl:tracking-[0.1em] uppercase font-bold text-slate-800 hover:text-blue-600 transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 group-hover:after:w-full after:bg-gradient-to-r after:from-blue-600 after:via-indigo-500 after:to-purple-500 after:transition-all after:duration-300"
-                >
-                  <span>Academics</span>
-                  <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </Link>
-
-                {activeDropdown === "academics" && (
-                  <div className="absolute top-full left-0 pt-2 w-84 z-50">
-                    <div className="bg-white border border-indigo-100 rounded-2xl p-4 shadow-[0_16px_36px_rgba(79,70,229,0.12)] space-y-2 animate-fadeIn">
-                      <div className="text-[11px] tracking-[0.2em] uppercase font-bold text-indigo-500 px-3 pt-1 pb-1.5 border-b border-indigo-50">
-                        Undergraduate Degree Programs
-                      </div>
-                      {academicsList.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="block p-3 rounded-xl hover:bg-indigo-50/60 transition-all group/item"
-                        >
-                          <div className="text-sm font-bold text-slate-900 group-hover/item:text-blue-600 group-hover/item:translate-x-0.5 transition-all">
-                            {item.name}
-                          </div>
-                          <div className="text-xs text-slate-600 mt-1 leading-relaxed">
-                            {item.desc}
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+                Academics
+              </Link>
 
               <Link
                 href="/facilities"
