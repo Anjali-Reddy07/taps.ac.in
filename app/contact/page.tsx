@@ -60,8 +60,14 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-white text-black font-sans font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-zinc-200 transition-colors"
                 >
-                  <span>Chat on WhatsApp (+91 63715 12551) ↗</span>
+                  <span>Chat on WhatsApp ↗</span>
                 </a>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="flex items-center gap-2 bg-zinc-900 border border-zinc-700 text-white font-sans font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-zinc-800 transition-colors cursor-pointer"
+                >
+                  <span>Online Admission Inquiry ↗</span>
+                </button>
               </div>
             </div>
           </section>
@@ -80,7 +86,7 @@ export default function ContactPage() {
                     Institutional Office
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
-                    Campus Coordinates &amp; Helplines
+                    Campus Coordinates &amp; Office Desk
                   </h2>
                 </div>
 
@@ -98,20 +104,6 @@ export default function ContactPage() {
                     </p>
                     <div className="mt-2 text-xs text-zinc-500 font-medium">
                       Landmark: Behind Infosys Development Center
-                    </div>
-                  </div>
-
-                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
-                      Admissions Helpline
-                    </div>
-                    <div className="space-y-1">
-                      <p className="font-semibold text-zinc-950">
-                        +91 63715 12551 / +91 94370 12551
-                      </p>
-                      <p className="text-zinc-600 text-xs">
-                        Landline: +91 (0674) 6649003 / 6649036
-                      </p>
                     </div>
                   </div>
 
