@@ -132,8 +132,23 @@ export default function FacilitiesPage() {
 
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800">
-          <section className="relative py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Authentic Campus Life & Infrastructure Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/facilities-campus-hero.jpg"
+              alt="TAPS Campus Life, Student Activities & Technoplex Amenities"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 saturate-105 opacity-80 scale-100"
+              sizes="100vw"
+            />
+            {/* Smooth scrim: deep dark on left for text legibility, clear and visible on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 to-[#070D21]/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-[#070D21]/30" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Campus Infrastructure &amp; Amenities
