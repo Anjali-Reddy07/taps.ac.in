@@ -133,19 +133,19 @@ export default function FacilitiesPage() {
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Campus Life & Infrastructure Background Image */}
+          {/* Authentic Campus Life & Cultural Fest Stage Background Image */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
-              src="/images/facilities-campus-hero.jpg"
-              alt="TAPS Campus Life, Student Activities & Technoplex Amenities"
+              src="/images/facilities-concert-hero.jpg"
+              alt="TAPS Campus Fest, Cultural Performances & Student Life"
               fill
               priority
-              className="object-cover object-center filter contrast-105 saturate-105 opacity-80 scale-100"
+              className="object-cover object-[68%_40%] filter contrast-105 saturate-110 opacity-80 scale-100"
               sizes="100vw"
             />
-            {/* Smooth scrim: deep dark on left for text legibility, clear and visible on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 to-[#070D21]/25" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-[#070D21]/30" />
+            {/* Smooth scrim: deep dark on left for text legibility, clear and vibrant on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/65 to-[#070D21]/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-[#070D21]/30" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
