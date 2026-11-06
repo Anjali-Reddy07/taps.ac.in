@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import StippleType from "@/components/StippleType";
 
 interface Notice {
   id: string;
@@ -139,13 +138,9 @@ export default function NoticesPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Official Institutional Circulars
               </div>
-              <div className="mb-6">
-                <StippleType
-                  text="Live Notice Board & University Circulars"
-                  as="h1"
-                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
-                />
-              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Live Notice Board &amp; University Circulars
+              </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Official updates regarding Utkal University semester examinations, campus placement drives, 
                 merit scholarships, and student activities at Trident Academy of Professional Studies.

@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import StippleType from "@/components/StippleType";
 
 export default function AdmissionPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -124,13 +123,9 @@ export default function AdmissionPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Admissions Session 2026-27 Open
               </div>
-              <div className="mb-6">
-                <StippleType
-                  text="Begin Your Professional Journey at TAPS"
-                  as="h1"
-                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
-                />
-              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Begin Your Professional Journey at TAPS
+              </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Applications are invited for full-time three-year undergraduate degrees in 
                 <strong className="text-white font-medium"> BCA (Bachelor of Computer Applications)</strong> and 

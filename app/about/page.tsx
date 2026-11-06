@@ -9,7 +9,6 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import ReelGallery from "@/components/ReelGallery";
-import StippleType from "@/components/StippleType";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -228,13 +227,9 @@ export default function AboutPage() {
                 <span>TACT Trust • Estd. 2000 • Utkal University</span>
               </div>
 
-              <div className="mb-6">
-                <StippleType
-                  text="Legacy of Academic Excellence Since 2000"
-                  as="h1"
-                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
-                />
-              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Legacy of Academic Excellence Since 2000
+              </h1>
               
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Operating under the aegis of the renowned <strong className="text-white font-medium">TACT Trust</strong>, 

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ReelGallery from "@/components/ReelGallery";
-import StippleType from "@/components/StippleType";
 
 interface TactHeroProps {
   onOpenQuery?: () => void;
@@ -154,15 +153,10 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                   <span>{slide.eyebrow}</span>
                 </div>
 
-                {/* 2. Main Headline with StippleType Marbled Ink */}
-                <div className="mb-2">
-                  <StippleType
-                    key={slide.headline}
-                    text={slide.headline}
-                    as="h1"
-                    className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none"
-                  />
-                </div>
+                {/* 2. Main Headline */}
+                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2">
+                  {slide.headline}
+                </h1>
 
                 {/* 3. Subheadline */}
                 <p className="text-blue-100/90 text-base sm:text-lg max-w-2xl font-light mt-4 sm:mt-5 leading-relaxed">

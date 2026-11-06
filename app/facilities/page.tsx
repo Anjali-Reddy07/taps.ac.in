@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import StippleType from "@/components/StippleType";
 
 export default function FacilitiesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -155,13 +154,9 @@ export default function FacilitiesPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Campus Infrastructure &amp; Amenities
               </div>
-              <div className="mb-6">
-                <StippleType
-                  text="11-Acre Modern Technoplex in Infocity"
-                  as="h1"
-                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
-                />
-              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                11-Acre Modern Technoplex in Infocity
+              </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 From high-density cloud computing labs to research libraries and comfortable on-campus residential hostels, 
                 TAPS provides a world-class environment designed for academic rigor, innovation, and holistic living.
