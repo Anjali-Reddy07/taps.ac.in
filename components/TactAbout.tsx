@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 interface TactAboutProps {
   onOpenQuery?: () => void;
@@ -12,12 +13,13 @@ interface TactAboutProps {
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   const [activeTab, setActiveTab] = useState<"vision" | "mission">("vision");
 
-  // 2x2 Accreditation Metrics
+  // 2x2 Accreditation Metrics with Animated Counters
   const accreditations = [
     {
+      metric: "#1",
       title: "Utkal Univ Affiliated",
-      desc: "Affiliated to Utkal University with Govt. of Odisha approval.",
-      badge: "AFFILIATED",
+      desc: "Rank 1 college under Utkal University with Govt. of Odisha approval.",
+      badge: "BENCHMARK",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -25,8 +27,9 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
       ),
     },
     {
+      metric: "100%",
       title: "100% Ph.D / NET Faculty",
-      desc: "Scholars from premier universities and institutes.",
+      desc: "Scholars from premier universities and academic institutes.",
       badge: "DOCTORAL",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,9 +38,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
       ),
     },
     {
+      metric: "26+",
       title: "AICTE & State Approved",
-      desc: "Permanently recognized by Higher Education Dept.",
-      badge: "RECOGNIZED",
+      desc: "Permanently recognized by Higher Education Department.",
+      badge: "ACCREDITED",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -45,9 +49,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
       ),
     },
     {
+      metric: "138+",
       title: "Tier-1 Industry MoUs",
-      desc: "Direct corporate hiring pipeline & live projects.",
-      badge: "TIER-1 TIE-UPS",
+      desc: "Direct corporate hiring pipelines & live enterprise projects.",
+      badge: "CORPORATE",
       icon: (
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -208,7 +213,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 </p>
               </div>
 
-              {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS WITH HOVER LIFT & GLOW */}
+              {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS WITH ANIMATED SPEEDOMETER COUNTERS & HOVER LIFT */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
                 {accreditations.map((item, idx) => (
                   <motion.div
@@ -217,25 +222,33 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.45, delay: 0.15 + idx * 0.08 }}
-                    whileHover={{ y: -4, scale: 1.015 }}
+                    whileHover={{ y: -5, scale: 1.02 }}
                     whileTap={{ scale: 0.985 }}
-                    className="p-4 rounded-2xl bg-white border border-indigo-100 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/12 transition-all duration-300 shadow-xs group cursor-default relative overflow-hidden"
+                    className="p-4 rounded-2xl bg-white border border-indigo-100 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/15 transition-all duration-300 shadow-xs group cursor-default relative overflow-hidden"
                   >
                     {/* Subtle Top Gradient Shimmer on Hover */}
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    <div className="flex items-center gap-2.5 mb-1.5">
-                      <motion.span 
-                        whileHover={{ rotate: 8, scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                        className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs"
-                      >
-                        {item.icon}
-                      </motion.span>
-                      <h3 className="text-sm font-bold text-slate-950 tracking-tight group-hover:text-blue-700 transition-colors">
-                        {item.title}
-                      </h3>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-2.5">
+                        <motion.span 
+                          whileHover={{ rotate: 8, scale: 1.15 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                          className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs"
+                        >
+                          {item.icon}
+                        </motion.span>
+                        <h3 className="text-sm font-bold text-slate-950 tracking-tight group-hover:text-blue-700 transition-colors">
+                          {item.title}
+                        </h3>
+                      </div>
+                      
+                      {/* Bold Speedometer Motion-Blur Counter Badge */}
+                      <span className="text-lg sm:text-xl font-extrabold text-blue-700 font-serif leading-none tracking-tight shrink-0 bg-blue-50/80 border border-blue-200/60 px-2.5 py-1 rounded-lg shadow-2xs group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <SpeedometerCounter value={item.metric} duration={1.6} delay={idx * 0.12} />
+                      </span>
                     </div>
+
                     <p className="text-xs text-slate-600 pl-9 leading-relaxed font-normal">
                       {item.desc}
                     </p>
