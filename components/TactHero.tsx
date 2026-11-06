@@ -120,9 +120,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         />
       </div>
 
-      {/* Atmospheric Balanced Dark Gradient Scrim for Flawless Text Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/40 z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/75 to-transparent z-10 pointer-events-none" />
+      {/* Full-Bleed Complete Dark Mask: Covers the entire hero section uniformly */}
+      <div className="absolute inset-0 bg-[#070D21]/82 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/90 via-transparent to-[#070D21]/90 z-10 pointer-events-none" />
 
       {/* Background Slides with Cross-Fade */}
       {slides.map((slide, index) => {

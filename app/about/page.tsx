@@ -207,9 +207,9 @@ export default function AboutPage() {
               className="w-full h-full opacity-90"
             />
           </div>
-          {/* Balanced Dark Scrim: Solid text contrast on left, vibrant gliding reels on right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/80 to-[#070D21]/20 z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/50 z-10 pointer-events-none" />
+          {/* Full-Bleed Complete Dark Mask: Covers the entire hero section uniformly */}
+          <div className="absolute inset-0 bg-[#070D21]/82 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/90 via-transparent to-[#070D21]/90 z-10 pointer-events-none" />
 
           <section className="relative z-10 py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <motion.div 

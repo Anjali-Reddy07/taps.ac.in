@@ -384,36 +384,6 @@ export default function ReelGallery({
       }
 
       ctx.restore();
-
-      // Top, Bottom, Left & Right Vignette Edge Fades
-      if (fade > 0) {
-        // Left Fade
-        const leftGrad = ctx.createLinearGradient(0, 0, width * 0.18, 0);
-        leftGrad.addColorStop(0, "#070D21");
-        leftGrad.addColorStop(1, "transparent");
-        ctx.fillStyle = leftGrad;
-        ctx.fillRect(0, 0, width * 0.18, height);
-
-        // Right Fade
-        const rightGrad = ctx.createLinearGradient(width * (1 - 0.18), 0, width, 0);
-        rightGrad.addColorStop(0, "transparent");
-        rightGrad.addColorStop(1, "#070D21");
-        ctx.fillStyle = rightGrad;
-        ctx.fillRect(width * (1 - 0.18), 0, width * 0.18, height);
-
-        // Top & Bottom Vignette Scrims
-        const topGrad = ctx.createLinearGradient(0, 0, 0, height * 0.22);
-        topGrad.addColorStop(0, "#070D21");
-        topGrad.addColorStop(1, "transparent");
-        ctx.fillStyle = topGrad;
-        ctx.fillRect(0, 0, width, height * 0.22);
-
-        const bottomGrad = ctx.createLinearGradient(0, height * 0.78, 0, height);
-        bottomGrad.addColorStop(0, "transparent");
-        bottomGrad.addColorStop(1, "#070D21");
-        ctx.fillStyle = bottomGrad;
-        ctx.fillRect(0, height * 0.78, width, height * 0.22);
-      }
     };
 
     animationFrameId = requestAnimationFrame(render);
