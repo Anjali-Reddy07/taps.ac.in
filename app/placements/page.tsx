@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
+import ShatterType from "@/components/ShatterType";
 
 export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -115,12 +116,12 @@ export default function PlacementsPage() {
               alt="TAPS Undergraduate Student in Campus Placement Interview"
               fill
               priority
-              className="object-cover object-[75%_30%] filter contrast-105 opacity-55 scale-100"
+              className="object-cover object-[75%_30%] filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />
-            {/* Balanced scrim: deep dark on left for text legibility, subtle atmospheric visibility on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/75 to-[#070D21]/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/70 via-transparent to-[#070D21]/40" />
+            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/60 via-35% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-transparent" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
@@ -128,9 +129,13 @@ export default function PlacementsPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Training &amp; Placement Cell
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
-                Where Undergraduate Ambition Meets Global Industry
-              </h1>
+              <div className="mb-6">
+                <ShatterType
+                  text="Where Undergraduate Ambition Meets Global Industry"
+                  as="h1"
+                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
+                />
+              </div>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 The Placement Cell of the Institute conducts extensive research on the recruitment process of numerous companies to guide its students to their preferred jobs in their area of specialization.
               </p>

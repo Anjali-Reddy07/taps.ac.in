@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ReelGallery from "@/components/ReelGallery";
+import ShatterType from "@/components/ShatterType";
 
 interface TactHeroProps {
   onOpenQuery?: () => void;
@@ -113,16 +114,16 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
           speedVariance={0.45}
           alternate={true}
           radius={12}
-          grayscale={0.10}
-          dim={0.18}
-          fade={0.15}
-          className="w-full h-full opacity-95"
+          grayscale={0.05}
+          dim={0.10}
+          fade={0.12}
+          className="w-full h-full opacity-100"
         />
       </div>
 
-      {/* Full-Bleed Complete Dark Mask: Covers the entire hero section uniformly */}
-      <div className="absolute inset-0 bg-[#070D21]/82 z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/90 via-transparent to-[#070D21]/90 z-10 pointer-events-none" />
+      {/* One-Sided Left-to-Right Shaded Scrim: Deep dark on left for text legibility, fading out to transparent on right for maximum reel visibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 via-35% to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* Background Slides with Cross-Fade */}
       {slides.map((slide, index) => {
@@ -153,10 +154,15 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                   <span>{slide.eyebrow}</span>
                 </div>
 
-                {/* 2. Main Headline */}
-                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none">
-                  {slide.headline}
-                </h1>
+                {/* 2. Main Headline with ShatterType Glass Fracture */}
+                <div className="mb-2">
+                  <ShatterType
+                    key={slide.headline}
+                    text={slide.headline}
+                    as="h1"
+                    className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none"
+                  />
+                </div>
 
                 {/* 3. Subheadline */}
                 <p className="text-blue-100/90 text-base sm:text-lg max-w-2xl font-light mt-4 sm:mt-5 leading-relaxed">

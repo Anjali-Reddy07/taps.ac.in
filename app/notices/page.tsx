@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import ShatterType from "@/components/ShatterType";
 
 interface Notice {
   id: string;
@@ -125,11 +126,12 @@ export default function NoticesPage() {
               alt="Trident Campus Notice Board"
               fill
               priority
-              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
+              className="object-cover object-center filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/60 via-35% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-transparent" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
@@ -137,9 +139,13 @@ export default function NoticesPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Official Institutional Circulars
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
-                Live Notice Board &amp; University Circulars
-              </h1>
+              <div className="mb-6">
+                <ShatterType
+                  text="Live Notice Board & University Circulars"
+                  as="h1"
+                  className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
+                />
+              </div>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Official updates regarding Utkal University semester examinations, campus placement drives, 
                 merit scholarships, and student activities at Trident Academy of Professional Studies.
