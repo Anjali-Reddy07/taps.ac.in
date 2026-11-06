@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import ReelGallery from "@/components/ReelGallery";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -192,24 +191,20 @@ export default function AboutPage() {
         
         {/* HERO BANNER: DARK VARIANT WITH AMBIENT LIGHTING & STAGGER REVEAL */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Tilted Gliding Reel Gallery Background with Curated Drive Photographs */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto">
-            <ReelGallery
-              rows={4}
-              rowHeight={110}
-              rowGap={18}
-              tilt={6.5}
-              arch={34}
-              autoScroll={22}
-              grayscale={0.05}
-              dim={0.10}
-              fade={0.12}
-              className="w-full h-full opacity-100"
+          {/* Authentic Campus Infrastructure Background Image from Drive */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_fourth/campus_exterior_1.jpg"
+              alt="Trident Academy of Professional Studies Infocity Campus"
+              fill
+              priority
+              className="object-cover object-center filter contrast-105 opacity-85 scale-100"
+              sizes="100vw"
             />
+            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/60 via-35% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-transparent" />
           </div>
-          {/* One-Sided Left-to-Right Shaded Scrim: Deep dark on left for text legibility, smoothly fading out to transparent on right for maximum reel visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/68 via-38% to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent z-10 pointer-events-none" />
 
           <section className="relative z-10 py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <motion.div 
