@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import ReelGallery from "@/components/ReelGallery";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -191,19 +192,24 @@ export default function AboutPage() {
         
         {/* HERO BANNER: DARK VARIANT WITH AMBIENT LIGHTING & STAGGER REVEAL */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Campus Background Image with Vignette */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-            <Image
-              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
-              alt="Trident Academy Colonnade Avenue"
-              fill
-              priority
-              className="object-cover object-center filter contrast-105 opacity-35 scale-105"
-              sizes="100vw"
+          {/* Tilted Gliding Reel Gallery Background with Curated Drive Photographs */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto">
+            <ReelGallery
+              rows={4}
+              rowHeight={110}
+              rowGap={18}
+              tilt={6.5}
+              arch={34}
+              autoScroll={22}
+              grayscale={0.10}
+              dim={0.18}
+              fade={0.15}
+              className="w-full h-full opacity-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/90 to-[#070D21]/70" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
           </div>
+          {/* Balanced Dark Scrim: Solid text contrast on left, vibrant gliding reels on right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/80 to-[#070D21]/20 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/50 z-10 pointer-events-none" />
 
           <section className="relative z-10 py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <motion.div 
@@ -227,7 +233,7 @@ export default function AboutPage() {
               
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Operating under the aegis of the renowned <strong className="text-white font-medium">TACT Trust</strong>, 
-                TAPS is the undisputed No. 1 institution under Utkal University for BCA and BBA degrees. 
+                TAPS is a premier benchmark institution under Utkal University for BCA and BBA degrees. 
                 Permanently recognized by the Higher Education Department, Govt. of Odisha, and AICTE approved.
               </p>
 

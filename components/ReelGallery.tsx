@@ -91,37 +91,37 @@ interface LoadedPlate {
 export default function ReelGallery({
   images = defaultImages,
   rows = 5,
-  rowHeight = 110,
+  rowHeight = 115,
   rowGap = 20,
   itemGap = 16,
   maxAspect = 2.0,
   minAspect = 0.6,
   maxFps = 60,
-  tilt = 7.0,
-  arch = 42,
+  tilt = 6.5,
+  arch = 36,
   speed = 1.0,
-  speedVariance = 0.55,
+  speedVariance = 0.50,
   alternate = true,
-  autoScroll = 28,
+  autoScroll = 26,
   inertia = 0.92,
   damping = 0.10,
   dragSensitivity = 1.6,
-  wheelSensitivity = 0.9,
+  wheelSensitivity = 1.0,
   radius = 12,
-  grayscale = 0.45,
-  focusRadius = 220,
+  grayscale = 0.15,
+  focusRadius = 240,
   focusStrength = 0.85,
-  brightness = 0.95,
+  brightness = 1.05,
   dpr: userDpr = 1.25,
-  fade = 0.15,
-  dim = 0.35,
+  fade = 0.12,
+  dim = 0.20,
   taper = 0.12,
   className = "",
 }: ReelGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const isVisibleRef = useRef<boolean>(false);
+  const isVisibleRef = useRef<boolean>(true);
   const loadedPlatesRef = useRef<LoadedPlate[]>([]);
   const rowOffsetsRef = useRef<number[]>([]);
   const velocityRef = useRef<number>(0);
@@ -243,11 +243,13 @@ export default function ReelGallery({
     // Resize Handler
     const handleResize = () => {
       const rect = container.getBoundingClientRect();
+      const w = rect.width || container.clientWidth || window.innerWidth;
+      const h = rect.height || container.clientHeight || 600;
       const actualDpr = Math.min(window.devicePixelRatio || 1, userDpr);
-      canvas.width = Math.round(rect.width * actualDpr);
-      canvas.height = Math.round(rect.height * actualDpr);
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      canvas.width = Math.round(w * actualDpr);
+      canvas.height = Math.round(h * actualDpr);
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
     };
     handleResize();
     const resizeObserver = new ResizeObserver(handleResize);
@@ -462,3 +464,4 @@ export default function ReelGallery({
     </div>
   );
 }
+

@@ -113,16 +113,16 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
           speedVariance={0.45}
           alternate={true}
           radius={12}
-          grayscale={0.35}
-          dim={0.45}
-          fade={0.20}
-          className="w-full h-full opacity-85"
+          grayscale={0.10}
+          dim={0.18}
+          fade={0.15}
+          className="w-full h-full opacity-95"
         />
       </div>
 
-      {/* Atmospheric High-Contrast Dark Gradient Scrim for Flawless Text Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/80 to-[#070D21]/50 z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 to-[#070D21]/30 z-10 pointer-events-none" />
+      {/* Atmospheric Balanced Dark Gradient Scrim for Flawless Text Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/40 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21] via-[#070D21]/75 to-transparent z-10 pointer-events-none" />
 
       {/* Background Slides with Cross-Fade */}
       {slides.map((slide, index) => {
