@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import ShatterType from "@/components/ShatterType";
+import StippleType from "@/components/StippleType";
 
 export default function AdmissionPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -125,7 +125,7 @@ export default function AdmissionPage() {
                 Admissions Session 2026-27 Open
               </div>
               <div className="mb-6">
-                <ShatterType
+                <StippleType
                   text="Begin Your Professional Journey at TAPS"
                   as="h1"
                   className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"

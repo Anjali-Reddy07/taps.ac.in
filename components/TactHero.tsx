@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ReelGallery from "@/components/ReelGallery";
-import ShatterType from "@/components/ShatterType";
+import StippleType from "@/components/StippleType";
 
 interface TactHeroProps {
   onOpenQuery?: () => void;
@@ -154,9 +154,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                   <span>{slide.eyebrow}</span>
                 </div>
 
-                {/* 2. Main Headline with ShatterType Glass Fracture */}
+                {/* 2. Main Headline with StippleType Marbled Ink */}
                 <div className="mb-2">
-                  <ShatterType
+                  <StippleType
                     key={slide.headline}
                     text={slide.headline}
                     as="h1"

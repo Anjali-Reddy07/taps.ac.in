@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import ShatterType from "@/components/ShatterType";
+import StippleType from "@/components/StippleType";
 
 interface Notice {
   id: string;
@@ -140,7 +140,7 @@ export default function NoticesPage() {
                 Official Institutional Circulars
               </div>
               <div className="mb-6">
-                <ShatterType
+                <StippleType
                   text="Live Notice Board & University Circulars"
                   as="h1"
                   className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"

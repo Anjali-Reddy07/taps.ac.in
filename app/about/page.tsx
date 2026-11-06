@@ -9,7 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import ReelGallery from "@/components/ReelGallery";
-import ShatterType from "@/components/ShatterType";
+import StippleType from "@/components/StippleType";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -229,7 +229,7 @@ export default function AboutPage() {
               </div>
 
               <div className="mb-6">
-                <ShatterType
+                <StippleType
                   text="Legacy of Academic Excellence Since 2000"
                   as="h1"
                   className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
