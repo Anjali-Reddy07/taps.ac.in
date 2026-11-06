@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -196,10 +197,15 @@ export default function FacilitiesPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-              {facilities.map((f) => (
-                <div
+              {facilities.map((f, idx) => (
+                <motion.div
                   key={f.id}
-                  className="group bg-white border border-zinc-200 hover:border-zinc-400 rounded-3xl overflow-hidden shadow-2xs transition-all duration-500 hover-lift flex flex-col"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  whileHover={{ y: -8, transition: { duration: 0.25 } }}
+                  className="group bg-white border border-zinc-200/90 hover:border-indigo-400 rounded-3xl overflow-hidden shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col card-sheen"
                 >
                   {/* Image Container with Zoom Effect */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
@@ -207,19 +213,19 @@ export default function FacilitiesPage() {
                       src={f.image}
                       alt={f.title}
                       fill
-                      className="object-cover object-center filter grayscale-[25%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                      className="object-cover object-center filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-108 transition-all duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                     
                     <div className="absolute top-4 left-4">
-                      <span className="inline-block px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase font-semibold text-zinc-200 border border-white/20">
+                      <span className="inline-block px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase font-semibold text-zinc-200 border border-white/20">
                         {f.badge}
                       </span>
                     </div>
 
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-lg sm:text-xl font-medium tracking-tight text-white mb-0.5">
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white mb-0.5 group-hover:text-cyan-200 transition-colors">
                         {f.title}
                       </h3>
                       <p className="text-xs text-zinc-300 font-light">
@@ -235,20 +241,21 @@ export default function FacilitiesPage() {
                     </p>
 
                     <div className="border-t border-zinc-100 pt-5 space-y-2">
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-900 mb-2">
-                        Key Specifications:
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                        <span>Key Specifications:</span>
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {f.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs text-zinc-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0 mt-1.5" />
+                        {f.features.map((feature, fIdx) => (
+                          <div key={fIdx} className="flex items-start gap-2 text-xs text-zinc-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
                             <span className="font-normal leading-snug">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 

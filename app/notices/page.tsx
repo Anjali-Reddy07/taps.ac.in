@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -221,29 +222,40 @@ export default function NoticesPage() {
               </div>
             </div>
 
-            {/* Category Filter Pills */}
+            {/* Category Filter Pills with Framer Motion Spring Pill */}
             <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-zinc-200">
               <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mr-2">
                 Filter Category:
               </span>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                    selectedCategory === cat
-                      ? "bg-black text-white shadow-xs"
-                      : "bg-white text-zinc-600 hover:text-black border border-zinc-200 hover:border-zinc-400"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {categories.map((cat) => {
+                const isSelected = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`relative px-4 py-2 rounded-xl text-xs font-semibold transition-colors duration-200 cursor-pointer ${
+                      isSelected
+                        ? "text-white shadow-xs"
+                        : "text-zinc-600 hover:text-black bg-white border border-zinc-200 hover:border-zinc-400"
+                    }`}
+                  >
+                    {isSelected && (
+                      <motion.div
+                        layoutId="activeNoticeFilter"
+                        className="absolute inset-0 bg-black rounded-xl shadow-xs"
+                        transition={{ type: "spring", stiffness: 450, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{cat}</span>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Results Count */}
-            <div className="text-xs font-mono text-zinc-500 mb-6">
-              Showing {filteredNotices.length} of {notices.length} published circulars
+            <div className="text-xs font-mono text-zinc-500 mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+              <span>Showing {filteredNotices.length} of {notices.length} published circulars</span>
             </div>
 
             {/* Notices List */}
@@ -255,24 +267,29 @@ export default function NoticesPage() {
                     setSelectedCategory("All");
                     setSearchQuery("");
                   }}
-                  className="mt-3 text-xs font-semibold text-black underline underline-offset-4"
+                  className="mt-3 text-xs font-semibold text-black underline underline-offset-4 cursor-pointer"
                 >
                   Clear all filters
                 </button>
               </div>
             ) : (
               <div className="space-y-4">
-                {filteredNotices.map((n) => (
-                  <div
+                {filteredNotices.map((n, idx) => (
+                  <motion.div
                     key={n.id}
-                    className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs hover-lift flex flex-col md:flex-row md:items-center justify-between gap-6"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: idx * 0.05 }}
+                    whileHover={{ x: 6, transition: { duration: 0.2 } }}
+                    className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-indigo-400 transition-all duration-300 shadow-2xs hover:shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-6 card-sheen"
                   >
                     <div className="space-y-2 max-w-3xl">
                       <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-xs font-mono font-bold text-zinc-600 bg-zinc-100 px-2.5 py-0.5 rounded">
+                        <span className="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-200/60">
                           {n.date}
                         </span>
-                        <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-zinc-950 text-white">
+                        <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-slate-900 text-white">
                           {n.category}
                         </span>
                         <span className="text-xs text-zinc-500">
@@ -280,7 +297,7 @@ export default function NoticesPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-medium text-zinc-950 tracking-tight">
+                      <h3 className="text-base sm:text-lg font-bold text-zinc-950 tracking-tight hover:text-blue-700 transition-colors">
                         {n.title}
                       </h3>
 
@@ -292,12 +309,12 @@ export default function NoticesPage() {
                     <div className="shrink-0 flex items-center gap-3">
                       <button
                         onClick={() => setActiveNoticeModal(n)}
-                        className="px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-black text-white text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer"
+                        className="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer hover-lift"
                       >
-                        View Official Notice
+                        View Official Notice →
                       </button>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}

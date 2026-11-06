@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -395,21 +396,29 @@ export default function AdmissionPage() {
                 </div>
 
                 <div className="space-y-6">
-                  {steps.map((st) => (
-                    <div
+                  {steps.map((st, idx) => (
+                    <motion.div
                       key={st.step}
-                      className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs hover:border-zinc-400 transition-all duration-300"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.1 }}
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                      className="p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-indigo-400 hover:shadow-lg transition-all duration-300 relative group card-sheen"
                     >
-                      <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-400 mb-1">
-                        STEP {st.step}
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200/60">
+                          STEP {st.step}
+                        </span>
+                        <span className="w-2 h-2 rounded-full bg-blue-600 group-hover:scale-125 transition-transform" />
                       </div>
-                      <h3 className="text-base font-semibold text-zinc-950 mb-2">
+                      <h3 className="text-base font-bold text-zinc-950 mb-2 group-hover:text-blue-700 transition-colors">
                         {st.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                         {st.desc}
                       </p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

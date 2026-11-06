@@ -432,14 +432,14 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             {facilityHighlights.map((facility) => (
               <div
                 key={facility.title}
-                className="group relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-md hover:shadow-2xl hover:border-black transition-all duration-500 hover-lift"
+                className="group relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-md hover:shadow-2xl hover:border-black transition-all duration-500 hover-lift-3d card-sheen"
               >
                 {/* Background Image with Smooth Scale-up on Hover */}
                 <Image
                   src={facility.image}
                   alt={facility.title}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out filter grayscale-[20%] group-hover:grayscale-0"
+                  className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out filter grayscale-[15%] group-hover:grayscale-0"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
 

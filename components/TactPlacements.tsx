@@ -158,14 +158,14 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
             ].map((item) => (
               <div
                 key={item.step}
-                className="group relative rounded-2xl overflow-hidden border border-indigo-900/70 bg-[#0B132E] shadow-xl hover:border-indigo-400/80 transition-all duration-300 hover-lift flex flex-col justify-between"
+                className="group relative rounded-2xl overflow-hidden border border-indigo-900/70 bg-[#0B132E] shadow-xl hover:border-indigo-400/80 transition-all duration-300 hover-lift-3d card-sheen flex flex-col justify-between"
               >
                 <div className="relative h-44 w-full overflow-hidden bg-slate-950">
                   <Image
                     src={item.img}
                     alt={item.title}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                     sizes="(max-width: 768px) 100vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B132E] via-transparent to-black/30 pointer-events-none" />

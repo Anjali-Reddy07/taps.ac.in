@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -287,27 +288,38 @@ export default function ProgrammesPage() {
                 Utkal University's Choice-Based Credit System (CBCS).
               </p>
 
-              {/* Course Switcher Pills */}
-              <div className="inline-flex rounded-xl bg-zinc-900 border border-zinc-700 p-1.5 shadow-md">
+              {/* Course Switcher Pills with Framer Motion Spring Pill */}
+              <div className="inline-flex rounded-2xl bg-zinc-900/90 border border-zinc-700/80 p-1.5 shadow-lg backdrop-blur-md">
                 <button
                   onClick={() => setSelectedCourse("bca")}
-                  className={`px-6 py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 ${
-                    selectedCourse === "bca"
-                      ? "bg-white text-black shadow-md scale-[1.02]"
-                      : "text-zinc-400 hover:text-white"
+                  className={`relative px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider transition-colors duration-300 cursor-pointer ${
+                    selectedCourse === "bca" ? "text-black" : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  01. BCA — Computer Applications
+                  {selectedCourse === "bca" && (
+                    <motion.div
+                      layoutId="activeCoursePill"
+                      className="absolute inset-0 bg-white rounded-xl shadow-md"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">01. BCA — Computer Applications</span>
                 </button>
+
                 <button
                   onClick={() => setSelectedCourse("bba")}
-                  className={`px-6 py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 ${
-                    selectedCourse === "bba"
-                      ? "bg-white text-black shadow-md scale-[1.02]"
-                      : "text-zinc-400 hover:text-white"
+                  className={`relative px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider transition-colors duration-300 cursor-pointer ${
+                    selectedCourse === "bba" ? "text-black" : "text-zinc-400 hover:text-white"
                   }`}
                 >
-                  02. BBA — Business Administration
+                  {selectedCourse === "bba" && (
+                    <motion.div
+                      layoutId="activeCoursePill"
+                      className="absolute inset-0 bg-white rounded-xl shadow-md"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">02. BBA — Business Administration</span>
                 </button>
               </div>
             </div>
@@ -318,11 +330,14 @@ export default function ProgrammesPage() {
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            {/* Header Card for Selected Programme */}
-            <div className="bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs mb-12 animate-fadeInUp">
+            {/* Header Card for Selected Programme with Border Beam Glow */}
+            <div className="relative bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs mb-12 hover-lift-3d overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600" />
+              
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-zinc-200 pb-8 mb-8">
                 <div>
-                  <div className="inline-block text-[11px] font-mono tracking-widest uppercase font-bold text-zinc-500 mb-2">
+                  <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60 mb-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
                     Degree Track • {current.code}
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
@@ -353,37 +368,45 @@ export default function ProgrammesPage() {
                 {current.summary}
               </p>
 
-              {/* 4 Feature Highlights */}
+              {/* 4 Feature Highlights with Sheen Effect */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {current.highlights.map((h, i) => (
-                  <div key={i} className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-black shrink-0" />
+                  <div key={i} className="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-slate-50 border border-zinc-200/80 text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-2.5 hover-lift-3d card-sheen">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
                     <span>{h}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Sub-Tab Navigation */}
-            <div className="flex border-b border-zinc-200 mb-8 overflow-x-auto">
+            {/* Sub-Tab Navigation with Animated Spring Indicator */}
+            <div className="flex border-b border-zinc-200 mb-8 overflow-x-auto relative">
               {[
                 { id: "curriculum", label: "Semester-wise Curriculum" },
                 { id: "certifications", label: "Included Certifications" },
                 { id: "eligibility", label: "Eligibility & Selection" },
                 { id: "careers", label: "Career & Placement Pathways" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`py-3.5 px-6 font-semibold text-xs sm:text-sm whitespace-nowrap border-b-2 transition-all ${
-                    activeTab === tab.id
-                      ? "border-black text-black font-bold"
-                      : "border-transparent text-zinc-500 hover:text-black"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+              ].map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`relative py-3.5 px-6 font-semibold text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer ${
+                      isActive ? "text-blue-700 font-bold" : "text-zinc-500 hover:text-zinc-900"
+                    }`}
+                  >
+                    {tab.label}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeSubTabIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
+                        transition={{ type: "spring", stiffness: 450, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Sub-Tab 1: Semester-wise Curriculum */}

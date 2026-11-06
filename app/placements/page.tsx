@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -128,16 +129,22 @@ export default function PlacementsPage() {
           </section>
         </AnimatedBackground>
 
-        {/* 4 STATS COUNTER STRIP: LIGHT VARIANT */}
+        {/* 4 STATS COUNTER STRIP: LIGHT VARIANT WITH HOVER LIFT & ANIMATED GLOW */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-12 sm:py-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {stats.map((s, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                  className="p-6 rounded-2xl bg-white border border-zinc-200/90 hover:border-indigo-400 shadow-2xs hover:shadow-lg transition-all duration-300 text-center relative overflow-hidden group card-sheen"
                 >
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight mb-2">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight mb-2 font-serif group-hover:text-blue-700 transition-colors">
                     {s.value}
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-zinc-900 mb-1">
@@ -146,7 +153,7 @@ export default function PlacementsPage() {
                   <div className="text-[11px] text-zinc-500 font-normal">
                     {s.sub}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </section>
@@ -193,17 +200,22 @@ export default function PlacementsPage() {
                   img: "/images/drive_third/Placement_Trident-Placement-1.jpeg",
                   tag: "Hiring Partners",
                 },
-              ].map((c) => (
-                <div
+              ].map((c, idx) => (
+                <motion.div
                   key={c.title}
-                  className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-2xs hover:border-zinc-400 transition-all duration-300 group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                  className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-2xs hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group card-sheen"
                 >
                   <div className="relative h-44 w-full overflow-hidden bg-zinc-100">
                     <Image
                       src={c.img}
                       alt={c.title}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />
                     <div className="absolute top-3 left-3">
@@ -213,14 +225,14 @@ export default function PlacementsPage() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h4 className="text-sm sm:text-base font-bold text-zinc-950 mb-1">
+                    <h4 className="text-sm sm:text-base font-bold text-zinc-950 mb-1 group-hover:text-blue-700 transition-colors">
                       {c.title}
                     </h4>
                     <p className="text-xs text-zinc-600 leading-relaxed font-normal">
                       {c.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </section>
