@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -167,8 +168,13 @@ export default function PlacementsPage() {
                   className="p-6 rounded-2xl bg-white border border-zinc-200/90 hover:border-indigo-400 shadow-2xs hover:shadow-lg transition-all duration-300 text-center relative overflow-hidden group card-sheen"
                 >
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight mb-2 font-serif group-hover:text-blue-700 transition-colors">
-                    {s.value}
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight mb-2 font-serif group-hover:text-blue-700 transition-colors flex items-center justify-center">
+                    <SpeedometerCounter
+                      value={s.value}
+                      duration={2.0}
+                      delay={0.1 + idx * 0.1}
+                      maxBlur={8}
+                    />
                   </div>
                   <div className="text-xs sm:text-sm font-semibold text-zinc-900 mb-1">
                     {s.label}

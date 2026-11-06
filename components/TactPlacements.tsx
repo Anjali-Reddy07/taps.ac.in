@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 interface TactPlacementsProps {
   onOpenQuery?: () => void;
@@ -48,10 +49,17 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
 
         {/* 3 Large Stat Counters with subtle floating effect */}
         <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-14 divide-y sm:divide-y-0 sm:divide-x divide-indigo-900/60 bg-[#0B132E]/90 border border-indigo-900/70 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl animate-float">
-          {stats.map((st) => (
+          {stats.map((st, idx) => (
             <div key={st.label} className="text-center py-4 sm:py-2 px-4 group">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-1 font-serif bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                {st.value}
+              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-1 font-serif bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                <SpeedometerCounter
+                  value={st.value}
+                  duration={2.0}
+                  delay={0.1 + idx * 0.15}
+                  maxBlur={8}
+                  className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
+                  suffixClassName="text-cyan-300"
+                />
               </div>
               <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-blue-100 mb-1">
                 {st.label}
