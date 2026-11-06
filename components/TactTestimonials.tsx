@@ -32,13 +32,13 @@ export default function TactTestimonials() {
       degreeBadge: "Class of 2012 • BCA",
       designation: "SAP Lead Consultant",
       company: "CGI Info Systems",
-      location: "London, United Kingdom",
+      location: "Bengaluru, India",
       companyTag: "CGI",
       avatarGradient: "from-blue-600 via-indigo-600 to-cyan-500",
       accentColor: "text-blue-600",
-      careerHighlight: "Enterprise Cloud Architect across Europe",
+      careerHighlight: "Enterprise SAP & Cloud Solutions",
       quote:
-        "Nothing can suffice our golden days spent at Trident. Be it Ratha sir's serious practical classes or Manas sir's evergreen lectures, the faculties' inspiration and computing labs laid the foundation for every large-scale enterprise deployment I lead across Europe today.",
+        "Nothing can suffice our golden days spent at Trident. Be it Ratha sir's serious practical classes or Manas sir's evergreen lectures, the faculties' inspiration and computing labs laid the foundation for the enterprise systems I architect today.",
     },
     {
       id: "smruti-mishra",
@@ -47,7 +47,7 @@ export default function TactTestimonials() {
       degreeBadge: "Class of 2014 • BBA",
       designation: "Administrative Officer",
       company: "Revenue & Disaster Management Dept, Govt. of Odisha",
-      location: "Bhubaneswar, India",
+      location: "Bhubaneswar, Odisha",
       companyTag: "ODISHA GOVT",
       avatarGradient: "from-emerald-600 via-teal-600 to-cyan-600",
       accentColor: "text-emerald-600",
@@ -60,13 +60,13 @@ export default function TactTestimonials() {
       name: "Piali Mazumdar",
       initials: "PM",
       degreeBadge: "Class of 2016 • BCA",
-      designation: "Staff Software Engineer",
-      company: "Capgemini Engineering",
-      location: "Dallas, Texas, USA",
+      designation: "Technical Specialist / Software Engineer",
+      company: "Aricent / Capgemini",
+      location: "Hyderabad, India",
       companyTag: "CAPGEMINI",
       avatarGradient: "from-purple-600 via-indigo-600 to-blue-600",
       accentColor: "text-purple-600",
-      careerHighlight: "Enterprise Systems & Cloud Analytics Lead",
+      careerHighlight: "Enterprise Software Systems & Analytics",
       quote:
         "TAPS paved my entire career pathway in software systems and analytics. Extremely honored to be an alumna of an institution that gives each undergraduate individual faculty attention, high-performance computing access, and unwavering corporate confidence.",
     },
@@ -77,28 +77,28 @@ export default function TactTestimonials() {
       degreeBadge: "Class of 2011 • BCA",
       designation: "Principal Cloud Solutions Architect",
       company: "DXC Technology (CSC)",
-      location: "New York City, USA",
+      location: "Noida / NCR, India",
       companyTag: "DXC TECH",
       avatarGradient: "from-amber-600 via-orange-600 to-indigo-600",
       accentColor: "text-amber-600",
-      careerHighlight: "Wall Street High-Availability Cloud Systems",
+      careerHighlight: "High-Availability Cloud Systems Architecture",
       quote:
-        "Life at Trident was transformative. The foundation in computational science, database architecture, and collaborative hackathons continues to serve me at every stage of designing high-availability global cloud architectures on Wall Street.",
+        "Life at Trident was transformative. The foundation in computational science, database architecture, and collaborative hackathons continues to serve me at every stage of designing high-availability enterprise cloud architectures.",
     },
     {
       id: "ananya-senapati",
       name: "Ananya Senapati",
       initials: "AS",
       degreeBadge: "Class of 2019 • BBA",
-      designation: "Product Marketing Lead",
-      company: "Deloitte Digital",
+      designation: "Business & Marketing Strategist",
+      company: "Deloitte",
       location: "Bengaluru, India",
       companyTag: "DELOITTE",
       avatarGradient: "from-pink-600 via-rose-600 to-purple-600",
       accentColor: "text-pink-600",
-      careerHighlight: "Fortune 500 Brand & GTM Strategy",
+      careerHighlight: "Business Analytics & Corporate Strategy",
       quote:
-        "The rigorous case study pedagogy and business innovation incubators at TAPS shaped my strategic intuition. We graduated not just with academic honors, but with an executive acumen and presentation polish ready for Fortune 500 boardroom engagements.",
+        "The rigorous case study pedagogy and business innovation incubators at TAPS shaped my strategic intuition. We graduated not just with academic honors, but with an executive acumen and presentation polish ready for modern corporate engagements.",
     },
   ];
 
@@ -219,7 +219,7 @@ export default function TactTestimonials() {
             Voices from the Trident Legacy
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3 font-normal leading-relaxed">
-            Our graduates lead computational transformations, corporate strategy, and public governance across London, New York, and India.
+            Our graduates lead enterprise software systems, corporate business management, and public administration across premier organizations.
           </p>
         </div>
 

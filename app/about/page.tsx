@@ -50,10 +50,10 @@ export default function AboutPage() {
     },
     {
       year: "1995",
-      title: "Pioneering Global Enterprise Software Placements",
-      tag: "ERA 02 • GLOBAL FOOTPRINT",
-      desc: "Pioneered high-skill corporate software training in Eastern India, placing hundreds of software engineers in US and European enterprise deployments across London and New York.",
-      highlight: "Direct technical pipelines into Wall Street and European financial IT.",
+      title: "Corporate Finishing School & Software Placements",
+      tag: "ERA 02 • SPECIALIZED IT TRAINING",
+      desc: "Through Trident's Advanced Computer Training (TACT), fresh engineering graduates were trained in enterprise packages including SYBASE, POWERBUILDER, ORACLE, DB-2, and JCL, securing coveted careers in competitive corporate markets.",
+      highlight: "Pioneered specialized software education in Eastern India.",
     },
     {
       year: "2000",
@@ -740,13 +740,13 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white">
-                      10,000+ Strong Alumni Network
+                      ANNUAL ALUMNI MEET • TRANSCEND
                     </span>
                     <h4 className="text-base font-bold mt-1 text-white">
-                      Global Footprint from New York to London
+                      Alumni Brand Ambassadors of TAPS
                     </h4>
                     <p className="text-xs text-zinc-300 font-light mt-0.5">
-                      Leading multinational tech conglomerates and civil governance.
+                      Graduates leading successful careers across premier IT corporations, banking, and public administration.
                     </p>
                   </div>
                 </div>
