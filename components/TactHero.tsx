@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import ReelGallery from "@/components/ReelGallery";
 
 interface TactHeroProps {
   onOpenQuery?: () => void;
@@ -81,10 +81,49 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
     <section
       aria-roledescription="carousel"
       aria-label="Campus highlights"
-      className="relative w-full h-[75vh] min-h-[550px] max-h-[750px] overflow-hidden bg-[#070D21] text-white"
+      className="relative w-full h-[82vh] min-h-[580px] max-h-[800px] overflow-hidden bg-[#070D21] text-white"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* 1. TILTED REEL GALLERY BACKGROUND: GLIDING GOOGLE DRIVE IMAGES */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto">
+        <ReelGallery
+          images={[
+            "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+            "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
+            "/images/drive_new/1721020760290.jpg",
+            "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+            "/images/drive_new/_DSC1852.JPG",
+            "/images/drive_new/418523663_877202237525747_6377361483820920683_n.jpg",
+            "/images/drive_new/487841832_17914511076094364_1416184591585353408_n.jpg",
+            "/images/drive_new/_DSC1826.JPG",
+            "/images/drive_new/320067572_1333023554121378_8020995869077112586_n.jpg",
+            "/images/drive_second/alumni3.jpg",
+            "/images/drive_second/Activities.jpg",
+            "/images/drive_third/ClassRooms_Academic.JPG",
+          ]}
+          rows={5}
+          rowHeight={105}
+          rowGap={18}
+          itemGap={16}
+          tilt={6.5}
+          arch={36}
+          autoScroll={22}
+          speed={1.0}
+          speedVariance={0.45}
+          alternate={true}
+          radius={12}
+          grayscale={0.35}
+          dim={0.45}
+          fade={0.20}
+          className="w-full h-full opacity-85"
+        />
+      </div>
+
+      {/* Atmospheric High-Contrast Dark Gradient Scrim for Flawless Text Legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/80 to-[#070D21]/50 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 to-[#070D21]/30 z-10 pointer-events-none" />
+
       {/* Background Slides with Cross-Fade */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
@@ -93,26 +132,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             key={slide.tag}
             aria-hidden={!isActive}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              isActive ? "opacity-100 z-10" : "opacity-0 pointer-events-none z-0"
+              isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 pointer-events-none z-0"
             }`}
           >
-            {/* Contained Real Campus Background Image with Ken Burns Zoom Effect */}
-            <div className="absolute inset-0 overflow-hidden">
-              <Image
-                src={slide.image}
-                alt="Trident Academy of Professional Studies Campus"
-                fill
-                priority={index === 0}
-                className={`object-cover object-center filter contrast-105 transition-transform duration-[7000ms] ease-out ${
-                  isActive ? "scale-105" : "scale-100"
-                }`}
-                sizes="100vw"
-              />
-            </div>
-
-            {/* Heavy Dark Gradient Scrim Overlay in Midnight Blue & Lavender */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-[#070D21]/80 to-[#0B1536]/40 z-10" />
-
             {/* Top Right Floating Campus Location Tag */}
             <div className="absolute top-6 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] text-indigo-200">
               <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
