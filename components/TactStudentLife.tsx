@@ -9,6 +9,41 @@ export default function TactStudentLife() {
 
   const activities = [
     {
+      title: "APPER Coding Club & Hackathons",
+      badge: "Flagship Programming Club",
+      desc: "TAPS' official coding club organizing 24-hour hackathons, algorithmic sprints, and open-source challenges solving real-world enterprise software problems.",
+      icon: "💻",
+      image: "/images/drive_fourth/hack_day.png",
+    },
+    {
+      title: "Analytics & Strategy Clubs",
+      badge: "Data-Driven Decision Making",
+      desc: "Analytics Club enables students to take data-driven decisions, while Strategy Club prepares students to act as strategic advisors and business consultants.",
+      icon: "📊",
+      image: "/images/drive_fourth/brain_logic_club.png",
+    },
+    {
+      title: "Fintech & Sustainability Clubs",
+      badge: "Emerging Industry Specialization",
+      desc: "Fintech Club prepares students for careers in the financial technology ecosystem, while Sustainability Club equips them to implement sustainable ESG business practices.",
+      icon: "🌱",
+      image: "/images/drive_fourth/cloud_club.png",
+    },
+    {
+      title: "Kartavya Social Society",
+      badge: "Community & Social Outreach",
+      desc: "An active student-led volunteer society committed to community welfare, disaster relief drives, blood donation camps, and environmental plantation across Bhubaneswar.",
+      icon: "🧘",
+      image: "/images/drive_fourth/kartavya_club.png",
+    },
+    {
+      title: "Cyber Security & Cloud Hub",
+      badge: "Specialized Student Chapters",
+      desc: "Hands-on network vulnerability testing, ethical hacking, and virtualization workshops led by senior student mentors and faculty leads.",
+      icon: "🛡️",
+      image: "/images/drive_fourth/cyber_security_club.png",
+    },
+    {
       title: "Trifest & Cultural Fests",
       badge: "Annual Flagship Festival",
       desc: "The premier multi-day spring festival uniting sports tournaments, coding hackathons, literary debates, fine arts, and vibrant cultural music nights.",
@@ -16,16 +51,9 @@ export default function TactStudentLife() {
       image: "/images/drive_second/Activities.jpg",
     },
     {
-      title: "Kartavya & Yoga Center",
-      badge: "Community & Social Outreach",
-      desc: "An active student-led volunteer society committed to community welfare, disaster relief drives, open-air yoga, blood donation camps, and environmental plantation.",
-      icon: "🧘",
-      image: "/images/drive_new/_DSC1854.JPG",
-    },
-    {
       title: "In-Campus Hostels",
       badge: "In-Campus Residential Living",
-      desc: "Dedicated, secure hostels for boys and girls accommodating over 1,200 students with spacious furnished rooms, 24/7 high-speed Wi-Fi, and warden care.",
+      desc: "Three in-campus hostels accommodating 1,200 students with spacious furnished rooms, 24/7 Wi-Fi, hygienic mess, and medical dispensary.",
       icon: "🏢",
       image: "/images/drive_new/1414409430Capture.webp",
     },
@@ -35,20 +63,6 @@ export default function TactStudentLife() {
       desc: "Floodlit full-scale basketball court, cricket pitch, athletic turf, sprint tracks, volleyball, gymnasium, and outdoor recreation walkway.",
       icon: "🏀",
       image: "/images/drive_third/Sports_IMG20260205104055.jpg",
-    },
-    {
-      title: "Infocity Green Avenues",
-      badge: "Collegiate Environment",
-      desc: "Lush landscaped pedestrian walkways, royal palm tree groves, circular paved stone promenades, and serene open-air discussion gazebos.",
-      icon: "🌿",
-      image: "/images/drive_new/1746352355680.jpg",
-    },
-    {
-      title: "Food Courts & Cafeteria",
-      badge: "Central Food Courts & Dining",
-      desc: "Hygienic multi-cuisine cafeteria providing fresh, balanced breakfast, lunch, evening snacks, and dinner in a lively communal setting.",
-      icon: "🍽️",
-      image: "/images/drive/cafeteria.jpg",
     },
   ];
 

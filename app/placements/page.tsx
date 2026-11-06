@@ -13,50 +13,74 @@ export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stats = [
-    { value: "124+", label: "Recruiters Visited", sub: "Annual Campus Drives (2026)" },
-    { value: "2,936+", label: "Campus Placements", sub: "Placed Across Last 5 Years" },
-    { value: "95%+", label: "Conversion Rate", sub: "For Eligible Final-Year Candidates" },
+    { value: "138+", label: "Recruiters (2026)", sub: "Active Corporate Placement Network" },
+    { value: "260", label: "Recruiters (2025)", sub: "Peak Annual Placement Drives" },
+    { value: "2,936+", label: "Campus Selections", sub: "Placed Across Last 5 Years" },
     { value: "#1", label: "Placement Record in Odisha", sub: "Under Utkal University BBA & BCA" },
+  ];
+
+  const yearWiseRecruiters = [
+    { year: "2026", count: "138+ Recruiters" },
+    { year: "2025", count: "260 Recruiters" },
+    { year: "2024", count: "112 Recruiters" },
+    { year: "2023", count: "102 Recruiters" },
+    { year: "2022", count: "102 Recruiters" },
+    { year: "2021", count: "91 Recruiters" },
+    { year: "2020", count: "70 Recruiters" },
+    { year: "2019", count: "56 Recruiters" },
   ];
 
   const trainingTiers = [
     {
-      tier: "TIER 01",
-      title: "Foundational Aptitude & Soft-Skills Finishing School",
-      year: "Year 1 (Semesters I & II)",
-      focus: "Quantitative Aptitude, Logical Reasoning & Professional Communication",
-      desc: "Begins in the first semester. Students undergo weekly structured sessions on number theory, algebraic reasoning, data interpretation, corporate email etiquette, and accent-neutral verbal communication.",
+      tier: "PART 01",
+      title: "Problem Solving Techniques (Data Structures & Algorithms)",
+      year: "From 2nd Year Onwards",
+      focus: "Comprehensive DSA Aptitude & Programming Competence",
+      desc: "From the 2nd year onwards, comprehensive problem-solving techniques upon Data Structures & Algorithm are imparted to candidates of BBA & BCA. Post-completion, aptitude & programming competence are evaluated via online assessments.",
       modules: [
-        "Speed Mathematics & Arithmetic Progression",
-        "Logical Deductions, Syllogisms & Critical Reasoning",
-        "Corporate Communication & Presentation Delivery",
-        "Public Speaking, Group Debates & Active Listening",
+        "Data Structures & Algorithm Optimization",
+        "Online Assessment & Aptitude Benchmarking",
+        "Aptitude Competence Segregation for Technology Tracks",
+        "Speed Programming & Mathematical Logic",
       ],
     },
     {
-      tier: "TIER 02",
-      title: "Technical Competency & Code Immersion",
-      year: "Year 2 (Semesters III & IV)",
-      focus: "Full-Stack Development, Data Structures & Cloud Deployment",
-      desc: "Led by industry veterans and alumni mentors. BCA scholars solve competitive programming challenges in C++, Java, and Python on HackerRank/LeetCode, while BBA students master financial modeling, CRM, and digital marketing analytics.",
+      tier: "PART 02",
+      title: "Technology Specific Bootcamp Model",
+      year: "Specialized Technology Tracks",
+      focus: "Python & Data Science, Java Full-Stack, Android/React & Node.js, Web Development",
+      desc: "Based on grading systems & group segregation, candidates are trained in a Boot camp model on 4 specific technologies: Python & Data Science, Java Full-Stack, Android/React & Node.js, and Web Development.",
       modules: [
-        "Hands-on Data Structures & Algorithm Optimization",
-        "Full-Stack Web Development & Version Control (Git)",
-        "Financial Valuation Models, DCF & Advanced Excel",
-        "Digital Marketing Strategy & Google Analytics Certification",
+        "Track 1: Python & Applied Data Science",
+        "Track 2: Enterprise Java Full-Stack Engineering",
+        "Track 3: Android, React & Node.js Mobile/Web Development",
+        "Track 4: Full-Stack Web Development & Cloud Deployment",
       ],
     },
     {
-      tier: "TIER 03",
-      title: "Corporate Readiness & Mock Interview Drills",
-      year: "Year 3 (Semesters V & VI)",
-      focus: "Simulated Corporate Drives, GD-PI Rounds & Technical Panels",
-      desc: "Simulated end-to-end recruitment drives in our dedicated Executive GD-PI Amphitheatre. HR leaders from Infosys, TCS, and CGI conduct mock technical interviews with actionable feedback scoring.",
+      tier: "PART 03",
+      title: "Project Mentoring by Industry Experts",
+      year: "3rd Year Immersion",
+      focus: "Real-Time Problem Statements & Prototype Building",
+      desc: "In the 3rd Year after completing technology-specific training, candidates transition to project mentoring sessions where they tackle real-time enterprise problem statements guided by external industry experts for final prototype submission.",
       modules: [
-        "Individual Resume Scrubbing & LinkedIn Profile Optimization",
-        "Mock Group Discussions with Video Playback Feedback",
-        "Multi-Stage Technical & HR Behavioral Interviews",
-        "Company-Specific Question Bank Solving (CGI, TCS, Infosys)",
+        "Real-Time Industry Problem Statements",
+        "Weekly Milestone Review by Corporate Tech Leads",
+        "Prototype Architectural Validation & Testing",
+        "Final Capstone Project Defense & Code Review",
+      ],
+    },
+    {
+      tier: "PART 04",
+      title: "Internships & Corporate PPO Opportunities",
+      year: "Final Year / Post-Project",
+      focus: "Partner Company Internships & Pre-Placement Offers",
+      desc: "Post-completion of live projects, candidates intern with our partnered companies to gain real production experience, leading directly to Pre-Placement Offers (PPOs) based on performance.",
+      modules: [
+        "Corporate Internship with Partnered Tech Firms",
+        "Pre-Placement Offer (PPO) Evaluations",
+        "Industry Interface Programs with TCS, CISCO (CCNA) & Cloud bite",
+        "Mock Technical & HR Behavioral Interviews",
       ],
     },
   ];
@@ -156,6 +180,57 @@ export default function PlacementsPage() {
                 </motion.div>
               ))}
             </div>
+
+            {/* SUPER-30 ANAND KUMAR AWARD BANNER: DIRECT FROM TAPS.AC.IN */}
+            <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#070D21] via-blue-950 to-indigo-950 text-white shadow-xl border border-blue-900/50 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-300 flex items-center justify-center shrink-0 text-2xl shadow-inner">
+                  🏆
+                </div>
+                <div>
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-amber-300 font-bold block mb-1">
+                    NATIONAL RECOGNITION • CAMPUS PLACEMENTS
+                  </span>
+                  <h3 className="text-base sm:text-xl font-bold text-white tracking-tight leading-snug">
+                    Awarded by Mr. Anand Kumar of &ldquo;SUPER-30&rdquo;
+                  </h3>
+                  <p className="text-xs sm:text-sm text-indigo-200 mt-1 font-light leading-relaxed">
+                    Honored at Ranchi for being Eastern India&rsquo;s fastest growing college in Campus Placements.
+                  </p>
+                </div>
+              </div>
+              <div className="shrink-0 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-white">
+                Utkal University Benchmark
+              </div>
+            </div>
+
+            {/* YEAR-WISE RECRUITER TRAJECTORY: TAPS.AC.IN */}
+            <div className="mt-10 pt-8 border-t border-slate-200">
+              <div className="text-center mb-6">
+                <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
+                  Historical Recruiter Growth
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-950 mt-2">
+                  Year-Wise Corporate Recruiters (2019 – 2026)
+                </h3>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+                {yearWiseRecruiters.map((rec) => (
+                  <div
+                    key={rec.year}
+                    className="p-3.5 rounded-2xl bg-white border border-indigo-100 hover:border-blue-400 shadow-2xs hover:shadow-md transition-all text-center group"
+                  >
+                    <span className="text-xs font-mono font-bold text-slate-500 block mb-1 group-hover:text-blue-700">
+                      {rec.year}
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-950 font-mono">
+                      {rec.count}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </section>
         </AnimatedBackground>
 

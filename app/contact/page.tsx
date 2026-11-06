@@ -99,11 +99,28 @@ export default function ContactPage() {
                       Trident Academy of Professional Studies (TAPS)
                     </p>
                     <p className="text-zinc-600 mt-1 leading-relaxed">
-                      F2D, Chandaka Industrial Estate, Infocity, Patia,<br />
+                      F-2, Chandaka Industrial Estate, In front of Infocity,<br />
                       Bhubaneswar, Odisha — 751024, India
                     </p>
                     <div className="mt-2 text-xs text-zinc-500 font-medium">
-                      Landmark: Behind Infosys Development Center
+                      Landmark: In front of Infocity • Chandaka Industrial Estate
+                    </div>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
+                      Admission Contact &amp; Phones
+                    </div>
+                    <div className="space-y-1">
+                      <p className="font-semibold text-zinc-950 font-mono text-sm">
+                        +91 98611 91195
+                      </p>
+                      <p className="text-zinc-700 font-mono text-sm">
+                        +91 70084 43255
+                      </p>
+                      <p className="text-zinc-500 text-xs mt-1">
+                        Official Admission Desk: Monday to Saturday (9:00 AM – 5:30 PM)
+                      </p>
                     </div>
                   </div>
 

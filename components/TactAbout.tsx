@@ -401,6 +401,83 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
         </div>
 
+        {/* SALIENT FEATURES & OFFICIAL MOTTO BANNER: DIRECT FROM TAPS.AC.IN */}
+        <div className="mb-20 sm:mb-24 p-8 sm:p-10 rounded-3xl bg-white border border-indigo-100 shadow-[0_16px_40px_rgba(79,70,229,0.06)] relative overflow-hidden">
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full shadow-2xs">
+              OFFICIAL BENCHMARKS
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-light text-slate-950 mt-3 tracking-tight">
+              Salient Features of TAPS
+            </h3>
+            <p className="text-sm text-slate-600 mt-2">
+              Recognized under Utkal University for foundational rigor, doctoral faculty mentorship, and corporate excellence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                num: "01",
+                title: "No. 1 Private College",
+                desc: "No. 1 Private BBA and BCA College under Utkal University.",
+              },
+              {
+                num: "02",
+                title: "Doctoral & NET Faculty",
+                desc: "All of its fulltime regular faculties are M. Tech/NET qualified, all pursuing Ph.D programs.",
+              },
+              {
+                num: "03",
+                title: "Leadership & Innovation",
+                desc: "Heavy focus on leadership modeling and Business innovation.",
+              },
+              {
+                num: "04",
+                title: "Peer-Support Soft Skills",
+                desc: "Emphasis on peer-support and peer-analysis for acquisition of soft skills under expert guidance.",
+              },
+              {
+                num: "05",
+                title: "Corporate Internships",
+                desc: "Excellent network with Companies for internship projects and placements.",
+              },
+              {
+                num: "06",
+                title: "Industry-Led Seminars",
+                desc: "Regular Industry led Seminars and interaction with corporate Professionals.",
+              },
+            ].map((f) => (
+              <div
+                key={f.num}
+                className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200 hover:border-blue-400 hover:bg-white hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-xs font-mono font-bold text-blue-700 bg-blue-100/60 px-2 py-0.5 rounded-md">
+                    {f.num}
+                  </span>
+                  <h4 className="text-sm font-bold text-slate-950 group-hover:text-blue-700 transition-colors">
+                    {f.title}
+                  </h4>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  {f.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Institutional Motto Card */}
+          <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#070D21] via-blue-950 to-indigo-950 text-white text-center">
+            <p className="italic text-xs sm:text-sm font-light text-indigo-100 max-w-3xl mx-auto leading-relaxed">
+              &ldquo;Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;&rdquo;
+            </p>
+            <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold mt-2.5 block">
+              — Official TAPS Motto • taps.ac.in
+            </span>
+          </div>
+        </div>
+
         {/* 4. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS GRID */}
         <div id="facilities" className="pt-12 sm:pt-16 border-t border-indigo-100 scroll-mt-24">
           

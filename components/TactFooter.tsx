@@ -102,7 +102,13 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
                 Trident Academy of Professional Studies
               </p>
               <p className="text-zinc-300">
-                F2D, Chandaka Industrial Estate, Infocity, Patia, Bhubaneswar, Odisha — 751024
+                F-2, Chandaka Industrial Estate, In front of Infocity, Bhubaneswar, Odisha — 751024
+              </p>
+              <p className="text-xs text-zinc-400">
+                Admission Contact: <a href="tel:+919861191195" className="text-white hover:text-cyan-300 font-mono">+91 98611 91195</a>, <a href="tel:+917008443255" className="text-white hover:text-cyan-300 font-mono">+91 70084 43255</a>
+              </p>
+              <p className="text-xs text-zinc-400">
+                Official Web: <a href="https://taps.ac.in" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">taps.ac.in</a> • <a href="http://trident.ac.in" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">trident.ac.in</a>
               </p>
 
               <div className="pt-3 flex flex-wrap gap-3">

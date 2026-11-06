@@ -428,6 +428,149 @@ export default function AdmissionPage() {
           </section>
         </AnimatedBackground>
 
+        {/* OFFICIAL FEE STRUCTURE (2026-27): DIRECT FROM TAPS.AC.IN */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            
+            <div className="text-center max-w-3xl mx-auto mb-16 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+                Official Fee Structure 2026-27
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Transparent &amp; Approved Institutional Fees
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                Approved fee structure for students admitted in the academic year 2026-27 for 4-Year BBA and 3-Year / 4-Year BCA courses under Utkal University.
+              </p>
+            </div>
+
+            {/* Fee Tables Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              
+              {/* BBA Fee Card */}
+              <div className="p-8 rounded-3xl bg-white border border-indigo-100 shadow-md hover:border-blue-400 transition-all card-sheen">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                    4-YEAR COURSE • 8 SEMESTERS
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">Utkal University</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-950 mb-2">
+                  Bachelor of Business Administration (BBA)
+                </h3>
+                <p className="text-xs text-slate-600 mb-6">
+                  Eligibility: +2 examination from C.H.S.E. or equivalent in any discipline with minimum 45% marks (40% for SC/ST).
+                </p>
+
+                <div className="space-y-3 border-t border-slate-100 pt-5">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-700 font-medium">B.B.A. 1st Semester College Fee</span>
+                    <span className="font-bold text-slate-950 font-mono">₹52,500.00</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-700 font-medium">Subsequent Semesters (2nd to 8th)</span>
+                    <span className="font-bold text-slate-950 font-mono">₹52,500.00 / sem</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm pt-2 border-t border-dashed border-slate-200">
+                    <span className="text-emerald-700 font-semibold">Full Year Upfront Payment</span>
+                    <span className="font-bold text-emerald-700 font-mono">₹1,00,000 / year</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 space-y-1.5">
+                  <p>• Provisional seat reservation: ₹20,000 (Adjustable against 1st semester fee).</p>
+                  <p>• Application fee: ₹200 (in person or via DD payable to &ldquo;TACT&rdquo; at Bhubaneswar).</p>
+                </div>
+              </div>
+
+              {/* BCA Fee Card */}
+              <div className="p-8 rounded-3xl bg-white border border-indigo-100 shadow-md hover:border-blue-400 transition-all card-sheen">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+                    3-YEAR / 4-YEAR COURSE
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">Utkal University</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-950 mb-2">
+                  Bachelor of Computer Applications (BCA)
+                </h3>
+                <p className="text-xs text-slate-600 mb-6">
+                  Eligibility: +2 with Mathematics / Statistics / Business Mathematics, or 3-Year Diploma in Engineering from SCTE&amp;VT Orissa.
+                </p>
+
+                <div className="space-y-3 border-t border-slate-100 pt-5">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-700 font-medium">B.C.A. 1st Semester College Fee</span>
+                    <span className="font-bold text-slate-950 font-mono">₹52,500.00</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-700 font-medium">Subsequent Semesters (2nd to 6th/8th)</span>
+                    <span className="font-bold text-slate-950 font-mono">₹52,500.00 / sem</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm pt-2 border-t border-dashed border-slate-200">
+                    <span className="text-emerald-700 font-semibold">Full Year Upfront Payment</span>
+                    <span className="font-bold text-emerald-700 font-mono">₹1,00,000 / year</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 space-y-1.5">
+                  <p>• Provisional seat reservation: ₹20,000 (Adjustable against 1st semester fee).</p>
+                  <p>• Application fee: ₹200 (in person or via DD payable to &ldquo;TACT&rdquo; at Bhubaneswar).</p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Optional Residential & Transport Amenities Charges */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 font-bold">
+                  🏢
+                </span>
+                <div>
+                  <h4 className="text-base font-bold text-slate-950 mb-1">
+                    In-Campus Residential Hostel Fee
+                  </h4>
+                  <p className="text-sm font-mono font-bold text-blue-700 mb-1">
+                    ₹85,000 / year (or ₹44,500 per semester)
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Hostel facility is opted for a complete academic session. Includes spacious furnished accommodation, vegetarian and non-vegetarian mess, 24/7 Wi-Fi, and medical dispensary.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <span className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center shrink-0 font-bold">
+                  🚌
+                </span>
+                <div>
+                  <h4 className="text-base font-bold text-slate-950 mb-1">
+                    City Transport Bus Service
+                  </h4>
+                  <p className="text-sm font-mono font-bold text-indigo-700 mb-1">
+                    ₹20,000 / year
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Safe, dedicated college bus service operating across 6 comprehensive routes throughout Bhubaneswar City for day scholars.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Official Motto Banner */}
+            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-[#070D21] text-white text-center">
+              <p className="italic text-xs sm:text-sm font-light text-indigo-100 max-w-3xl mx-auto leading-relaxed">
+                &ldquo;Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;&rdquo;
+              </p>
+              <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold mt-2 block">
+                — TAPS Institutional Motto • taps.ac.in
+              </span>
+            </div>
+
+          </section>
+        </AnimatedBackground>
+
         {/* SCHOLARSHIPS SECTION: LIGHT VARIANT */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
