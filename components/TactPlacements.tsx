@@ -9,9 +9,9 @@ interface TactPlacementsProps {
 
 export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
   const stats = [
-    { value: "100+", label: "Recruiters in 2026", sub: "Tier-1 IT & Corporate Partners" },
-    { value: "95%+", label: "Placement Rate", sub: "For Eligible Final-Year Candidates" },
-    { value: "2,500+", label: "Campus Placements", sub: "Graduates Placed in Past 5 Years" },
+    { value: "138+", label: "Recruiters (2026)", sub: "Active Corporate Placement Network" },
+    { value: "260", label: "Recruiters (2025)", sub: "Peak Annual Placement Drives" },
+    { value: "112", label: "Recruiters (2024)", sub: "Verified Campus Recruiters" },
   ];
 
   const recruiters = [
@@ -108,7 +108,7 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
 
             <div className="pt-4 mt-5 border-t border-indigo-900/70 flex items-center justify-between text-xs text-indigo-300/80">
               <span>Trident Placement Consortium</span>
-              <span className="font-mono text-cyan-300 font-bold">95%+ Placement Conversion</span>
+              <span className="font-mono text-cyan-300 font-bold">138+ Visiting Recruiters</span>
             </div>
           </div>
         </div>

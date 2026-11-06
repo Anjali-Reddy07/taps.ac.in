@@ -6,12 +6,12 @@ interface TactAdmissionsBarProps {
 
 export default function TactAdmissionsBar({ onOpenQuery }: TactAdmissionsBarProps) {
   const milestones = [
-    "State Medhabruti & Merit Scholarship Matrix",
+    "State Medhabruti & Merit Scholarship Facilitation",
     "Active MoUs with Tier-1 Tech Giants",
-    "#1 BCA & BBA College under Utkal University",
-    "124+ Annual Corporate Recruiters",
-    "2,936+ Campus Placements",
-    "100% Ph.D & NET Qualified Core Faculty",
+    "Utkal University Affiliated BCA & BBA",
+    "138+ Corporate Recruiters (Placements 2026)",
+    "260 Recruiters (Placements 2025)",
+    "600 Computing Systems & 1000 Mbps High-Speed LAN",
     "AICTE Approved & Permanent Govt. of Odisha Recognition",
   ];
 

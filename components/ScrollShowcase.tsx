@@ -100,7 +100,7 @@ export default function ScrollShowcase({ onOpenQuery }: ScrollShowcaseProps) {
               Utkal Univ. Affiliated
             </span>
             <span className="text-[10px] sm:text-[11px] font-bold text-[#0020D6]">
-              Benchmark Rank #1
+              Est. 2000
             </span>
           </div>
         </div>

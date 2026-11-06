@@ -24,7 +24,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       location: "Infocity, Bhubaneswar",
     },
     {
-      eyebrow: "RANK #1 UNDER UTKAL UNIVERSITY",
+      eyebrow: "UTKAL UNIVERSITY AFFILIATED",
       headline: "Where Academic Rigor Meets Leadership",
       subheadline:
         "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
@@ -52,9 +52,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
     },
     {
       eyebrow: "CORPORATE SYNERGY & PLACEMENTS",
-      headline: "95%+ Direct Campus Placements",
+      headline: "138+ Annual Corporate Recruiters",
       subheadline:
-        "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 100+ Annual Corporate Recruitment Partners",
+        "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 138+ Annual Corporate Recruitment Partners",
       image: "/images/drive_new/_DSC1852.JPG",
       tag: "TRAINING & PLACEMENTS (BLOCK-5)",
       location: "Academic Enclave",

@@ -253,14 +253,14 @@ export default function TactTestimonials() {
             <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-3">
               <div>
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
-                  Trident Alumni Association • 10,000+ Strong Global Network
+                  Trident Alumni Association • TRANSCEND Annual Homecoming
                 </h3>
                 <p className="text-xs text-slate-200 mt-1 font-light max-w-xl leading-relaxed">
                   Graduates leading computational transformations, enterprise management, and public administration reuniting at the Infocity campus.
                 </p>
               </div>
               <span className="text-xs font-mono font-semibold text-cyan-300 self-start sm:self-auto shrink-0 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
-                10,000+ Alumni Worldwide
+                Alumni Network
               </span>
             </div>
           </div>

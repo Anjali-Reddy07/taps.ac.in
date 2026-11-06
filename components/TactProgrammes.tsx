@@ -24,7 +24,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
       tag: "Highest Campus Placement",
       metrics: [
         { label: "Duration", value: "3 Years", sub: "6 Semesters" },
-        { label: "Placement Rate", value: "95%+", sub: "Tier-1 Tech Partners" },
+        { label: "Placement Network", value: "138+", sub: "Corporate Recruiters" },
         { label: "Practical Lab Hours", value: "450+ Hrs", sub: "Cloud & AI Clusters" },
         { label: "Faculty Mentorship", value: "1:15", sub: "Dedicated Research Guides" },
       ],

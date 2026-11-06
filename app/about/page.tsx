@@ -15,10 +15,10 @@ export default function AboutPage() {
 
   const accreditations = [
     {
-      title: "#1 under Utkal Univ",
-      desc: "Undisputed rank 1 private BBA & BCA institution across Odisha.",
-      badge: "ACADEMIC RANK",
-      stat: "#1",
+      title: "Utkal Univ Affiliated",
+      desc: "Affiliated to Utkal University with approval of Govt. of Odisha since 2000.",
+      badge: "ACADEMIC AFFILIATION",
+      stat: "2000",
     },
     {
       title: "100% Ph.D / NET Faculty",
@@ -36,7 +36,7 @@ export default function AboutPage() {
       title: "Tier-1 Industry MoUs",
       desc: "Direct hiring linkages with CGI, TCS, Infosys, Wipro, and Capgemini.",
       badge: "CORPORATE TIE-UPS",
-      stat: "124+",
+      stat: "138+",
     },
   ];
 
@@ -71,10 +71,10 @@ export default function AboutPage() {
     },
     {
       year: "2026",
-      title: "Silver Jubilee: Benchmark Undergraduate Leader",
-      tag: "ERA 05 • SILVER JUBILEE",
-      desc: "Celebrating 26+ years of academic dominance with 2,936+ campus placements and recognized as the benchmark undergraduate institute under Utkal University.",
-      highlight: "Odisha's premier placement record for BCA & BBA scholars.",
+      title: "Sustained Undergraduate Leadership",
+      tag: "ERA 05 • CONTEMPORARY BENCHMARK",
+      desc: "Recognized as the benchmark undergraduate institute under Utkal University for BCA and BBA with sustained placement records and corporate tie-ups.",
+      highlight: "Odisha's premier academic benchmark for BCA & BBA scholars.",
     },
   ];
 
@@ -432,8 +432,8 @@ export default function AboutPage() {
                       <div className="text-[11px] text-slate-500 font-medium">Educational Legacy</div>
                     </div>
                     <div className="p-3 rounded-xl bg-white border border-indigo-100/80 shadow-2xs">
-                      <div className="text-xl font-mono font-bold text-purple-700">2,936+</div>
-                      <div className="text-[11px] text-slate-500 font-medium">Campus Selections</div>
+                      <div className="text-xl font-mono font-bold text-purple-700">138+</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Visiting Recruiters</div>
                     </div>
                   </div>
                 </div>
@@ -695,7 +695,7 @@ export default function AboutPage() {
                   </h2>
 
                   <p className="text-sm sm:text-base text-zinc-300 mt-4 font-light leading-relaxed">
-                    Tracing over three decades of academic dominance, technological breakthroughs, and more than 2,936 corporate placements under the TACT Trust.
+                    Tracing over three decades of academic dominance, technological breakthroughs, and sustained corporate campus placements under the TACT Trust.
                   </p>
                 </div>
 

@@ -27,7 +27,7 @@ export default function ProgrammesPage() {
       summary:
         "The BCA programme at TAPS is engineered to transform students into enterprise-ready software developers, cloud architects, and data engineers. Taught by 100% NET/Ph.D qualified faculty with round-the-clock access to cloud computing clusters.",
       highlights: [
-        "124+ Annual Recruiters with 95%+ Placement Conversion",
+        "138+ Annual Corporate Recruiters (Placements 2026)",
         "Dedicated Python, Full-Stack Java & Cloud Computing Labs",
         "Curriculum mapped to Utkal University CBCS Framework",
         "Industry certifications included in academic fees",
@@ -588,7 +588,7 @@ export default function ProgrammesPage() {
                         Tier-1 Corporate Recruitment Drives &amp; Mock Technical Interviews
                       </h4>
                       <p className="text-xs text-zinc-300 font-light mt-0.5">
-                        Over 124+ visiting companies annually recruiting TAPS BCA &amp; BBA graduates.
+                        Over 138+ visiting companies actively recruiting TAPS BCA &amp; BBA graduates.
                       </p>
                     </div>
                     <Link

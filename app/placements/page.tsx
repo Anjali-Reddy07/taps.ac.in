@@ -13,10 +13,10 @@ export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stats = [
-    { value: "138+", label: "Recruiters (2026)", sub: "Active Corporate Placement Network" },
-    { value: "260", label: "Recruiters (2025)", sub: "Peak Annual Placement Drives" },
-    { value: "2,936+", label: "Campus Selections", sub: "Placed Across Last 5 Years" },
-    { value: "#1", label: "Placement Record in Odisha", sub: "Under Utkal University BBA & BCA" },
+    { value: "138+", label: "Recruiters (2026)", sub: "Placements 2026" },
+    { value: "260", label: "Recruiters (2025)", sub: "Placements 2025" },
+    { value: "112", label: "Recruiters (2024)", sub: "Placements 2024" },
+    { value: "102", label: "Recruiters (2023)", sub: "Placements 2023" },
   ];
 
   const yearWiseRecruiters = [
@@ -131,8 +131,7 @@ export default function PlacementsPage() {
                 Where Undergraduate Ambition Meets Global Industry
               </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-                With over <strong className="text-white font-medium">2,936 campus selections</strong> over the past five years 
-                and visits from 124+ corporate recruiters annually, TAPS maintains the premier placement benchmark for BCA and BBA in Odisha.
+                The Placement Cell of the Institute conducts extensive research on the recruitment process of numerous companies to guide its students to their preferred jobs in their area of specialization.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -181,26 +180,27 @@ export default function PlacementsPage() {
               ))}
             </div>
 
-            {/* SUPER-30 ANAND KUMAR AWARD BANNER: DIRECT FROM TAPS.AC.IN */}
-            <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#070D21] via-blue-950 to-indigo-950 text-white shadow-xl border border-blue-900/50 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-5">
-                <div className="w-14 h-14 rounded-2xl bg-amber-400/20 border border-amber-400/40 text-amber-300 flex items-center justify-center shrink-0 text-2xl shadow-inner">
-                  🏆
-                </div>
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-amber-300 font-bold block mb-1">
-                    NATIONAL RECOGNITION • CAMPUS PLACEMENTS
-                  </span>
-                  <h3 className="text-base sm:text-xl font-bold text-white tracking-tight leading-snug">
-                    Awarded by Mr. Anand Kumar of &ldquo;SUPER-30&rdquo;
-                  </h3>
-                  <p className="text-xs sm:text-sm text-indigo-200 mt-1 font-light leading-relaxed">
-                    Honored at Ranchi for being Eastern India&rsquo;s fastest growing college in Campus Placements.
-                  </p>
-                </div>
+            {/* SUPER-30 ANAND KUMAR AWARD: DIRECT PHOTO & CAPTION FROM TAPS.AC.IN */}
+            <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-white border border-indigo-100 shadow-xl overflow-hidden flex flex-col md:flex-row items-center gap-6">
+              <div className="relative w-full md:w-80 h-48 rounded-2xl overflow-hidden border border-slate-200 shrink-0 shadow-md bg-slate-100">
+                <Image
+                  src="/images/taps_official/anand_kumar_award.jpg"
+                  alt="Mr. Anand Kumar of SUPER-30 awarding TRIDENT at Ranchi"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                />
               </div>
-              <div className="shrink-0 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-white">
-                Utkal University Benchmark
+              <div className="flex-1">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-blue-700 font-bold bg-blue-50 border border-blue-200 px-3 py-1 rounded-full inline-block mb-3">
+                  OFFICIAL INSTITUTIONAL AWARD
+                </span>
+                <h3 className="text-base sm:text-xl font-bold text-slate-950 tracking-tight leading-snug">
+                  Mr. Anand Kumar of &ldquo;SUPER-30&rdquo; awarding TRIDENT at Ranchi
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
+                  Mr. Anand Kumar of &ldquo;SUPER-30&rdquo; awarding TRIDENT at Ranchi for being EASTERN INDIA&rsquo;s fastest growing college in CAMPUS PLACEMENTS.
+                </p>
               </div>
             </div>
 
