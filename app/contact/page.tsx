@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import ShatterHeading from "@/components/ShatterHeading";
 
 export default function ContactPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,11 +45,9 @@ export default function ContactPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Reach Our Infocity Campus
               </div>
-              <ShatterHeading
-                text="Connect with Trident Academy of Professional Studies"
-                as="h1"
-                className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6"
-              />
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Connect with Trident Academy of Professional Studies
+              </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Located in the heart of Bhubaneswar's premier IT corridor at Infocity, Patia. 
                 Our admissions officers and academic advisors are available for in-person campus visits, phone consultations, and inquiries.

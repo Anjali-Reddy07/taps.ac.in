@@ -9,7 +9,6 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
-import ShatterHeading from "@/components/ShatterHeading";
 
 export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -129,11 +128,9 @@ export default function PlacementsPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
                 Training &amp; Placement Cell
               </div>
-              <ShatterHeading
-                text="Where Undergraduate Ambition Meets Global Industry"
-                as="h1"
-                className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6"
-              />
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Where Undergraduate Ambition Meets Global Industry
+              </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 The Placement Cell of the Institute conducts extensive research on the recruitment process of numerous companies to guide its students to their preferred jobs in their area of specialization.
               </p>

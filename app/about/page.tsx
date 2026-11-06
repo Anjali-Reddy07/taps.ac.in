@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import ShatterHeading from "@/components/ShatterHeading";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -222,15 +221,13 @@ export default function AboutPage() {
                 <span>TACT Trust • Estd. 2000 • Utkal University</span>
               </div>
 
-              <ShatterHeading
-                text="Legacy of Academic Excellence Since 2000"
-                as="h1"
-                className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6"
-              />
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                Legacy of Academic Excellence Since 2000
+              </h1>
               
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
                 Operating under the aegis of the renowned <strong className="text-white font-medium">TACT Trust</strong>, 
-                TAPS is a premier benchmark institution under Utkal University for BCA and BBA degrees. 
+                TAPS is the undisputed No. 1 institution under Utkal University for BCA and BBA degrees. 
                 Permanently recognized by the Higher Education Department, Govt. of Odisha, and AICTE approved.
               </p>
 
