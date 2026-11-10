@@ -11,7 +11,6 @@ interface TactHeroProps {
 
 export default function TactHero({ onOpenQuery }: TactHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [showReel, setShowReel] = useState(true);
 
   // Curated High-Definition Drive Photographs
@@ -63,22 +62,22 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
     },
   ];
 
-  // 1. Initial 5-second showcase for ReelGallery animation, then switch to sequential image slides
+  // Automatic slide rotation: every slide moves after 5 seconds each
+  // After the second slide (index 1), the Reel animation smoothly transitions to full-bleed image slides
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowReel(false);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // 2. Sequential slide rotation (cycles every 5 seconds once image slides are active)
-  useEffect(() => {
-    if (isPaused || showReel) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % slides.length;
+        // After the second slide completes (index 1 moving to index 2 or higher), transition to image slides
+        if (prev >= 1) {
+          setShowReel(false);
+        }
+        return next;
+      });
     }, 5000);
+
     return () => clearInterval(interval);
-  }, [isPaused, showReel, slides.length]);
+  }, [slides.length]);
 
   const nextSlide = () => {
     setShowReel(false);
@@ -95,8 +94,6 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       aria-roledescription="carousel"
       aria-label="Campus highlights"
       className="relative w-full h-[82vh] min-h-[580px] max-h-[800px] overflow-hidden bg-[#070D21] text-white"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* 1. TILTED REEL GALLERY BACKGROUND: GLIDING GOOGLE DRIVE IMAGES (Shown initially for ~5 sec) */}
       <div
@@ -287,10 +284,8 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             }`}>
               {i === currentSlide && (
                 <div 
-                  key={`progress-${currentSlide}-${showReel}`}
-                  className={`h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 rounded-full ${
-                    !isPaused ? "animate-[progress_5s_linear_forwards]" : "w-full"
-                  }`} 
+                  key={`progress-${currentSlide}`}
+                  className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 rounded-full animate-[progress_5s_linear_forwards]" 
                 />
               )}
             </div>
