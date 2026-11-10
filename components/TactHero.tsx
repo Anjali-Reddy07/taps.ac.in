@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ReelGallery from "@/components/ReelGallery";
 
@@ -11,6 +12,7 @@ interface TactHeroProps {
 export default function TactHero({ onOpenQuery }: TactHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [showReel, setShowReel] = useState(true);
 
   // Curated High-Definition Drive Photographs
   const slides = [
@@ -19,7 +21,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Trident Academy of Professional Studies",
       subheadline:
         "Where Ambition Finds Its Direction • Premier BBA & BCA Programs under Utkal University",
-      image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+      image: "/images/drive_fourth/campus_exterior_1.jpg",
       tag: "CAMPUS PROMENADE",
       location: "Infocity, Bhubaneswar",
     },
@@ -28,7 +30,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Where Academic Rigor Meets Leadership",
       subheadline:
         "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
-      image: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
+      image: "/images/drive_new/_DSC1826.JPG",
       tag: "CENTRAL PROMENADE & ARCHITECTURE",
       location: "Infocity Campus",
     },
@@ -61,19 +63,30 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
     },
   ];
 
+  // 1. Initial 5-second showcase for ReelGallery animation, then switch to sequential image slides
   useEffect(() => {
-    if (isPaused) return;
+    const timer = setTimeout(() => {
+      setShowReel(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 2. Sequential slide rotation (cycles every 5 seconds once image slides are active)
+  useEffect(() => {
+    if (isPaused || showReel) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6500);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isPaused, slides.length]);
+  }, [isPaused, showReel, slides.length]);
 
   const nextSlide = () => {
+    setShowReel(false);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
+    setShowReel(false);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
@@ -85,10 +98,15 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* 1. TILTED REEL GALLERY BACKGROUND: GLIDING GOOGLE DRIVE IMAGES */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto">
+      {/* 1. TILTED REEL GALLERY BACKGROUND: GLIDING GOOGLE DRIVE IMAGES (Shown initially for ~5 sec) */}
+      <div
+        className={`absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+          showReel ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
         <ReelGallery
           images={[
+            "/images/drive_fourth/campus_exterior_1.jpg",
             "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
             "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
             "/images/drive_new/1721020760290.jpg",
@@ -120,11 +138,42 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         />
       </div>
 
-      {/* One-Sided Left-to-Right Shaded Scrim: Deep dark on left for text legibility, fading out to transparent on right for maximum reel visibility */}
+      {/* 2. FULL-BLEED SEQUENTIAL IMAGE SLIDES: Fade in smoothly after 5s and change one by one */}
+      <div
+        className={`absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+          !showReel ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {slides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          return (
+            <div
+              key={`bg-img-${slide.tag}`}
+              aria-hidden={!isActive}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-[2]" : "opacity-0 pointer-events-none z-[1]"
+              }`}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.headline}
+                fill
+                priority={index === 0 || index === 1}
+                className={`object-cover object-center filter contrast-105 brightness-90 transition-transform duration-[6000ms] ease-out ${
+                  isActive ? "scale-105" : "scale-100"
+                }`}
+                sizes="100vw"
+              />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 3. One-Sided Left-to-Right Shaded Scrim: Deep dark on left for text legibility, clear and vibrant on right */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 via-35% to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent z-10 pointer-events-none" />
 
-      {/* Background Slides with Cross-Fade */}
+      {/* 4. Slide Content Layer with Cross-Fade */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlide;
         return (
@@ -135,12 +184,26 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
               isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 pointer-events-none z-0"
             }`}
           >
-            {/* Top Right Floating Campus Location Tag */}
-            <div className="absolute top-6 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] text-indigo-200">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
-              <span className="font-bold text-white uppercase tracking-wider">{slide.tag}</span>
-              <span className="text-indigo-400">•</span>
-              <span>{slide.location}</span>
+            {/* Top Right Floating Campus Location Tag + View Mode Toggle */}
+            <div className="absolute top-6 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => setShowReel((prev) => !prev)}
+                className="flex items-center gap-1.5 bg-[#070D21]/80 hover:bg-[#070D21] backdrop-blur-md border border-indigo-500/30 px-3 py-1.5 rounded-full text-[11px] text-indigo-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
+                title={showReel ? "Switch to single photo slides" : "Switch to multi-photo grid reel"}
+              >
+                <span className={`w-2 h-2 rounded-full ${showReel ? "bg-amber-400 animate-pulse" : "bg-cyan-400"}`} />
+                <span className="font-semibold uppercase tracking-wider">
+                  {showReel ? "Reel View" : "Photo Slides"}
+                </span>
+              </button>
+
+              <div className="flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] text-indigo-200">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+                <span className="font-bold text-white uppercase tracking-wider">{slide.tag}</span>
+                <span className="text-indigo-400">•</span>
+                <span>{slide.location}</span>
+              </div>
             </div>
 
             {/* Slide Content */}
@@ -212,7 +275,10 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         {slides.map((slide, i) => (
           <button
             key={slide.tag}
-            onClick={() => setCurrentSlide(i)}
+            onClick={() => {
+              setShowReel(false);
+              setCurrentSlide(i);
+            }}
             aria-label={`Go to slide ${i + 1}`}
             className="group relative py-2 cursor-pointer"
           >
@@ -221,8 +287,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             }`}>
               {i === currentSlide && (
                 <div 
+                  key={`progress-${currentSlide}-${showReel}`}
                   className={`h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 rounded-full ${
-                    !isPaused ? "animate-[progress_6.5s_linear_infinite]" : "w-full"
+                    !isPaused ? "animate-[progress_5s_linear_forwards]" : "w-full"
                   }`} 
                 />
               )}

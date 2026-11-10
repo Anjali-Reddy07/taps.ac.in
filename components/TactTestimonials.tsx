@@ -8,6 +8,7 @@ interface AlumnusTestimonial {
   id: string;
   name: string;
   initials: string;
+  image: string;
   degreeBadge: string;
   designation: string;
   company: string;
@@ -29,6 +30,7 @@ export default function TactTestimonials() {
       id: "jiban-samal",
       name: "Jiban Samal",
       initials: "JS",
+      image: "/images/drive_second/Picture8.jpg",
       degreeBadge: "Class of 2012 • BCA",
       designation: "SAP Lead Consultant",
       company: "CGI Info Systems",
@@ -44,6 +46,7 @@ export default function TactTestimonials() {
       id: "smruti-mishra",
       name: "Smruti Ranjan Mishra",
       initials: "SM",
+      image: "/images/drive_second/Picture6.jpg",
       degreeBadge: "Class of 2014 • BBA",
       designation: "Administrative Officer",
       company: "Revenue & Disaster Management Dept, Govt. of Odisha",
@@ -59,6 +62,7 @@ export default function TactTestimonials() {
       id: "piali-mazumdar",
       name: "Piali Mazumdar",
       initials: "PM",
+      image: "/images/drive_second/Picture4.jpg",
       degreeBadge: "Class of 2016 • BCA",
       designation: "Technical Specialist / Software Engineer",
       company: "Aricent / Capgemini",
@@ -74,6 +78,7 @@ export default function TactTestimonials() {
       id: "dambarudhara-behera",
       name: "DambaruDhara Behera",
       initials: "DB",
+      image: "/images/drive_second/Picture7.jpg",
       degreeBadge: "Class of 2011 • BCA",
       designation: "Principal Cloud Solutions Architect",
       company: "DXC Technology (CSC)",
@@ -89,6 +94,7 @@ export default function TactTestimonials() {
       id: "ananya-senapati",
       name: "Ananya Senapati",
       initials: "AS",
+      image: "/images/drive_second/Picture3.jpg",
       degreeBadge: "Class of 2019 • BBA",
       designation: "Business & Marketing Strategist",
       company: "Deloitte",
@@ -329,12 +335,18 @@ export default function TactTestimonials() {
                       exit="exit"
                       className="space-y-4"
                     >
-                      {/* Gradient Monogram Avatar with Glowing Border */}
+                      {/* Authentic Alumnus Photo from Drive with Verified Badge */}
                       <div className="relative inline-block">
-                        <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr ${current.avatarGradient} text-white flex items-center justify-center text-2xl sm:text-3xl font-bold tracking-wider shadow-lg shadow-indigo-500/25 ring-4 ring-white`}>
-                          {current.initials}
+                        <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-xl shadow-indigo-500/20 ring-4 ring-white border border-indigo-150 bg-slate-900 group">
+                          <Image
+                            src={current.image}
+                            alt={current.name}
+                            fill
+                            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                            sizes="120px"
+                          />
                         </div>
-                        <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-md border border-slate-100">
+                        <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow-md border border-slate-100 flex items-center justify-center">
                           <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
@@ -504,8 +516,14 @@ export default function TactTestimonials() {
                       : "bg-white/70 hover:bg-white border border-indigo-100 hover:border-indigo-300 shadow-2xs hover:scale-102"
                   }`}
                 >
-                  <div className={`w-8 h-8 rounded-xl bg-gradient-to-tr ${item.avatarGradient} text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-xs`}>
-                    {item.initials}
+                  <div className="relative w-8 h-8 rounded-xl overflow-hidden shrink-0 shadow-xs border border-indigo-200 bg-slate-900">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="32px"
+                    />
                   </div>
                   <div className="text-left hidden sm:block">
                     <div className="text-xs font-bold text-slate-900 leading-tight">

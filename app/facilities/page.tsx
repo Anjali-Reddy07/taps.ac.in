@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -158,7 +159,7 @@ export default function FacilitiesPage() {
                 11-Acre Modern Technoplex in Infocity
               </h1>
               <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-                From high-density cloud computing labs to research libraries and comfortable on-campus residential hostels, 
+                From high-density cloud computing labs to research libraries and comfortable on-campus residential hostels,
                 TAPS provides a world-class environment designed for academic rigor, innovation, and holistic living.
               </p>
 
@@ -183,7 +184,7 @@ export default function FacilitiesPage() {
         {/* 8 FACILITIES GRID: LIGHT VARIANT */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-            
+
             <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
                 Technoplex Amenities
@@ -217,7 +218,7 @@ export default function FacilitiesPage() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                    
+
                     <div className="absolute top-4 left-4">
                       <span className="inline-block px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase font-semibold text-zinc-200 border border-white/20">
                         {f.badge}
@@ -269,7 +270,7 @@ export default function FacilitiesPage() {
               Experience the Technoplex in Person
             </h2>
             <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
-              Prospective students and guardians are welcome to visit our Infocity campus, inspect the computing labs, 
+              Prospective students and guardians are welcome to visit our Infocity campus, inspect the computing labs,
               library, and residential hostels, and interact with the faculty mentors.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
