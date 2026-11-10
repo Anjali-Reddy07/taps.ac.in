@@ -58,7 +58,7 @@ export default function TactStudentLife() {
         </svg>
       ),
       iconGradient: "from-purple-600 via-pink-600 to-indigo-600",
-      image: "/images/drive_third/MBA_seminar_1.jpeg",
+      image: "/images/drive_third/MBA_Seminar_5.jpeg",
     },
     {
       id: "cloud-cyber",
@@ -90,7 +90,7 @@ export default function TactStudentLife() {
         </svg>
       ),
       iconGradient: "from-emerald-600 via-teal-600 to-cyan-600",
-      image: "/images/drive_fourth/cyber_security_club.png",
+      image: "/images/drive_third/MBA_Seminar_CFX.jpeg",
     },
     {
       id: "trifest-culture",
@@ -226,17 +226,17 @@ export default function TactStudentLife() {
           <div className="lg:col-span-5 lg:sticky lg:top-24">
             <motion.div
               layout
-              className="relative w-full rounded-3xl overflow-hidden border border-indigo-150 shadow-[0_20px_50px_rgba(79,70,229,0.12)] bg-slate-950 group"
+              className="relative w-full rounded-3xl overflow-hidden border border-indigo-150 shadow-[0_20px_50px_rgba(79,70,229,0.12)] bg-[#070D21] group flex flex-col"
             >
-              {/* Immersive Photo Container with Ken Burns Zoom & Smooth AnimatePresence Cross-fade */}
-              <div className="relative h-[420px] sm:h-[480px] lg:h-[540px] w-full overflow-hidden">
+              {/* Photo Showcase Window (Aspect-16/10) - Ensures Full Photo Visibility without Cropping */}
+              <div className="relative aspect-[16/10] sm:aspect-[16/10] w-full overflow-hidden bg-slate-950 shrink-0">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentActivity.id}
-                    initial={{ opacity: 0, scale: 1.05 }}
+                    initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
                     className="absolute inset-0"
                   >
                     <Image
@@ -244,18 +244,17 @@ export default function TactStudentLife() {
                       alt={currentActivity.title}
                       fill
                       priority
-                      className="object-cover object-center filter contrast-105 brightness-95 group-hover:scale-108 transition-transform duration-[1200ms] ease-out"
+                      className="object-cover object-center group-hover:scale-106 transition-transform duration-[1200ms] ease-out"
                       sizes="(max-width: 1024px) 100vw, 45vw"
                     />
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Deep Multi-Layer Vignette Scrim for Crystal-Clear Typography */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950/60 to-transparent pointer-events-none" />
+                {/* Subtle scrim for the top beacon tags */}
+                <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
 
-                {/* Top Floating Beacon Strip */}
-                <div className="absolute top-4 inset-x-4 z-20 flex items-center justify-between pointer-events-none">
+                {/* Top Floating Chapter Strip */}
+                <div className="absolute top-3.5 inset-x-3.5 z-20 flex items-center justify-between pointer-events-none">
                   <span className="bg-white/95 backdrop-blur-md text-slate-900 font-mono font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/40 flex items-center gap-1.5">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -264,56 +263,52 @@ export default function TactStudentLife() {
                     <span>ACTIVE CHAPTER</span>
                   </span>
 
-                  <span className="bg-[#070D21]/80 backdrop-blur-md text-cyan-300 font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-cyan-500/30">
+                  <span className="bg-[#070D21]/85 backdrop-blur-md text-cyan-300 font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-cyan-500/30">
                     Infocity Campus • Patia
                   </span>
                 </div>
+              </div>
 
-                {/* Bottom Floating Glassmorphic Details Card */}
-                <div className="absolute bottom-4 inset-x-4 z-20">
-                  <motion.div
-                    key={currentActivity.id + "-caption"}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="p-5 sm:p-6 rounded-2xl bg-[#070D21]/85 backdrop-blur-md border border-white/15 text-white shadow-xl"
-                  >
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-0.5 rounded-md">
-                        {currentActivity.shortTag}
-                      </span>
-                      <span className="text-[11px] font-mono text-indigo-300/80">
-                        {activeItem + 1} / {filteredActivities.length}
-                      </span>
-                    </div>
+              {/* Bottom Integrated Details Panel - Dedicated Content Region, Never Overlays Photo */}
+              <div className="p-5 sm:p-6 bg-[#070D21] text-white flex-1 flex flex-col justify-between border-t border-white/10">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-300 bg-cyan-950/70 border border-cyan-500/30 px-2.5 py-0.5 rounded-md">
+                      {currentActivity.shortTag}
+                    </span>
+                    <span className="text-[11px] font-mono text-indigo-300/80">
+                      {activeItem + 1} / {filteredActivities.length}
+                    </span>
+                  </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
-                      {currentActivity.title}
-                    </h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    {currentActivity.title}
+                  </h3>
 
-                    <p className="text-xs sm:text-[13px] text-slate-200 mt-2 font-normal leading-relaxed line-clamp-3">
-                      {currentActivity.desc}
-                    </p>
+                  <p className="text-xs sm:text-[13px] text-slate-300 mt-2 font-normal leading-relaxed">
+                    {currentActivity.desc}
+                  </p>
+                </div>
 
-                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-indigo-200">
-                      <span className="truncate">{currentActivity.coordinator}</span>
-                      <span className="text-cyan-400 font-semibold shrink-0 ml-2">Seed Funded</span>
-                    </div>
+                <div className="mt-4 pt-3.5 border-t border-white/10">
+                  <div className="flex items-center justify-between text-[11px] text-indigo-200 mb-3">
+                    <span className="truncate">{currentActivity.coordinator}</span>
+                    <span className="text-cyan-400 font-semibold shrink-0 ml-2">Seed Funded</span>
+                  </div>
 
-                    {/* Auto-cycle progress bar */}
-                    <div className="w-full bg-white/15 h-1 rounded-full mt-3 overflow-hidden">
-                      <motion.div
-                        key={`bar-${currentActivity.id}-${isPaused}`}
-                        initial={{ width: "0%" }}
-                        animate={{ width: isPaused ? "100%" : "100%" }}
-                        transition={{
-                          duration: isPaused ? 0 : 5.5,
-                          ease: "linear",
-                        }}
-                        className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
+                  {/* Auto-cycle progress bar */}
+                  <div className="w-full bg-white/15 h-1 rounded-full overflow-hidden">
+                    <motion.div
+                      key={`bar-${currentActivity.id}-${isPaused}`}
+                      initial={{ width: "0%" }}
+                      animate={{ width: isPaused ? "100%" : "100%" }}
+                      transition={{
+                        duration: isPaused ? 0 : 5.5,
+                        ease: "linear",
+                      }}
+                      className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 rounded-full"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
