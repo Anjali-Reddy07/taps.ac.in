@@ -63,17 +63,12 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
   ];
 
   // Automatic slide rotation: every slide moves after 5 seconds each
-  // After the second slide (index 1), the Reel animation smoothly transitions to full-bleed image slides
+  // The Reel animation plays ONLY ONCE on initial load (for Slide 1 for 5 seconds)
+  // At 5 seconds, it moves to Slide 2 and transitions permanently to sequential full-bleed image slides
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => {
-        const next = (prev + 1) % slides.length;
-        // After the second slide completes (index 1 moving to index 2 or higher), transition to image slides
-        if (prev >= 1) {
-          setShowReel(false);
-        }
-        return next;
-      });
+      setShowReel(false);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
