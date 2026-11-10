@@ -58,7 +58,7 @@ export default function TactStudentLife() {
         </svg>
       ),
       iconGradient: "from-purple-600 via-pink-600 to-indigo-600",
-      image: "/images/drive_third/MBA_Seminar_5.jpeg",
+      image: "/images/drive_fourth/manan_club.png",
     },
     {
       id: "cloud-cyber",
@@ -90,7 +90,7 @@ export default function TactStudentLife() {
         </svg>
       ),
       iconGradient: "from-emerald-600 via-teal-600 to-cyan-600",
-      image: "/images/drive_third/MBA_Seminar_CFX.jpeg",
+      image: "/images/drive_fourth/innovation_mela.png",
     },
     {
       id: "trifest-culture",
