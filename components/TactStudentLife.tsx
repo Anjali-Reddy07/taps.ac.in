@@ -26,7 +26,7 @@ export default function TactStudentLife() {
   const [selectedClubId, setSelectedClubId] = useState<string>("apper-coding");
 
   const clubs: ClubItem[] = [
-    // --- TECH & CODING ---
+    // --- TECH & CODING (4 CHAPTERS) ---
     {
       id: "apper-coding",
       domain: "tech",
@@ -42,6 +42,24 @@ export default function TactStudentLife() {
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+    },
+    {
+      id: "web-dev-club",
+      domain: "tech",
+      title: "Web Development, IoT & Open-Source Hub",
+      badge: "Full-Stack & Systems Engineering",
+      shortTag: "WEB DEV, IOT & GIT",
+      desc: "Hands-on software development chapter focusing on modern responsive web architectures, IoT connected devices, GitHub collaboration, and open-source project deployment.",
+      coordinator: "Technology Partners • Student Core Team",
+      stats: ["Full-Stack Sprints", "IoT Prototyping", "GitHub Mentorship"],
+      image: "/images/drive_fourth/web_dev_seminar.png",
+      accentGradient: "from-indigo-600 via-blue-600 to-teal-500",
+      iconBg: "bg-indigo-600 text-white",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
       ),
     },
@@ -63,8 +81,26 @@ export default function TactStudentLife() {
         </svg>
       ),
     },
+    {
+      id: "women-tech",
+      domain: "tech",
+      title: "Women in Tech & Innovation Cell",
+      badge: "Diversity & Advanced Tech Sprints",
+      shortTag: "WOMEN IN TECH",
+      desc: "Promoting excellence and active representation of women in software programming, algorithmic coding hackathons, research publications, and tech startup mentorship.",
+      coordinator: "Women in Engineering Cell • TAPS",
+      stats: ["Coding Bootcamps", "Tech Symposiums", "Hackathon Laurels"],
+      image: "/images/drive_fourth/women_hackathon.png",
+      accentGradient: "from-pink-600 via-purple-600 to-indigo-600",
+      iconBg: "bg-pink-600 text-white",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      ),
+    },
 
-    // --- MANAGEMENT & ADVISORY ---
+    // --- MANAGEMENT & ADVISORY (4 CHAPTERS) ---
     {
       id: "strategy-club",
       domain: "mgmt",
@@ -138,7 +174,7 @@ export default function TactStudentLife() {
       ),
     },
 
-    // --- CULTURE, NSS & SPORTS ---
+    // --- CULTURE, NSS & SPORTS (4 CHAPTERS) ---
     {
       id: "trifest-culture",
       domain: "culture",
@@ -193,13 +229,31 @@ export default function TactStudentLife() {
         </svg>
       ),
     },
+    {
+      id: "leadership-debate",
+      domain: "culture",
+      title: "Youth Leadership & Oratory Society",
+      badge: "Debate, Model UN & Public Speaking",
+      shortTag: "ORATORY & LEADERSHIP",
+      desc: "Cultivates articulative public discourse, parliamentary debating, Model United Nations diplomacy, and competitive speech elocution under faculty mentorship.",
+      coordinator: "Student Senate • Literary Cell",
+      stats: ["Parliamentary Debate", "Model UN", "Oratory Laurels"],
+      image: "/images/drive_fourth/hackathon_club.png",
+      accentGradient: "from-amber-600 via-yellow-600 to-orange-500",
+      iconBg: "bg-amber-600 text-white",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
+        </svg>
+      ),
+    },
   ];
 
-  // Domains
+  // Domains (Each exactly 4 clubs!)
   const domains: { id: DomainId; label: string; icon: string; count: number }[] = [
-    { id: "tech", label: "Tech & Hackathons", icon: "💻", count: 2 },
+    { id: "tech", label: "Tech & Hackathons", icon: "💻", count: 4 },
     { id: "mgmt", label: "Management & Advisory", icon: "📊", count: 4 },
-    { id: "culture", label: "Culture, NSS & Sports", icon: "🎭", count: 3 },
+    { id: "culture", label: "Culture, NSS & Sports", icon: "🎭", count: 4 },
   ];
 
   const domainClubs = clubs.filter((c) => c.domain === activeDomain);
@@ -237,7 +291,7 @@ export default function TactStudentLife() {
               Life Beyond the Classroom
             </h2>
             <p className="text-sm sm:text-base text-slate-300 mt-2.5 font-normal leading-relaxed">
-              Explore 9 official student-led chapters seed-funded by TAPS. Where foundational computing and managerial education transforms into competitive hackathons, executive simulations, and social leadership.
+              Explore 12 active student-led chapters seed-funded by TAPS. Where foundational computing and managerial education transforms into competitive hackathons, executive simulations, and social leadership.
             </p>
           </div>
 
@@ -272,13 +326,13 @@ export default function TactStudentLife() {
         </div>
 
         {/* Dynamic Interactive Stage: 7-Column Spotlight Console (Left) + 5-Column Chapter Navigator (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* LEFT 7 COLS: SPOTLIGHT CONSOLE (Cinematic Photo + Full Story + Live Chapter Stats) */}
           <div className="lg:col-span-7 flex flex-col">
             <motion.div
               layout
-              className="relative flex-1 flex flex-col rounded-3xl overflow-hidden border border-white/15 bg-[#0B132B]/90 backdrop-blur-xl shadow-[0_25px_60px_rgba(0,0,0,0.45)] group"
+              className="relative flex flex-col rounded-3xl overflow-hidden border border-white/15 bg-[#0B132B]/90 backdrop-blur-xl shadow-[0_25px_60px_rgba(0,0,0,0.45)] group"
             >
               {/* Widescreen Photo Stage */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-950 shrink-0">
@@ -329,7 +383,7 @@ export default function TactStudentLife() {
               </div>
 
               {/* Lower Details Box */}
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div className="p-6 sm:p-7 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-2">
                     <span className="text-xs font-semibold text-indigo-300 font-mono uppercase tracking-wider">
@@ -376,14 +430,15 @@ export default function TactStudentLife() {
             </motion.div>
           </div>
 
-          {/* RIGHT 5 COLS: CHAPTER NAVIGATOR (Interactive Click-to-Explore Cards) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-3.5">
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1 flex items-center justify-between px-1">
+          {/* RIGHT 5 COLS: CHAPTER NAVIGATOR (Zero-Gap Connected List) */}
+          <div className="lg:col-span-5 flex flex-col gap-3">
+            <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-0.5 flex items-center justify-between px-1">
               <span>EXPLORE {activeDomain.toUpperCase()} CHAPTERS</span>
-              <span className="text-cyan-400">{domainClubs.length} ACTIVE</span>
+              <span className="text-cyan-400 font-semibold">{domainClubs.length} CHAPTERS</span>
             </div>
 
-            <div className="space-y-3 flex-1 flex flex-col justify-between">
+            {/* Seamless Stacked Cards (Tight Gap, No Hollow Spacing) */}
+            <div className="flex flex-col gap-2.5 sm:gap-3">
               {domainClubs.map((club) => {
                 const isSelected = club.id === activeClub.id;
                 return (
@@ -392,10 +447,10 @@ export default function TactStudentLife() {
                     onClick={() => setSelectedClubId(club.id)}
                     whileHover={{ x: 4, scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    className={`relative p-4 sm:p-4.5 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden flex items-center gap-4 ${
+                    className={`relative p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden flex items-center gap-3.5 ${
                       isSelected
-                        ? "bg-gradient-to-r from-blue-900/50 to-indigo-900/40 border-cyan-400 shadow-[0_10px_30px_rgba(6,182,212,0.15)] ring-1 ring-cyan-400/50"
-                        : "bg-[#0B132B]/70 border-white/10 hover:border-white/25 hover:bg-[#0B132B]"
+                        ? "bg-gradient-to-r from-blue-900/60 to-indigo-900/50 border-cyan-400 shadow-[0_8px_25px_rgba(6,182,212,0.18)] ring-1 ring-cyan-400/50"
+                        : "bg-[#0B132B]/85 border-white/10 hover:border-white/25 hover:bg-[#0B132B]"
                     }`}
                   >
                     {/* Active Edge Indicator */}
@@ -407,30 +462,30 @@ export default function TactStudentLife() {
                     )}
 
                     {/* Thumbnail Image */}
-                    <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl overflow-hidden shrink-0 border border-white/15 bg-slate-900">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 border border-white/15 bg-slate-900">
                       <Image
                         src={club.image}
                         alt={club.title}
                         fill
                         className="object-cover object-center"
-                        sizes="80px"
+                        sizes="70px"
                       />
                     </div>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0 pr-1">
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-2 mb-0.5">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-semibold truncate">
                           {club.shortTag}
                         </span>
                         {isSelected && (
-                          <span className="text-[9px] font-mono bg-cyan-400/20 text-cyan-300 border border-cyan-400/30 px-1.5 py-0.2 rounded shrink-0">
+                          <span className="text-[9px] font-mono bg-cyan-400/25 text-cyan-300 border border-cyan-400/40 px-1.5 py-0.2 rounded shrink-0">
                             VIEWING
                           </span>
                         )}
                       </div>
 
-                      <h4 className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug truncate">
+                      <h4 className="text-sm font-bold text-white tracking-tight leading-snug truncate">
                         {club.title}
                       </h4>
 
@@ -440,8 +495,8 @@ export default function TactStudentLife() {
                     </div>
 
                     {/* Arrow Action */}
-                    <div className="shrink-0 text-slate-400 group-hover:text-cyan-300">
-                      <svg className={`w-5 h-5 transition-transform ${isSelected ? "text-cyan-400 translate-x-1" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="shrink-0 text-slate-400">
+                      <svg className={`w-4 h-4 transition-transform ${isSelected ? "text-cyan-400 translate-x-1" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -451,7 +506,7 @@ export default function TactStudentLife() {
             </div>
 
             {/* Quick Informational Footer Strip */}
-            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs text-slate-300">
+            <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs text-slate-300 mt-1">
               <span className="flex items-center gap-2">
                 <span className="text-base">🏛️</span>
                 <span>Seed Funded by TAPS Governing Trust</span>
