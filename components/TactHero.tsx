@@ -161,9 +161,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         })}
       </div>
 
-      {/* 3. One-Sided Left-to-Right Shaded Scrim: Deep dark on left for text legibility, clear and vibrant on right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/70 via-35% to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent z-10 pointer-events-none" />
+      {/* 3. One-Sided Left-to-Right Shaded Scrim: Deep dark on left for maximum text legibility, clear and vibrant on right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-55% to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/70 via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* 4. Slide Content Layer with Cross-Fade */}
       {slides.map((slide, index) => {
@@ -203,18 +203,18 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
               <div className="max-w-4xl animate-fadeInUp">
                 
                 {/* 1. Eyebrow Pill Badge */}
-                <div className="inline-flex items-center gap-2 bg-blue-900/60 text-blue-200 border border-blue-400/40 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-xs">
+                <div className="inline-flex items-center gap-2 bg-blue-900/70 text-blue-100 border border-blue-400/50 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulseGlow" />
                   <span>{slide.eyebrow}</span>
                 </div>
 
                 {/* 2. Main Headline */}
-                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2">
+                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   {slide.headline}
                 </h1>
 
-                {/* 3. Subheadline */}
-                <p className="text-blue-100/90 text-base sm:text-lg max-w-2xl font-light mt-4 sm:mt-5 leading-relaxed">
+                {/* 3. Subheadline: Enhanced visibility, clear contrast & drop shadow */}
+                <p className="text-white sm:text-slate-100 text-base sm:text-lg max-w-2xl font-normal sm:font-medium mt-4 sm:mt-5 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
                   {slide.subheadline}
                 </p>
 
