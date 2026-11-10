@@ -9,56 +9,6 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 
-// Interactive 3D Tilt Card with dynamic cursor-following specular glare
-function TiltCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setMousePos({ x, y });
-  };
-
-  const rotateX = isHovered ? (0.5 - mousePos.y) * 6 : 0;
-  const rotateY = isHovered ? (mousePos.x - 0.5) * 6 : 0;
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setMousePos({ x: 0.5, y: 0.5 });
-      }}
-      animate={{
-        rotateX,
-        rotateY,
-        transformPerspective: 1200,
-      }}
-      transition={{ type: "spring", stiffness: 320, damping: 28 }}
-      className={`relative ${className}`}
-    >
-      {children}
-      {isHovered && (
-        <div
-          className="pointer-events-none absolute -inset-px rounded-3xl opacity-20 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(600px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255,255,255,0.45), transparent 40%)`,
-          }}
-        />
-      )}
-    </motion.div>
-  );
-}
-
 export default function ProgrammesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<"bca" | "bba">("bca");
@@ -567,15 +517,10 @@ export default function ProgrammesPage() {
                 </motion.div>
               </div>
 
-              {/* Right Column: Live Interactive Degree Preview Card */}
+              {/* Right Column: Degree Preview Snapshot Card */}
               <div className="lg:col-span-5">
-                <TiltCard className="w-full">
-                  <div className="rounded-3xl border border-white/20 bg-zinc-950/80 backdrop-blur-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
-                    {/* Animated Rotating Conic Border Beam */}
-                    <div className="absolute -inset-px rounded-3xl pointer-events-none overflow-hidden opacity-40">
-                      <div className="absolute inset-[-150%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,#3b82f6_360deg)]" />
-                    </div>
-
+                <div className="w-full">
+                  <div className="rounded-3xl border border-white/20 bg-zinc-950/85 backdrop-blur-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group hover:border-white/35 transition-colors duration-300">
                     {/* Top Program Pill & Seats Status */}
                     <div className="relative z-10 flex items-center justify-between gap-2 mb-4">
                       <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-500/20 text-cyan-300 border border-blue-400/30">
@@ -635,7 +580,7 @@ export default function ProgrammesPage() {
                     </div>
 
                   </div>
-                </TiltCard>
+                </div>
               </div>
 
             </div>
