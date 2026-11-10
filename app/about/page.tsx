@@ -47,10 +47,10 @@ export default function AboutPage() {
       tag: "ERA 01 • INCEPTION",
       desc: "Founded by visionary technocrats as Trident Softech Private Limited (TSPL), establishing Eastern India's first elite corporate software finishing school in Oracle, Sybase, and PowerBuilder.",
       highlight: "Over 500+ corporate engineers trained in enterprise RDBMS systems.",
-      image: "/images/timeline/era_1991_terminal.jpg",
-      visualTitle: "Enterprise Database Workstation",
-      visualSubtitle: "Oracle & Sybase RDBMS Finishing School",
-      specs: ["UNIX Architecture", "Oracle SQL Core", "Enterprise RDBMS"],
+      image: "/images/drive/computer-lab.jpg",
+      visualTitle: "High-Density Computing & Software Laboratory",
+      visualSubtitle: "Enterprise Systems & RDBMS Infrastructure",
+      specs: ["High-Performance Desktop Terminals", "Oracle & Sybase SDKs", "1000 Mbps Fiber LAN"],
       accentGlow: "from-amber-500/20 via-orange-500/10 to-transparent",
       accentBorder: "border-amber-400/40",
       accentBadge: "text-amber-400 bg-amber-400/10 border-amber-400/30",
@@ -61,10 +61,10 @@ export default function AboutPage() {
       tag: "ERA 02 • SPECIALIZED IT TRAINING",
       desc: "Through Trident's Advanced Computer Training (TACT), fresh engineering graduates were trained in enterprise packages including SYBASE, POWERBUILDER, ORACLE, DB-2, and JCL, securing coveted careers in competitive corporate markets.",
       highlight: "Pioneered specialized software education in Eastern India.",
-      image: "/images/timeline/era_1995_servers.jpg",
-      visualTitle: "Enterprise Client-Server Datacenter",
-      visualSubtitle: "Advanced Distributed Computer Systems",
-      specs: ["DB-2 & PowerBuilder", "Client-Server Cluster", "Tier-1 Network"],
+      image: "/images/drive_third/Library_Library.JPG",
+      visualTitle: "Central DELNET Research Library",
+      visualSubtitle: "70,000+ Text & Reference Volumes with IEEE & ACM Access",
+      specs: ["70,000 Volumes", "DELNET Stacks", "IEEE & ACM Databases"],
       accentGlow: "from-cyan-500/20 via-blue-500/10 to-transparent",
       accentBorder: "border-cyan-400/40",
       accentBadge: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
@@ -75,10 +75,10 @@ export default function AboutPage() {
       tag: "ERA 03 • TAPS INAUGURATION",
       desc: "Formal launch of Trident Academy of Professional Studies (TAPS) under TACT Trust, offering BCA and BBA affiliated to Utkal University with Govt. of Odisha approval.",
       highlight: "Permanent AICTE and Higher Education Department recognition.",
-      image: "/images/timeline/era_2000_academy.jpg",
-      visualTitle: "Flagship Academic Architecture",
-      visualSubtitle: "BCA & BBA Utkal University Campus",
-      specs: ["Utkal CBCS Affiliation", "Permanent AICTE", "TACT Trust Charter"],
+      image: "/images/drive_third/ClassRooms__MG_2339.JPG",
+      visualTitle: "Multimedia Tiered Smart Amphitheatre",
+      visualSubtitle: "Faculty-Mentored Pedagogy & Interactive Lecture Theatres",
+      specs: ["Acoustically Engineered Tiered Seating", "Interactive Smart Boards", "Multimedia Digital Podiums"],
       accentGlow: "from-indigo-500/20 via-purple-500/10 to-transparent",
       accentBorder: "border-indigo-400/40",
       accentBadge: "text-indigo-400 bg-indigo-400/10 border-indigo-400/30",
@@ -89,10 +89,10 @@ export default function AboutPage() {
       tag: "ERA 04 • INFRASTRUCTURE SCALE",
       desc: "Expanded into an 11-acre flagship Technoplex in the heart of Infocity, Bhubaneswar, flanked by Infosys, TCS, and Wipro development centers.",
       highlight: "High-density cloud computing labs and central research library established.",
-      image: "/images/timeline/era_2005_technoplex.jpg",
-      visualTitle: "11-Acre Smart Technoplex Hub",
-      visualSubtitle: "Infocity IT Corridor, Bhubaneswar",
-      specs: ["11-Acre Complex", "Infosys & TCS Corridor", "High-Density Labs"],
+      image: "/images/drive_fourth/campus_exterior_1.jpg",
+      visualTitle: "11-Acre Technoplex Campus Complex",
+      visualSubtitle: "Infocity IT Corridor, Patia, Bhubaneswar",
+      specs: ["11-Acre Flagship Technoplex", "Infocity IT Hub", "Modern Institutional Blocks"],
       accentGlow: "from-emerald-500/20 via-teal-500/10 to-transparent",
       accentBorder: "border-emerald-400/40",
       accentBadge: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
@@ -103,10 +103,10 @@ export default function AboutPage() {
       tag: "ERA 05 • CONTEMPORARY BENCHMARK",
       desc: "Recognized as the benchmark undergraduate institute under Utkal University for BCA and BBA with sustained placement records and corporate tie-ups.",
       highlight: "Odisha's premier academic benchmark for BCA & BBA scholars.",
-      image: "/images/timeline/era_2026_future_ai.jpg",
-      visualTitle: "Next-Gen AI & Quantum Computing Hub",
-      visualSubtitle: "AI & Full-Stack Corporate Finishing School",
-      specs: ["Generative AI Pipelines", "Quantum Neural Nodes", "Corporate Finishing School"],
+      image: "/images/drive/campus-walkway.jpg",
+      visualTitle: "Central Campus Promenade & Academic Quads",
+      visualSubtitle: "Symmetrical Paved Walkway Flanked by Royal Palm Trees",
+      specs: ["Royal Palm Promenade", "Infocity Tech Corridor", "24/7 Connected Campus"],
       accentGlow: "from-purple-500/20 via-pink-500/10 to-transparent",
       accentBorder: "border-purple-400/40",
       accentBadge: "text-purple-400 bg-purple-400/10 border-purple-400/30",
@@ -927,14 +927,14 @@ export default function AboutPage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent pointer-events-none" />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                        {/* Top Indicator: AI Generated Tech Artifact Tag */}
+                        {/* Top Indicator: Authentic Campus Facility Tag */}
                         <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
                             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                            AI ARCHIVAL VISUAL
+                            CAMPUS FACILITY
                           </div>
-                          <span className="text-[10px] font-mono text-zinc-400 bg-black/75 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10">
-                            TECH ARTIFACT
+                          <span className="text-[10px] font-mono text-zinc-300 bg-black/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/15">
+                            INFOCITY TECHNOPLEX
                           </span>
                         </div>
 
