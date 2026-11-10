@@ -47,6 +47,7 @@ export default function AboutPage() {
       tag: "ERA 01 • INCEPTION",
       desc: "Founded by visionary technocrats as Trident Softech Private Limited (TSPL), establishing Eastern India's first elite corporate software finishing school in Oracle, Sybase, and PowerBuilder.",
       highlight: "Over 500+ corporate engineers trained in enterprise RDBMS systems.",
+      image: "/images/drive_third/Placement_DSC_2425.JPG",
     },
     {
       year: "1995",
@@ -54,6 +55,7 @@ export default function AboutPage() {
       tag: "ERA 02 • SPECIALIZED IT TRAINING",
       desc: "Through Trident's Advanced Computer Training (TACT), fresh engineering graduates were trained in enterprise packages including SYBASE, POWERBUILDER, ORACLE, DB-2, and JCL, securing coveted careers in competitive corporate markets.",
       highlight: "Pioneered specialized software education in Eastern India.",
+      image: "/images/drive_fourth/cloud_club.png",
     },
     {
       year: "2000",
@@ -61,6 +63,7 @@ export default function AboutPage() {
       tag: "ERA 03 • TAPS INAUGURATION",
       desc: "Formal launch of Trident Academy of Professional Studies (TAPS) under TACT Trust, offering BCA and BBA affiliated to Utkal University with Govt. of Odisha approval.",
       highlight: "Permanent AICTE and Higher Education Department recognition.",
+      image: "/images/drive_second/alumni3.jpg",
     },
     {
       year: "2005",
@@ -68,6 +71,7 @@ export default function AboutPage() {
       tag: "ERA 04 • INFRASTRUCTURE SCALE",
       desc: "Expanded into an 11-acre flagship Technoplex in the heart of Infocity, Bhubaneswar, flanked by Infosys, TCS, and Wipro development centers.",
       highlight: "High-density cloud computing labs and central research library established.",
+      image: "/images/drive_new/1746352355680.jpg",
     },
     {
       year: "2026",
@@ -75,6 +79,7 @@ export default function AboutPage() {
       tag: "ERA 05 • CONTEMPORARY BENCHMARK",
       desc: "Recognized as the benchmark undergraduate institute under Utkal University for BCA and BBA with sustained placement records and corporate tie-ups.",
       highlight: "Odisha's premier academic benchmark for BCA & BBA scholars.",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
     },
   ];
 
@@ -681,154 +686,168 @@ export default function AboutPage() {
 
           <section id="history" className="relative z-10 py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              
-              {/* Sticky Left Sidebar: Section Intro & Interactive Year Selector */}
-              <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
-                <div>
-                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-4 bg-amber-400/10 px-3.5 py-1.5 rounded-full border border-amber-400/25 shadow-2xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    ESTABLISHED: 1991 • TRIDENT ARCHIVE
-                  </div>
-
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
-                    From a Pioneering Finishing School to Eastern India's Benchmark
-                  </h2>
-
-                  <p className="text-sm sm:text-base text-zinc-300 mt-4 font-light leading-relaxed">
-                    Tracing over three decades of academic dominance, technological breakthroughs, and sustained corporate campus placements under the TACT Trust.
-                  </p>
-                </div>
-
-                {/* Interactive Year Quick-Jumper Pill Buttons */}
-                <div className="pt-2">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mb-3 font-semibold">
-                    Interactive Era Navigator:
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {milestones.map((m) => {
-                      const isSelected = selectedTimelineYear === m.year;
-                      return (
-                        <button
-                          key={m.year}
-                          onClick={() => {
-                            setSelectedTimelineYear(m.year);
-                            const el = document.getElementById(`milestone-${m.year}`);
-                            if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                          }}
-                          className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all duration-300 cursor-pointer ${
-                            isSelected
-                              ? "bg-amber-400 text-slate-950 shadow-md scale-105"
-                              : "bg-zinc-900/90 text-zinc-300 border border-zinc-700 hover:border-amber-400 hover:text-white"
-                          }`}
-                        >
-                          {m.year}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Legacy Photo Card */}
-                <div className="relative h-56 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl group">
-                  <Image
-                    src="/images/drive_second/alumni3.jpg"
-                    alt="Annual Alumni Homecoming TRANSCEND"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white">
-                      ANNUAL ALUMNI MEET • TRANSCEND
-                    </span>
-                    <h4 className="text-base font-bold mt-1 text-white">
-                      Alumni Brand Ambassadors of TAPS
-                    </h4>
-                    <p className="text-xs text-zinc-300 font-light mt-0.5">
-                      Graduates leading successful careers across premier IT corporations, banking, and public administration.
-                    </p>
-                  </div>
-                </div>
-
+            {/* Centered Section Header */}
+            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-4 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/25 shadow-2xs backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                ESTABLISHED: 1991 • TRIDENT ARCHIVE
               </div>
 
-              {/* Right Column: Animated Vertical Timeline Spine & Milestone Cards */}
-              <div className="lg:col-span-7 relative pl-6 sm:pl-10 space-y-10">
-                
-                {/* Vertical Glowing Spine Light Beam */}
-                <div 
-                  className="absolute left-2 sm:left-3.5 top-3 bottom-6 w-[2.5px] bg-gradient-to-b from-amber-400 via-sky-400 via-indigo-500 to-purple-500 opacity-60 pointer-events-none" 
-                  aria-hidden="true"
-                />
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+                From a Pioneering Finishing School to Eastern India&apos;s Benchmark
+              </h2>
 
-                {milestones.map((m, idx) => {
+              <p className="text-sm sm:text-base text-zinc-300 mt-4 font-light leading-relaxed max-w-2xl mx-auto">
+                Tracing over three decades of academic dominance, technological breakthroughs, and sustained corporate campus placements under the TACT Trust.
+              </p>
+
+              {/* Interactive Era Quick-Jumper Pill Buttons */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mr-2 font-semibold hidden sm:inline-block">
+                  Jump to Era:
+                </span>
+                {milestones.map((m) => {
                   const isSelected = selectedTimelineYear === m.year;
                   return (
-                    <motion.div
+                    <button
+                      key={m.year}
+                      onClick={() => {
+                        setSelectedTimelineYear(m.year);
+                        const el = document.getElementById(`milestone-${m.year}`);
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      }}
+                      className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all duration-300 cursor-pointer ${
+                        isSelected
+                          ? "bg-gradient-to-r from-amber-400 to-orange-400 text-slate-950 shadow-lg scale-105"
+                          : "bg-zinc-900/90 text-zinc-300 border border-zinc-700/80 hover:border-amber-400 hover:text-white"
+                      }`}
+                    >
+                      {m.year}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Symmetrical Alternating Timeline Stream (Eliminating any blank space) */}
+            <div className="relative max-w-5xl mx-auto">
+              
+              {/* Continuous Center Glowing Spine */}
+              <div 
+                className="absolute left-6 md:left-1/2 top-4 bottom-8 w-[3px] -translate-x-1/2 bg-gradient-to-b from-amber-400 via-sky-400 via-indigo-500 to-purple-500 opacity-60 pointer-events-none rounded-full" 
+                aria-hidden="true"
+              />
+
+              <div className="space-y-12 sm:space-y-16">
+                {milestones.map((m, idx) => {
+                  const isSelected = selectedTimelineYear === m.year;
+                  const isEven = idx % 2 === 1;
+
+                  return (
+                    <div
                       id={`milestone-${m.year}`}
                       key={m.year}
-                      initial={{ opacity: 0, x: 24 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-60px" }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
                       onMouseEnter={() => setSelectedTimelineYear(m.year)}
-                      className="relative group"
+                      className="relative flex flex-col md:flex-row items-center group"
                     >
-                      {/* Pulsing Glowing Timeline Node */}
-                      <div className="absolute -left-[30px] sm:-left-[46px] top-4 z-10 flex items-center justify-center">
-                        <span className="relative flex h-5 w-5">
+                      {/* Center Glowing Timeline Node */}
+                      <div className="absolute left-6 md:left-1/2 top-6 md:top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+                        <span className="relative flex h-6 w-6">
                           <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
                             isSelected ? "bg-amber-400" : "bg-sky-400"
                           }`} />
-                          <span className={`relative inline-flex rounded-full h-5 w-5 border-2 border-white shadow-sm transition-colors duration-300 ${
+                          <span className={`relative inline-flex rounded-full h-6 w-6 border-2 border-white shadow-md transition-colors duration-300 items-center justify-center ${
                             isSelected ? "bg-amber-400" : "bg-zinc-900 group-hover:bg-amber-400"
-                          }`} />
+                          }`}>
+                            <span className="w-1.5 h-1.5 rounded-full bg-slate-950" />
+                          </span>
                         </span>
                       </div>
 
-                      {/* Milestone Glassmorphic Card */}
-                      <div className={`p-6 sm:p-8 rounded-3xl backdrop-blur-md transition-all duration-300 relative border ${
-                        isSelected
-                          ? "bg-zinc-900/90 border-amber-400/60 shadow-[0_12px_40px_rgba(251,191,36,0.1)] scale-[1.01]"
-                          : "bg-zinc-950/70 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/80 shadow-md"
+                      {/* Milestone Card (Alternating Symmetrically: Left on odd, Right on even) */}
+                      <div className={`w-full pl-14 md:pl-0 md:w-[calc(50%-40px)] ${
+                        isEven ? "md:ml-auto" : "md:mr-auto"
                       }`}>
-                        
-                        {/* Top Year & Tag Strip */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                          <span className="text-2xl sm:text-3xl font-mono font-bold bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
-                            {m.year}
-                          </span>
-                          <span className="text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-300">
-                            {m.tag}
-                          </span>
-                        </div>
+                        <motion.div
+                          initial={{ opacity: 0, y: 24 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-50px" }}
+                          transition={{ duration: 0.5, delay: idx * 0.1 }}
+                          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                          className={`rounded-3xl backdrop-blur-md transition-all duration-300 overflow-hidden border ${
+                            isSelected
+                              ? "bg-zinc-900/90 border-amber-400/60 shadow-[0_16px_50px_rgba(251,191,36,0.12)] scale-[1.01]"
+                              : "bg-zinc-950/75 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/80 shadow-lg"
+                          }`}
+                        >
+                          {/* Top Visual Preview Strip */}
+                          <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900">
+                            <Image
+                              src={m.image}
+                              alt={m.title}
+                              fill
+                              className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                              sizes="(max-width: 768px) 100vw, 45vw"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent pointer-events-none" />
+                            
+                            {/* Top Badges */}
+                            <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                              <span className="text-xl sm:text-2xl font-mono font-bold px-3 py-1 rounded-xl bg-black/75 backdrop-blur-md border border-white/20 bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
+                                {m.year}
+                              </span>
+                              <span className="text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-zinc-300">
+                                {m.tag}
+                              </span>
+                            </div>
+                          </div>
 
-                        {/* Title & Description */}
-                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">
-                          {m.title}
-                        </h3>
+                          {/* Card Content Body */}
+                          <div className="p-6 sm:p-7">
+                            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug group-hover:text-amber-300 transition-colors">
+                              {m.title}
+                            </h3>
 
-                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-4">
-                          {m.desc}
-                        </p>
+                            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-4">
+                              {m.desc}
+                            </p>
 
-                        {/* Key Achievement Pill */}
-                        <div className="pt-3 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-mono text-cyan-300">
-                          <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>{m.highlight}</span>
-                        </div>
-
+                            {/* Key Achievement Footer */}
+                            <div className="pt-3 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-mono text-cyan-300">
+                              <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span>{m.highlight}</span>
+                            </div>
+                          </div>
+                        </motion.div>
                       </div>
-                    </motion.div>
+
+                    </div>
                   );
                 })}
-
               </div>
 
+            </div>
+
+            {/* Bottom 4-Column Legacy Metrics Banner (Completes Section Elegantly) */}
+            <div className="mt-16 sm:mt-24 pt-12 border-t border-zinc-800/90 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                {[
+                  { stat: "35+ Yrs", label: "Educational Excellence", sub: "Since 1991 Inception" },
+                  { stat: "500+", label: "Software Engineers", sub: "Trained in TSPL Finishing School" },
+                  { stat: "Permanent", label: "Govt. Recognition", sub: "AICTE & Utkal University" },
+                  { stat: "138+", label: "Corporate Partners", sub: "Global Recruitment Linkages" },
+                ].map((item, idx) => (
+                  <div key={idx} className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors shadow-md">
+                    <div className="text-2xl sm:text-3xl font-mono font-bold bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
+                      {item.stat}
+                    </div>
+                    <div className="text-xs font-bold text-white mt-1.5">{item.label}</div>
+                    <div className="text-[10px] font-mono text-zinc-400 mt-0.5">{item.sub}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
           </section>
