@@ -47,7 +47,13 @@ export default function AboutPage() {
       tag: "ERA 01 • INCEPTION",
       desc: "Founded by visionary technocrats as Trident Softech Private Limited (TSPL), establishing Eastern India's first elite corporate software finishing school in Oracle, Sybase, and PowerBuilder.",
       highlight: "Over 500+ corporate engineers trained in enterprise RDBMS systems.",
-      image: "/images/drive_third/Placement_DSC_2425.JPG",
+      image: "/images/timeline/era_1991_terminal.jpg",
+      visualTitle: "Enterprise Database Workstation",
+      visualSubtitle: "Oracle & Sybase RDBMS Finishing School",
+      specs: ["UNIX Architecture", "Oracle SQL Core", "Enterprise RDBMS"],
+      accentGlow: "from-amber-500/20 via-orange-500/10 to-transparent",
+      accentBorder: "border-amber-400/40",
+      accentBadge: "text-amber-400 bg-amber-400/10 border-amber-400/30",
     },
     {
       year: "1995",
@@ -55,7 +61,13 @@ export default function AboutPage() {
       tag: "ERA 02 • SPECIALIZED IT TRAINING",
       desc: "Through Trident's Advanced Computer Training (TACT), fresh engineering graduates were trained in enterprise packages including SYBASE, POWERBUILDER, ORACLE, DB-2, and JCL, securing coveted careers in competitive corporate markets.",
       highlight: "Pioneered specialized software education in Eastern India.",
-      image: "/images/drive_fourth/cloud_club.png",
+      image: "/images/timeline/era_1995_servers.jpg",
+      visualTitle: "Enterprise Client-Server Datacenter",
+      visualSubtitle: "Advanced Distributed Computer Systems",
+      specs: ["DB-2 & PowerBuilder", "Client-Server Cluster", "Tier-1 Network"],
+      accentGlow: "from-cyan-500/20 via-blue-500/10 to-transparent",
+      accentBorder: "border-cyan-400/40",
+      accentBadge: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
     },
     {
       year: "2000",
@@ -63,7 +75,13 @@ export default function AboutPage() {
       tag: "ERA 03 • TAPS INAUGURATION",
       desc: "Formal launch of Trident Academy of Professional Studies (TAPS) under TACT Trust, offering BCA and BBA affiliated to Utkal University with Govt. of Odisha approval.",
       highlight: "Permanent AICTE and Higher Education Department recognition.",
-      image: "/images/drive_second/alumni3.jpg",
+      image: "/images/timeline/era_2000_academy.jpg",
+      visualTitle: "Flagship Academic Architecture",
+      visualSubtitle: "BCA & BBA Utkal University Campus",
+      specs: ["Utkal CBCS Affiliation", "Permanent AICTE", "TACT Trust Charter"],
+      accentGlow: "from-indigo-500/20 via-purple-500/10 to-transparent",
+      accentBorder: "border-indigo-400/40",
+      accentBadge: "text-indigo-400 bg-indigo-400/10 border-indigo-400/30",
     },
     {
       year: "2005",
@@ -71,7 +89,13 @@ export default function AboutPage() {
       tag: "ERA 04 • INFRASTRUCTURE SCALE",
       desc: "Expanded into an 11-acre flagship Technoplex in the heart of Infocity, Bhubaneswar, flanked by Infosys, TCS, and Wipro development centers.",
       highlight: "High-density cloud computing labs and central research library established.",
-      image: "/images/drive_new/1746352355680.jpg",
+      image: "/images/timeline/era_2005_technoplex.jpg",
+      visualTitle: "11-Acre Smart Technoplex Hub",
+      visualSubtitle: "Infocity IT Corridor, Bhubaneswar",
+      specs: ["11-Acre Complex", "Infosys & TCS Corridor", "High-Density Labs"],
+      accentGlow: "from-emerald-500/20 via-teal-500/10 to-transparent",
+      accentBorder: "border-emerald-400/40",
+      accentBadge: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
     },
     {
       year: "2026",
@@ -79,7 +103,13 @@ export default function AboutPage() {
       tag: "ERA 05 • CONTEMPORARY BENCHMARK",
       desc: "Recognized as the benchmark undergraduate institute under Utkal University for BCA and BBA with sustained placement records and corporate tie-ups.",
       highlight: "Odisha's premier academic benchmark for BCA & BBA scholars.",
-      image: "/images/drive_third/ClassRooms_Academic.JPG",
+      image: "/images/timeline/era_2026_future_ai.jpg",
+      visualTitle: "Next-Gen AI & Quantum Computing Hub",
+      visualSubtitle: "AI & Full-Stack Corporate Finishing School",
+      specs: ["Generative AI Pipelines", "Quantum Neural Nodes", "Corporate Finishing School"],
+      accentGlow: "from-purple-500/20 via-pink-500/10 to-transparent",
+      accentBorder: "border-purple-400/40",
+      accentBadge: "text-purple-400 bg-purple-400/10 border-purple-400/30",
     },
   ];
 
@@ -797,12 +827,12 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Symmetrical Alternating Timeline Stream (Eliminating any blank space) */}
-            <div className="relative max-w-5xl mx-auto">
+            {/* Balanced Symmetrical Timeline Stream (Completely Eliminates Blank Void) */}
+            <div className="relative max-w-6xl mx-auto">
               
               {/* Continuous Center Glowing Spine */}
               <div 
-                className="absolute left-6 md:left-1/2 top-4 bottom-8 w-[3px] -translate-x-1/2 bg-gradient-to-b from-amber-400 via-sky-400 via-indigo-500 to-purple-500 opacity-60 pointer-events-none rounded-full" 
+                className="absolute left-6 md:left-1/2 top-4 bottom-8 w-[3px] -translate-x-1/2 bg-gradient-to-b from-amber-400 via-sky-400 via-indigo-500 to-purple-500 opacity-60 pointer-events-none rounded-full hidden md:block" 
                 aria-hidden="true"
               />
 
@@ -811,85 +841,149 @@ export default function AboutPage() {
                   const isSelected = selectedTimelineYear === m.year;
                   const isEven = idx % 2 === 1;
 
+                  // Narrative Milestone Card
+                  const narrativeCard = (
+                    <motion.div
+                      key={`narrative-${m.year}`}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                      className={`w-full md:w-[calc(50%-32px)] rounded-3xl backdrop-blur-xl transition-all duration-300 overflow-hidden border p-6 sm:p-7 flex flex-col justify-between relative shadow-xl ${
+                        isSelected
+                          ? "bg-zinc-900/95 border-amber-400/60 shadow-[0_16px_50px_rgba(251,191,36,0.14)]"
+                          : "bg-zinc-950/85 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/90"
+                      }`}
+                    >
+                      {/* Top Ambient Glow */}
+                      <div className={`absolute top-0 right-0 w-44 h-44 rounded-full blur-3xl pointer-events-none bg-gradient-to-br ${m.accentGlow}`} />
+
+                      <div className="relative z-10">
+                        {/* Top Badges */}
+                        <div className="flex items-center justify-between gap-2 mb-4">
+                          <span className="text-2xl sm:text-3xl font-mono font-extrabold bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
+                            {m.year}
+                          </span>
+                          <span className={`text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full border ${m.accentBadge}`}>
+                            {m.tag}
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-amber-300 transition-colors">
+                          {m.title}
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-6">
+                          {m.desc}
+                        </p>
+                      </div>
+
+                      <div className="relative z-10 pt-4 border-t border-zinc-800/80">
+                        <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 mb-3">
+                          <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{m.highlight}</span>
+                        </div>
+
+                        {/* Era Micro-Tags */}
+                        <div className="flex flex-wrap gap-1.5">
+                          {m.specs.map((spec, sIdx) => (
+                            <span key={sIdx} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/60 text-zinc-400">
+                              {spec}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+
+                  // AI Visual Tech Showcase Card (STRICTLY NO PEOPLE)
+                  const visualCard = (
+                    <motion.div
+                      key={`visual-${m.year}`}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 + 0.05 }}
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                      className={`w-full md:w-[calc(50%-32px)] rounded-3xl backdrop-blur-xl transition-all duration-300 overflow-hidden border relative group/visual shadow-xl ${
+                        isSelected
+                          ? `bg-zinc-900/90 ${m.accentBorder} shadow-[0_16px_50px_rgba(59,130,246,0.15)]`
+                          : "bg-zinc-950/85 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/90"
+                      }`}
+                    >
+                      {/* Full-Bleed AI Generated Visual (NO PEOPLE) */}
+                      <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                        <Image
+                          src={m.image}
+                          alt={m.visualTitle}
+                          fill
+                          className="object-cover object-center group-hover/visual:scale-106 transition-transform duration-700 ease-out filter contrast-105"
+                          sizes="(max-width: 768px) 100vw, 45vw"
+                        />
+                        {/* Cinematic Vignette */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                        {/* Top Indicator: AI Generated Tech Artifact Tag */}
+                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                            AI ARCHIVAL VISUAL
+                          </div>
+                          <span className="text-[10px] font-mono text-zinc-400 bg-black/75 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10">
+                            TECH ARTIFACT
+                          </span>
+                        </div>
+
+                        {/* Bottom Caption Overlay */}
+                        <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                          <div className="text-base font-bold tracking-tight text-white leading-snug">
+                            {m.visualTitle}
+                          </div>
+                          <div className="text-xs font-mono text-cyan-300 font-medium mt-0.5">
+                            {m.visualSubtitle}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+
                   return (
                     <div
                       id={`milestone-${m.year}`}
                       key={m.year}
                       onMouseEnter={() => setSelectedTimelineYear(m.year)}
-                      className="relative flex flex-col md:flex-row items-center group"
+                      className="relative flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-16 group"
                     >
-                      {/* Center Glowing Timeline Node */}
-                      <div className="absolute left-6 md:left-1/2 top-6 md:top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
-                        <span className="relative flex h-6 w-6">
+                      {/* Center Glowing Timeline Node on Desktop */}
+                      <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 items-center justify-center pointer-events-none">
+                        <span className="relative flex h-8 w-8 items-center justify-center">
                           <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
                             isSelected ? "bg-amber-400" : "bg-sky-400"
                           }`} />
-                          <span className={`relative inline-flex rounded-full h-6 w-6 border-2 border-white shadow-md transition-colors duration-300 items-center justify-center ${
+                          <span className={`relative inline-flex rounded-full h-8 w-8 border-2 border-white shadow-xl transition-colors duration-300 items-center justify-center ${
                             isSelected ? "bg-amber-400" : "bg-zinc-900 group-hover:bg-amber-400"
                           }`}>
-                            <span className="w-1.5 h-1.5 rounded-full bg-slate-950" />
+                            <span className="w-2 h-2 rounded-full bg-slate-950" />
                           </span>
                         </span>
                       </div>
 
-                      {/* Milestone Card (Alternating Symmetrically: Left on odd, Right on even) */}
-                      <div className={`w-full pl-14 md:pl-0 md:w-[calc(50%-40px)] ${
-                        isEven ? "md:ml-auto" : "md:mr-auto"
-                      }`}>
-                        <motion.div
-                          initial={{ opacity: 0, y: 24 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-50px" }}
-                          transition={{ duration: 0.5, delay: idx * 0.1 }}
-                          whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                          className={`rounded-3xl backdrop-blur-md transition-all duration-300 overflow-hidden border ${
-                            isSelected
-                              ? "bg-zinc-900/90 border-amber-400/60 shadow-[0_16px_50px_rgba(251,191,36,0.12)] scale-[1.01]"
-                              : "bg-zinc-950/75 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/80 shadow-lg"
-                          }`}
-                        >
-                          {/* Top Visual Preview Strip */}
-                          <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-900">
-                            <Image
-                              src={m.image}
-                              alt={m.title}
-                              fill
-                              className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
-                              sizes="(max-width: 768px) 100vw, 45vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent pointer-events-none" />
-                            
-                            {/* Top Badges */}
-                            <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                              <span className="text-xl sm:text-2xl font-mono font-bold px-3 py-1 rounded-xl bg-black/75 backdrop-blur-md border border-white/20 bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
-                                {m.year}
-                              </span>
-                              <span className="text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-zinc-300">
-                                {m.tag}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Card Content Body */}
-                          <div className="p-6 sm:p-7">
-                            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-snug group-hover:text-amber-300 transition-colors">
-                              {m.title}
-                            </h3>
-
-                            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-4">
-                              {m.desc}
-                            </p>
-
-                            {/* Key Achievement Footer */}
-                            <div className="pt-3 border-t border-zinc-800/80 flex items-center gap-2 text-xs font-mono text-cyan-300">
-                              <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                              </svg>
-                              <span>{m.highlight}</span>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </div>
+                      {/* Alternating Dual-Panel Layout: Zero Blank Space */}
+                      {isEven ? (
+                        <>
+                          {visualCard}
+                          {narrativeCard}
+                        </>
+                      ) : (
+                        <>
+                          {narrativeCard}
+                          {visualCard}
+                        </>
+                      )}
 
                     </div>
                   );
