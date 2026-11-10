@@ -135,33 +135,35 @@ export default function ReelGallery({
   // Load and cache all images as HTMLImageElements
   useEffect(() => {
     let isCancelled = false;
-    const plates: LoadedPlate[] = [];
 
-    const loadPromises = images.map((src) => {
-      return new Promise<void>((resolve) => {
-        const img = new Image();
+    images.forEach((src) => {
+      const img = new Image();
+      // Only set crossOrigin if loading from external http/https domain, never for relative local paths
+      if (src.startsWith("http://") || src.startsWith("https://")) {
         img.crossOrigin = "anonymous";
-        img.src = src;
-        img.onload = () => {
-          if (isCancelled) return;
-          const naturalAspect = img.naturalWidth / (img.naturalHeight || 1);
-          const clampedAspect = Math.max(minAspect, Math.min(maxAspect, naturalAspect));
-          plates.push({
-            img,
-            aspect: clampedAspect,
-            width: rowHeight * clampedAspect,
-          });
-          resolve();
-        };
-        img.onerror = () => {
-          resolve(); // gracefully skip failing assets
-        };
-      });
-    });
+      }
 
-    Promise.all(loadPromises).then(() => {
-      if (!isCancelled) {
-        loadedPlatesRef.current = plates;
+      const handleLoad = () => {
+        if (isCancelled) return;
+        const naturalAspect = (img.naturalWidth || 1) / (img.naturalHeight || 1);
+        const clampedAspect = Math.max(minAspect, Math.min(maxAspect, naturalAspect));
+        loadedPlatesRef.current.push({
+          img,
+          aspect: clampedAspect,
+          width: rowHeight * clampedAspect,
+        });
+      };
+
+      img.onload = handleLoad;
+      img.onerror = () => {
+        // gracefully skip
+      };
+
+      img.src = src;
+
+      // If browser already cached the image, process immediately without waiting for async event
+      if (img.complete && img.naturalWidth > 0) {
+        handleLoad();
       }
     });
 
@@ -269,11 +271,44 @@ export default function ReelGallery({
       if (!ctx) return;
 
       const plates = loadedPlatesRef.current;
-      if (plates.length === 0) return;
-
       const actualDpr = Math.min(window.devicePixelRatio || 1, userDpr);
       const width = canvas.width / actualDpr;
       const height = canvas.height / actualDpr;
+
+      if (plates.length === 0) {
+        // Immediate visual rendering: draw glowing tinted photo frames so there is never a blank frame
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.scale(actualDpr, actualDpr);
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const radTilt = (tilt * Math.PI) / 180;
+        ctx.translate(centerX, centerY);
+        ctx.rotate(-radTilt);
+        ctx.translate(-centerX, -centerY);
+
+        const totalStackHeight = rows * rowHeight + (rows - 1) * rowGap;
+        const startY = (height - totalStackHeight) / 2;
+        for (let r = 0; r < rows; r++) {
+          const rowBaseY = startY + r * (rowHeight + rowGap);
+          for (let x = -200; x < width + 200; x += 190) {
+            const archY = -arch * Math.sin(Math.max(0, Math.min(1, (x + 80) / width)) * Math.PI);
+            const y = rowBaseY + archY;
+            ctx.save();
+            ctx.beginPath();
+            ctx.roundRect(x, y, 160, rowHeight, radius);
+            ctx.closePath();
+            ctx.fillStyle = "rgba(15, 23, 42, 0.6)";
+            ctx.fill();
+            ctx.strokeStyle = "rgba(96, 165, 250, 0.25)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+        ctx.restore();
+        return;
+      }
 
       // Smooth velocity interpolation with inertia & damping
       velocityRef.current += (targetVelocityRef.current - velocityRef.current) * damping;
