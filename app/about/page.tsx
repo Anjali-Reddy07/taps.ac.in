@@ -150,14 +150,15 @@ export default function AboutPage() {
       title: "Teacher-Guardian Mentorship (TGM)",
       desc: "Every cohort of 15 students is assigned a designated faculty mentor who tracks continuous academic progress, attendance, psychological wellbeing, and semester preparation.",
       tag: "1:15 RATIO",
-      blobColor: "bg-blue-400/25",
-      topGradient: "from-blue-500 via-cyan-400 to-indigo-500",
-      cardBg: "bg-gradient-to-br from-blue-50/50 via-white to-white",
-      borderHover: "hover:border-blue-400/80 hover:shadow-blue-500/10",
-      iconBg: "bg-blue-50/90 group-hover:bg-blue-600",
-      iconText: "text-blue-700 group-hover:text-white",
-      iconBorder: "border-blue-200/80",
-      tagBadge: "bg-blue-50/90 text-blue-700 border-blue-200/70",
+      blobGradient: "from-blue-400/40 via-sky-300/45 to-indigo-400/35",
+      topGradient: "from-blue-600 via-sky-500 to-indigo-600",
+      cardBg: "bg-gradient-to-b from-blue-50/70 via-sky-50/30 to-white",
+      borderColor: "border-blue-200/90 hover:border-blue-400",
+      borderHover: "hover:shadow-xl hover:shadow-blue-500/15",
+      iconBg: "bg-blue-600",
+      iconText: "text-white",
+      iconShadow: "shadow-md shadow-blue-500/30",
+      tagBadge: "bg-blue-100 text-blue-800 border-blue-300/80 font-bold",
       titleHover: "group-hover:text-blue-700",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,14 +170,15 @@ export default function AboutPage() {
       title: "Aptitude & Soft-Skill Finishing School",
       desc: "Integrated training from 1st Year onwards in quantitative aptitude, logical reasoning, corporate business communication, and mock GD-PI simulations.",
       tag: "YEAR 1 ONWARDS",
-      blobColor: "bg-amber-400/25",
-      topGradient: "from-amber-500 via-orange-400 to-rose-400",
-      cardBg: "bg-gradient-to-br from-amber-50/50 via-white to-white",
-      borderHover: "hover:border-amber-400/80 hover:shadow-amber-500/10",
-      iconBg: "bg-amber-50/90 group-hover:bg-amber-600",
-      iconText: "text-amber-700 group-hover:text-white",
-      iconBorder: "border-amber-200/80",
-      tagBadge: "bg-amber-50/90 text-amber-700 border-amber-200/70",
+      blobGradient: "from-amber-400/40 via-orange-300/45 to-rose-400/35",
+      topGradient: "from-amber-500 via-orange-500 to-rose-500",
+      cardBg: "bg-gradient-to-b from-amber-50/70 via-orange-50/30 to-white",
+      borderColor: "border-amber-200/90 hover:border-amber-400",
+      borderHover: "hover:shadow-xl hover:shadow-amber-500/15",
+      iconBg: "bg-amber-500",
+      iconText: "text-white",
+      iconShadow: "shadow-md shadow-amber-500/30",
+      tagBadge: "bg-amber-100 text-amber-900 border-amber-300/80 font-bold",
       titleHover: "group-hover:text-amber-700",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,14 +190,15 @@ export default function AboutPage() {
       title: "Industry Colloquium & Masterclasses",
       desc: "Bi-weekly technical sessions, hackathons, and executive symposiums featuring seasoned industry leads from Microsoft, CGI, Amazon, and Big-4 consulting firms.",
       tag: "FORTNIGHTLY",
-      blobColor: "bg-purple-400/25",
-      topGradient: "from-purple-500 via-fuchsia-400 to-indigo-500",
-      cardBg: "bg-gradient-to-br from-purple-50/50 via-white to-white",
-      borderHover: "hover:border-purple-400/80 hover:shadow-purple-500/10",
-      iconBg: "bg-purple-50/90 group-hover:bg-purple-600",
-      iconText: "text-purple-700 group-hover:text-white",
-      iconBorder: "border-purple-200/80",
-      tagBadge: "bg-purple-50/90 text-purple-700 border-purple-200/70",
+      blobGradient: "from-purple-400/40 via-fuchsia-300/45 to-indigo-400/35",
+      topGradient: "from-purple-600 via-violet-500 to-indigo-600",
+      cardBg: "bg-gradient-to-b from-purple-50/70 via-violet-50/30 to-white",
+      borderColor: "border-purple-200/90 hover:border-purple-400",
+      borderHover: "hover:shadow-xl hover:shadow-purple-500/15",
+      iconBg: "bg-purple-600",
+      iconText: "text-white",
+      iconShadow: "shadow-md shadow-purple-500/30",
+      tagBadge: "bg-purple-100 text-purple-900 border-purple-300/80 font-bold",
       titleHover: "group-hover:text-purple-700",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,14 +210,15 @@ export default function AboutPage() {
       title: "Continuous Evaluation & Feedback Loop",
       desc: "Weekly surprise tests, mid-term examinations, and open-house parent meetings ensure that students remain ahead of Utkal University's CBCS grading benchmarks.",
       tag: "CONTINUOUS",
-      blobColor: "bg-emerald-400/25",
-      topGradient: "from-emerald-500 via-teal-400 to-cyan-500",
-      cardBg: "bg-gradient-to-br from-emerald-50/50 via-white to-white",
-      borderHover: "hover:border-emerald-400/80 hover:shadow-emerald-500/10",
-      iconBg: "bg-emerald-50/90 group-hover:bg-emerald-600",
-      iconText: "text-emerald-700 group-hover:text-white",
-      iconBorder: "border-emerald-200/80",
-      tagBadge: "bg-emerald-50/90 text-emerald-700 border-emerald-200/70",
+      blobGradient: "from-emerald-400/40 via-teal-300/45 to-cyan-400/35",
+      topGradient: "from-emerald-600 via-teal-500 to-cyan-600",
+      cardBg: "bg-gradient-to-b from-emerald-50/70 via-teal-50/30 to-white",
+      borderColor: "border-emerald-200/90 hover:border-emerald-400",
+      borderHover: "hover:shadow-xl hover:shadow-emerald-500/15",
+      iconBg: "bg-emerald-600",
+      iconText: "text-white",
+      iconShadow: "shadow-md shadow-emerald-500/30",
+      tagBadge: "bg-emerald-100 text-emerald-900 border-emerald-300/80 font-bold",
       titleHover: "group-hover:text-emerald-700",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -596,50 +600,47 @@ export default function AboutPage() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
                   whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className={`relative overflow-hidden p-6 rounded-2xl ${practice.cardBg} border border-zinc-200/90 ${practice.borderHover} hover:shadow-xl transition-all duration-300 flex flex-col justify-between group`}
+                  className={`relative overflow-hidden p-6 rounded-2xl ${practice.cardBg} border ${practice.borderColor} ${practice.borderHover} transition-all duration-300 flex flex-col justify-between group shadow-sm`}
                 >
-                  {/* Partially Animated Ambient Shading Aura (Drifting Corner Glow) */}
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.25, 1],
-                      opacity: [0.35, 0.65, 0.35],
-                      x: [0, 8, 0],
-                      y: [0, -6, 0],
-                    }}
-                    transition={{
-                      duration: 5 + idx * 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className={`absolute -top-12 -right-12 w-44 h-44 rounded-full blur-2xl pointer-events-none ${practice.blobColor}`}
-                  />
-
-                  {/* Animated Top Edge Minimal Color Shading Accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1 overflow-hidden pointer-events-none">
-                    <motion.div
-                      animate={{
-                        x: ["-100%", "100%"],
-                      }}
-                      transition={{
-                        duration: 4 + idx * 0.8,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className={`h-full w-full bg-gradient-to-r ${practice.topGradient} opacity-70 group-hover:opacity-100 transition-opacity`}
-                    />
+                  {/* Top-Edge 3px Vivid Gradient Accent Bar */}
+                  <div className="absolute top-0 inset-x-0 h-1 overflow-hidden pointer-events-none">
+                    <div className={`h-full w-full bg-gradient-to-r ${practice.topGradient}`} />
                   </div>
 
+                  {/* Partially Animated Shading Zone (Smooth Moving Pastel Aura in Upper Half) */}
+                  <div className="absolute top-0 inset-x-0 h-44 overflow-hidden pointer-events-none rounded-t-2xl">
+                    <motion.div
+                      animate={{
+                        x: [-15, 20, -15],
+                        y: [-8, 12, -8],
+                        scale: [1, 1.18, 1],
+                      }}
+                      transition={{
+                        duration: 6 + idx * 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className={`absolute -top-10 -right-8 w-52 h-40 rounded-full blur-2xl opacity-70 group-hover:opacity-95 transition-opacity bg-gradient-to-br ${practice.blobGradient}`}
+                    />
+                    {/* Soft Bottom Mask for the Shading */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90 pointer-events-none" />
+                  </div>
+
+                  {/* Main Content */}
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-10 h-10 rounded-xl ${practice.iconBg} border ${practice.iconBorder} flex items-center justify-center ${practice.iconText} transition-all duration-300 shadow-2xs group-hover:scale-105`}>
+                      {/* Bold Themed Icon */}
+                      <div className={`w-10 h-10 rounded-xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center transition-transform duration-300 group-hover:scale-108`}>
                         {practice.icon}
                       </div>
-                      <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full border ${practice.tagBadge}`}>
+
+                      {/* Visible Colored Tag Badge */}
+                      <span className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full border shadow-2xs ${practice.tagBadge}`}>
                         {practice.tag}
                       </span>
                     </div>
 
-                    <h3 className={`text-base font-bold text-zinc-950 mb-2 ${practice.titleHover} transition-colors`}>
+                    <h3 className={`text-base font-bold text-zinc-950 mb-2.5 ${practice.titleHover} transition-colors`}>
                       {practice.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
