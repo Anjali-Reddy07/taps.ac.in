@@ -52,10 +52,8 @@ export default function Home() {
           <TactPlacements onOpenQuery={() => setIsModalOpen(true)} />
         </AnimatedBackground>
 
-        {/* SECTION 7: STUDENT LIFE ("Life Beyond the Classroom" - Trifest, Kartavya, Hostels, Food Centers, Sports) */}
-        <AnimatedBackground variant="light" className="border-t border-indigo-100">
-          <TactStudentLife />
-        </AnimatedBackground>
+        {/* SECTION 7: STUDENT LIFE ("Life Beyond the Classroom" - Interactive Student Hub) */}
+        <TactStudentLife />
 
         {/* SECTION 8: CAMPUS GALLERY (Interactive Filterable Bento Media Showcase) */}
         <AnimatedBackground variant="light" className="border-t border-indigo-100">
