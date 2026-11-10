@@ -302,8 +302,8 @@ export default function ProgrammesPage() {
           {/* Authentic Academic Computer Lab Background Image */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
-              src="/images/academics-classroom-hero.jpg"
-              alt="TAPS Computer Applications Lab with Faculty and Students in Uniform"
+              src="/images/drive_third/ClassRooms_Academic.JPG"
+              alt="TAPS Multimedia Amphitheatre with Faculty and Students in Academic Uniform"
               fill
               priority
               className="object-cover object-[75%_30%] filter contrast-105 opacity-80 scale-100"

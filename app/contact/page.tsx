@@ -44,8 +44,8 @@ export default function ContactPage() {
           {/* Rich Background Image with One-Sided Scrim */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <Image
-              src="/images/tact-building.webp"
-              alt="Trident Academy Campus Building"
+              src="/images/drive_new/1721020760290.jpg"
+              alt="Trident Academy of Professional Studies Campus Building"
               fill
               priority
               className="object-cover object-center filter contrast-105 opacity-80 scale-100"

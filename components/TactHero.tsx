@@ -20,7 +20,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Trident Academy of Professional Studies",
       subheadline:
         "Where Ambition Finds Its Direction • Premier BBA & BCA Programs under Utkal University",
-      image: "/images/drive_fourth/campus_exterior_1.jpg",
+      image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
       tag: "CAMPUS PROMENADE",
       location: "Infocity, Bhubaneswar",
     },
@@ -29,7 +29,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Where Academic Rigor Meets Leadership",
       subheadline:
         "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
-      image: "/images/drive_new/_DSC1826.JPG",
+      image: "/images/drive_new/1746352355680.jpg",
       tag: "CENTRAL PROMENADE & ARCHITECTURE",
       location: "Infocity Campus",
     },
@@ -98,16 +98,16 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       >
         <ReelGallery
           images={[
-            "/images/drive_fourth/campus_exterior_1.jpg",
             "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+            "/images/drive_new/1746352355680.jpg",
             "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
             "/images/drive_new/1721020760290.jpg",
             "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
             "/images/drive_new/_DSC1852.JPG",
             "/images/drive_new/418523663_877202237525747_6377361483820920683_n.jpg",
             "/images/drive_new/487841832_17914511076094364_1416184591585353408_n.jpg",
-            "/images/drive_new/_DSC1826.JPG",
-            "/images/drive_new/320067572_1333023554121378_8020995869077112586_n.jpg",
+            "/images/drive_third/Placement_DSC_2425.JPG",
+            "/images/drive_third/Library_Library.JPG",
             "/images/drive_second/alumni3.jpg",
             "/images/drive_second/Activities.jpg",
             "/images/drive_third/ClassRooms_Academic.JPG",

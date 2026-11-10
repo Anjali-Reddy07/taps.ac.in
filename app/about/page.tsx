@@ -194,7 +194,7 @@ export default function AboutPage() {
           {/* Authentic Campus Infrastructure Background Image from Drive */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
-              src="/images/drive_fourth/campus_exterior_1.jpg"
+              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
               alt="Trident Academy of Professional Studies Infocity Campus"
               fill
               priority

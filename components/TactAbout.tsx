@@ -454,7 +454,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 className="group relative h-64 sm:h-72 w-full rounded-3xl overflow-hidden border border-indigo-150 shadow-xl bg-slate-950"
               >
                 <Image
-                  src="/images/drive_fourth/campus_exterior_1.jpg"
+                  src="/images/drive_new/1746352355680.jpg"
                   alt="Trident Academy 11-Acre Technoplex Campus"
                   fill
                   className="object-cover object-center group-hover:scale-108 transition-transform duration-800 ease-out"

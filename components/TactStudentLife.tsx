@@ -164,7 +164,7 @@ export default function TactStudentLife() {
       desc: "Equips students to understand and implement sustainable business practices, corporate ESG frameworks, green audit compliance, and environmental stewardship across industries.",
       coordinator: "Innovation Mela • Green Campus Cell",
       stats: ["ESG Governance", "Green Audits", "Eco Innovation"],
-      image: "/images/drive_fourth/innovation_mela.png",
+      image: "/images/drive_new/_DSC1852.JPG",
       accentGradient: "from-teal-600 via-emerald-600 to-green-600",
       iconBg: "bg-teal-600 text-white",
       icon: (
