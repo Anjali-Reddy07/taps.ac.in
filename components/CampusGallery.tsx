@@ -202,24 +202,6 @@ export default function CampusGallery() {
       src: "/images/drive_fourth/kartavya_club.png",
       description: "Student volunteers executing community welfare, digital literacy, and environmental sustainability campaigns across Bhubaneswar.",
     },
-    {
-      id: "21",
-      title: "Campus Technoplex Modern Facade",
-      category: "architecture",
-      tag: "Technoplex",
-      location: "Academic Block",
-      src: "/images/drive_fourth/building.png",
-      description: "Grand architectural perspective of the modern 11-acre Technoplex academic complex in Infocity.",
-    },
-    {
-      id: "22",
-      title: "Interactive Multimedia Lecture Hall",
-      category: "tech",
-      tag: "Smart Classrooms",
-      location: "Academic Wing",
-      src: "/images/drive_fourth/classroom_interactive_1.jpg",
-      description: "Interactive pedagogical sessions utilizing smart 4K digital displays, lecture recordings, and collaborative student group stations.",
-    },
   ];
 
   const filteredItems =
