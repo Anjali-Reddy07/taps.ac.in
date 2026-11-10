@@ -9,28 +9,112 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 
+// Interactive 3D Tilt Card with dynamic cursor-following specular glare
+function TiltCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setMousePos({ x, y });
+  };
+
+  const rotateX = isHovered ? (0.5 - mousePos.y) * 6 : 0;
+  const rotateY = isHovered ? (mousePos.x - 0.5) * 6 : 0;
+
+  return (
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setMousePos({ x: 0.5, y: 0.5 });
+      }}
+      animate={{
+        rotateX,
+        rotateY,
+        transformPerspective: 1200,
+      }}
+      transition={{ type: "spring", stiffness: 320, damping: 28 }}
+      className={`relative ${className}`}
+    >
+      {children}
+      {isHovered && (
+        <div
+          className="pointer-events-none absolute -inset-px rounded-3xl opacity-20 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255,255,255,0.45), transparent 40%)`,
+          }}
+        />
+      )}
+    </motion.div>
+  );
+}
+
 export default function ProgrammesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<"bca" | "bba">("bca");
-  const [activeTab, setActiveTab] = useState<"curriculum" | "certifications" | "eligibility" | "careers">("curriculum");
+  const [activeTab, setActiveTab] = useState<"curriculum" | "certifications" | "labs" | "eligibility" | "careers">("curriculum");
 
   const programmes = {
     bca: {
       code: "BCA",
       title: "Bachelor of Computer Applications",
       degree: "3-Year Full-Time Degree • 6 Semesters",
-      affiliation: "Affiliated to Utkal University • Approved by AICTE, New Delhi",
+      affiliation: "Affiliated to Utkal University • Approved by AICTE & Govt. of Odisha",
       intake: "128 Seats Approved",
+      heroBg: "/images/drive_new/1721020760290.jpg",
+      heroTag: "SCHOOL OF COMPUTING • BLOCK-1",
       photo: "/images/drive_third/ClassRooms_Academic.JPG",
       photoCaption: "Smart Computing Amphitheatre • Official TACT Lecture Theatre",
       tagline: "High-Performance Computational Systems, Full-Stack Development & AI Foundations",
       summary:
-        "The BCA programme at TAPS is engineered to transform students into enterprise-ready software developers, cloud architects, and data engineers. Taught by 100% NET/Ph.D qualified faculty with round-the-clock access to cloud computing clusters.",
+        "The BCA programme at TAPS is engineered to transform students into enterprise-ready software developers, cloud architects, and data engineers. Taught by 100% NET/Ph.D qualified faculty with round-the-clock access to cloud computing clusters, practical coding labs, and continuous hackathon mentoring.",
       highlights: [
         "138+ Annual Corporate Recruiters (Placements 2026)",
         "Dedicated Python, Full-Stack Java & Cloud Computing Labs",
         "Curriculum mapped to Utkal University CBCS Framework",
         "Industry certifications included in academic fees",
+      ],
+      keySkills: [
+        { name: "Full-Stack Software Engineering", tag: "MERN / Spring Boot" },
+        { name: "Cloud Virtualization & DevOps", tag: "AWS / Docker / Linux" },
+        { name: "Applied Python & Data Engineering", tag: "Pandas / NumPy / ML" },
+        { name: "Enterprise Database Systems", tag: "Oracle / MySQL / NoSQL" },
+      ],
+      labFacilities: [
+        {
+          title: "Cloud Virtualization & Server Lab",
+          subtitle: "Enterprise Computing Cluster",
+          img: "/images/drive_fourth/cloud_club.png",
+          desc: "High-density computer terminals connected to 24/7 dedicated gigabit fiber, supporting cloud deployment and virtual machine clustering.",
+        },
+        {
+          title: "Smart Computing Amphitheatre",
+          subtitle: "Interactive Multi-Media Lectures",
+          img: "/images/drive_third/ClassRooms_Academic.JPG",
+          desc: "Acoustically treated lecture halls equipped with ultra-bright 4K projectors for live algorithmic walkthroughs and code reviews.",
+        },
+        {
+          title: "Web Dev & IoT Innovation Lab",
+          subtitle: "Applied Software Prototyping",
+          img: "/images/drive_fourth/web_dev_seminar.png",
+          desc: "Specialized collaborative workstations for hackathon teams, open-source repositories, and embedded IoT experimentation.",
+        },
+        {
+          title: "Central Research & DELNET Library",
+          subtitle: "50,000+ Computational Volumes",
+          img: "/images/drive_third/Library_Library.JPG",
+          desc: "Direct online DELNET repository access, IEEE computing transactions, and quiet air-conditioned project discussion carrels.",
+        },
       ],
       semesters: [
         {
@@ -110,37 +194,46 @@ export default function ProgrammesPage() {
         {
           name: "Full-Stack Web Development",
           provider: "Industry Finishing Wing",
-          desc: "Mastery of MERN / Spring Boot stacks with version control and production deployment.",
+          desc: "Mastery of modern JavaScript/TypeScript, React, Node.js, and Spring Boot with production deployment pipelines.",
+          badge: "Web Architecture",
+          icon: "💻",
         },
         {
           name: "Cloud Practitioner Foundations",
-          provider: "AWS / Microsoft Partner",
-          desc: "Serverless architecture, containerization with Docker, and cloud networking.",
+          provider: "AWS / Microsoft Academic Partner",
+          desc: "Serverless architecture, containerization with Docker, virtual machines, and enterprise VPC networking.",
+          badge: "Cloud Computing",
+          icon: "☁️",
         },
         {
           name: "Python for Data Science & AI",
           provider: "Data Analytics Lab",
-          desc: "Pandas, NumPy, Scikit-Learn, and applied data visualization models.",
+          desc: "Applied statistical modeling, Pandas dataframes, NumPy vectorized arithmetic, and scikit-learn predictive models.",
+          badge: "Data & AI",
+          icon: "📊",
         },
         {
           name: "Cyber Security & Ethical Defense",
           provider: "TAPS Center of Excellence",
-          desc: "Network penetration fundamentals, OWASP security benchmarks, and threat modeling.",
+          desc: "Network penetration fundamentals, OWASP Top-10 security benchmarks, and defensive encryption protocols.",
+          badge: "Information Security",
+          icon: "🛡️",
         },
       ],
       eligibility: {
-        qualification: "Passed 10+2 / Higher Secondary with Mathematics / Statistics / Business Mathematics, OR a 3-year Diploma in Engineering from SCTE&VT Orissa.",
+        qualification: "Passed 10+2 / Higher Secondary with Mathematics / Statistics / Business Mathematics, OR a 3-year Diploma in Engineering from SCTE&VT Odisha.",
         board: "CHSE Odisha, CBSE, CISCE, or any recognized State/Central Board.",
         marks: "Minimum 45% aggregate in qualifying examination (40% for SC/ST candidates).",
         preferred: "Mathematics/Statistics or 3-year Engineering Diploma is required by Utkal University.",
-        process: "Admissions strictly on first-cum-first-serve basis subject to eligibility.",
+        process: "Admissions strictly on first-cum-first-serve basis subject to eligibility norms.",
       },
       careers: [
-        { role: "Software Development Engineer (SDE)", hiring: "TCS, Infosys, Wipro, Capgemini" },
-        { role: "Cloud & Infrastructure Engineer", hiring: "AWS, CGI Info Systems, Tech Mahindra" },
-        { role: "Data Analyst & Business Intelligence Lead", hiring: "Deloitte, Cognizant, Genpact" },
-        { role: "Cyber Security Analyst", hiring: "Leading IT security firms & enterprise banking" },
-        { role: "Postgraduate Pathways", hiring: "Direct eligibility for MCA, M.Sc CS, and MBA (IT)" },
+        { role: "Software Development Engineer (SDE)", hiring: "TCS, Infosys, Wipro, Capgemini", packageRange: "₹4.5 - ₹8.5 LPA" },
+        { role: "Cloud & Infrastructure Engineer", hiring: "AWS, CGI Info Systems, Tech Mahindra", packageRange: "₹4.8 - ₹9.0 LPA" },
+        { role: "Data Analyst & Business Intelligence", hiring: "Deloitte, Cognizant, Genpact", packageRange: "₹5.0 - ₹9.5 LPA" },
+        { role: "Cyber Security Analyst", hiring: "Enterprise IT security & banking firms", packageRange: "₹4.5 - ₹8.2 LPA" },
+        { role: "Full-Stack Web Developer", hiring: "Fintech startups & product companies", packageRange: "₹4.2 - ₹8.0 LPA" },
+        { role: "Postgraduate Pathways", hiring: "Direct eligibility for MCA, M.Sc CS, and MBA (IT)", packageRange: "Higher Education" },
       ],
     },
     bba: {
@@ -149,9 +242,11 @@ export default function ProgrammesPage() {
       degree: "4-Year Full-Time Degree • 8 Semesters (NEP Framework)",
       affiliation: "Affiliated to Utkal University • Approved by AICTE & Govt. of Odisha",
       intake: "128 Seats Approved",
-      tagline: "Strategic Leadership, Financial Acumen, Corporate Analytics & Entrepreneurship",
+      heroBg: "/images/drive_new/_DSC1852.JPG",
+      heroTag: "MANAGEMENT & CORPORATE TOWER • BLOCK-5",
       photo: "/images/drive_third/MBA_seminar_1.jpeg",
       photoCaption: "Corporate Business Seminar Hall • Management Case Study Sessions",
+      tagline: "Strategic Leadership, Financial Acumen, Corporate Analytics & Entrepreneurship",
       summary:
         "The BBA programme at TAPS builds executive competencies, commercial acumen, and strategic managerial thought. Designed strictly in alignment with Utkal University's CBCS and NEP 4-year framework with specialized industry immersions in FinTech, Digital Marketing, and Supply Chain Analytics.",
       highlights: [
@@ -159,6 +254,38 @@ export default function ProgrammesPage() {
         "Analytics, Strategy, Fintech & Sustainability Student Clubs",
         "Executive GD-PI Amphitheatre for Corporate Interview Prep",
         "Regular Industry Colloquiums and Corporate Live Projects",
+      ],
+      keySkills: [
+        { name: "Financial Modeling & Valuation", tag: "DCF / Excel Analytics" },
+        { name: "Digital Marketing & Performance Media", tag: "SEO / Meta Ads / GA4" },
+        { name: "Strategic HR & Talent Analytics", tag: "ATS / Competency Models" },
+        { name: "Logistics & Supply Chain ERP", tag: "SAP / Operations Strategy" },
+      ],
+      labFacilities: [
+        {
+          title: "Executive Seminar Hall",
+          subtitle: "Case Study & Executive Colloquiums",
+          img: "/images/drive_third/MBA_seminar_1.jpeg",
+          desc: "Smart presentation suites where corporate leaders, visiting faculty, and scholars debate real-world market cases.",
+        },
+        {
+          title: "Corporate Interview Suites",
+          subtitle: "One-on-One Technical Assessments",
+          img: "/images/drive_third/Placement_DSC_2425.JPG",
+          desc: "Dedicated glass-partitioned corporate interview rooms equipped for visiting HR teams and live technical evaluations.",
+        },
+        {
+          title: "Executive GD Chambers",
+          subtitle: "Boardroom Group Discussion Arena",
+          img: "/images/drive_third/Placement_GD-Halls.jpg",
+          desc: "Circular conference seating with faculty moderation desks designed for corporate GD rehearsals and aptitude simulations.",
+        },
+        {
+          title: "Business Analytics & Research Wing",
+          subtitle: "Academic Block-5 Enclave",
+          img: "/images/drive_new/_DSC1852.JPG",
+          desc: "Home to the Center for Sustainability Research and Center for Business Analytics under the Department of Management.",
+        },
       ],
       semesters: [
         {
@@ -256,36 +383,45 @@ export default function ProgrammesPage() {
           name: "Financial Modeling & Valuation (Excel)",
           provider: "FinTech Simulation Desk",
           desc: "DCF analysis, ratio analysis, sensitivity forecasting, and investment pitch decks.",
+          badge: "Corporate Finance",
+          icon: "📈",
         },
         {
           name: "Digital Marketing & Performance Media",
           provider: "Corporate Marketing Wing",
           desc: "SEO/SEM, Meta Ads, Google Analytics 4, and brand storytelling strategies.",
+          badge: "Digital Growth",
+          icon: "🎯",
         },
         {
           name: "HR Analytics & Talent Sourcing",
           provider: "Management Center of Excellence",
           desc: "Competency mapping, payroll automation, and modern ATS recruitment workflows.",
+          badge: "Human Capital",
+          icon: "👥",
         },
         {
           name: "Supply Chain & ERP Systems",
           provider: "Operations Research Wing",
           desc: "Inventory modeling, logistics optimization, and SAP ERP workflow overviews.",
+          badge: "Operations & ERP",
+          icon: "📦",
         },
       ],
       eligibility: {
-        qualification: "Passed 10+2 / Higher Secondary in any stream (Science / Commerce / Arts)",
+        qualification: "Passed 10+2 / Higher Secondary in any stream (Science / Commerce / Arts).",
         board: "CHSE Odisha, CBSE, CISCE, or any recognized State/Central Board.",
         marks: "Minimum 45% aggregate in qualifying examination (40% for reserved categories).",
         preferred: "Basic proficiency in English communication and logical reasoning.",
-        process: "Admissions strictly on first-cum-first-serve basis subject to eligibility.",
+        process: "Admissions strictly on first-cum-first-serve basis subject to eligibility norms.",
       },
       careers: [
-        { role: "Business Development & Relationship Manager", hiring: "ICICI Bank, HDFC, Axis, Bandhan" },
-        { role: "Financial & Investment Analyst", hiring: "Deloitte, Genpact, Corporate Brokerages" },
-        { role: "Human Resource Executive & Recruiter", hiring: "Tech Mahindra, Capgemini, TCS" },
-        { role: "Marketing & Brand Strategist", hiring: "FMCG, E-Commerce & Growth agencies" },
-        { role: "Postgraduate Pathways", hiring: "Direct advantage for CAT/XAT/MAT and premier MBA institutions" },
+        { role: "Business Development & Relationship Manager", hiring: "ICICI Bank, HDFC, Axis, Bandhan", packageRange: "₹4.2 - ₹7.5 LPA" },
+        { role: "Financial & Investment Analyst", hiring: "Deloitte, Genpact, Corporate Brokerages", packageRange: "₹4.8 - ₹8.5 LPA" },
+        { role: "Human Resource Executive & Recruiter", hiring: "Tech Mahindra, Capgemini, TCS", packageRange: "₹4.0 - ₹7.2 LPA" },
+        { role: "Marketing & Brand Strategist", hiring: "FMCG, E-Commerce & Growth agencies", packageRange: "₹4.5 - ₹8.0 LPA" },
+        { role: "Supply Chain & Operations Analyst", hiring: "Logistics, Retail & E-Commerce", packageRange: "₹4.2 - ₹7.8 LPA" },
+        { role: "Postgraduate Pathways", hiring: "Direct advantage for CAT/XAT/MAT and premier MBA institutions", packageRange: "Executive MBA" },
       ],
     },
   };
@@ -297,89 +433,371 @@ export default function ProgrammesPage() {
       <Header onOpenQuery={() => setIsModalOpen(true)} />
 
       <main className="flex-1">
-        {/* HERO BANNER: DARK VARIANT */}
+        {/* ========================================================================= */}
+        {/* HERO BANNER: DYNAMIC CYBER-GLASSMORPHIC SHOWCASE WITH ADAPTIVE BACKGROUND */}
+        {/* ========================================================================= */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Academic Computer Lab Background Image */}
+          {/* Authentic Campus Infrastructure Background Image (Clean Drive Photos) */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-            <Image
-              src="/images/drive_third/ClassRooms_Academic.JPG"
-              alt="TAPS Multimedia Amphitheatre with Faculty and Students in Academic Uniform"
-              fill
-              priority
-              className="object-cover object-[75%_30%] filter contrast-105 opacity-80 scale-100"
-              sizes="100vw"
-            />
-            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-50% to-[#070D21]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedCourse}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 0.85, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={current.heroBg}
+                  alt={`${current.title} at TAPS Infocity Campus`}
+                  fill
+                  priority
+                  className="object-cover object-center filter contrast-105"
+                  sizes="100vw"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Smooth Multi-Layer Scrim for Flawless Text Legibility */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/85 via-55% to-[#070D21]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60" />
+
+            {/* Ambient Radial Mesh Lights */}
+            <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px]" />
+            <div className="absolute top-1/2 right-10 w-96 h-96 bg-indigo-500/15 rounded-full blur-[130px]" />
           </div>
 
-          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
-            <div className="max-w-3xl animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
-                Undergraduate Degree Programmes
-              </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
-                Curriculum Engineered for Industry Leadership
-              </h1>
-              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-                TAPS exclusively offers three-year full-time undergraduate degrees in 
-                <strong className="text-white font-medium"> Computer Applications (BCA)</strong> and 
-                <strong className="text-white font-medium"> Business Administration (BBA)</strong> under 
-                Utkal University's Choice-Based Credit System (CBCS).
-              </p>
-
-              {/* Course Switcher Pills with Framer Motion Spring Pill */}
-              <div className="inline-flex rounded-2xl bg-zinc-900/90 border border-zinc-700/80 p-1.5 shadow-lg backdrop-blur-md">
-                <button
-                  onClick={() => setSelectedCourse("bca")}
-                  className={`relative px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider transition-colors duration-300 cursor-pointer ${
-                    selectedCourse === "bca" ? "text-black" : "text-zinc-400 hover:text-white"
-                  }`}
+          <section className="relative z-10 py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Left Column: Heading, Degree Switcher & Actions */}
+              <div className="lg:col-span-7">
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  {selectedCourse === "bca" && (
-                    <motion.div
-                      layoutId="activeCoursePill"
-                      className="absolute inset-0 bg-white rounded-xl shadow-md"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">01. BCA — Computer Applications</span>
-                </button>
+                  {/* High-Tech Animated Pill Badge */}
+                  <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-5 bg-zinc-900/90 border border-zinc-700/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+                    </span>
+                    <span>TACT Trust • Utkal Univ CBCS • AICTE Approved</span>
+                  </div>
 
-                <button
-                  onClick={() => setSelectedCourse("bba")}
-                  className={`relative px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wider transition-colors duration-300 cursor-pointer ${
-                    selectedCourse === "bba" ? "text-black" : "text-zinc-400 hover:text-white"
-                  }`}
-                >
-                  {selectedCourse === "bba" && (
-                    <motion.div
-                      layoutId="activeCoursePill"
-                      className="absolute inset-0 bg-white rounded-xl shadow-md"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">02. BBA — Business Administration</span>
-                </button>
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+                    Curriculum Engineered for{" "}
+                    <span className="font-semibold bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
+                      Corporate Leadership
+                    </span>
+                  </h1>
+
+                  <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8 max-w-2xl">
+                    TAPS exclusively offers premier full-time undergraduate degrees in{" "}
+                    <strong className="text-white font-medium">Computer Applications (BCA)</strong> and{" "}
+                    <strong className="text-white font-medium">Business Administration (BBA)</strong> under{" "}
+                    Utkal University with comprehensive corporate finishing school training.
+                  </p>
+
+                  {/* High-Tech Dual Course Switcher */}
+                  <div className="p-1.5 rounded-2xl bg-zinc-900/90 border border-zinc-700/80 shadow-2xl backdrop-blur-md inline-flex flex-col sm:flex-row gap-1.5 mb-8">
+                    <button
+                      onClick={() => setSelectedCourse("bca")}
+                      className={`relative px-5 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
+                        selectedCourse === "bca" ? "text-slate-950" : "text-zinc-300 hover:text-white"
+                      }`}
+                    >
+                      {selectedCourse === "bca" && (
+                        <motion.div
+                          layoutId="activeHeroCourseTab"
+                          className="absolute inset-0 bg-gradient-to-r from-white to-zinc-100 rounded-xl shadow-md"
+                          transition={{ type: "spring", stiffness: 420, damping: 30 }}
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-blue-600" />
+                        01. BCA — Computer Applications
+                      </span>
+                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900/10 font-bold">
+                        3 Yrs
+                      </span>
+                    </button>
+
+                    <button
+                      onClick={() => setSelectedCourse("bba")}
+                      className={`relative px-5 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
+                        selectedCourse === "bba" ? "text-slate-950" : "text-zinc-300 hover:text-white"
+                      }`}
+                    >
+                      {selectedCourse === "bba" && (
+                        <motion.div
+                          layoutId="activeHeroCourseTab"
+                          className="absolute inset-0 bg-gradient-to-r from-white to-zinc-100 rounded-xl shadow-md"
+                          transition={{ type: "spring", stiffness: 420, damping: 30 }}
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-purple-600" />
+                        02. BBA — Business Administration
+                      </span>
+                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900/10 font-bold">
+                        4 Yrs NEP
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="px-6 py-3 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-lg cursor-pointer hover-lift flex items-center gap-2"
+                    >
+                      <span>Apply for {current.code} 2026</span>
+                      <span>→</span>
+                    </button>
+                    <a
+                      href="#deep-dive"
+                      className="px-6 py-3 rounded-xl bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                    >
+                      Explore Full Curriculum
+                    </a>
+                  </div>
+                </motion.div>
               </div>
+
+              {/* Right Column: Live Interactive Degree Preview Card */}
+              <div className="lg:col-span-5">
+                <TiltCard className="w-full">
+                  <div className="rounded-3xl border border-white/20 bg-zinc-950/80 backdrop-blur-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
+                    {/* Animated Rotating Conic Border Beam */}
+                    <div className="absolute -inset-px rounded-3xl pointer-events-none overflow-hidden opacity-40">
+                      <div className="absolute inset-[-150%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,#3b82f6_360deg)]" />
+                    </div>
+
+                    {/* Top Program Pill & Seats Status */}
+                    <div className="relative z-10 flex items-center justify-between gap-2 mb-4">
+                      <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-500/20 text-cyan-300 border border-blue-400/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                        {current.code} TRACK SNAPSHOT
+                      </div>
+                      <span className="text-xs font-mono text-zinc-400">
+                        {current.intake}
+                      </span>
+                    </div>
+
+                    {/* Program Thumbnail Image */}
+                    <div className="relative z-10 h-48 w-full rounded-2xl overflow-hidden mb-5 border border-white/10 shadow-md">
+                      <Image
+                        src={current.photo}
+                        alt={current.title}
+                        fill
+                        className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 right-3 text-white">
+                        <div className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold">
+                          {current.photoCaption}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Key Attributes Grid */}
+                    <div className="relative z-10 space-y-2.5 mb-5">
+                      <div className="text-base font-bold text-white leading-snug">
+                        {current.title}
+                      </div>
+                      <p className="text-xs text-zinc-300 font-light leading-relaxed">
+                        {current.tagline}
+                      </p>
+                    </div>
+
+                    {/* 4 Feature Micro-Metrics */}
+                    <div className="relative z-10 grid grid-cols-2 gap-2 pt-4 border-t border-zinc-800/80">
+                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
+                        <div className="text-sm font-mono font-bold text-blue-400">100%</div>
+                        <div className="text-[10px] text-zinc-400">NET / Ph.D Faculty</div>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
+                        <div className="text-sm font-mono font-bold text-emerald-400">138+</div>
+                        <div className="text-[10px] text-zinc-400">Corporate Recruiters</div>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
+                        <div className="text-sm font-mono font-bold text-purple-400">Utkal Univ</div>
+                        <div className="text-[10px] text-zinc-400">CBCS Syllabus</div>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
+                        <div className="text-sm font-mono font-bold text-amber-400">AICTE</div>
+                        <div className="text-[10px] text-zinc-400">Statutory Approval</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </TiltCard>
+              </div>
+
             </div>
           </section>
         </AnimatedBackground>
 
-        {/* PROGRAMME DETAIL SECTION: LIGHT VARIANT */}
+        {/* ========================================================================= */}
+        {/* AT-A-GLANCE DUAL PROGRAMME COMPARISON CARDS (BCA vs BBA) */}
+        {/* ========================================================================= */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            {/* Header Card for Selected Programme with Border Beam Glow */}
-            <div className="relative bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs mb-12 hover-lift-3d overflow-hidden">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+                Two Specialized Undergraduate Pathways
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Select Your Degree Specialization
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                Click either degree track to dynamically load its semester breakdown, included certifications, computing facilities, and placement opportunities.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              
+              {/* 1. BCA SHOWCASE CARD */}
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                onClick={() => {
+                  setSelectedCourse("bca");
+                  const el = document.getElementById("deep-dive");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={`p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
+                  selectedCourse === "bca"
+                    ? "bg-white border-blue-600 shadow-[0_16px_40px_rgba(37,99,235,0.12)] ring-4 ring-blue-500/10"
+                    : "bg-white/80 hover:bg-white border-zinc-200 hover:border-blue-300 shadow-sm"
+                }`}
+              >
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500" />
+                
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-6">
+                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                      BCA • 3-YEAR TRACK
+                    </span>
+                    <span className="text-xs font-mono text-zinc-500 font-semibold">
+                      128 Seats Approved
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-blue-700 transition-colors">
+                    Bachelor of Computer Applications
+                  </h3>
+                  <p className="text-xs font-mono text-blue-700 uppercase tracking-wider mb-4 font-semibold">
+                    Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                    Comprehensive full-stack software development, cloud virtualization clusters, discrete algorithms, and applied machine learning foundations.
+                  </p>
+
+                  {/* 4 Core Competency Chips */}
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {programmes.bca.keySkills.map((k, i) => (
+                      <div key={i} className="p-2.5 rounded-xl bg-slate-50 border border-zinc-200/80 text-[11px] font-medium text-zinc-800">
+                        <div className="font-bold text-blue-900">{k.name}</div>
+                        <div className="text-[10px] font-mono text-blue-600 mt-0.5">{k.tag}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-zinc-100 flex items-center justify-between">
+                  <span className="text-xs font-mono text-zinc-500 font-medium">138+ Annual Recruiters</span>
+                  <span className="text-xs font-bold text-blue-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
+                    <span>{selectedCourse === "bca" ? "Currently Viewing Track" : "Switch to BCA Track"}</span>
+                    <span>→</span>
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* 2. BBA SHOWCASE CARD */}
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                onClick={() => {
+                  setSelectedCourse("bba");
+                  const el = document.getElementById("deep-dive");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={`p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
+                  selectedCourse === "bba"
+                    ? "bg-white border-purple-600 shadow-[0_16px_40px_rgba(147,51,234,0.12)] ring-4 ring-purple-500/10"
+                    : "bg-white/80 hover:bg-white border-zinc-200 hover:border-purple-300 shadow-sm"
+                }`}
+              >
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600" />
+                
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-6">
+                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                      BBA • 4-YEAR NEP TRACK
+                    </span>
+                    <span className="text-xs font-mono text-zinc-500 font-semibold">
+                      128 Seats Approved
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-purple-700 transition-colors">
+                    Bachelor of Business Administration
+                  </h3>
+                  <p className="text-xs font-mono text-purple-700 uppercase tracking-wider mb-4 font-semibold">
+                    Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                    Executive leadership acumen, DCF financial modeling, corporate marketing strategies, and supply chain ERP simulations.
+                  </p>
+
+                  {/* 4 Core Competency Chips */}
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {programmes.bba.keySkills.map((k, i) => (
+                      <div key={i} className="p-2.5 rounded-xl bg-slate-50 border border-zinc-200/80 text-[11px] font-medium text-zinc-800">
+                        <div className="font-bold text-purple-900">{k.name}</div>
+                        <div className="text-[10px] font-mono text-purple-600 mt-0.5">{k.tag}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-zinc-100 flex items-center justify-between">
+                  <span className="text-xs font-mono text-zinc-500 font-medium">100+ Banking &amp; Consulting MoUs</span>
+                  <span className="text-xs font-bold text-purple-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
+                    <span>{selectedCourse === "bba" ? "Currently Viewing Track" : "Switch to BBA Track"}</span>
+                    <span>→</span>
+                  </span>
+                </div>
+              </motion.div>
+
+            </div>
+
+          </section>
+        </AnimatedBackground>
+
+        {/* ========================================================================= */}
+        {/* IN-DEPTH PROGRAMME EXPLORATION CONSOLE: TABS & CURRICULUM */}
+        {/* ========================================================================= */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section id="deep-dive" className="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            
+            {/* Header Card for Active Track */}
+            <div className="relative bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs mb-10 overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600" />
               
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-zinc-200 pb-8 mb-8">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60 mb-3">
+                  <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold text-indigo-700 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200/60 mb-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                    Degree Track • {current.code}
+                    Interactive Degree Console • {current.code}
                   </div>
                   <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
                     {current.title}
@@ -392,13 +810,13 @@ export default function ProgrammesPage() {
                 <div className="flex flex-wrap items-center gap-3 shrink-0">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-6 py-3 rounded-lg bg-black text-white font-semibold text-xs sm:text-sm hover:bg-zinc-800 transition-all duration-300 shadow-md cursor-pointer hover-lift"
+                    className="px-6 py-3 rounded-xl bg-black text-white font-semibold text-xs sm:text-sm hover:bg-zinc-800 transition-all duration-300 shadow-md cursor-pointer hover-lift"
                   >
                     Apply for {current.code} 2026 →
                   </button>
                   <Link
                     href="/admission"
-                    className="px-5 py-3 rounded-lg bg-zinc-100 text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-200 transition-all duration-300"
+                    className="px-5 py-3 rounded-xl bg-zinc-100 text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-200 transition-all duration-300"
                   >
                     Admission Guidelines
                   </Link>
@@ -409,10 +827,10 @@ export default function ProgrammesPage() {
                 {current.summary}
               </p>
 
-              {/* 4 Feature Highlights with Sheen Effect */}
+              {/* 4 Feature Highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {current.highlights.map((h, i) => (
-                  <div key={i} className="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-slate-50 border border-zinc-200/80 text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-2.5 hover-lift-3d card-sheen">
+                  <div key={i} className="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-slate-50 border border-zinc-200/80 text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-2.5">
                     <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
                     <span>{h}</span>
                   </div>
@@ -420,20 +838,21 @@ export default function ProgrammesPage() {
               </div>
             </div>
 
-            {/* Sub-Tab Navigation with Animated Spring Indicator */}
-            <div className="flex border-b border-zinc-200 mb-8 overflow-x-auto relative">
+            {/* 5-Tab Navigation Bar with Kinetic Motion Indicator */}
+            <div className="flex border-b border-zinc-200 mb-10 overflow-x-auto relative no-scrollbar">
               {[
-                { id: "curriculum", label: "Semester-wise Curriculum" },
-                { id: "certifications", label: "Included Certifications" },
-                { id: "eligibility", label: "Eligibility & Selection" },
-                { id: "careers", label: "Career & Placement Pathways" },
+                { id: "curriculum", label: "01. Semester Curriculum" },
+                { id: "certifications", label: "02. Included Certifications" },
+                { id: "labs", label: "03. Computing & Management Labs" },
+                { id: "eligibility", label: "04. Eligibility & Selection" },
+                { id: "careers", label: "05. Placements & Careers" },
               ].map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`relative py-3.5 px-6 font-semibold text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer ${
+                    className={`relative py-4 px-6 font-semibold text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer ${
                       isActive ? "text-blue-700 font-bold" : "text-zinc-500 hover:text-zinc-900"
                     }`}
                   >
@@ -450,127 +869,270 @@ export default function ProgrammesPage() {
               })}
             </div>
 
-            {/* Sub-Tab 1: Semester-wise Curriculum */}
+            {/* ========================================================================= */}
+            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM */}
+            {/* ========================================================================= */}
             {activeTab === "curriculum" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeInUp">
-                {current.semesters.map((s) => (
+              <motion.div 
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+                {current.semesters.map((s, idx) => (
                   <div
                     key={s.sem}
-                    className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs"
+                    className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
                   >
-                    <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-3 pb-2 border-b border-zinc-100 flex items-center justify-between">
-                      <span>{s.sem}</span>
-                      <span className="text-[10px] text-zinc-400">Utkal Univ CBCS</span>
+                    <div>
+                      <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-4 pb-3 border-b border-zinc-100 flex items-center justify-between">
+                        <span className="text-blue-700 font-bold flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                          {s.sem}
+                        </span>
+                        <span className="text-[10px] text-zinc-400 font-semibold px-2 py-0.5 bg-zinc-100 rounded-md">
+                          Utkal Univ CBCS
+                        </span>
+                      </div>
+
+                      <ul className="space-y-2.5 text-xs text-zinc-700">
+                        {s.subjects.map((sub, sIdx) => {
+                          const isLab = sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab") || sub.toLowerCase().includes("project");
+                          return (
+                            <li key={sIdx} className="flex items-start gap-2.5">
+                              <span className="text-zinc-400 font-mono text-[11px] shrink-0 mt-0.5">
+                                {sIdx + 1}.
+                              </span>
+                              <span className={`leading-relaxed ${isLab ? "font-semibold text-blue-900" : "font-normal"}`}>
+                                {sub}
+                              </span>
+                            </li>
+                          );
+                        })}
+                      </ul>
                     </div>
-                    <ul className="space-y-2.5 text-xs text-zinc-700">
-                      {s.subjects.map((sub, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="text-zinc-400 font-mono text-[11px] shrink-0">{idx + 1}.</span>
-                          <span className="leading-relaxed font-normal">{sub}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    <div className="pt-4 mt-5 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                      <span>Module Track 0{idx + 1}</span>
+                      <span className="text-blue-600 font-semibold">Continuous Assessment</span>
+                    </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             )}
 
-            {/* Sub-Tab 2: Certifications */}
+            {/* ========================================================================= */}
+            {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS */}
+            {/* ========================================================================= */}
             {activeTab === "certifications" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeInUp">
+              <motion.div 
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
                 {current.certifications.map((c) => (
                   <div
                     key={c.name}
-                    className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs"
+                    className="p-7 rounded-3xl bg-white border border-zinc-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
                   >
-                    <div className="text-[11px] tracking-widest font-semibold uppercase text-zinc-500 mb-1">
-                      {c.provider}
+                    <div>
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <span className="text-2xl">{c.icon}</span>
+                        <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
+                          {c.badge}
+                        </span>
+                      </div>
+
+                      <div className="text-[11px] tracking-widest font-semibold uppercase text-zinc-500 mb-1">
+                        {c.provider}
+                      </div>
+
+                      <h3 className="text-lg font-bold text-zinc-950 mb-3 group-hover:text-blue-700 transition-colors">
+                        {c.name}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-5">
+                        {c.desc}
+                      </p>
                     </div>
-                    <h3 className="text-base font-semibold text-zinc-950 mb-2">
-                      {c.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                      {c.desc}
-                    </p>
+
+                    <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-emerald-600 font-semibold">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        Zero Extra Tuition Cost
+                      </span>
+                      <span className="text-zinc-400">Included in Degree</span>
+                    </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             )}
 
-            {/* Sub-Tab 3: Eligibility with Photo */}
+            {/* ========================================================================= */}
+            {/* SUB-TAB 3: COMPUTING & MANAGEMENT LAB FACILITIES (PHOTO SHOWCASE) */}
+            {/* ========================================================================= */}
+            {activeTab === "labs" && (
+              <motion.div 
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
+                {current.labFacilities.map((lab, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-3xl bg-white border border-zinc-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-zinc-300 transition-all duration-300 group flex flex-col justify-between"
+                  >
+                    <div className="relative h-60 w-full overflow-hidden bg-slate-900">
+                      <Image
+                        src={lab.img}
+                        alt={lab.title}
+                        fill
+                        className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-slate-950 shadow-xs">
+                          {lab.subtitle}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-6 sm:p-7">
+                      <h3 className="text-lg font-bold text-zinc-950 mb-2 group-hover:text-blue-700 transition-colors">
+                        {lab.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                        {lab.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* ========================================================================= */}
+            {/* SUB-TAB 4: ELIGIBILITY & ADMISSION ROADMAP */}
+            {/* ========================================================================= */}
             {activeTab === "eligibility" && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeInUp">
-                <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8">
-                <h3 className="text-xl font-medium text-zinc-950 mb-6">
-                  Utkal University Eligibility Guidelines for {current.code}
-                </h3>
-                <div className="space-y-4 text-xs sm:text-sm text-zinc-700">
-                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 mb-1">Qualifying Examination:</strong>
-                    <span>{current.eligibility.qualification}</span>
+              <motion.div 
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+              >
+                {/* Guidelines Left */}
+                <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8 sm:p-9 shadow-sm">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 mb-4">
+                    Statutory Norms
                   </div>
-                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 mb-1">Recognized Educational Boards:</strong>
-                    <span>{current.eligibility.board}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 mb-6 tracking-tight">
+                    Utkal University Eligibility Guidelines for {current.code}
+                  </h3>
+
+                  <div className="space-y-4 text-xs sm:text-sm text-zinc-700">
+                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
+                      <strong className="block text-zinc-950 font-bold mb-1">Qualifying Examination:</strong>
+                      <span>{current.eligibility.qualification}</span>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
+                      <strong className="block text-zinc-950 font-bold mb-1">Recognized Educational Boards:</strong>
+                      <span>{current.eligibility.board}</span>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
+                      <strong className="block text-zinc-950 font-bold mb-1">Minimum Qualifying Marks:</strong>
+                      <span>{current.eligibility.marks}</span>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
+                      <strong className="block text-zinc-950 font-bold mb-1">Subject Preferences:</strong>
+                      <span>{current.eligibility.preferred}</span>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
+                      <strong className="block text-zinc-950 font-bold mb-1">Selection Norms:</strong>
+                      <span>{current.eligibility.process}</span>
+                    </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 mb-1">Minimum Aggregate Marks:</strong>
-                    <span>{current.eligibility.marks}</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 mb-1">Subject Preferences:</strong>
-                    <span>{current.eligibility.preferred}</span>
-                  </div>
-                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
-                    <strong className="block text-zinc-950 mb-1">Selection Norms:</strong>
-                    <span>{current.eligibility.process}</span>
+
+                  <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-wrap gap-4">
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="px-6 py-3 rounded-xl bg-black text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-colors shadow-md cursor-pointer"
+                    >
+                      Submit Admission Enquiry Now →
+                    </button>
+                    <Link
+                      href="/admission"
+                      className="px-6 py-3 rounded-xl bg-zinc-100 text-zinc-800 text-xs sm:text-sm font-semibold hover:bg-zinc-200 transition-colors"
+                    >
+                      View Full Admission Procedure
+                    </Link>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-wrap gap-4">
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="px-6 py-2.5 rounded-lg bg-black text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-colors shadow-sm"
-                  >
-                    Submit Admission Enquiry Now
-                  </button>
-                  <Link
-                    href="/admission"
-                    className="px-6 py-2.5 rounded-lg bg-zinc-100 text-zinc-800 text-xs sm:text-sm font-semibold hover:bg-zinc-200 transition-colors"
-                  >
-                    View Full Admission Procedure
-                  </Link>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5 relative h-96 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
-                <Image
-                  src="/images/drive_third/ClassRooms__MG_2339.JPG"
-                  alt="Faculty Mentored Academic Amphitheatre"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
-                    Academic Standard
-                  </span>
-                  <div className="text-base font-bold mt-2">
-                    100% NET / Ph.D Mentorship Ecosystem
+                {/* Admission Roadmap Right */}
+                <div className="lg:col-span-5 flex flex-col gap-6">
+                  <div className="relative h-64 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+                    <Image
+                      src={current.photo}
+                      alt="Academic Lecture Theatre"
+                      fill
+                      className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-5 left-5 right-5 text-white">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white shadow-xs">
+                        Admissions Open 2026
+                      </span>
+                      <div className="text-lg font-bold mt-2">
+                        100% NET / Ph.D Mentorship Ecosystem
+                      </div>
+                      <p className="text-xs text-zinc-300 font-light mt-1">
+                        Direct counseling &amp; document verification at Infocity Campus.
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-zinc-300 font-light mt-1">
-                    Direct merit-based counseling under Utkal University criteria.
-                  </p>
+
+                  {/* 4-Step Process Box */}
+                  <div className="p-6 rounded-3xl bg-gradient-to-br from-indigo-50/70 via-white to-purple-50/50 border border-indigo-150 shadow-sm">
+                    <div className="text-xs font-mono font-bold text-indigo-700 uppercase tracking-widest mb-4">
+                      4-Step Admission Pathway
+                    </div>
+                    <div className="space-y-3">
+                      {[
+                        { step: "01", text: "Submit online inquiry or visit admission desk" },
+                        { step: "02", text: "Verification of 10+2 marksheet & certificate" },
+                        { step: "03", text: "Career counseling with senior faculty mentor" },
+                        { step: "04", text: "Provisional seat allotment under Utkal Univ" },
+                      ].map((item) => (
+                        <div key={item.step} className="flex items-center gap-3 text-xs text-slate-800">
+                          <span className="w-6 h-6 rounded-lg bg-blue-600 text-white font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">
+                            {item.step}
+                          </span>
+                          <span>{item.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+
+              </motion.div>
             )}
 
-            {/* Sub-Tab 4: Careers with Corporate Photo Banner */}
+            {/* ========================================================================= */}
+            {/* SUB-TAB 5: CAREER & PLACEMENT PATHWAYS */}
+            {/* ========================================================================= */}
             {activeTab === "careers" && (
-              <div className="space-y-8 animate-fadeInUp">
-                <div className="relative h-56 sm:h-64 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+              <motion.div 
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-8"
+              >
+                {/* Visual Banner */}
+                <div className="relative h-60 sm:h-72 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
                   <Image
                     src="/images/drive_third/Placement_DSC_2425.JPG"
                     alt="Corporate Campus Placement Desk"
@@ -578,51 +1140,136 @@ export default function ProgrammesPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                  <div className="absolute bottom-5 left-6 right-6 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-6 left-6 right-6 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                     <div>
                       <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white shadow-xs">
-                        Placement Pipeline
+                        Placement Cell • 138+ Companies
                       </span>
-                      <h4 className="text-lg sm:text-xl font-bold mt-2">
+                      <h4 className="text-xl sm:text-2xl font-bold mt-2">
                         Tier-1 Corporate Recruitment Drives &amp; Mock Technical Interviews
                       </h4>
-                      <p className="text-xs text-zinc-300 font-light mt-0.5">
-                        Over 138+ visiting companies actively recruiting TAPS BCA &amp; BBA graduates.
+                      <p className="text-xs sm:text-sm text-zinc-300 font-light mt-1 max-w-xl">
+                        Over 138+ visiting IT and BFSI corporations actively recruit TAPS graduates each academic cycle.
                       </p>
                     </div>
                     <Link
                       href="/placements"
-                      className="px-5 py-2.5 rounded-xl bg-white text-black font-semibold text-xs hover:bg-zinc-200 transition-colors shrink-0 shadow-sm"
+                      className="px-6 py-3 rounded-xl bg-white text-slate-950 font-bold text-xs sm:text-sm hover:bg-zinc-200 transition-colors shrink-0 shadow-md"
                     >
                       View Placement Statistics →
                     </Link>
                   </div>
                 </div>
 
+                {/* Career Track Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {current.careers.map((c, idx) => (
-                  <div
-                    key={idx}
-                    className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs"
-                  >
-                    <div className="text-[10px] font-mono tracking-widest uppercase text-zinc-500 mb-2">
-                      Track 0{idx + 1}
+                  {current.careers.map((c, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 text-[10px] font-mono tracking-widest uppercase text-zinc-500 mb-3">
+                          <span className="font-bold text-blue-700">Track 0{idx + 1}</span>
+                          <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
+                            {c.packageRange}
+                          </span>
+                        </div>
+
+                        <h3 className="text-base font-bold text-zinc-950 mb-2">
+                          {c.role}
+                        </h3>
+
+                        <div className="text-xs text-zinc-600 leading-relaxed">
+                          <strong className="text-zinc-800">Recruiters:</strong> {c.hiring}
+                        </div>
+                      </div>
+
+                      <div className="pt-4 mt-5 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                        <span>CAMPUS PLACEMENT</span>
+                        <span className="text-blue-600 font-semibold">Verified Pathway</span>
+                      </div>
                     </div>
-                    <h3 className="text-base font-semibold text-zinc-950 mb-2">
-                      {c.role}
-                    </h3>
-                    <div className="text-xs text-zinc-600">
-                      <strong className="text-zinc-800">Recruiters / Scope:</strong> {c.hiring}
-                    </div>
-                  </div>
-                ))}
+                  ))}
                 </div>
-              </div>
+
+                {/* Major Corporate Recruiters Grid */}
+                <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white border border-indigo-900 shadow-xl">
+                  <div className="text-center max-w-2xl mx-auto mb-6">
+                    <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold">
+                      Direct Campus Hiring Linkages
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold mt-1 text-white">
+                      Where TAPS Alumni Build Global Careers
+                    </h3>
+                  </div>
+
+                  <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden border border-white/10 shadow-inner">
+                    <Image
+                      src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
+                      alt="Major Corporate Recruiters at TAPS"
+                      fill
+                      className="object-contain bg-white rounded-xl"
+                      sizes="100vw"
+                    />
+                  </div>
+                </div>
+
+              </motion.div>
             )}
 
           </section>
         </AnimatedBackground>
+
+        {/* ========================================================================= */}
+        {/* BOTTOM CALL TO ACTION: ADMISSION 2026 ENROLMENT */}
+        {/* ========================================================================= */}
+        <AnimatedBackground variant="dark" className="border-t border-zinc-800 relative overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <Image
+              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
+              alt="TAPS Campus Promenade"
+              fill
+              className="object-cover object-center filter contrast-105 opacity-20"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#070D21] via-[#070D21]/90 to-[#070D21]" />
+          </div>
+
+          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center text-white">
+            <div className="max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-cyan-300 mb-4 bg-cyan-950/60 border border-cyan-800/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                Admissions Open • Academic Batch 2026-27
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight mb-4">
+                Step into Eastern India&apos;s Premier Undergraduate Academy
+              </h2>
+
+              <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+                Secure your seat in BCA or BBA under Utkal University. Early applications benefit from faculty mentorship, hostel allotment, and industry certification priority.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-8 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-xl cursor-pointer hover-lift"
+                >
+                  Apply Online for 2026 Batch →
+                </button>
+                <Link
+                  href="/contact"
+                  className="px-8 py-3.5 rounded-xl bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                >
+                  Visit Campus / Contact Desk
+                </Link>
+              </div>
+            </div>
+          </section>
+        </AnimatedBackground>
+
       </main>
 
       <TactFooter onOpenQuery={() => setIsModalOpen(true)} />
@@ -630,4 +1277,3 @@ export default function ProgrammesPage() {
     </div>
   );
 }
-
