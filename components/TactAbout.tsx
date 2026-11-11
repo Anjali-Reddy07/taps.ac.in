@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -63,7 +63,8 @@ function TiltCard({
 
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   const [activeTab, setActiveTab] = useState<"vision" | "mission" | "values">("vision");
-  const [hoveredFacility, setHoveredFacility] = useState<number | null>(null);
+  const [activeFacility, setActiveFacility] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // 4 Core Official Benchmark Accreditations (from taps.ac.in)
   const accreditations = [
@@ -206,41 +207,74 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
   ];
 
-  // 4 Facilities for Expanding Strips Accordion
+  // 4 Academic Infrastructure Hubs for Kinetic Architectural Horizon
   const facilityHighlights = [
     {
       num: "01",
-      badge: "01 / TECH LAB",
+      badge: "01 • TECH LAB",
       title: "Computer Applications Lab",
       subtitle: "CLOUD & AI COMPUTING NODES",
-      spec: "High-performance virtualization clusters, dedicated GPU rigs & 24/7 gigabit fiber network.",
+      desc: "High-performance computing clusters, dedicated GPU rigs, and gigabit fiber connectivity supporting real-world software engineering sprints, enterprise database architectures, and algorithmic hackathons.",
+      specs: [
+        "NVIDIA GPU Rigs for Machine Learning & Data Science",
+        "Dedicated Enterprise Oracle & Sybase RDBMS Instances",
+        "24/7 Redundant Gigabit Fiber Backplane Network",
+      ],
+      location: "Block-1 Computing Cluster, Infocity",
       image: "/images/drive/computer-lab.jpg",
     },
     {
       num: "02",
-      badge: "02 / ACADEMICS",
+      badge: "02 • ACADEMICS",
       title: "Smart Lecture Amphitheatres",
       subtitle: "INTERACTIVE COMPUTING THEATRES",
-      spec: "Multimedia smart theatres, acoustic lecture halls & interactive presentation consoles.",
+      desc: "Acoustically treated tiered lecture theatres engineered with high-definition digital projection systems, audio conferencing, and interactive instructor consoles for immersive CBCS case study seminars.",
+      specs: [
+        "Tiered Ergonomic Seating with Optimal Viewing Angles",
+        "HD Digital Multimedia Presentation & Recording Hubs",
+        "Integrated Wi-Fi 6 for Synchronous Digital Quizzes",
+      ],
+      location: "Academic Block Central Amphitheatre",
       image: "/images/drive_third/ClassRooms_Academic.JPG",
     },
     {
       num: "03",
-      badge: "03 / RESEARCH",
+      badge: "03 • RESEARCH",
       title: "Central Research Library",
       subtitle: "DIGITAL & PHYSICAL ARCHIVES",
-      spec: "Over 70,000 reference volumes, IEEE / ScienceDirect subscriptions & air-conditioned study pods.",
+      desc: "Over 70,000 reference volumes, international journal archives, and dedicated digital terminals granting 24/7 access to IEEE, ScienceDirect, and DELNET institutional repositories.",
+      specs: [
+        "70,000+ Print Volumes & National Journal Subscriptions",
+        "DELNET & IEEE Electronic Digital Archive Terminals",
+        "Air-Conditioned Collaborative Research & Study Pods",
+      ],
+      location: "Central Library Wing, Ground & 1st Floor",
       image: "/images/drive_third/Library_Library.JPG",
     },
     {
       num: "04",
-      badge: "04 / ATHLETICS",
+      badge: "04 • ATHLETICS",
       title: "Athletic Meet Grounds & Arena",
       subtitle: "FULL-TRACK SPORTS COMPLEX",
-      spec: "Multi-sport athletic grounds, sprint tracks, basketball courts & recreational greens.",
+      desc: "Expansive multi-discipline sports arena hosting annual athletic meets, inter-collegiate tournaments, standard sprint tracks, full-court basketball, volleyball, and wellness greens.",
+      specs: [
+        "Multi-Lane Sprint Tracks & Turf Cricket Pitch",
+        "Floodlit Basketball & Badminton Tournament Courts",
+        "Dedicated Recreational Greens & Annual Sports Pavilions",
+      ],
+      location: "Technoplex West Athletic Grounds",
       image: "/images/drive_third/Sports_IMG20260205104055.jpg",
     },
   ];
+
+  // Auto-advance through facilities every 5.5 seconds unless paused by user interaction
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, facilityHighlights.length]);
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
@@ -754,135 +788,162 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </Link>
           </div>
 
-          {/* Interactive Expanding Horizon Strip (Cardless, Zero Box Shadow, Sleek Full-Bleed Hairline Borders) */}
-          <div
-            onMouseLeave={() => setHoveredFacility(null)}
-            className="relative w-full h-[620px] md:h-[560px] overflow-hidden flex flex-col md:flex-row border-y border-zinc-200/90 bg-zinc-950"
-          >
-            {facilityHighlights.map((facility, idx) => {
-              const isExpanded = hoveredFacility === idx;
-              const hasHover = hoveredFacility !== null;
-              const flexValue = hasHover ? (isExpanded ? 3 : 0.8) : 1;
-
-              return (
-                <div
-                  key={facility.title}
-                  onMouseEnter={() => setHoveredFacility(idx)}
-                  onClick={() => setHoveredFacility(isExpanded ? null : idx)}
-                  style={{
-                    flex: flexValue,
-                    transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-                  }}
-                  className={`group relative overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-8 select-none border-b md:border-b-0 md:border-r border-white/10 last:border-0 ${
-                    isExpanded ? "min-h-[260px] md:min-h-0" : "min-h-[85px] md:min-h-0"
-                  }`}
-                >
-                  {/* Background Image with Smooth Scale */}
-                  <Image
-                    src={facility.image}
-                    alt={facility.title}
-                    fill
-                    className={`object-cover object-center filter transition-all duration-700 ease-out ${
-                      isExpanded
-                        ? "scale-105 grayscale-0 brightness-100"
-                        : "scale-100 grayscale-[20%] brightness-90 group-hover:grayscale-0"
-                    }`}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-
-                  {/* Subtle Dark Gradient Overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-                    style={{
-                      background: isExpanded
-                        ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.1) 100%)"
-                        : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%)",
+          {/* Interactive Kinetic Selector Tabs (Typography-Driven, Animated Gliding Indicator) */}
+          <div className="border-b border-zinc-200/90 mb-8 overflow-x-auto scrollbar-none">
+            <div className="flex items-center gap-2 sm:gap-6 min-w-max pb-3">
+              {facilityHighlights.map((facility, idx) => {
+                const isActive = activeFacility === idx;
+                return (
+                  <button
+                    key={facility.title}
+                    onClick={() => {
+                      setActiveFacility(idx);
+                      setIsAutoPlaying(false);
                     }}
-                  />
+                    onMouseEnter={() => {
+                      setActiveFacility(idx);
+                      setIsAutoPlaying(false);
+                    }}
+                    onMouseLeave={() => setIsAutoPlaying(true)}
+                    className={`relative py-2.5 px-3 sm:px-4 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 select-none ${
+                      isActive ? "text-blue-700 font-bold" : "text-slate-500 hover:text-slate-900"
+                    }`}
+                  >
+                    <span className="font-mono text-xs opacity-60">0{idx + 1}</span>
+                    <span>{facility.title}</span>
 
-                  {/* Minimalist Top Marker (Typography Driven, No Heavy Pill Box) */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-white/90 drop-shadow-md">
-                      <span
-                        className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                          isExpanded ? "bg-cyan-400 animate-ping" : "bg-cyan-400"
-                        }`}
+                    {/* Active Gliding Pill Underline */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="facility-active-tab"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 shadow-[0_1px_8px_rgba(37,99,235,0.4)]"
                       />
-                      <span className="text-cyan-300">{facility.badge}</span>
-                    </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-                    <span
-                      className={`text-xs font-mono font-bold transition-colors duration-300 hidden sm:inline-block ${
-                        isExpanded ? "text-cyan-300" : "text-white/60"
-                      }`}
-                    >
-                      {facility.num}
+          {/* Master Stage (Cardless 2-Column Split: Editorial Narrative Left + High-Def Panoramic Viewport Right) */}
+          <div 
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+          >
+            {/* Left Column: Editorial Specs & Narrative (5 cols) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={facilityHighlights[activeFacility].title}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="space-y-4"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-50 text-blue-700 border border-blue-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                      {facilityHighlights[activeFacility].subtitle}
                     </span>
                   </div>
 
-                  {/* Bottom Content Area */}
-                  <div className="relative z-10 flex flex-col justify-end text-white overflow-hidden">
-                    
-                    {/* Sub-Category Tag: Reveals on Expand with Smooth Slide-Up */}
-                    <div
-                      style={{
-                        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                        opacity: isExpanded ? 1 : 0,
-                        transform: isExpanded ? "translateY(0)" : "translateY(10px)",
-                        maxHeight: isExpanded ? "28px" : "0px",
-                      }}
-                      className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold mb-1 overflow-hidden"
-                    >
-                      {facility.subtitle}
-                    </div>
+                  <h4 className="text-2xl sm:text-3xl lg:text-4xl font-light text-slate-900 tracking-tight leading-tight">
+                    {facilityHighlights[activeFacility].title}
+                  </h4>
 
-                    {/* Facility Title: Always Visible, Fully Legible Without Truncation */}
-                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
-                      {facility.title}
-                    </h4>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                    {facilityHighlights[activeFacility].desc}
+                  </p>
 
-                    {/* Full Descriptive Copy: Collapses when not active, reveals on expand */}
-                    <div
-                      style={{
-                        transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
-                        opacity: isExpanded ? 1 : 0,
-                        transform: isExpanded ? "translateY(0)" : "translateY(14px)",
-                        maxHeight: isExpanded ? "120px" : "0px",
-                      }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mt-2 pt-1">
-                        {facility.spec}
-                      </p>
-                    </div>
-
-                    {/* Campus Location Tag & Action Arrow Button: Reveals on Expand */}
-                    <div
-                      style={{
-                        transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
-                        opacity: isExpanded ? 1 : 0,
-                        transform: isExpanded ? "translateY(0)" : "translateY(14px)",
-                        maxHeight: isExpanded ? "60px" : "0px",
-                      }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-3.5 mt-3 border-t border-white/20 flex items-center justify-between">
-                        <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-200 font-semibold">
-                          INFOCITY CAMPUS
-                        </span>
-
-                        <div className="w-8 h-8 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform duration-200">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </div>
+                  {/* 3 Technical Specs in Clean Hairline Ledger */}
+                  <div className="space-y-2.5 pt-3 border-t border-slate-100">
+                    {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
+                      <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                        <span>{spec}</span>
                       </div>
+                    ))}
+                  </div>
+
+                  {/* Campus Location Tag & CTA */}
+                  <div className="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
+                    <span className="text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
+                      📍 {facilityHighlights[activeFacility].location}
+                    </span>
+
+                    <button
+                      onClick={onOpenQuery}
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-700 hover:text-blue-900 transition-colors group cursor-pointer"
+                    >
+                      <span>Inquire About Facility</span>
+                      <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Right Column: Panoramic Cinematic Viewport (7 cols) */}
+            <div className="lg:col-span-7 relative h-[360px] sm:h-[440px] md:h-[480px] w-full">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={facilityHighlights[activeFacility].title}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.02 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-200/90 shadow-sm group bg-slate-950"
+                >
+                  <Image
+                    src={facilityHighlights[activeFacility].image}
+                    alt={facilityHighlights[activeFacility].title}
+                    fill
+                    className="object-cover object-center group-hover:scale-104 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+
+                  {/* Floating Live Badge */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-slate-900 shadow-sm backdrop-blur-xs flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span>{facilityHighlights[activeFacility].badge}</span>
+                    </span>
+                  </div>
+
+                  {/* Bottom Caption Overlay */}
+                  <div className="absolute bottom-5 left-5 right-5 text-white z-10 flex items-end justify-between">
+                    <div>
+                      <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                        {facilityHighlights[activeFacility].subtitle}
+                      </div>
+                      <h4 className="text-lg sm:text-xl font-bold text-white mt-0.5">
+                        {facilityHighlights[activeFacility].title}
+                      </h4>
                     </div>
 
+                    <div className="text-xs font-mono font-bold text-white/70">
+                      0{activeFacility + 1} / 0{facilityHighlights.length}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Live Auto-Progress Line Indicator */}
+              <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-zinc-200 rounded-full overflow-hidden">
+                <motion.div
+                  key={activeFacility}
+                  initial={{ width: "0%" }}
+                  animate={{ width: isAutoPlaying ? "100%" : "0%" }}
+                  transition={{ duration: 5.5, ease: "linear" }}
+                  className="h-full bg-blue-600"
+                />
+              </div>
+            </div>
           </div>
 
         </div>
