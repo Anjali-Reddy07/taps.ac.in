@@ -821,12 +821,14 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </div>
           </div>
         </motion.div>
+      </div>
 
-        {/* 4. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS GRID */}
-        <div id="facilities" className="pt-12 sm:pt-16 border-t border-indigo-100 scroll-mt-24">
-          
-          {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
+      {/* 4. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS - FULL-BLEED PANORAMIC STAGE */}
+      <div id="facilities" className="pt-12 sm:pt-16 border-t border-indigo-100 scroll-mt-24 w-full">
+        
+        {/* Section Header (Contained in max-w-7xl for clean alignment) */}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 block mb-2 bg-blue-50 border border-blue-200 w-fit px-3 py-1 rounded-full shadow-2xs">
                 INSIDE TAPS CAMPUS
@@ -847,13 +849,14 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               <span className="transform group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
+        </div>
 
-          {/* CINEMATIC IMMERSIVE PANORAMIC HORIZON STAGE (Matched 100% with User Uploaded Mockup) */}
-          <div 
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-            className="relative w-full rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800/80 min-h-[580px] lg:min-h-[620px] flex flex-col justify-between"
-          >
+        {/* FULL-BLEED CINEMATIC IMMERSIVE PANORAMIC HORIZON STAGE (100% Screen Width, No White Background on Sides or Corners) */}
+        <div 
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+          className="relative w-full overflow-hidden shadow-2xl bg-slate-950 border-y border-slate-800/80 min-h-[660px] sm:min-h-[740px] lg:min-h-[85vh] flex flex-col justify-between rounded-none"
+        >
             {/* 1. PANORAMIC PHOTOGRAPHIC HORIZON BACKGROUND WITH SMOOTH DISSOLVE */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -886,8 +889,8 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </AnimatePresence>
 
             {/* 2. TOP HORIZONTAL NAVIGATION TABS (Inside the Dark Panoramic Stage) */}
-            <div className="relative z-20 border-b border-white/10 px-6 sm:px-10 lg:px-12 py-4 bg-black/35 backdrop-blur-md overflow-x-auto scrollbar-none">
-              <div className="flex items-center gap-6 sm:gap-10 min-w-max">
+            <div className="relative z-20 border-b border-white/10 px-6 sm:px-12 lg:px-16 py-4 bg-black/40 backdrop-blur-md overflow-x-auto scrollbar-none">
+              <div className="max-w-7xl mx-auto flex items-center gap-6 sm:gap-10 min-w-max">
                 {facilityHighlights.map((facility, idx) => {
                   const isActive = activeFacility === idx;
                   return (
@@ -919,7 +922,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </div>
 
             {/* 3. FLOATING BADGE IN TOP RIGHT / MID PHOTO */}
-            <div className="absolute top-20 right-10 sm:right-16 z-20 hidden md:block">
+            <div className="absolute top-20 right-8 sm:right-16 lg:right-24 z-20 hidden md:block">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={facilityHighlights[activeFacility].badge}
@@ -936,132 +939,136 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </div>
 
             {/* 4. MAIN EDITORIAL CONTENT (Left Column Overlay over Dark Gradient) */}
-            <div className="relative z-20 px-6 sm:px-10 lg:px-12 py-8 sm:py-12 flex-1 flex flex-col justify-center">
-              <div className="max-w-xl">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={facilityHighlights[activeFacility].title}
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -18 }}
-                    transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                    className="space-y-5"
-                  >
-                    {/* Subtitle Pill */}
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                      <span>{facilityHighlights[activeFacility].subtitle}</span>
-                    </div>
+            <div className="relative z-20 px-6 sm:px-12 lg:px-16 py-8 sm:py-16 flex-1 flex flex-col justify-center">
+              <div className="max-w-7xl mx-auto w-full">
+                <div className="max-w-2xl">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={facilityHighlights[activeFacility].title}
+                      initial={{ opacity: 0, y: 18 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -18 }}
+                      transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                      className="space-y-5"
+                    >
+                      {/* Subtitle Pill */}
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                        <span>{facilityHighlights[activeFacility].subtitle}</span>
+                      </div>
 
-                    {/* Main Title */}
-                    <h4 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
-                      {facilityHighlights[activeFacility].title}
-                    </h4>
+                      {/* Main Title */}
+                      <h4 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
+                        {facilityHighlights[activeFacility].title}
+                      </h4>
 
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
-                      {facilityHighlights[activeFacility].desc}
-                    </p>
+                      {/* Description */}
+                      <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                        {facilityHighlights[activeFacility].desc}
+                      </p>
 
-                    {/* 3 Technical Specs with Cyan Bullets */}
-                    <div className="space-y-2.5 pt-2">
-                      {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
-                        <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-white/90 leading-relaxed">
-                          <span className="text-cyan-400 font-bold shrink-0 mt-0.5">•</span>
-                          <span>{spec}</span>
-                        </div>
-                      ))}
-                    </div>
+                      {/* 3 Technical Specs with Cyan Bullets */}
+                      <div className="space-y-2.5 pt-2">
+                        {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
+                          <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                            <span className="text-cyan-400 font-bold shrink-0 mt-0.5">•</span>
+                            <span>{spec}</span>
+                          </div>
+                        ))}
+                      </div>
 
-                    {/* Meta Footer: Campus Location Tag & Inquire CTA */}
-                    <div className="pt-6 flex flex-wrap items-center gap-6">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white/70 uppercase tracking-wider">
-                        <span className="text-rose-400">📍</span>
-                        <span>{facilityHighlights[activeFacility].location}</span>
-                      </span>
+                      {/* Meta Footer: Campus Location Tag & Inquire CTA */}
+                      <div className="pt-6 flex flex-wrap items-center gap-6">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white/70 uppercase tracking-wider">
+                          <span className="text-rose-400">📍</span>
+                          <span>{facilityHighlights[activeFacility].location}</span>
+                        </span>
 
-                      <button
-                        onClick={onOpenQuery}
-                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition-colors group cursor-pointer"
-                      >
-                        <span>Inquire About Facility</span>
-                        <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                      </button>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                        <button
+                          onClick={onOpenQuery}
+                          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition-colors group cursor-pointer"
+                        >
+                          <span>Inquire About Facility</span>
+                          <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
 
             {/* 5. BOTTOM-RIGHT HUD CONTROLS & SUB-CAPTION */}
-            <div className="relative z-20 px-6 sm:px-10 lg:px-12 pb-6 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4">
-              {/* Optional sub-caption */}
-              <div className="hidden sm:block text-white/40 text-[11px] font-mono tracking-wider">
-                {facilityHighlights[activeFacility].subtitle} | {facilityHighlights[activeFacility].title}
-              </div>
-
-              {/* Floating Glassmorphic HUD Card */}
-              <div className="flex items-center gap-3">
-                <div className="bg-black/55 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-center justify-between gap-6 min-w-[290px] sm:min-w-[360px]">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
-                      {facilityHighlights[activeFacility].subtitle}
-                    </span>
-                    <span className="text-sm sm:text-base font-bold text-white block mt-0.5 line-clamp-1">
-                      {facilityHighlights[activeFacility].title}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 shrink-0">
-                    {/* Pagination Indicator Dots */}
-                    <div className="flex items-center gap-1.5">
-                      {facilityHighlights.map((_, dotIdx) => (
-                        <button
-                          key={dotIdx}
-                          onClick={() => {
-                            setActiveFacility(dotIdx);
-                            setIsAutoPlaying(false);
-                          }}
-                          aria-label={`Go to facility ${dotIdx + 1}`}
-                          className={`h-2 rounded-full transition-all cursor-pointer ${
-                            activeFacility === dotIdx ? "bg-cyan-400 w-5" : "bg-white/40 hover:bg-white/70 w-2"
-                          }`}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Counter & Arrows */}
-                    <div className="flex items-center gap-2 text-white/80 text-xs font-mono">
-                      <button
-                        onClick={() => {
-                          setActiveFacility((prev) => (prev - 1 + facilityHighlights.length) % facilityHighlights.length);
-                          setIsAutoPlaying(false);
-                        }}
-                        aria-label="Previous facility"
-                        className="hover:text-white p-1 cursor-pointer transition-colors"
-                      >
-                        &lt;
-                      </button>
-                      <span className="font-bold text-white">
-                        0{activeFacility + 1} / 0{facilityHighlights.length}
-                      </span>
-                      <button
-                        onClick={() => {
-                          setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
-                          setIsAutoPlaying(false);
-                        }}
-                        aria-label="Next facility"
-                        className="hover:text-white p-1 cursor-pointer transition-colors"
-                      >
-                        &gt;
-                      </button>
-                    </div>
-                  </div>
+            <div className="relative z-20 px-6 sm:px-12 lg:px-16 pb-8">
+              <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4">
+                {/* Optional sub-caption */}
+                <div className="hidden sm:block text-white/40 text-[11px] font-mono tracking-wider">
+                  {facilityHighlights[activeFacility].subtitle} | {facilityHighlights[activeFacility].title}
                 </div>
 
-                {/* Ambient Sparkle */}
-                <div className="hidden lg:block text-white/35 text-2xl font-serif select-none pointer-events-none">
-                  ✦
+                {/* Floating Glassmorphic HUD Card */}
+                <div className="flex items-center gap-3">
+                  <div className="bg-black/55 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-center justify-between gap-6 min-w-[290px] sm:min-w-[360px]">
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                        {facilityHighlights[activeFacility].subtitle}
+                      </span>
+                      <span className="text-sm sm:text-base font-bold text-white block mt-0.5 line-clamp-1">
+                        {facilityHighlights[activeFacility].title}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-4 shrink-0">
+                      {/* Pagination Indicator Dots */}
+                      <div className="flex items-center gap-1.5">
+                        {facilityHighlights.map((_, dotIdx) => (
+                          <button
+                            key={dotIdx}
+                            onClick={() => {
+                              setActiveFacility(dotIdx);
+                              setIsAutoPlaying(false);
+                            }}
+                            aria-label={`Go to facility ${dotIdx + 1}`}
+                            className={`h-2 rounded-full transition-all cursor-pointer ${
+                              activeFacility === dotIdx ? "bg-cyan-400 w-5" : "bg-white/40 hover:bg-white/70 w-2"
+                            }`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Counter & Arrows */}
+                      <div className="flex items-center gap-2 text-white/80 text-xs font-mono">
+                        <button
+                          onClick={() => {
+                            setActiveFacility((prev) => (prev - 1 + facilityHighlights.length) % facilityHighlights.length);
+                            setIsAutoPlaying(false);
+                          }}
+                          aria-label="Previous facility"
+                          className="hover:text-white p-1 cursor-pointer transition-colors"
+                        >
+                          &lt;
+                        </button>
+                        <span className="font-bold text-white">
+                          0{activeFacility + 1} / 0{facilityHighlights.length}
+                        </span>
+                        <button
+                          onClick={() => {
+                            setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
+                            setIsAutoPlaying(false);
+                          }}
+                          aria-label="Next facility"
+                          className="hover:text-white p-1 cursor-pointer transition-colors"
+                        >
+                          &gt;
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Ambient Sparkle */}
+                  <div className="hidden lg:block text-white/35 text-2xl font-serif select-none pointer-events-none">
+                    ✦
+                  </div>
                 </div>
               </div>
             </div>
@@ -1079,8 +1086,6 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           </div>
 
         </div>
-
-      </div>
     </section>
   );
 }
