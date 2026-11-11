@@ -231,90 +231,134 @@ export default function CampusGallery() {
   ];
 
   return (
-    <section id="gallery" className="relative py-24 sm:py-32 bg-slate-950 text-white overflow-hidden min-h-screen">
-      {/* COMPLETE 3D INFINITE SPIRAL BACKGROUND CANVAS (Spans the entire section edge-to-edge) */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        <InfiniteSpiral
-          items={spiralItems}
-          animationMode="all"
-          speed={0.4}
-          radius={380}
-          cardWidth={160}
-          cardHeight={115}
-          verticalSpacing={80}
-          perspective={1200}
-          cardRadius={14}
-          centerScale={1.25}
-          edgeBlur={6}
-          edgeFade={0.32}
-          cardsPerTurn={9}
-          pauseOnHover={false}
-          className="w-full h-full opacity-65"
-        />
-        {/* Soft Ambient Radial Vignette */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(ellipse at 50% 35%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.48) 50%, rgba(2, 6, 23, 0.95) 85%)",
-          }}
-        />
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950 via-slate-950/80 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+    <section id="gallery" className="relative w-full bg-slate-950 text-white overflow-hidden">
+      
+      {/* 1. FULL-SCREEN 3D INFINITE SPIRAL HELIX SHOWCASE (100% Viewport Width & Height, No Enclosed Boxes) */}
+      <div className="relative w-full h-screen min-h-[650px] lg:min-h-[720px] flex flex-col justify-between overflow-hidden bg-slate-950 select-none">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
-          <div className="max-w-2xl animate-fadeInUp">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-300 mb-3 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1 rounded-full shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>3D CAMPUS HELIX • VISUAL ARCHIVES</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
-              Life &amp; Architecture at TAPS
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 mt-2 font-normal leading-relaxed">
-              Explore authentic glimpses of our Infocity campus — where grand architecture, computing labs, athletics, and student life unite in 3D infinite motion.
-            </p>
-          </div>
+        {/* Full-Bleed 3D Infinite Spiral Background Layer */}
+        <div className="absolute inset-0 z-0">
+          <InfiniteSpiral
+            items={spiralItems}
+            animationMode="all"
+            speed={0.45}
+            radius={340}
+            cardWidth={160}
+            cardHeight={115}
+            verticalSpacing={75}
+            perspective={1150}
+            cardRadius={14}
+            centerScale={1.3}
+            edgeBlur={5}
+            edgeFade={0.32}
+            cardsPerTurn={8}
+            pauseOnHover={true}
+            className="w-full h-full"
+          />
 
-          {/* Interactive Filter Pills */}
+          {/* Cinematic Radial & Linear Vignettes */}
           <div 
-            role="tablist"
-            aria-label="Gallery Categories"
-            className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-sm"
-          >
-            {[
-              { id: "all", label: "All Highlights" },
-              { id: "events", label: "Events & Alumni" },
-              { id: "architecture", label: "Architecture" },
-              { id: "tech", label: "Tech & Labs" },
-              { id: "sports", label: "Athletics" },
-              { id: "nature", label: "Campus Greenery" },
-            ].map((tab) => {
-              const isActive = activeFilter === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActiveFilter(tab.id as typeof activeFilter)}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-95 whitespace-nowrap ${
-                    isActive
-                      ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-sm"
-                      : "text-slate-300 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.38) 45%, rgba(2, 6, 23, 0.95) 100%)",
+            }}
+          />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
+        </div>
+
+        {/* Top Pinned Bar */}
+        <div className="relative z-20 px-6 sm:px-12 lg:px-16 pt-8 sm:pt-10 flex items-center justify-between pointer-events-none">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span>3D CAMPUS HELIX • REACT BITS</span>
+          </div>
+          <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
+            DRAG • SCROLL • HOVER TO INTERACT
           </div>
         </div>
 
-        {/* Dynamic Bento Gallery Grid */}
-        <div id="gallery-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Center Hero Content */}
+        <div className="relative z-20 px-6 sm:px-12 max-w-3xl mx-auto text-center my-auto py-8 pointer-events-none">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight">
+            The Living Campus in <span className="font-semibold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">3D Infinite Motion</span>
+          </h2>
+          <p className="text-sm sm:text-base lg:text-lg text-slate-200 mt-4 font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-sm">
+            Experience our continuous photographic helix — where computing hubs, smart amphitheatres, cultural fests, and athletic arenas rotate in 3D perspective.
+          </p>
+          <div className="pt-8 flex items-center justify-center pointer-events-auto">
+            <a
+              href="#gallery-archive"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-semibold transition-all duration-300 shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 group cursor-pointer"
+            >
+              <span>Explore Bento Archive Below</span>
+              <span className="transform group-hover:translate-y-1 transition-transform duration-200 text-base">↓</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Pinned Bar */}
+        <div className="relative z-20 px-6 sm:px-12 lg:px-16 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
+          <span>16 REAL CAMPUS MOMENTS</span>
+          <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
+          <span>TECHNOPLEX ARCHIVES</span>
+        </div>
+      </div>
+
+      {/* 2. BENTO ARCHIVE & FILTERABLE GALLERY (Directly Below Full-Screen 3D Stage) */}
+      <div id="gallery-archive" className="py-20 sm:py-28 relative z-10 border-t border-slate-800/80 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+          
+          {/* Section Header & Filters */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-400 mb-3 bg-white/10 border border-white/20 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-md">
+                <span>CAMPUS ARCHIVES</span>
+              </div>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
+                Life &amp; Architecture at TAPS
+              </h3>
+              <p className="text-sm sm:text-base text-slate-300 mt-2 font-normal leading-relaxed">
+                Explore authentic glimpses of our Infocity campus — where grand architecture, computing labs, athletics, and student life unite.
+              </p>
+            </div>
+
+            {/* Interactive Filter Pills */}
+            <div 
+              role="tablist"
+              aria-label="Gallery Categories"
+              className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-sm"
+            >
+              {[
+                { id: "all", label: "All Highlights" },
+                { id: "events", label: "Events & Alumni" },
+                { id: "architecture", label: "Architecture" },
+                { id: "tech", label: "Tech & Labs" },
+                { id: "sports", label: "Athletics" },
+                { id: "nature", label: "Campus Greenery" },
+              ].map((tab) => {
+                const isActive = activeFilter === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveFilter(tab.id as typeof activeFilter)}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-95 whitespace-nowrap ${
+                      isActive
+                        ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-sm"
+                        : "text-slate-300 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Dynamic Bento Gallery Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
@@ -366,6 +410,7 @@ export default function CampusGallery() {
         </div>
 
       </div>
+    </div>
 
       {/* FULLSCREEN LIGHTBOX MODAL */}
       {selectedPhoto && (
