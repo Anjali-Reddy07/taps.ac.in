@@ -655,28 +655,27 @@ export default function ProgrammesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Cardless Dual Pathway Split Horizon (No Rigid Box Cards) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200/80">
               
-              {/* 1. BCA SHOWCASE CARD */}
+              {/* 1. BCA SHOWCASE */}
               <motion.div
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.25 }}
                 onClick={() => {
                   setSelectedCourse("bca");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
-                  selectedCourse === "bca"
-                    ? "bg-white border-blue-600 shadow-[0_16px_40px_rgba(37,99,235,0.12)] ring-4 ring-blue-500/10"
-                    : "bg-white/80 hover:bg-white border-zinc-200 hover:border-blue-300 shadow-sm"
+                className={`p-8 sm:p-12 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
+                  selectedCourse === "bca" ? "bg-blue-50/40" : "hover:bg-zinc-50/60"
                 }`}
               >
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500" />
+                <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500" />
                 
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-100 text-blue-800">
                       BCA • 3-YEAR TRACK
                     </span>
                     <span className="text-xs font-mono text-zinc-500 font-semibold">
@@ -684,29 +683,29 @@ export default function ProgrammesPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-blue-700 transition-colors">
                     Bachelor of Computer Applications
                   </h3>
                   <p className="text-xs font-mono text-blue-700 uppercase tracking-wider mb-4 font-semibold">
                     Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
                   </p>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
                     Comprehensive full-stack software development, cloud virtualization clusters, discrete algorithms, and applied machine learning foundations.
                   </p>
 
                   {/* 4 Core Competency Chips */}
-                  <div className="grid grid-cols-2 gap-2 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-8">
                     {programmes.bca.keySkills.map((k, i) => (
-                      <div key={i} className="p-2.5 rounded-xl bg-slate-50 border border-zinc-200/80 text-[11px] font-medium text-zinc-800">
-                        <div className="font-bold text-blue-900">{k.name}</div>
+                      <div key={i} className="pl-3.5 py-1.5 border-l-2 border-blue-400 text-xs">
+                        <div className="font-bold text-zinc-950">{k.name}</div>
                         <div className="text-[10px] font-mono text-blue-600 mt-0.5">{k.tag}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-zinc-100 flex items-center justify-between">
+                <div className="pt-6 border-t border-zinc-200/80 flex items-center justify-between">
                   <span className="text-xs font-mono text-zinc-500 font-medium">138+ Annual Recruiters</span>
                   <span className="text-xs font-bold text-blue-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
                     <span>{selectedCourse === "bca" ? "Currently Viewing Track" : "Switch to BCA Track"}</span>
@@ -715,26 +714,24 @@ export default function ProgrammesPage() {
                 </div>
               </motion.div>
 
-              {/* 2. BBA SHOWCASE CARD */}
+              {/* 2. BBA SHOWCASE */}
               <motion.div
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.25 }}
                 onClick={() => {
                   setSelectedCourse("bba");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`p-8 rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between relative overflow-hidden group ${
-                  selectedCourse === "bba"
-                    ? "bg-white border-purple-600 shadow-[0_16px_40px_rgba(147,51,234,0.12)] ring-4 ring-purple-500/10"
-                    : "bg-white/80 hover:bg-white border-zinc-200 hover:border-purple-300 shadow-sm"
+                className={`p-8 sm:p-12 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
+                  selectedCourse === "bba" ? "bg-purple-50/40" : "hover:bg-zinc-50/60"
                 }`}
               >
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600" />
+                <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600" />
                 
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-purple-100 text-purple-800">
                       BBA • 4-YEAR NEP TRACK
                     </span>
                     <span className="text-xs font-mono text-zinc-500 font-semibold">
@@ -742,37 +739,36 @@ export default function ProgrammesPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-purple-700 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-purple-700 transition-colors">
                     Bachelor of Business Administration
                   </h3>
                   <p className="text-xs font-mono text-purple-700 uppercase tracking-wider mb-4 font-semibold">
                     Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
                   </p>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
                     Executive leadership acumen, DCF financial modeling, corporate marketing strategies, and supply chain ERP simulations.
                   </p>
 
                   {/* 4 Core Competency Chips */}
-                  <div className="grid grid-cols-2 gap-2 mb-6">
+                  <div className="grid grid-cols-2 gap-3 mb-8">
                     {programmes.bba.keySkills.map((k, i) => (
-                      <div key={i} className="p-2.5 rounded-xl bg-slate-50 border border-zinc-200/80 text-[11px] font-medium text-zinc-800">
-                        <div className="font-bold text-purple-900">{k.name}</div>
+                      <div key={i} className="pl-3.5 py-1.5 border-l-2 border-purple-400 text-xs">
+                        <div className="font-bold text-zinc-950">{k.name}</div>
                         <div className="text-[10px] font-mono text-purple-600 mt-0.5">{k.tag}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-zinc-100 flex items-center justify-between">
-                  <span className="text-xs font-mono text-zinc-500 font-medium">100+ Banking &amp; Consulting MoUs</span>
+                <div className="pt-6 border-t border-zinc-200/80 flex items-center justify-between">
+                  <span className="text-xs font-mono text-zinc-500 font-medium">138+ Annual Recruiters</span>
                   <span className="text-xs font-bold text-purple-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
                     <span>{selectedCourse === "bba" ? "Currently Viewing Track" : "Switch to BBA Track"}</span>
                     <span>→</span>
                   </span>
                 </div>
               </motion.div>
-
             </div>
 
           </section>

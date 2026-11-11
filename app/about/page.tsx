@@ -550,20 +550,20 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 3 Luxury Pillar Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* 3 Luxury Institutional Pillars (Cardless Architectural Triad) */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200/80">
               {pillars.map((pillar, idx) => (
                 <motion.div
                   key={pillar.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                  className="bg-white rounded-3xl border border-indigo-150/90 shadow-[0_16px_40px_rgba(79,70,229,0.06)] hover:shadow-[0_24px_50px_rgba(79,70,229,0.12)] hover:border-indigo-300 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between relative group overflow-hidden"
+                  transition={{ duration: 0.5, delay: idx * 0.12 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="p-8 sm:p-10 flex flex-col justify-between relative group"
                 >
                   {/* Top Glowing Gradient Beam Accent */}
-                  <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${pillar.gradient}`} />
+                  <div className={`absolute top-0 left-8 right-8 h-1 bg-gradient-to-r ${pillar.gradient}`} />
 
                   <div>
                     {/* Header Strip with Pillar Pill */}
@@ -712,7 +712,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Cardless Editorial Campus Atmosphere Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
               {[
                 {
                   title: "Tiered Lecture Theatres",
@@ -742,15 +743,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.12 }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className="bg-white border border-zinc-200 rounded-3xl overflow-hidden shadow-2xs hover:border-zinc-400 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                  className="group flex flex-col justify-between space-y-4"
                 >
-                  <div className="relative h-56 w-full overflow-hidden bg-zinc-100">
+                  <div className="relative h-60 sm:h-64 w-full rounded-3xl overflow-hidden shadow-lg group-hover:scale-102 transition-transform duration-500">
                     <Image
                       src={item.img}
                       alt={item.title}
                       fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
@@ -760,11 +760,11 @@ export default function AboutPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 font-bold mb-1">
+                  <div>
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-blue-700 font-bold mb-1">
                       {item.subtitle}
                     </div>
-                    <h3 className="text-lg font-bold text-zinc-950 mb-2">
+                    <h3 className="text-xl font-bold text-zinc-950 mb-2 group-hover:text-blue-700 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">

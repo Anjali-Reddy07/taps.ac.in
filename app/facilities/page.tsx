@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -12,13 +12,17 @@ import AnimatedBackground from "@/components/AnimatedBackground";
 
 export default function FacilitiesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeFacilityId, setActiveFacilityId] = useState<string>("computer-lab");
 
   const facilities = [
     {
       id: "computer-lab",
-      badge: "TECH INFRASTRUCTURE 01",
+      num: "01",
+      badge: "TECH INFRASTRUCTURE",
       title: "Advanced Computer Applications & AI Labs",
       subtitle: "600 Terminals • 1000 Mbps LAN & Internet Backbone",
+      stat: "600+",
+      statLabel: "Workstations (1:4 Ratio)",
       spec: "Equipped with state-of-the-art computer laboratories, campus-wide Local Area Network (LAN) and a wireless network backbone of 1000 Mbps (1:1). Features 600 systems with a 1:4 computer-to-student ratio for UG.",
       features: [
         "600 High-Performance Desktop Systems with 1:4 Ratio",
@@ -27,12 +31,16 @@ export default function FacilitiesPage() {
         "Dedicated Power Backup with Central Online UPS Systems",
       ],
       image: "/images/drive/computer-lab.jpg",
+      glow: "from-blue-600/30 via-cyan-500/20 to-transparent",
     },
     {
       id: "smart-theatres",
-      badge: "ACADEMICS 02",
+      num: "02",
+      badge: "ACADEMICS",
       title: "Spacious ICT Classrooms & 400-Seat Auditorium",
       subtitle: "Smart Classrooms in Each of the Six Blocks",
+      stat: "400 Seats",
+      statLabel: "Central AC Auditorium",
       spec: "Spacious ICT enabled AC Classrooms, dedicated departmental seminar halls, and a 400-capacity central auditorium for institute-level presentations. Every department has access to smart classrooms in all six blocks.",
       features: [
         "ICT-Enabled AC Classrooms in All Six Blocks",
@@ -41,12 +49,16 @@ export default function FacilitiesPage() {
         "Interactive Digital Smart Boards & Cloud Archives",
       ],
       image: "/images/drive_third/ClassRooms_Academic.JPG",
+      glow: "from-indigo-600/30 via-purple-500/20 to-transparent",
     },
     {
       id: "central-library",
-      badge: "RESEARCH 03",
+      num: "03",
+      badge: "RESEARCH",
       title: "TAPS Central Research Library",
       subtitle: "70,000+ Volumes • IEEE, Science Direct & ACM E-Journals",
+      stat: "70,000+",
+      statLabel: "Text & Reference Volumes",
       spec: "Considered the richest encyclopedia of books with above 70,000 text and reference volumes. Equipped with computer terminals for literature mining and access to Science Direct, IEEE, NPTEL, ISI, and ACM databases.",
       features: [
         "Over 70,000 Text & Reference Volumes on Display",
@@ -55,12 +67,16 @@ export default function FacilitiesPage() {
         "Dedicated Literature Mining Terminals with High-Speed Internet",
       ],
       image: "/images/drive_third/Library_Library.JPG",
+      glow: "from-emerald-600/30 via-teal-500/20 to-transparent",
     },
     {
       id: "hostels",
-      badge: "RESIDENTIAL 04",
+      num: "04",
+      badge: "RESIDENTIAL",
       title: "Three In-Campus Residential Hostels",
       subtitle: "1,200 Inmate Capacity • Separate Boys & Girls Wings",
+      stat: "1,200",
+      statLabel: "Inmate Residential Capacity",
       spec: "Three spacious in-campus hostels accommodating 1,200 students. Features well-furnished rooms, hygienic vegetarian & non-vegetarian mess, Wi-Fi coverage, hostel library, TV recreation hall, and 24/7 medical emergency care.",
       features: [
         "Spacious Well-Furnished Rooms (1,200 Inmate Capacity)",
@@ -69,12 +85,16 @@ export default function FacilitiesPage() {
         "Medical Dispensary with On-Call Doctor, Pharmacist & Emergency Vehicle",
       ],
       image: "/images/drive/hostel-residential.jpg",
+      glow: "from-amber-600/30 via-orange-500/20 to-transparent",
     },
     {
       id: "food-court",
-      badge: "AMENITY 05",
+      num: "05",
+      badge: "AMENITY",
       title: "Centralized Multi-Cuisine Food Court",
       subtitle: "Round-the-Clock Dining & Refreshment Hub",
+      stat: "24/7",
+      statLabel: "Dining & Refreshment Hub",
       spec: "Centralized food court providing round-the-clock breakfast, lunch, and dinner with South Indian snacks, Odia thalis, and continental refreshments. Located in close proximity to Infocity cafes like CCD and Barista.",
       features: [
         "Round-the-Clock Breakfast, Lunch, Evening Snacks & Dinner",
@@ -83,12 +103,16 @@ export default function FacilitiesPage() {
         "Close Proximity to Infocity Cafes (CCD, Barista, Berrys)",
       ],
       image: "/images/drive/cafeteria.jpg",
+      glow: "from-rose-600/30 via-red-500/20 to-transparent",
     },
     {
       id: "transport",
-      badge: "LOGISTICS 06",
+      num: "06",
+      badge: "LOGISTICS",
       title: "City Transport Bus Fleet (Routes I to VI)",
       subtitle: "Dedicated Fleet Connecting Entire Bhubaneswar City",
+      stat: "6 Routes",
+      statLabel: "City-Wide Connectivity",
       spec: "The college operates its own transport facility running across 6 designated routes throughout Bhubaneswar City, ensuring punctual, safe, and comfortable daily transit for day scholars.",
       features: [
         "Dedicated Fleet Operating on Routes I, II, III, IV, V & VI",
@@ -97,12 +121,16 @@ export default function FacilitiesPage() {
         "Annual Bus Fee of ₹20,000 Across All Approved Routes",
       ],
       image: "/images/drive_third/Facilities_transportation.png",
+      glow: "from-sky-600/30 via-blue-500/20 to-transparent",
     },
     {
       id: "sports-grounds",
-      badge: "ATHLETICS 07",
+      num: "07",
+      badge: "ATHLETICS",
       title: "Infocity Sports Arenas & Grounds",
       subtitle: "Full-Scale Cricket, Football, Volleyball & Indoor Games",
+      stat: "Multi-Court",
+      statLabel: "Floodlit Athletics Arena",
       spec: "Lush green athletic grounds hosting annual university sports meets, inter-college cricket leagues, basketball tournaments, badminton courts, and indoor recreation halls.",
       features: [
         "Full-Size Cricket Field & Football Turf",
@@ -111,12 +139,16 @@ export default function FacilitiesPage() {
         "Modern Fitness Gymnasium with Certified Trainer",
       ],
       image: "/images/drive_third/Sports_IMG20260205104055.jpg",
+      glow: "from-purple-600/30 via-pink-500/20 to-transparent",
     },
     {
       id: "campus-walkway",
-      badge: "CAMPUS 08",
+      num: "08",
+      badge: "CAMPUS",
       title: "11-Acre Technoplex Botanical Walkway",
       subtitle: "Green Eco-Friendly Institutional Sanctuary",
+      stat: "11 Acres",
+      statLabel: "Eco-Friendly Tech Sanctuary",
       spec: "Paved central promenade connecting academic blocks with hostel pavilions, shaded by mature trees, landscaping, and open-air discussion plazas.",
       features: [
         "Zero-Noise Academic Zone Directly Inside Infocity",
@@ -125,8 +157,11 @@ export default function FacilitiesPage() {
         "24/7 Security Gate Checks & Perimeter CCTV",
       ],
       image: "/images/drive/campus-walkway.jpg",
+      glow: "from-emerald-600/30 via-cyan-500/20 to-transparent",
     },
   ];
+
+  const currentFacility = facilities.find((f) => f.id === activeFacilityId) || facilities[0];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-black selection:text-white">
@@ -152,8 +187,9 @@ export default function FacilitiesPage() {
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
-                Campus Infrastructure &amp; Amenities
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900/90 border border-zinc-700/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span>Campus Infrastructure &amp; Amenities</span>
               </div>
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
                 11-Acre Modern Technoplex in Infocity
@@ -166,13 +202,13 @@ export default function FacilitiesPage() {
               <div className="flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-md cursor-pointer hover-lift"
+                  className="px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-md cursor-pointer hover-lift"
                 >
                   Book a Campus Visit →
                 </button>
                 <Link
                   href="/admission"
-                  className="px-6 py-3 rounded-lg bg-zinc-900 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300"
+                  className="px-6 py-3 rounded-full bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
                 >
                   Admissions 2026 Guidelines
                 </Link>
@@ -181,83 +217,233 @@ export default function FacilitiesPage() {
           </section>
         </AnimatedBackground>
 
-        {/* 8 FACILITIES GRID: LIGHT VARIANT */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+        {/* ========================================================================= */}
+        {/* ALTERNATIVE 1: INTERACTIVE CAMPUS FACILITY STUDIO CONSOLE (ZERO BOXES)   */}
+        {/* ========================================================================= */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-
-            <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
-                Technoplex Amenities
+            
+            <div className="text-center max-w-2xl mx-auto mb-14 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+                Interactive Campus Studio
               </div>
               <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
-                Designed for Focus, Discovery &amp; Community
+                Explore the Technoplex Ecosystem
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
-                Take an immersive look at the institutional facilities supporting over 1,200 scholars every academic session.
+                Select any facility from the interactive track below to preview its live infrastructure, capabilities, and capacity.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-              {facilities.map((f, idx) => (
-                <motion.div
-                  key={f.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                  className="group bg-white border border-zinc-200/90 hover:border-indigo-400 rounded-3xl overflow-hidden shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col card-sheen"
-                >
-                  {/* Image Container with Zoom Effect */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-100">
-                    <Image
-                      src={f.image}
-                      alt={f.title}
-                      fill
-                      className="object-cover object-center filter grayscale-[15%] group-hover:grayscale-0 group-hover:scale-108 transition-all duration-700 ease-out"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+            {/* Kinetic Facility Selector Rail (No boxes, clean interactive pill dock) */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none justify-start lg:justify-center">
+              {facilities.map((f) => {
+                const isActive = activeFacilityId === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setActiveFacilityId(f.id)}
+                    className={`relative px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+                      isActive
+                        ? "text-white shadow-lg"
+                        : "text-zinc-600 hover:text-zinc-950 bg-zinc-100 hover:bg-zinc-200/80"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeFacilityStudioPill"
+                        className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full"
+                        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                      />
+                    )}
+                    <span className="relative z-10 font-bold">{f.num}</span>
+                    <span className="relative z-10">{f.title.split(" ")[0]} {f.title.split(" ")[1]}</span>
+                  </button>
+                );
+              })}
+            </div>
 
+            {/* Master Cinema Stage: Borderless Dynamic Viewport */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentFacility.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+              >
+                {/* Visual Half: Borderless Floating Canvas */}
+                <div className="lg:col-span-7 relative group">
+                  <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-40 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
+                  
+                  <div className="relative h-72 sm:h-96 lg:h-[440px] w-full rounded-3xl overflow-hidden shadow-2xl">
+                    <Image
+                      src={currentFacility.image}
+                      alt={currentFacility.title}
+                      fill
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                    
                     <div className="absolute top-4 left-4">
-                      <span className="inline-block px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono tracking-widest uppercase font-semibold text-zinc-200 border border-white/20">
-                        {f.badge}
+                      <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/70 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
+                        {currentFacility.badge}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white mb-0.5 group-hover:text-cyan-200 transition-colors">
-                        {f.title}
-                      </h3>
-                      <p className="text-xs text-zinc-300 font-light">
-                        {f.subtitle}
-                      </p>
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <div className="text-xl sm:text-2xl font-bold tracking-tight mb-1">
+                        {currentFacility.title}
+                      </div>
+                      <div className="text-xs font-mono text-cyan-300">
+                        {currentFacility.subtitle}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Narrative Half: Open Typography & Floating Specifications (NO BOXES) */}
+                <div className="lg:col-span-5 space-y-6">
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-4xl sm:text-5xl font-mono font-black text-blue-600">
+                        {currentFacility.stat}
+                      </span>
+                      <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">
+                        {currentFacility.statLabel}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-snug">
+                      {currentFacility.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
+                    {currentFacility.spec}
+                  </p>
+
+                  {/* Specification Lines (Divided by clean hairlines, no boxes) */}
+                  <div className="pt-4 border-t border-zinc-200/80 space-y-3">
+                    <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-400">
+                      Technical Capabilities
+                    </div>
+                    <div className="space-y-2.5">
+                      {currentFacility.features.map((feat, idx) => (
+                        <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-800">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                          <span className="leading-snug">{feat}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Body Details */}
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
-                      {f.spec}
-                    </p>
+                  <div className="pt-2">
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 group cursor-pointer"
+                    >
+                      <span>Inquire About Facility Access</span>
+                      <span className="group-hover:translate-x-1.5 transition-transform duration-200">→</span>
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-                    <div className="border-t border-zinc-100 pt-5 space-y-2">
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-900 mb-2 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                        <span>Key Specifications:</span>
+          </section>
+        </AnimatedBackground>
+
+        {/* ========================================================================= */}
+        {/* ALTERNATIVE 2: FULL-WIDTH EDITORIAL WALKTHROUGH (APPLE STYLE, ZERO BOXES) */}
+        {/* ========================================================================= */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+            
+            <div className="text-center max-w-2xl mx-auto mb-20 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+                Comprehensive Tour
+              </div>
+              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                Eight Pillars of Infrastructure
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                A seamless editorial overview of all academic, residential, athletic, and logistics facilities.
+              </p>
+            </div>
+
+            {/* Alternating Seamless Rows (Zero Cards, Zero Box Borders) */}
+            <div className="space-y-24 sm:space-y-32">
+              {facilities.map((f, idx) => {
+                const isEven = idx % 2 === 1;
+                return (
+                  <motion.div
+                    key={f.id}
+                    initial={{ opacity: 0, y: 32 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.6 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+                  >
+                    {/* Visual Column */}
+                    <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                      <div className="relative h-72 sm:h-96 lg:h-[400px] w-full rounded-3xl overflow-hidden shadow-xl group">
+                        <Image
+                          src={f.image}
+                          alt={f.title}
+                          fill
+                          className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                          sizes="(max-width: 1024px) 100vw, 55vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-white/95 text-zinc-900 shadow-md backdrop-blur-sm">
+                            {f.badge}
+                          </span>
+                        </div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {f.features.map((feature, fIdx) => (
-                          <div key={fIdx} className="flex items-start gap-2 text-xs text-zinc-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
-                            <span className="font-normal leading-snug">{feature}</span>
+                    </div>
+
+                    {/* Narrative Column */}
+                    <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"} space-y-4`}>
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl sm:text-4xl font-serif text-blue-600 font-light">
+                          {f.num}
+                        </span>
+                        <div className="h-px flex-1 bg-zinc-200" />
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400">
+                          {f.stat}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight leading-snug">
+                        {f.title}
+                      </h3>
+
+                      <p className="text-xs font-mono text-blue-700 font-medium uppercase tracking-wider">
+                        {f.subtitle}
+                      </p>
+
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal pt-1">
+                        {f.spec}
+                      </p>
+
+                      {/* Capabilities Strip */}
+                      <div className="pt-4 border-t border-zinc-100 space-y-2">
+                        {f.features.map((feat, fIdx) => (
+                          <div key={fIdx} className="flex items-start gap-2.5 text-xs text-zinc-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                            <span className="leading-snug">{feat}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
 
           </section>
@@ -276,13 +462,13 @@ export default function FacilitiesPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-8 py-3 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors shadow-md cursor-pointer"
+                className="px-8 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors shadow-md cursor-pointer"
               >
                 Schedule Guided Campus Visit
               </button>
               <Link
                 href="/contact"
-                className="px-8 py-3 rounded-lg bg-zinc-900 text-white border border-zinc-700 font-semibold text-sm hover:border-zinc-400 transition-colors"
+                className="px-8 py-3 rounded-full bg-zinc-900 text-white border border-zinc-700 font-semibold text-sm hover:border-zinc-400 transition-colors"
               >
                 Directions &amp; Map
               </Link>
@@ -296,4 +482,5 @@ export default function FacilitiesPage() {
     </div>
   );
 }
+
 

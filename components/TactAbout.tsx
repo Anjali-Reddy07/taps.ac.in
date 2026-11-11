@@ -242,31 +242,17 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Campus Showcase + Vision/Mission/Values (Right) */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-20 sm:mb-24">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-20 sm:mb-24">
           
-          {/* LEFT BENTO CELL: Institutional Overview & 2x2 Feature Chips with 3D Tilt */}
-          <TiltCard className="lg:col-span-7 flex">
+          {/* LEFT COLUMN: Open Editorial Narrative & Cardless Accreditations (ZERO BOXES) */}
+          <div className="lg:col-span-7 flex">
             <motion.div 
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full flex flex-col justify-between p-7 sm:p-9 lg:p-10 rounded-3xl bg-white/95 backdrop-blur-md border border-indigo-150 shadow-[0_20px_50px_rgba(79,70,229,0.08)] hover:shadow-[0_25px_60px_rgba(79,70,229,0.14)] transition-all duration-500 overflow-hidden group/bento"
+              className="relative w-full flex flex-col justify-between py-4"
             >
-              {/* Animated atmospheric breathing gradient orb in corner */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.18, 1],
-                  opacity: [0.35, 0.6, 0.35],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-12 -right-12 w-96 h-96 bg-gradient-to-bl from-blue-200/50 via-indigo-100/40 to-transparent rounded-full blur-3xl pointer-events-none"
-              />
-
               <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
                 
                 <div className="space-y-4">
@@ -432,63 +418,61 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               </div>
 
             </motion.div>
-          </TiltCard>
+          </div>
 
-          {/* RIGHT COLUMN: Campus Architectural Showcase (Top) + Interactive Executive Card (Bottom) with 3D Tilt */}
+          {/* RIGHT COLUMN: Campus Architectural Showcase (Top) + Interactive Executive Console (Bottom) */}
           <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
             
-            {/* 1. DEDICATED CAMPUS ARCHITECTURE SHOWCASE CARD WITH HOVER ZOOM & LIVE BEACON */}
-            <TiltCard>
-              <motion.div 
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.35 }}
-                className="group relative h-64 sm:h-72 w-full rounded-3xl overflow-hidden border border-indigo-150 shadow-xl bg-slate-950"
-              >
-                <Image
-                  src="/images/drive_new/1746352355680.jpg"
-                  alt="Trident Academy 11-Acre Technoplex Campus"
-                  fill
-                  className="object-cover object-center group-hover:scale-108 transition-transform duration-800 ease-out"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  priority
-                />
-                
-                {/* Refined Ambient Vignette Scrim */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-transparent to-transparent pointer-events-none" />
+            {/* 1. DEDICATED CAMPUS ARCHITECTURE SHOWCASE (CARDLESS) */}
+            <motion.div 
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.35 }}
+              className="group relative h-64 sm:h-72 w-full rounded-3xl overflow-hidden shadow-xl bg-slate-950"
+            >
+              <Image
+                src="/images/drive_new/1746352355680.jpg"
+                alt="Trident Academy 11-Acre Technoplex Campus"
+                fill
+                className="object-cover object-center group-hover:scale-108 transition-transform duration-800 ease-out"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                priority
+              />
+              
+              {/* Refined Ambient Vignette Scrim */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-transparent to-transparent pointer-events-none" />
 
-                {/* Top Floating Badge with Pulsing Live Beacon */}
-                <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                  <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/40 flex items-center gap-1.5">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    <span>11-Acre Technoplex</span>
+              {/* Top Floating Badge with Pulsing Live Beacon */}
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
+                <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/40 flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                   </span>
-                  <span className="bg-blue-600/90 backdrop-blur-md text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                    Infocity, Bhubaneswar
-                  </span>
-                </div>
+                  <span>11-Acre Technoplex</span>
+                </span>
+                <span className="bg-blue-600/90 backdrop-blur-md text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
+                  Infocity, Bhubaneswar
+                </span>
+              </div>
 
-                {/* Bottom Caption Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white flex flex-col justify-end">
-                  <div className="text-[11px] uppercase tracking-widest text-indigo-300 font-semibold mb-1">
-                    Trident Heritage Since 1991
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-cyan-200 transition-colors">
-                    State-of-the-Art Technoplex Campus
-                  </h3>
-                  <p className="text-xs text-slate-200 mt-1 font-light leading-relaxed line-clamp-2">
-                    Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
-                  </p>
+              {/* Bottom Caption Overlay */}
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white flex flex-col justify-end">
+                <div className="text-[11px] uppercase tracking-widest text-indigo-300 font-semibold mb-1">
+                  Trident Heritage Since 1991
                 </div>
-              </motion.div>
-            </TiltCard>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-cyan-200 transition-colors">
+                  State-of-the-Art Technoplex Campus
+                </h3>
+                <p className="text-xs text-slate-200 mt-1 font-light leading-relaxed line-clamp-2">
+                  Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
+                </p>
+              </div>
+            </motion.div>
 
-            {/* 2. INTERACTIVE EXECUTIVE CARD: Strategic Vision, Mission & Values with 3-Way Spring Switcher */}
-            <TiltCard className="flex-1 flex">
-              <div className="relative w-full bg-[#0B132E] text-white rounded-3xl p-6 sm:p-7 border border-indigo-900/60 shadow-xl flex flex-col justify-between overflow-hidden">
+            {/* 2. INTERACTIVE EXECUTIVE CONSOLE: Strategic Vision, Mission & Values (CARDLESS) */}
+            <div className="flex-1 flex">
+              <div className="relative w-full bg-[#0B132E] text-white rounded-3xl p-6 sm:p-7 shadow-xl flex flex-col justify-between overflow-hidden">
                 
                 {/* Ambient Inner Glow with Subtle Floating Animation */}
                 <motion.div 
@@ -643,7 +627,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 </div>
 
               </div>
-            </TiltCard>
+            </div>
           </div>
 
         </div>
