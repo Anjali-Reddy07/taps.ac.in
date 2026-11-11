@@ -278,24 +278,29 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      {/* 1. CANVAS & BACKGROUND: Ambient Gradient Aura Glows & Subtle Organic Curves */}
-      <div className="absolute top-10 -left-20 w-[520px] h-[520px] bg-gradient-to-br from-cyan-200/35 via-sky-200/25 to-transparent rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-48 -right-20 w-[580px] h-[580px] bg-gradient-to-bl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-[480px] h-[480px] bg-gradient-to-tr from-teal-100/25 via-cyan-100/20 to-transparent rounded-full blur-[120px] pointer-events-none" />
+      {/* 1. FLUID AMBIENT BACKGROUND: Two decorative blurred gradient ambient orbs behind content */}
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none absolute -top-12 -left-20 w-[580px] h-[580px] rounded-full bg-[#38bdf8] blur-3xl opacity-30 select-none" 
+      />
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none absolute top-36 -right-20 w-[640px] h-[640px] rounded-full bg-[#818cf8] blur-3xl opacity-30 select-none" 
+      />
 
       {/* Seamless Fluid Wave Patterns & Organic Curves */}
-      <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none select-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 900">
+      <svg className="absolute inset-0 w-full h-full opacity-35 pointer-events-none select-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 900">
         <path d="M-100,180 C320,80 520,360 920,240 C1220,150 1420,300 1620,220" fill="none" stroke="url(#organic-aura-1)" strokeWidth="1.5" strokeDasharray="6 8" />
         <path d="M-100,520 C220,640 620,470 1020,600 C1320,700 1520,540 1680,620" fill="none" stroke="url(#organic-aura-2)" strokeWidth="1.2" opacity="0.6" />
         <defs>
           <linearGradient id="organic-aura-1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.3" />
             <stop offset="50%" stopColor="#6366f1" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.25" />
           </linearGradient>
           <linearGradient id="organic-aura-2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.12" />
           </linearGradient>
         </defs>
       </svg>
@@ -473,54 +478,58 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           {/* RIGHT COLUMN: Feathered Campus Visual (Top) + Glassmorphic Frosted Institutional Vision Console (Bottom) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
-            {/* HERO VISUAL FEATURE: Campus Photo with Organic Feathered Edges Dissolving into Background (No Sharp Rectangle/Card) */}
-            <div className="relative h-64 sm:h-72 w-full group">
+            {/* HERO VISUAL FEATURE: Large Campus Photography with Organic Dry-Brush Paint Stroke Mask */}
+            <div className="relative h-80 sm:h-96 lg:h-[420px] w-full group">
               {/* Soft Ambient Light Bloom Behind Image */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-400/20 via-sky-300/15 to-purple-400/20 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+              <div className="absolute -inset-6 bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-purple-400/25 rounded-full blur-3xl opacity-70 pointer-events-none" />
 
-              {/* Feathered Dissolve Mask (No Rigid Card Box) */}
+              {/* Organic Paint-Brush Stroke Mask (Rough Dry-Brush / Watercolor Dissolve, Zero Box Card) */}
               <div 
-                className="relative w-full h-full overflow-hidden"
+                className="relative w-full h-full overflow-hidden transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 style={{
-                  WebkitMaskImage: "radial-gradient(ellipse 95% 90% at 50% 50%, black 72%, transparent 100%)",
-                  maskImage: "radial-gradient(ellipse 95% 90% at 50% 50%, black 72%, transparent 100%)",
+                  WebkitMaskImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650' preserveAspectRatio='none'><filter id='brush'><feTurbulence type='fractalNoise' baseFrequency='0.03 0.05' numOctaves='4' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='26' xChannelSelector='R' yChannelSelector='G'/></filter><path d='M65,45 C180,25 320,50 480,30 C640,15 780,40 930,35 C965,90 945,210 970,320 C950,440 965,540 925,595 C780,620 620,590 470,615 C310,635 170,600 60,605 C30,530 45,410 25,310 C45,190 30,85 65,45 Z' fill='black' filter='url(%23brush)'/><circle cx='960' cy='120' r='14' fill='black'/><circle cx='40' cy='460' r='12' fill='black'/><circle cx='940' cy='490' r='10' fill='black'/><circle cx='70' cy='85' r='12' fill='black'/></svg>")`,
+                  maskImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650' preserveAspectRatio='none'><filter id='brush'><feTurbulence type='fractalNoise' baseFrequency='0.03 0.05' numOctaves='4' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='26' xChannelSelector='R' yChannelSelector='G'/></filter><path d='M65,45 C180,25 320,50 480,30 C640,15 780,40 930,35 C965,90 945,210 970,320 C950,440 965,540 925,595 C780,620 620,590 470,615 C310,635 170,600 60,605 C30,530 45,410 25,310 C45,190 30,85 65,45 Z' fill='black' filter='url(%23brush)'/><circle cx='960' cy='120' r='14' fill='black'/><circle cx='40' cy='460' r='12' fill='black'/><circle cx='940' cy='490' r='10' fill='black'/><circle cx='70' cy='85' r='12' fill='black'/></svg>")`,
+                  WebkitMaskSize: "100% 100%",
+                  maskSize: "100% 100%",
+                  WebkitMaskRepeat: "no-repeat",
+                  maskRepeat: "no-repeat",
                 }}
               >
                 <Image
                   src="/images/drive_new/1746352355680.jpg"
                   alt="Trident Academy 11-Acre Technoplex Campus"
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover object-center group-hover:scale-106 transition-transform duration-1000 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
                 {/* Bottom Caption Overlay */}
-                <div className="absolute inset-x-0 bottom-4 px-6 text-white z-10 flex flex-col justify-end">
-                  <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 font-mono font-bold mb-1">
+                <div className="absolute inset-x-0 bottom-5 px-6 sm:px-8 text-white z-10 flex flex-col justify-end">
+                  <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 font-mono font-bold mb-1 drop-shadow-sm">
                     Trident Heritage Since 1991 • Bhubaneswar
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
                     State-of-the-Art Technoplex Campus
                   </h3>
-                  <p className="text-xs text-slate-200 mt-0.5 font-light leading-relaxed line-clamp-2">
-                    Four-storeyed academic facility on an 11-acre technoplex, in close proximity to Infosys, TCS, and Wipro.
+                  <p className="text-xs sm:text-sm text-slate-200 mt-1 font-light leading-relaxed line-clamp-2 drop-shadow-sm max-w-lg">
+                    Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
                   </p>
                 </div>
               </div>
 
               {/* Minimal Floating Pill-Shaped Location Badges Above the Photo */}
-              <div className="absolute top-3 left-4 z-20 flex items-center gap-2">
-                <span className="bg-white/90 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/60 flex items-center gap-1.5">
+              <div className="absolute top-4 left-6 z-20 flex items-center gap-2">
+                <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md border border-white/60 flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                   </span>
-                  <span>11-Acre Technoplex</span>
+                  <span>11-ACRE TECHNOPLEX</span>
                 </span>
-                <span className="bg-blue-600/90 backdrop-blur-md text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                  Infocity IT Corridor
+                <span className="bg-blue-600/95 backdrop-blur-md text-white font-semibold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                  INFOCITY, BHUBANESWAR
                 </span>
               </div>
             </div>
