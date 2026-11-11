@@ -278,212 +278,241 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
+      {/* 1. CANVAS & BACKGROUND: Ambient Gradient Aura Glows & Subtle Organic Curves */}
+      <div className="absolute top-10 -left-20 w-[520px] h-[520px] bg-gradient-to-br from-cyan-200/35 via-sky-200/25 to-transparent rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-48 -right-20 w-[580px] h-[580px] bg-gradient-to-bl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-[480px] h-[480px] bg-gradient-to-tr from-teal-100/25 via-cyan-100/20 to-transparent rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Seamless Fluid Wave Patterns & Organic Curves */}
+      <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none select-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 900">
+        <path d="M-100,180 C320,80 520,360 920,240 C1220,150 1420,300 1620,220" fill="none" stroke="url(#organic-aura-1)" strokeWidth="1.5" strokeDasharray="6 8" />
+        <path d="M-100,520 C220,640 620,470 1020,600 C1320,700 1520,540 1680,620" fill="none" stroke="url(#organic-aura-2)" strokeWidth="1.2" opacity="0.6" />
+        <defs>
+          <linearGradient id="organic-aura-1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.2" />
+            <stop offset="50%" stopColor="#6366f1" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.2" />
+          </linearGradient>
+          <linearGradient id="organic-aura-2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.08" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
-        {/* ASYMMETRIC BENTO GRID: Story & 2x2 Accreditations (Left) | Campus Showcase + Vision/Mission/Values (Right) */}
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-20 sm:mb-24">
+        {/* FLUID BORDERLESS HERO SPREAD: Left Typography & Open Metrics | Right Feathered Photo & Frosted Vision Console */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-20 sm:mb-24">
           
-          {/* LEFT COLUMN: Open Editorial Narrative & Cardless Accreditations (ZERO BOXES) */}
-          <div className="lg:col-span-7 flex">
-            <motion.div 
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full flex flex-col justify-between py-4"
-            >
-              <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
-                
-                <div className="space-y-4">
-                  {/* Monospace Eyebrow Badge with Pulse Glow */}
-                  <div className="flex flex-wrap items-center gap-2">
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4 }}
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50/90 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-sm"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                      <span>UNDER TACT TRUST • ESTD. 2000</span>
-                    </motion.div>
+          {/* LEFT HERO SECTION: Bold Typography, Descriptive Narrative & Open Non-Boxed Metrics Strip */}
+          <div className="lg:col-span-7 flex flex-col justify-between py-2 space-y-6">
+            
+            {/* Header Block */}
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50/90 border border-blue-200/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-sm"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                  <span>UNDER TACT TRUST • ESTD. 2000</span>
+                </motion.div>
 
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full">
-                      Utkal University Affiliated
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 bg-slate-100/80 border border-slate-200/80 px-2.5 py-1 rounded-full">
+                  Utkal University Affiliated
+                </span>
+              </div>
+
+              {/* Bold Typography Header */}
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 leading-tight tracking-tight">
+                Trident Academy of Professional Studies
+              </h2>
+
+              <p className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800">
+                Premier BCA &amp; BBA Institution • No. 1 Private College under Utkal University
+              </p>
+
+              {/* Descriptive Narrative */}
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                Functioning under the aegis of the renowned <strong className="text-slate-950 font-semibold">Trident Group (TACT Trust)</strong>, TAPS is permanently recognized by the Higher Education Department, Govt. of Odisha, and approved by AICTE. The BBA and BCA courses are conducted in the new four-storeyed building at the <strong className="text-slate-950 font-semibold">11-acre Technoplex</strong> in Chandaka Industrial Estate, Infocity, Bhubaneswar.
+              </p>
+
+              {/* Clean Inline Infocity Cluster Tags (No Rigid Box Container) */}
+              <div className="flex flex-wrap items-center gap-2 text-xs text-slate-600 pt-1">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-blue-700 font-bold mr-1">
+                  INFOCITY CLUSTER:
+                </span>
+                {["Infosys", "TCS", "Wipro", "MindTree"].map((co) => (
+                  <span 
+                    key={co} 
+                    className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-slate-200/80 text-[11px] font-medium text-slate-700 shadow-2xs"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                    <span>{co}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* OPEN, NON-BOXED ROW OF STATISTICS & KEY PERFORMANCE METRICS (Subtle Line Dividers, Cyan Icons & Numbers) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/90 py-5 my-2 border-t border-b border-slate-200/90">
+              {accreditations.map((item, idx) => (
+                <div 
+                  key={item.title} 
+                  className={`py-2 group ${idx === 0 ? "sm:pr-4" : idx === 3 ? "sm:pl-4" : "sm:px-4"}`}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-5 h-5 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                      {item.icon}
+                    </span>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold">
+                      {item.badge}
                     </span>
                   </div>
 
-                  {/* Editorial Heading */}
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 leading-tight tracking-tight">
-                    Trident Academy of Professional Studies
-                  </h2>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700">
+                    <SpeedometerCounter value={item.metric} duration={1.6} delay={idx * 0.1} />
+                  </div>
 
-                  <p className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800">
-                    Premier BCA &amp; BBA Institution • No. 1 Private College under Utkal University
+                  <div className="text-xs font-bold text-slate-800 mt-0.5 line-clamp-1">
+                    {item.title}
+                  </div>
+
+                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5 line-clamp-2 font-normal">
+                    {item.desc}
                   </p>
+                </div>
+              ))}
+            </div>
 
-                  {/* Introductory Narrative (Matched 100% with taps.ac.in) */}
-                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                    Functioning under the aegis of the renowned <strong className="text-slate-950 font-semibold">Trident Group (TACT Trust)</strong>, TAPS is permanently recognized by the Higher Education Department, Govt. of Odisha, and approved by AICTE. The BBA and BCA courses are conducted in the new four-storeyed building at the <strong className="text-slate-950 font-semibold">11-acre Technoplex</strong> in Chandaka Industrial Estate, Infocity, Bhubaneswar.
-                  </p>
-
-                  {/* Corporate Neighbors Strip from taps.ac.in */}
-                  <div className="p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/90 flex flex-wrap items-center gap-2 text-xs text-slate-700">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-blue-700 font-bold shrink-0">
-                      INFOCITY CLUSTER:
+            {/* BOTTOM SECTION: Glimpse of Student Activities & Seminar Suites (Rounded Corner Photos) */}
+            <div className="space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold block">
+                CAMPUS LIFE &amp; ACADEMIC IMMERSION
+              </span>
+              <div className="grid grid-cols-2 gap-3.5">
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
+                >
+                  <Image
+                    src="/images/drive_third/ClassRooms__MG_2339.JPG"
+                    alt="Tiered Lecture Amphitheatres"
+                    fill
+                    className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                      Tiered Theatres
                     </span>
-                    <span className="inline-flex items-center gap-1 bg-white px-2.5 py-0.5 rounded-md border border-slate-200 font-medium text-slate-800 shadow-2xs">
-                      🏢 Infosys
-                    </span>
-                    <span className="inline-flex items-center gap-1 bg-white px-2.5 py-0.5 rounded-md border border-slate-200 font-medium text-slate-800 shadow-2xs">
-                      🏢 TCS
-                    </span>
-                    <span className="inline-flex items-center gap-1 bg-white px-2.5 py-0.5 rounded-md border border-slate-200 font-medium text-slate-800 shadow-2xs">
-                      🏢 Wipro
-                    </span>
-                    <span className="inline-flex items-center gap-1 bg-white px-2.5 py-0.5 rounded-md border border-slate-200 font-medium text-slate-800 shadow-2xs">
-                      🏢 MindTree
+                    <span className="text-xs font-bold line-clamp-1 group-hover:text-cyan-200 transition-colors">
+                      Smart Interactive Classrooms
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Cardless Fluid Accreditation Stream */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-                  {accreditations.map((item, idx) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.45, delay: 0.15 + idx * 0.08 }}
-                      whileHover={{ x: 4 }}
-                      className="pl-4 py-1.5 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default relative"
-                    >
-                      <div className="flex items-center justify-between gap-2 mb-1.5">
-                        <div className="flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
-                            {item.icon}
-                          </span>
-                          <h3 className="text-sm font-bold text-slate-950 tracking-tight group-hover:text-blue-700 transition-colors">
-                            {item.title}
-                          </h3>
-                        </div>
-                        
-                        <span className="text-xl font-extrabold text-blue-700 font-serif leading-none tracking-tight shrink-0">
-                          <SpeedometerCounter value={item.metric} duration={1.6} delay={idx * 0.12} />
-                        </span>
-                      </div>
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
+                >
+                  <Image
+                    src="/images/drive_third/MBA_seminar_1.jpeg"
+                    alt="Corporate Business Seminars"
+                    fill
+                    className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                      Executive Seminars
+                    </span>
+                    <span className="text-xs font-bold line-clamp-1 group-hover:text-cyan-200 transition-colors">
+                      Corporate Colloquium Suites
+                    </span>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
 
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {item.desc}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+            {/* Action Bar */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/25 group"
+                >
+                  <span>Explore Institutional Legacy</span>
+                  <span className="transform group-hover:translate-x-1.5 transition-transform duration-200">→</span>
+                </Link>
+              </motion.div>
 
-                {/* 2 Authentic Academic Atmosphere Previews with Smooth Zoom & Sheen */}
-                <div className="grid grid-cols-2 gap-3.5 pt-1">
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative h-28 sm:h-32 rounded-xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
-                  >
-                    <Image
-                      src="/images/drive_third/ClassRooms__MG_2339.JPG"
-                      alt="Tiered Lecture Amphitheatres"
-                      fill
-                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                    <div className="absolute bottom-2 left-2.5 right-2 text-white">
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
-                        Pedagogy
-                      </span>
-                      <span className="text-[11px] font-bold line-clamp-1 group-hover:text-cyan-200 transition-colors">
-                        Tiered Smart Amphitheatres
-                      </span>
-                    </div>
-                  </motion.div>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onOpenQuery}
+                className="px-6 py-3 rounded-full bg-white/90 backdrop-blur-xs border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/50 text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs"
+              >
+                Download Institutional Prospectus
+              </motion.button>
+            </div>
 
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative h-28 sm:h-32 rounded-xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
-                  >
-                    <Image
-                      src="/images/drive_third/MBA_seminar_1.jpeg"
-                      alt="Corporate Business Seminars"
-                      fill
-                      className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                    <div className="absolute bottom-2 left-2.5 right-2 text-white">
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
-                        Case Studies
-                      </span>
-                      <span className="text-[11px] font-bold line-clamp-1 group-hover:text-cyan-200 transition-colors">
-                        Executive Seminar Suites
-                      </span>
-                    </div>
-                  </motion.div>
-                </div>
+          </div>
 
-                {/* Action Bar with Arrow Motion */}
-                <div className="pt-2 flex flex-wrap items-center gap-4">
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <Link
-                      href="/about"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/25 group"
-                    >
-                      <span>Explore Institutional Legacy</span>
-                      <span className="transform group-hover:translate-x-1.5 transition-transform duration-200">→</span>
-                    </Link>
-                  </motion.div>
+          {/* RIGHT COLUMN: Feathered Campus Visual (Top) + Glassmorphic Frosted Institutional Vision Console (Bottom) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            
+            {/* HERO VISUAL FEATURE: Campus Photo with Organic Feathered Edges Dissolving into Background (No Sharp Rectangle/Card) */}
+            <div className="relative h-64 sm:h-72 w-full group">
+              {/* Soft Ambient Light Bloom Behind Image */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-400/20 via-sky-300/15 to-purple-400/20 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={onOpenQuery}
-                    className="px-6 py-3 rounded-full bg-white border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/50 text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs"
-                  >
-                    Download Institutional Prospectus
-                  </motion.button>
+              {/* Feathered Dissolve Mask (No Rigid Card Box) */}
+              <div 
+                className="relative w-full h-full overflow-hidden"
+                style={{
+                  WebkitMaskImage: "radial-gradient(ellipse 95% 90% at 50% 50%, black 72%, transparent 100%)",
+                  maskImage: "radial-gradient(ellipse 95% 90% at 50% 50%, black 72%, transparent 100%)",
+                }}
+              >
+                <Image
+                  src="/images/drive_new/1746352355680.jpg"
+                  alt="Trident Academy 11-Acre Technoplex Campus"
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-1000 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+
+                {/* Bottom Caption Overlay */}
+                <div className="absolute inset-x-0 bottom-4 px-6 text-white z-10 flex flex-col justify-end">
+                  <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 font-mono font-bold mb-1">
+                    Trident Heritage Since 1991 • Bhubaneswar
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                    State-of-the-Art Technoplex Campus
+                  </h3>
+                  <p className="text-xs text-slate-200 mt-0.5 font-light leading-relaxed line-clamp-2">
+                    Four-storeyed academic facility on an 11-acre technoplex, in close proximity to Infosys, TCS, and Wipro.
+                  </p>
                 </div>
               </div>
 
-            </motion.div>
-          </div>
-
-          {/* RIGHT COLUMN: Campus Architectural Showcase (Top) + Interactive Executive Console (Bottom) */}
-          <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
-            
-            {/* 1. DEDICATED CAMPUS ARCHITECTURE SHOWCASE (CARDLESS) */}
-            <motion.div 
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.35 }}
-              className="group relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-zinc-200/80 bg-slate-950 shadow-sm"
-            >
-              <Image
-                src="/images/drive_new/1746352355680.jpg"
-                alt="Trident Academy 11-Acre Technoplex Campus"
-                fill
-                className="object-cover object-center group-hover:scale-108 transition-transform duration-800 ease-out"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-              />
-              
-              {/* Refined Ambient Vignette Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-transparent to-transparent pointer-events-none" />
-
-              {/* Top Floating Badge with Pulsing Live Beacon */}
-              <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/40 flex items-center gap-1.5">
+              {/* Minimal Floating Pill-Shaped Location Badges Above the Photo */}
+              <div className="absolute top-3 left-4 z-20 flex items-center gap-2">
+                <span className="bg-white/90 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/60 flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -491,182 +520,118 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   <span>11-Acre Technoplex</span>
                 </span>
                 <span className="bg-blue-600/90 backdrop-blur-md text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm">
-                  Infocity, Bhubaneswar
+                  Infocity IT Corridor
                 </span>
               </div>
-
-              {/* Bottom Caption Overlay */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white flex flex-col justify-end">
-                <div className="text-[11px] uppercase tracking-widest text-indigo-300 font-semibold mb-1">
-                  Trident Heritage Since 1991
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-cyan-200 transition-colors">
-                  State-of-the-Art Technoplex Campus
-                </h3>
-                <p className="text-xs text-slate-200 mt-1 font-light leading-relaxed line-clamp-2">
-                  Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* 2. INTERACTIVE EXECUTIVE CONSOLE: Strategic Vision, Mission & Values (CARDLESS) */}
-            <div className="flex-1 flex">
-              <div className="relative w-full bg-[#0B132E] text-white rounded-2xl p-6 sm:p-7 border border-indigo-900/40 shadow-sm flex flex-col justify-between overflow-hidden">
-                
-                {/* Ambient Inner Glow with Subtle Floating Animation */}
-                <motion.div 
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.2, 0.38, 0.2],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-full blur-3xl pointer-events-none"
-                />
-
-                <div className="relative z-10">
-                  {/* 3-Way Active Pill Toggle with Framer Motion Spring Indicator */}
-                  <div 
-                    role="tablist"
-                    aria-label="Vision, Mission and Values Selector"
-                    className="relative inline-flex p-1 rounded-xl bg-[#070D21] border border-indigo-900/80 mb-5"
-                  >
-                    <button
-                      role="tab"
-                      aria-selected={activeTab === "vision"}
-                      onClick={() => setActiveTab("vision")}
-                      className="relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors duration-200 cursor-pointer active:scale-95"
-                    >
-                      {activeTab === "vision" && (
-                        <motion.span
-                          layoutId="activeVisionMissionTab"
-                          className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-md shadow-indigo-500/35"
-                          transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                        />
-                      )}
-                      <span className={`relative z-10 ${activeTab === "vision" ? "text-white font-bold" : "text-indigo-200/75 hover:text-white"}`}>
-                        Our Vision
-                      </span>
-                    </button>
-
-                    <button
-                      role="tab"
-                      aria-selected={activeTab === "mission"}
-                      onClick={() => setActiveTab("mission")}
-                      className="relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors duration-200 cursor-pointer active:scale-95"
-                    >
-                      {activeTab === "mission" && (
-                        <motion.span
-                          layoutId="activeVisionMissionTab"
-                          className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-md shadow-indigo-500/35"
-                          transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                        />
-                      )}
-                      <span className={`relative z-10 ${activeTab === "mission" ? "text-white font-bold" : "text-indigo-200/75 hover:text-white"}`}>
-                        Our Mission
-                      </span>
-                    </button>
-
-                    <button
-                      role="tab"
-                      aria-selected={activeTab === "values"}
-                      onClick={() => setActiveTab("values")}
-                      className="relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors duration-200 cursor-pointer active:scale-95"
-                    >
-                      {activeTab === "values" && (
-                        <motion.span
-                          layoutId="activeVisionMissionTab"
-                          className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-md shadow-indigo-500/35"
-                          transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                        />
-                      )}
-                      <span className={`relative z-10 ${activeTab === "values" ? "text-white font-bold" : "text-indigo-200/75 hover:text-white"}`}>
-                        Our Values
-                      </span>
-                    </button>
-                  </div>
-
-                  {/* Tab Header Banner */}
-                  <div className="mb-4">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
-                      <span>
-                        {activeTab === "vision" && "Our Institutional Vision"}
-                        {activeTab === "mission" && "Our Core Mission"}
-                        {activeTab === "values" && "Our Values & Quality"}
-                      </span>
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-                      </span>
-                    </h3>
-                    <p className="text-xs text-indigo-200/80 mt-0.5 font-light">
-                      {activeTab === "vision" && "Official vision benchmarked for Eastern India human resource development."}
-                      {activeTab === "mission" && "Institutions of excellence instilling out-of-the-box ideation and professional maturity."}
-                      {activeTab === "values" && "Students are our 1st, 2nd & 3rd priority — ISO 9001:2008 certified quality."}
-                    </p>
-                  </div>
-
-                  {/* Structured Value Points with Smooth AnimatePresence Transition & Stagger */}
-                  <AnimatePresence mode="wait">
-                    <motion.div 
-                      key={activeTab}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.22, ease: "easeOut" }}
-                      className="space-y-3"
-                    >
-                      {(activeTab === "vision" ? visionPoints : activeTab === "mission" ? missionPoints : valuesPoints).map((point, i) => (
-                        <motion.div 
-                          key={point.label}
-                          initial={{ opacity: 0, x: -12 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.07, duration: 0.3 }}
-                          whileHover={{ x: 4, transition: { duration: 0.15 } }}
-                          className="p-3.5 rounded-2xl bg-[#0E183E]/90 border border-indigo-900/60 hover:border-indigo-400/70 hover:bg-[#121E4C] transition-colors group cursor-default"
-                        >
-                          <div className="flex items-start gap-3">
-                            <motion.span 
-                              whileHover={{ scale: 1.1, rotate: 6 }}
-                              className="w-7 h-7 rounded-xl bg-gradient-to-br from-blue-600/35 to-purple-600/35 border border-indigo-500/40 flex items-center justify-center shrink-0 text-blue-200 mt-0.5 group-hover:text-cyan-300 transition-colors"
-                            >
-                              {point.icon}
-                            </motion.span>
-
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between">
-                                <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide group-hover:text-cyan-200 transition-colors">
-                                  {point.label}
-                                </h4>
-                                <span className="text-[10px] font-mono text-indigo-300 group-hover:text-cyan-300 transition-colors">
-                                  0{i + 1}
-                                </span>
-                              </div>
-                              <p className="text-[11px] sm:text-xs text-indigo-100/85 mt-0.5 leading-relaxed font-normal">
-                                {point.text}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* Bottom Card Micro-Badge */}
-                <div className="relative z-10 pt-4 mt-4 border-t border-indigo-900/70 flex items-center justify-between text-[11px] text-indigo-300/80">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                    <span>Trident Trust • Excellence Since 2000</span>
-                  </span>
-                  <span className="font-mono text-indigo-200">Patia, Bhubaneswar</span>
-                </div>
-
-              </div>
             </div>
+
+            {/* SLEEK GLASSMORPHIC FROSTED-CARD TABBED SECTION ("Our Institutional Vision") */}
+            <div className="relative w-full bg-[#070D21]/95 backdrop-blur-xl text-white rounded-3xl p-6 sm:p-7 border border-white/10 shadow-[0_20px_50px_rgba(7,13,33,0.35)] flex flex-col justify-between overflow-hidden">
+              
+              {/* Ambient Glow Highlights */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-500/20 via-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10">
+                {/* Pill-Shaped Switch Buttons with Glowing Active State */}
+                <div 
+                  role="tablist"
+                  aria-label="Vision, Mission and Values Selector"
+                  className="flex items-center gap-1.5 p-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 w-fit mb-5"
+                >
+                  {[
+                    { id: "vision", label: "OUR VISION" },
+                    { id: "mission", label: "OUR MISSION" },
+                    { id: "values", label: "OUR VALUES" },
+                  ].map((tab) => {
+                    const isSelected = activeTab === tab.id;
+                    return (
+                      <button
+                        key={tab.id}
+                        role="tab"
+                        aria-selected={isSelected}
+                        onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                        className={`px-3.5 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer ${
+                          isSelected
+                            ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/30"
+                            : "text-indigo-200/80 hover:text-white"
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Tab Header with Glowing Icon Badge */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                      {activeTab === "vision" && "Our Institutional Vision"}
+                      {activeTab === "mission" && "Our Pedagogical Mission"}
+                      {activeTab === "values" && "Our Values & Quality Framework"}
+                    </h3>
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+                  </div>
+                  <p className="text-xs text-indigo-200/80 mt-1 font-light">
+                    {activeTab === "vision" && "Official vision benchmarked for Eastern India human resource development."}
+                    {activeTab === "mission" && "Bridging academic rigor with high-impact corporate industry readiness."}
+                    {activeTab === "values" && "Students are our first, second, and third priority through ISO certified quality."}
+                  </p>
+                </div>
+
+                {/* Clean Borderless List with Glowing Icon Badges */}
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.22, ease: "easeOut" }}
+                    className="space-y-3.5"
+                  >
+                    {(activeTab === "vision" ? visionPoints : activeTab === "mission" ? missionPoints : valuesPoints).map((point, i) => (
+                      <motion.div 
+                        key={point.label}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.06, duration: 0.25 }}
+                        whileHover={{ x: 3 }}
+                        className="flex items-start gap-3 group"
+                      >
+                        <div className="w-8 h-8 rounded-xl bg-blue-500/15 border border-blue-400/30 text-cyan-300 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_12px_rgba(56,189,248,0.2)] group-hover:scale-105 group-hover:border-cyan-400/50 transition-all">
+                          {point.icon}
+                        </div>
+
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-cyan-200 transition-colors">
+                              {point.label}
+                            </h4>
+                            <span className="text-[10px] font-mono text-indigo-300/60 font-semibold">
+                              0{i + 1}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-300 leading-relaxed font-light mt-0.5">
+                            {point.text}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Bottom Card Micro-Badge */}
+              <div className="relative z-10 pt-4 mt-5 border-t border-white/10 flex items-center justify-between text-[11px] text-indigo-300/80">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                  <span>Trident Trust • Excellence Since 2000</span>
+                </span>
+                <span className="font-mono text-indigo-200">Patia, Bhubaneswar</span>
+              </div>
+
+            </div>
+
           </div>
 
         </div>
