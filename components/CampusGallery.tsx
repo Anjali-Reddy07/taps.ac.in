@@ -231,20 +231,51 @@ export default function CampusGallery() {
   ];
 
   return (
-    <section id="gallery" className="relative py-20 sm:py-28 bg-transparent text-slate-900 overflow-hidden">
+    <section id="gallery" className="relative py-24 sm:py-32 bg-slate-950 text-white overflow-hidden min-h-screen">
+      {/* COMPLETE 3D INFINITE SPIRAL BACKGROUND CANVAS (Spans the entire section edge-to-edge) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+        <InfiniteSpiral
+          items={spiralItems}
+          animationMode="all"
+          speed={0.4}
+          radius={380}
+          cardWidth={160}
+          cardHeight={115}
+          verticalSpacing={80}
+          perspective={1200}
+          cardRadius={14}
+          centerScale={1.25}
+          edgeBlur={6}
+          edgeFade={0.32}
+          cardsPerTurn={9}
+          pauseOnHover={false}
+          className="w-full h-full opacity-65"
+        />
+        {/* Soft Ambient Radial Vignette */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse at 50% 35%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.48) 50%, rgba(2, 6, 23, 0.95) 85%)",
+          }}
+        />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950 via-slate-950/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl animate-fadeInUp">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
-              Campus Gallery
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-300 mb-3 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1 rounded-full shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>3D CAMPUS HELIX • VISUAL ARCHIVES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
               Life &amp; Architecture at TAPS
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal leading-relaxed">
-              Explore authentic glimpses of our Infocity campus — where grand architecture, computing labs, athletics, and student life unite.
+            <p className="text-sm sm:text-base text-slate-300 mt-2 font-normal leading-relaxed">
+              Explore authentic glimpses of our Infocity campus — where grand architecture, computing labs, athletics, and student life unite in 3D infinite motion.
             </p>
           </div>
 
@@ -252,7 +283,7 @@ export default function CampusGallery() {
           <div 
             role="tablist"
             aria-label="Gallery Categories"
-            className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/90 backdrop-blur-md border border-indigo-100 shadow-sm"
+            className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-sm"
           >
             {[
               { id: "all", label: "All Highlights" },
@@ -272,7 +303,7 @@ export default function CampusGallery() {
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer active:scale-95 whitespace-nowrap ${
                     isActive
                       ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-sm"
-                      : "text-slate-600 hover:text-blue-700 hover:bg-indigo-50/60"
+                      : "text-slate-300 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {tab.label}
@@ -282,83 +313,13 @@ export default function CampusGallery() {
           </div>
         </div>
 
-        {/* 3D INFINITE SPIRAL CAMPUS HELIX SHOWCASE (REACT BITS) */}
-        <div className="relative w-full rounded-3xl overflow-hidden mb-16 sm:mb-20 min-h-[500px] lg:min-h-[560px] bg-slate-950 border border-slate-800/80 shadow-2xl flex flex-col justify-between">
-          {/* Background 3D Infinite Spiral */}
-          <div className="absolute inset-0 z-0">
-            <InfiniteSpiral
-              items={spiralItems}
-              animationMode="all"
-              speed={0.45}
-              radius={240}
-              cardWidth={140}
-              cardHeight={105}
-              verticalSpacing={70}
-              perspective={1100}
-              cardRadius={12}
-              centerScale={1.25}
-              edgeBlur={5}
-              edgeFade={0.32}
-              cardsPerTurn={8}
-              pauseOnHover={true}
-              className="w-full h-full"
-            />
-            {/* Cinematic Radial & Linear Vignettes */}
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.75) 0%, rgba(2, 6, 23, 0.42) 50%, rgba(2, 6, 23, 0.92) 100%)",
-              }}
-            />
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-950 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
-          </div>
-
-          {/* Top Bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-10 pt-6 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>3D CAMPUS HELIX • REACT BITS</span>
-            </div>
-            <div className="text-xs font-mono text-white/60 tracking-wider hidden sm:block">
-              DRAG • SCROLL • HOVER TO INTERACT
-            </div>
-          </div>
-
-          {/* Center Overlay Content */}
-          <div className="relative z-10 px-6 sm:px-10 py-10 max-w-2xl mx-auto text-center pointer-events-none">
-            <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
-              The Living Campus in <span className="font-semibold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">3D Infinite Motion</span>
-            </h3>
-            <p className="text-sm sm:text-base text-slate-300 mt-3 font-normal leading-relaxed">
-              Experience our continuous photographic helix — where computing hubs, smart amphitheatres, cultural fests, and athletic arenas rotate in 3D perspective.
-            </p>
-            <div className="pt-6 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
-              <a
-                href="#gallery-grid"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-blue-500/25 group cursor-pointer"
-              >
-                <span>Explore Bento Archive Below</span>
-                <span className="transform group-hover:translate-y-0.5 transition-transform duration-200">↓</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Bottom Footer bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-10 pb-6 flex items-center justify-between text-white/50 text-xs font-mono pointer-events-none">
-            <span>16 REAL CAMPUS MOMENTS</span>
-            <span className="animate-pulse">✦ ✦ ✦</span>
-            <span>TECHNOPLEX ARCHIVES</span>
-          </div>
-        </div>
-
         {/* Dynamic Bento Gallery Grid */}
         <div id="gallery-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => setSelectedPhoto(item)}
-              className={`group relative rounded-3xl overflow-hidden border border-indigo-100/90 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer hover-lift bg-slate-950 ${
+              className={`group relative rounded-3xl overflow-hidden border border-white/15 hover:border-cyan-400/60 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 cursor-pointer hover-lift bg-slate-950 ${
                 item.featured && idx === 0 ? "sm:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-[4/3] sm:aspect-[4/3]"
               }`}
             >
