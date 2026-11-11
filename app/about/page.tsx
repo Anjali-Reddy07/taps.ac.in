@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import FlyingPosters from "@/components/FlyingPosters";
+import InfiniteSpiral from "@/components/InfiniteSpiral";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -128,6 +129,26 @@ export default function AboutPage() {
     { image: "/images/drive_fourth/brain_logic_club.png", alt: "Brain Logic, Analytics & Business Intelligence" },
     { image: "/images/drive_fourth/web_dev_seminar.png", alt: "Web & IoT Tech Colloquium" },
     { image: "/images/drive/innovation-mela.png", alt: "Innovation Mela & Student Technology Exposition" },
+  ];
+
+  // 16 Real Drive Images for the 3D Infinite Spiral Helix Showcase (1st Section Hero)
+  const spiralItems = [
+    { src: "/images/drive_fourth/campus_exterior_1.jpg", alt: "11-Acre Technoplex Campus Building", label: "Campus Architecture" },
+    { src: "/images/drive/computer-lab.jpg", alt: "Computer Applications Cloud Lab", label: "Tech Labs" },
+    { src: "/images/drive_third/ClassRooms_Academic.JPG", alt: "Smart Interactive Amphitheatres", label: "Smart Classrooms" },
+    { src: "/images/drive_third/Library_Library.JPG", alt: "Central Research & IEEE Library", label: "Central Library" },
+    { src: "/images/drive_third/Sports_IMG20260205104055.jpg", alt: "Athletic Meet Grounds & Arena", label: "Athletic Meet" },
+    { src: "/images/drive_fourth/hack_day.png", alt: "Hack Day National Competition", label: "Coding Hackathon" },
+    { src: "/images/drive_second/Activities.jpg", alt: "Annual Trifest Cultural Celebration", label: "Trifest Cultural Fest" },
+    { src: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg", alt: "Sunset Promenade & Colonnades", label: "Sunset Promenade" },
+    { src: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg", alt: "Twilight Floodlit Basketball Arena", label: "Sports Complex" },
+    { src: "/images/drive_third/ClassRooms__MG_2339.JPG", alt: "Tiered Multimedia Lecture Theatre", label: "Interactive Theatres" },
+    { src: "/images/drive_third/MBA_seminar_1.jpeg", alt: "Corporate Executive Seminars", label: "Corporate Seminars" },
+    { src: "/images/drive_fourth/brain_logic_club.png", alt: "Brain Logic & Reasoning Club", label: "Student Clubs" },
+    { src: "/images/drive_fourth/cloud_club.png", alt: "Enterprise Cloud Virtualization", label: "Cloud Computing" },
+    { src: "/images/drive_fourth/web_dev_seminar.png", alt: "Web & IoT Tech Colloquium", label: "Developer Workshops" },
+    { src: "/images/drive/innovation-mela.png", alt: "Innovation Mela Showcase", label: "Student Innovations" },
+    { src: "/images/drive/campus-grounds.jpg", alt: "Landscaped Technoplex Quad", label: "Technoplex Lawns" },
   ];
 
   const pillars = [
@@ -281,81 +302,149 @@ export default function AboutPage() {
 
       <main className="flex-1">
         
-        {/* HERO BANNER: DARK VARIANT WITH AMBIENT LIGHTING & STAGGER REVEAL */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Campus Infrastructure Background Image from Drive */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-            <Image
-              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
-              alt="Trident Academy of Professional Studies Infocity Campus"
-              fill
-              priority
-              className="object-cover object-center filter contrast-105 opacity-85 scale-100"
-              sizes="100vw"
+        {/* 1ST SECTION: 3D INFINITE SPIRAL MOTION HERO (REACT BITS) */}
+        <section className="relative w-full overflow-hidden min-h-[88vh] sm:min-h-[92vh] lg:min-h-[96vh] bg-slate-950 border-b border-slate-800/80 shadow-2xl flex flex-col justify-between">
+          {/* Background 3D Infinite Spiral */}
+          <div className="absolute inset-0 z-0">
+            <InfiniteSpiral
+              items={spiralItems}
+              animationMode="all"
+              speed={0.45}
+              radius={380}
+              cardWidth={190}
+              cardHeight={135}
+              verticalSpacing={85}
+              perspective={1300}
+              cardRadius={14}
+              centerScale={1.25}
+              edgeBlur={5}
+              edgeFade={0.3}
+              cardsPerTurn={8}
+              pauseOnHover={true}
+              className="w-full h-full"
             />
-            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-50% to-[#070D21]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent" />
+            {/* Cinematic Radial & Linear Vignettes */}
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.38) 45%, rgba(2, 6, 23, 0.95) 100%)",
+              }}
+            />
+            <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
           </div>
 
-          <section className="relative z-10 py-20 sm:py-24 lg:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
-            <motion.div 
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="max-w-3xl"
-            >
-              {/* High-Tech Animated Pill Badge */}
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900/90 border border-zinc-700/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
-                </span>
-                <span>TACT Trust • Estd. 2000 • Utkal University</span>
-              </div>
+          {/* Top Bar inside Showcase */}
+          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-10 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-md">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+              <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
+            </div>
+            <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
+              DRAG • SCROLL • HOVER TO INTERACT
+            </div>
+          </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
-                Legacy of Academic Excellence Since 2000
-              </h1>
-              
-              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-                Operating under the aegis of the renowned <strong className="text-white font-medium">TACT Trust</strong>, 
-                TAPS is a premier benchmark institution under Utkal University for BCA and BBA degrees. 
-                Permanently recognized by the Higher Education Department, Govt. of Odisha, and AICTE approved.
+          {/* Center Overlay Content */}
+          <div className="relative z-10 px-6 sm:px-12 py-16 max-w-4xl mx-auto text-center pointer-events-none">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-tight">
+              The Living Campus in <span className="font-semibold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">3D Infinite Motion</span>
+            </h1>
+            <p className="text-base sm:text-xl text-slate-200 mt-5 font-normal leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
+              Explore authentic glimpses of our 11-acre Infocity campus — where grand architecture, computing hubs, smart amphitheatres, and student life unite.
+            </p>
+            <div className="pt-8 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm sm:text-base font-semibold transition-all duration-300 shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 group cursor-pointer"
+              >
+                <span>Admission Enquiry 2026</span>
+                <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </button>
+              <a
+                href="#slides-section"
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <span>Explore Archival Slides</span>
+                <span className="text-sm">↓</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom Footer bar inside Showcase */}
+          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
+            <span>16 REAL CAMPUS MOMENTS</span>
+            <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
+            <span>TECHNOPLEX ARCHIVES</span>
+          </div>
+        </section>
+
+        {/* 2ND SECTION: 3D FLYING POSTERS SLIDES (REACT BITS) */}
+        <section id="slides-section" className="relative w-full py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-[#070D21] to-[#051c33] text-white border-b border-zinc-800 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/25 shadow-2xs backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                ARCHIVAL RUNWAY • 3D FLYING SLIDES
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+                Three Decades of Trident Memorabilia in Perspective
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-300 mt-3 font-light leading-relaxed max-w-2xl mx-auto">
+                Drag, scroll, and watch our historical posters and computing lab evolution glide in real-time WebGL motion.
               </p>
+            </div>
 
-              <div className="flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3 rounded-lg bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-md cursor-pointer hover-lift"
-                >
-                  Admission Enquiry 2026 →
-                </button>
-                <Link
-                  href="/programmes"
-                  className="px-6 py-3 rounded-lg bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
-                >
-                  Explore BCA &amp; BBA Degrees
-                </Link>
+            {/* FlyingPosters WebGL Canvas */}
+            <div className="relative w-full rounded-3xl overflow-hidden bg-zinc-950/90 border border-amber-500/30 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl group">
+              {/* Top Bar Indicator */}
+              <div className="absolute top-0 inset-x-0 z-20 px-6 sm:px-10 py-5 flex items-center justify-between pointer-events-none bg-gradient-to-b from-zinc-950/95 via-zinc-950/60 to-transparent">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-400/15 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span>3D HERITAGE FLYING POSTERS • REACT BITS</span>
+                </div>
+                <div className="text-[11px] font-mono text-zinc-400 tracking-widest hidden sm:block bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+                  DRAG • SCROLL • HOVER TO FLY
+                </div>
               </div>
 
-              {/* Coordinates & Charter Metadata Strip */}
-              <div className="mt-12 pt-6 border-t border-zinc-800/80 flex flex-wrap items-center gap-6 text-xs font-mono text-zinc-400">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                  CHARTER // AFF-UTKAL-BCA-BBA
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  COORD // 20.354° N • 85.817° E
-                </span>
-                <span className="flex items-center gap-1.5 text-zinc-400">
-                  CAMPUS // 11-ACRE INFOCITY TECHNOPLEX
-                </span>
+              {/* WebGL Canvas Container */}
+              <div style={{ height: 560, position: "relative" }} className="w-full">
+                <FlyingPosters
+                  items={heritagePosters}
+                  planeWidth={320}
+                  planeHeight={320}
+                  distortion={3}
+                  scrollEase={0.015}
+                  cameraFov={45}
+                  cameraZ={20}
+                  columns={2}
+                  columnGap={40}
+                  alternate={true}
+                  radius={16}
+                  rotation={180}
+                  axis="vertical"
+                  speed={20}
+                  lean={0.2}
+                  fade={0.2}
+                  shading={0.3}
+                  wheel={true}
+                  drag={true}
+                  pageScroll={0.12}
+                  className="w-full h-full"
+                />
               </div>
-            </motion.div>
-          </section>
-        </AnimatedBackground>
+
+              {/* Bottom Bar Info */}
+              <div className="absolute bottom-0 inset-x-0 z-20 px-6 sm:px-10 py-4 flex items-center justify-between text-zinc-400 text-[11px] font-mono tracking-wider pointer-events-none bg-gradient-to-t from-zinc-950/95 via-zinc-950/60 to-transparent">
+                <span>1991 — 2026 ARCHIVE IN 3D PERSPECTIVE</span>
+                <span className="text-amber-400 font-semibold animate-pulse hidden sm:inline">✦ ✦ ✦</span>
+                <span>HISTORICAL MEMORABILIA &amp; CAMPUS RUNWAY</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* 2X2 ACCREDITATIONS & INSTITUTIONAL PROFILE: LIGHT VARIANT WITH STAGGER VIEWPORT */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
@@ -855,61 +944,6 @@ export default function AboutPage() {
                     </button>
                   );
                 })}
-              </div>
-            </div>
-
-            {/* 3D INTERACTIVE FLYING POSTERS HERITAGE ARCHIVE (REACT BITS) */}
-            <div className="relative w-full rounded-3xl overflow-hidden mb-16 sm:mb-20 bg-zinc-950/90 border border-amber-500/30 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl group">
-              {/* Top Bar Indicator */}
-              <div className="absolute top-0 inset-x-0 z-20 px-6 sm:px-10 py-5 flex items-center justify-between pointer-events-none bg-gradient-to-b from-zinc-950/95 via-zinc-950/60 to-transparent">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-400/15 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  <span>3D HERITAGE FLYING POSTERS • REACT BITS</span>
-                </div>
-                <div className="text-[11px] font-mono text-zinc-400 tracking-widest hidden sm:block bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
-                  DRAG • SCROLL • HOVER TO INTERACT
-                </div>
-              </div>
-
-              {/* WebGL Canvas Container */}
-              <div style={{ height: 560, position: "relative" }} className="w-full">
-                <FlyingPosters
-                  items={heritagePosters}
-                  planeWidth={320}
-                  planeHeight={320}
-                  distortion={3}
-                  scrollEase={0.015}
-                  cameraFov={45}
-                  cameraZ={20}
-                  columns={2}
-                  columnGap={40}
-                  alternate={true}
-                  radius={16}
-                  rotation={180}
-                  axis="vertical"
-                  speed={20}
-                  lean={0.2}
-                  fade={0.2}
-                  shading={0.3}
-                  wheel={true}
-                  drag={true}
-                  pageScroll={0.12}
-                  onItemClick={(_item, index) => {
-                    const eraYears = ["1991", "1995", "2000", "2005", "2026"];
-                    const targetYear = eraYears[index % eraYears.length];
-                    setSelectedTimelineYear(targetYear);
-                    const el = document.getElementById(`milestone-${targetYear}`);
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }}
-                  className="w-full h-full"
-                />
-              </div>
-
-              {/* Bottom Bar Info */}
-              <div className="absolute bottom-0 inset-x-0 z-20 px-6 sm:px-10 py-4 flex items-center justify-between text-zinc-400 text-[11px] font-mono tracking-wider pointer-events-none bg-gradient-to-t from-zinc-950/95 via-zinc-950/60 to-transparent">
-                <span>1991 — 2026 TRIDENT ARCHIVES IN 3D PERSPECTIVE</span>
-                <span className="text-amber-400 font-semibold animate-pulse hidden sm:inline">✦ CLICK ANY POSTER TO JUMP TO ERA ✦</span>
-                <span>HISTORICAL MEMORABILIA &amp; CAMPUS RUNWAY</span>
               </div>
             </div>
 
