@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,6 +14,24 @@ import InfiniteSpiral from "@/components/InfiniteSpiral";
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTimelineYear, setSelectedTimelineYear] = useState<string>("1991");
+  const [heroView, setHeroView] = useState<"motion" | "slides">("motion");
+  const [secondsRemaining, setSecondsRemaining] = useState<number>(5);
+
+  // Auto-transition to next image slides after 5 seconds
+  useEffect(() => {
+    const countdownInterval = setInterval(() => {
+      setSecondsRemaining((prev) => {
+        if (prev <= 1) {
+          clearInterval(countdownInterval);
+          setHeroView("slides");
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(countdownInterval);
+  }, []);
 
   const accreditations = [
     {
@@ -302,17 +320,20 @@ export default function AboutPage() {
 
       <main className="flex-1">
         
-        {/* 1ST SECTION: 3D INFINITE SPIRAL MOTION HERO (REACT BITS) */}
-        <section className="relative w-full overflow-hidden min-h-[88vh] sm:min-h-[92vh] lg:min-h-[96vh] bg-slate-950 border-b border-slate-800/80 shadow-2xl flex flex-col justify-between">
-          {/* Background 3D Infinite Spiral */}
-          <div className="absolute inset-0 z-0">
+        {/* 1ST SECTION: 3D DYNAMIC SHOWCASE (3D MOTION HELIX -> NEXT IMAGE SLIDES AFTER 5s) */}
+        <section className="relative w-full overflow-hidden min-h-[85vh] sm:min-h-[90vh] lg:min-h-[95vh] bg-slate-950 border-b border-slate-800/80 shadow-2xl flex flex-col justify-between">
+          
+          {/* STAGE 1: 3D INFINITE MOTION HELIX (NO HEADING TEXT - CLEAN PERSPECTIVE) */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            heroView === "motion" ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+          }`}>
             <InfiniteSpiral
               items={spiralItems}
               animationMode="all"
               speed={0.45}
               radius={380}
-              cardWidth={190}
-              cardHeight={135}
+              cardWidth={195}
+              cardHeight={138}
               verticalSpacing={85}
               perspective={1300}
               cardRadius={14}
@@ -323,126 +344,103 @@ export default function AboutPage() {
               pauseOnHover={true}
               className="w-full h-full"
             />
-            {/* Cinematic Radial & Linear Vignettes */}
+            {/* Cinematic Radial Vignettes */}
             <div 
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.38) 45%, rgba(2, 6, 23, 0.95) 100%)",
+                background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.1) 45%, rgba(2, 6, 23, 0.95) 100%)",
               }}
             />
-            <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
           </div>
 
-          {/* Top Bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-10 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-md">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
-            </div>
-            <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
-              DRAG • SCROLL • HOVER TO INTERACT
-            </div>
+          {/* STAGE 2: 3D FLYING POSTERS IMAGE SLIDES (APPEARS AFTER 5s) */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            heroView === "slides" ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+          }`}>
+            <FlyingPosters
+              items={heritagePosters}
+              planeWidth={340}
+              planeHeight={340}
+              distortion={3}
+              scrollEase={0.015}
+              cameraFov={45}
+              cameraZ={20}
+              columns={2}
+              columnGap={44}
+              alternate={true}
+              radius={16}
+              rotation={180}
+              axis="vertical"
+              speed={22}
+              lean={0.2}
+              fade={0.2}
+              shading={0.3}
+              wheel={true}
+              drag={true}
+              pageScroll={0.12}
+              className="w-full h-full"
+            />
+            {/* Subtle Vignettes */}
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
           </div>
 
-          {/* Center Overlay Content */}
-          <div className="relative z-10 px-6 sm:px-12 py-16 max-w-4xl mx-auto text-center pointer-events-none">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-tight">
-              The Living Campus in <span className="font-semibold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">3D Infinite Motion</span>
-            </h1>
-            <p className="text-base sm:text-xl text-slate-200 mt-5 font-normal leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
-              Explore authentic glimpses of our 11-acre Infocity campus — where grand architecture, computing hubs, smart amphitheatres, and student life unite.
-            </p>
-            <div className="pt-8 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
+          {/* Top Bar with Stage Switcher Pills & 5s Status */}
+          <div className="relative z-20 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-10 flex flex-wrap items-center justify-between gap-4 pointer-events-auto">
+            {/* Stage Selector Pills */}
+            <div className="inline-flex items-center gap-1.5 p-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 shadow-lg">
               <button
-                onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm sm:text-base font-semibold transition-all duration-300 shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 group cursor-pointer"
+                onClick={() => setHeroView("motion")}
+                className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                  heroView === "motion"
+                    ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md"
+                    : "text-zinc-400 hover:text-white hover:bg-white/10"
+                }`}
               >
-                <span>Admission Enquiry 2026</span>
-                <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>3D Motion Helix</span>
+                </span>
               </button>
-              <a
-                href="#slides-section"
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+
+              <button
+                onClick={() => setHeroView("slides")}
+                className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                  heroView === "slides"
+                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-md font-extrabold"
+                    : "text-zinc-400 hover:text-white hover:bg-white/10"
+                }`}
               >
-                <span>Explore Archival Slides</span>
-                <span className="text-sm">↓</span>
-              </a>
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span>3D Image Slides</span>
+                </span>
+              </button>
+            </div>
+
+            {/* Live 5-Second Status Pill */}
+            <div className="text-xs font-mono tracking-widest hidden sm:flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15 text-zinc-300">
+              {heroView === "motion" ? (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                  <span>Next image slides in {secondsRemaining}s</span>
+                </>
+              ) : (
+                <>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                  <span>Drag • Scroll to fly slides</span>
+                </>
+              )}
             </div>
           </div>
 
-          {/* Bottom Footer bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
-            <span>16 REAL CAMPUS MOMENTS</span>
+          {/* Bottom Footer Bar inside Showcase */}
+          <div className="relative z-20 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
+            <span>{heroView === "motion" ? "16 REAL CAMPUS MOMENTS IN MOTION" : "12 HISTORICAL ARCHIVE POSTER SLIDES"}</span>
             <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
             <span>TECHNOPLEX ARCHIVES</span>
-          </div>
-        </section>
-
-        {/* 2ND SECTION: 3D FLYING POSTERS SLIDES (REACT BITS) */}
-        <section id="slides-section" className="relative w-full py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-[#070D21] to-[#051c33] text-white border-b border-zinc-800 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
-            {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-3 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/25 shadow-2xs backdrop-blur-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                ARCHIVAL RUNWAY • 3D FLYING SLIDES
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
-                Three Decades of Trident Memorabilia in Perspective
-              </h2>
-              <p className="text-sm sm:text-base text-zinc-300 mt-3 font-light leading-relaxed max-w-2xl mx-auto">
-                Drag, scroll, and watch our historical posters and computing lab evolution glide in real-time WebGL motion.
-              </p>
-            </div>
-
-            {/* FlyingPosters WebGL Canvas */}
-            <div className="relative w-full rounded-3xl overflow-hidden bg-zinc-950/90 border border-amber-500/30 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl group">
-              {/* Top Bar Indicator */}
-              <div className="absolute top-0 inset-x-0 z-20 px-6 sm:px-10 py-5 flex items-center justify-between pointer-events-none bg-gradient-to-b from-zinc-950/95 via-zinc-950/60 to-transparent">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-400/15 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-md">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  <span>3D HERITAGE FLYING POSTERS • REACT BITS</span>
-                </div>
-                <div className="text-[11px] font-mono text-zinc-400 tracking-widest hidden sm:block bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
-                  DRAG • SCROLL • HOVER TO FLY
-                </div>
-              </div>
-
-              {/* WebGL Canvas Container */}
-              <div style={{ height: 560, position: "relative" }} className="w-full">
-                <FlyingPosters
-                  items={heritagePosters}
-                  planeWidth={320}
-                  planeHeight={320}
-                  distortion={3}
-                  scrollEase={0.015}
-                  cameraFov={45}
-                  cameraZ={20}
-                  columns={2}
-                  columnGap={40}
-                  alternate={true}
-                  radius={16}
-                  rotation={180}
-                  axis="vertical"
-                  speed={20}
-                  lean={0.2}
-                  fade={0.2}
-                  shading={0.3}
-                  wheel={true}
-                  drag={true}
-                  pageScroll={0.12}
-                  className="w-full h-full"
-                />
-              </div>
-
-              {/* Bottom Bar Info */}
-              <div className="absolute bottom-0 inset-x-0 z-20 px-6 sm:px-10 py-4 flex items-center justify-between text-zinc-400 text-[11px] font-mono tracking-wider pointer-events-none bg-gradient-to-t from-zinc-950/95 via-zinc-950/60 to-transparent">
-                <span>1991 — 2026 ARCHIVE IN 3D PERSPECTIVE</span>
-                <span className="text-amber-400 font-semibold animate-pulse hidden sm:inline">✦ ✦ ✦</span>
-                <span>HISTORICAL MEMORABILIA &amp; CAMPUS RUNWAY</span>
-              </div>
-            </div>
           </div>
         </section>
 
