@@ -680,55 +680,6 @@ export default function AboutPage() {
                     </motion.div>
                   ))}
                 </div>
-
-                {/* 2 Authentic Academic Photos in Left Column */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group"
-                  >
-                    <Image
-                      src="/images/drive_third/ClassRooms__MG_2339.JPG"
-                      alt="Tiered Lecture Theatres"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 30vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
-                        Academic Theatres
-                      </span>
-                      <span className="text-xs font-semibold">
-                        Faculty Mentored Pedagogy
-                      </span>
-                    </div>
-                  </motion.div>
-
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group"
-                  >
-                    <Image
-                      src="/images/drive_third/Library_Library.JPG"
-                      alt="Central Research Library"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 30vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
-                        Knowledge Vault
-                      </span>
-                      <span className="text-xs font-semibold">
-                        Central DELNET Library
-                      </span>
-                    </div>
-                  </motion.div>
-                </div>
               </motion.div>
 
               {/* Right Column: Campus Showcase Photo Card + Institutional Credo */}
