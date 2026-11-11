@@ -464,8 +464,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="lg:col-span-5 flex flex-col gap-6"
               >
-                {/* Real Campus Showcase Photo Card */}
-                <div className="relative h-64 sm:h-72 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
+                {/* Real Campus Showcase Photo Viewport */}
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-zinc-200/80 group">
                   <Image
                     src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
                     alt="Trident Technoplex Campus Infocity"
@@ -492,26 +492,26 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                {/* Institutional Charter Summary Box */}
-                <div className="bg-gradient-to-br from-indigo-50/70 via-white to-purple-50/50 border border-indigo-150 rounded-3xl p-6 sm:p-8 shadow-sm">
-                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-indigo-700 uppercase tracking-widest mb-3">
+                {/* Institutional Charter Summary (Cardless Open Spread) */}
+                <div className="py-6 border-t border-b border-indigo-100/80 space-y-3">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-indigo-700 uppercase tracking-widest">
                     <span className="w-2 h-2 rounded-full bg-blue-600" />
                     ACADEMIC CHARTER COMMITMENT
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 tracking-tight">
                     Nurturing Next-Gen Technocrats &amp; Business Leaders
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-6">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     TAPS combines the rigorous curriculum of Utkal University's Choice-Based Credit System (CBCS) 
                     with real-world software development sprints, live corporate internships, and executive leadership coaching.
                   </p>
 
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-indigo-100">
-                    <div className="p-3 rounded-xl bg-white border border-indigo-100/80 shadow-2xs">
+                  <div className="grid grid-cols-2 gap-6 pt-4 border-t border-indigo-100">
+                    <div className="pl-4 border-l-2 border-blue-600">
                       <div className="text-xl font-mono font-bold text-blue-700">26+ Yrs</div>
                       <div className="text-[11px] text-slate-500 font-medium">Educational Legacy</div>
                     </div>
-                    <div className="p-3 rounded-xl bg-white border border-indigo-100/80 shadow-2xs">
+                    <div className="pl-4 border-l-2 border-purple-600">
                       <div className="text-xl font-mono font-bold text-purple-700">138+</div>
                       <div className="text-[11px] text-slate-500 font-medium">Visiting Recruiters</div>
                     </div>

@@ -432,7 +432,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             <motion.div 
               whileHover={{ y: -4 }}
               transition={{ duration: 0.35 }}
-              className="group relative h-64 sm:h-72 w-full rounded-3xl overflow-hidden shadow-xl bg-slate-950"
+              className="group relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-zinc-200/80 bg-slate-950 shadow-sm"
             >
               <Image
                 src="/images/drive_new/1746352355680.jpg"
@@ -477,7 +477,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
             {/* 2. INTERACTIVE EXECUTIVE CONSOLE: Strategic Vision, Mission & Values (CARDLESS) */}
             <div className="flex-1 flex">
-              <div className="relative w-full bg-[#0B132E] text-white rounded-3xl p-6 sm:p-7 shadow-xl flex flex-col justify-between overflow-hidden">
+              <div className="relative w-full bg-[#0B132E] text-white rounded-2xl p-6 sm:p-7 border border-indigo-900/40 shadow-sm flex flex-col justify-between overflow-hidden">
                 
                 {/* Ambient Inner Glow with Subtle Floating Animation */}
                 <motion.div 
@@ -637,27 +637,28 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
         </div>
 
-        {/* SALIENT FEATURES & OFFICIAL MOTTO BANNER WITH STAGGER REVEAL */}
+        {/* SALIENT FEATURES & OFFICIAL MOTTO (CARDLESS ARCHITECTURAL SPREAD) */}
         <motion.div 
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20 sm:mb-24 p-8 sm:p-10 rounded-3xl bg-white border border-indigo-100 shadow-[0_16px_40px_rgba(79,70,229,0.06)] relative overflow-hidden"
+          className="mb-20 sm:mb-24 py-10 border-t border-b border-indigo-100/80 relative"
         >
-          <div className="max-w-3xl mb-8">
+          <div className="max-w-3xl mb-10">
             <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full shadow-2xs">
               OFFICIAL BENCHMARKS
             </span>
-            <h3 className="text-2xl sm:text-3xl font-light text-slate-950 mt-3 tracking-tight">
+            <h3 className="text-2xl sm:text-4xl font-light text-slate-950 mt-3 tracking-tight">
               Salient Features of TAPS
             </h3>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
               Recognized under Utkal University for foundational rigor, doctoral faculty mentorship, and corporate excellence.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Open 3-Column Architectural Ledger (No Enclosed Boxes) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {[
               {
                 num: "01",
@@ -696,36 +697,35 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ y: -4, scale: 1.01 }}
-                className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200 hover:border-blue-400 hover:bg-white hover:shadow-md transition-all group cursor-default"
+                whileHover={{ x: 4 }}
+                className="pl-5 py-2 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-mono font-bold text-blue-700 bg-blue-100/60 px-2 py-0.5 rounded-md group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     {f.num}
                   </span>
-                  <h4 className="text-sm font-bold text-slate-950 group-hover:text-blue-700 transition-colors">
+                  <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                     {f.title}
                   </h4>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   {f.desc}
                 </p>
               </motion.div>
             ))}
           </div>
 
-          {/* Institutional Motto Card with Subtle Shimmer */}
-          <motion.div 
-            whileHover={{ scale: 1.005 }}
-            className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#070D21] via-blue-950 to-indigo-950 text-white text-center shadow-lg relative overflow-hidden"
-          >
-            <p className="italic text-xs sm:text-sm font-light text-indigo-100 max-w-3xl mx-auto leading-relaxed">
-              &ldquo;Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;&rdquo;
+          {/* Institutional Motto: Open Typographic Pull-Quote (No Enclosed Gradient Box) */}
+          <div className="mt-14 pt-8 border-t border-indigo-100/70 text-center max-w-4xl mx-auto relative">
+            <span className="text-4xl sm:text-5xl font-serif text-blue-500/20 block -mb-4 select-none">&ldquo;</span>
+            <p className="italic text-sm sm:text-base font-light text-slate-700 leading-relaxed px-4">
+              Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;
             </p>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold mt-2.5 block">
-              — Official TAPS Motto • taps.ac.in
-            </span>
-          </motion.div>
+            <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest text-blue-700 font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+              <span>Official TAPS Motto • taps.ac.in</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* 4. ENHANCED FACILITIES / CAMPUS HIGHLIGHTS GRID */}
@@ -754,10 +754,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </Link>
           </div>
 
-          {/* Interactive Horizontal Accordion (Expanding Strips, Zero Margin/Gap, No Outer Card Borders) */}
+          {/* Interactive Expanding Horizon Strip (Cardless, Zero Box Shadow, Sleek Full-Bleed Hairline Borders) */}
           <div
             onMouseLeave={() => setHoveredFacility(null)}
-            className="relative w-full h-[600px] md:h-[560px] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl bg-zinc-950"
+            className="relative w-full h-[620px] md:h-[560px] overflow-hidden flex flex-col md:flex-row border-y border-zinc-200/90 bg-zinc-950"
           >
             {facilityHighlights.map((facility, idx) => {
               const isExpanded = hoveredFacility === idx;
@@ -771,7 +771,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   onClick={() => setHoveredFacility(isExpanded ? null : idx)}
                   style={{
                     flex: flexValue,
-                    transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                    transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
                   }}
                   className={`group relative overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-8 select-none border-b md:border-b-0 md:border-r border-white/10 last:border-0 ${
                     isExpanded ? "min-h-[260px] md:min-h-0" : "min-h-[85px] md:min-h-0"
@@ -800,20 +800,20 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     }}
                   />
 
-                  {/* Top Badge ("01 / TECH LAB", "02 / ACADEMICS", etc.) */}
+                  {/* Minimalist Top Marker (Typography Driven, No Heavy Pill Box) */}
                   <div className="relative z-10 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-widest uppercase bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-md">
+                    <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-white/90 drop-shadow-md">
                       <span
                         className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                          isExpanded ? "bg-cyan-400 animate-pulse" : "bg-zinc-400 group-hover:bg-cyan-400"
+                          isExpanded ? "bg-cyan-400 animate-ping" : "bg-cyan-400"
                         }`}
                       />
-                      {facility.badge}
-                    </span>
+                      <span className="text-cyan-300">{facility.badge}</span>
+                    </div>
 
                     <span
                       className={`text-xs font-mono font-bold transition-colors duration-300 hidden sm:inline-block ${
-                        isExpanded ? "text-cyan-300" : "text-zinc-400"
+                        isExpanded ? "text-cyan-300" : "text-white/60"
                       }`}
                     >
                       {facility.num}
@@ -826,7 +826,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     {/* Sub-Category Tag: Reveals on Expand with Smooth Slide-Up */}
                     <div
                       style={{
-                        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
                         opacity: isExpanded ? 1 : 0,
                         transform: isExpanded ? "translateY(0)" : "translateY(10px)",
                         maxHeight: isExpanded ? "28px" : "0px",
@@ -836,15 +836,15 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                       {facility.subtitle}
                     </div>
 
-                    {/* Facility Title: Always Visible */}
-                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
+                    {/* Facility Title: Always Visible, Fully Legible Without Truncation */}
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
                       {facility.title}
                     </h4>
 
                     {/* Full Descriptive Copy: Collapses when not active, reveals on expand */}
                     <div
                       style={{
-                        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
                         opacity: isExpanded ? 1 : 0,
                         transform: isExpanded ? "translateY(0)" : "translateY(14px)",
                         maxHeight: isExpanded ? "120px" : "0px",
@@ -859,7 +859,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     {/* Campus Location Tag & Action Arrow Button: Reveals on Expand */}
                     <div
                       style={{
-                        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                        transition: "all 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
                         opacity: isExpanded ? 1 : 0,
                         transform: isExpanded ? "translateY(0)" : "translateY(14px)",
                         maxHeight: isExpanded ? "60px" : "0px",
