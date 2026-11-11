@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import InfiniteSpiral from "./InfiniteSpiral";
 
 interface GalleryItem {
   id: string;
@@ -210,26 +209,6 @@ export default function CampusGallery() {
       ? galleryItems
       : galleryItems.filter((it) => it.category === activeFilter);
 
-  // 16 Real Drive Images for the 3D Infinite Spiral Helix Showcase
-  const spiralItems = [
-    { src: "/images/drive_fourth/campus_exterior_1.jpg", alt: "11-Acre Technoplex Campus Building", label: "Campus Architecture" },
-    { src: "/images/drive/computer-lab.jpg", alt: "Computer Applications Cloud Lab", label: "Tech Labs" },
-    { src: "/images/drive_third/ClassRooms_Academic.JPG", alt: "Smart Interactive Amphitheatres", label: "Smart Classrooms" },
-    { src: "/images/drive_third/Library_Library.JPG", alt: "Central Research & IEEE Library", label: "Central Library" },
-    { src: "/images/drive_third/Sports_IMG20260205104055.jpg", alt: "Athletic Meet Grounds & Arena", label: "Athletic Meet" },
-    { src: "/images/drive_fourth/hack_day.png", alt: "Hack Day National Competition", label: "Coding Hackathon" },
-    { src: "/images/drive_second/Activities.jpg", alt: "Annual Trifest Cultural Celebration", label: "Trifest Cultural Fest" },
-    { src: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg", alt: "Sunset Promenade & Colonnades", label: "Sunset Promenade" },
-    { src: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg", alt: "Twilight Floodlit Basketball Arena", label: "Sports Complex" },
-    { src: "/images/drive_third/ClassRooms__MG_2339.JPG", alt: "Tiered Multimedia Lecture Theatre", label: "Interactive Theatres" },
-    { src: "/images/drive_third/MBA_seminar_1.jpeg", alt: "Corporate Executive Seminars", label: "Corporate Seminars" },
-    { src: "/images/drive_fourth/brain_logic_club.png", alt: "Brain Logic & Reasoning Club", label: "Student Clubs" },
-    { src: "/images/drive_fourth/cloud_club.png", alt: "Enterprise Cloud Virtualization", label: "Cloud Computing" },
-    { src: "/images/drive_fourth/web_dev_seminar.png", alt: "Web & IoT Tech Colloquium", label: "Developer Workshops" },
-    { src: "/images/drive/innovation-mela.png", alt: "Innovation Mela Showcase", label: "Student Innovations" },
-    { src: "/images/drive/campus-grounds.jpg", alt: "Landscaped Technoplex Quad", label: "Technoplex Lawns" },
-  ];
-
   return (
     <section id="gallery" className="relative pt-12 sm:pt-16 pb-20 sm:pb-28 bg-transparent text-slate-900 overflow-hidden">
       {/* Section Header & Filter Pills */}
@@ -279,76 +258,6 @@ export default function CampusGallery() {
               );
             })}
           </div>
-        </div>
-      </div>
-
-      {/* 3D INFINITE SPIRAL CAMPUS HELIX SHOWCASE (REACT BITS) - FULL BLEED EDGE-TO-EDGE NO WHITE SPACE */}
-      <div className="relative w-full overflow-hidden mb-16 sm:mb-24 min-h-[90vh] sm:min-h-[95vh] lg:min-h-[98vh] bg-slate-950 border-y border-slate-800/80 shadow-2xl flex flex-col justify-between">
-        {/* Background 3D Infinite Spiral */}
-        <div className="absolute inset-0 z-0">
-          <InfiniteSpiral
-            items={spiralItems}
-            animationMode="all"
-            speed={0.45}
-            radius={380}
-            cardWidth={190}
-            cardHeight={135}
-            verticalSpacing={85}
-            perspective={1300}
-            cardRadius={14}
-            centerScale={1.25}
-            edgeBlur={5}
-            edgeFade={0.3}
-            cardsPerTurn={8}
-            pauseOnHover={true}
-            className="w-full h-full"
-          />
-          {/* Cinematic Radial & Linear Vignettes */}
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.72) 0%, rgba(2, 6, 23, 0.38) 45%, rgba(2, 6, 23, 0.95) 100%)",
-            }}
-          />
-          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
-        </div>
-
-        {/* Top Bar inside Showcase */}
-        <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-10 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-md">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span>3D CAMPUS HELIX • REACT BITS</span>
-          </div>
-          <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
-            DRAG • SCROLL • HOVER TO INTERACT
-          </div>
-        </div>
-
-        {/* Center Overlay Content */}
-        <div className="relative z-10 px-6 sm:px-12 py-16 max-w-4xl mx-auto text-center pointer-events-none">
-          <h3 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-tight">
-            The Living Campus in <span className="font-semibold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">3D Infinite Motion</span>
-          </h3>
-          <p className="text-base sm:text-xl text-slate-200 mt-5 font-normal leading-relaxed max-w-3xl mx-auto drop-shadow-sm">
-            Experience our continuous photographic helix — where computing hubs, smart amphitheatres, cultural fests, and athletic arenas rotate in 3D perspective.
-          </p>
-          <div className="pt-8 flex flex-wrap items-center justify-center gap-4 pointer-events-auto">
-            <a
-              href="#gallery-grid"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm sm:text-base font-semibold transition-all duration-300 shadow-xl shadow-blue-500/30 hover:scale-105 active:scale-95 group cursor-pointer"
-            >
-              <span>Explore Bento Archive Below</span>
-              <span className="transform group-hover:translate-y-1 transition-transform duration-200 text-base">↓</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Bottom Footer bar inside Showcase */}
-        <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
-          <span>16 REAL CAMPUS MOMENTS</span>
-          <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
-          <span>TECHNOPLEX ARCHIVES</span>
         </div>
       </div>
 
