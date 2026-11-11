@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,11 +9,12 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import InfiniteSpiral from "@/components/InfiniteSpiral";
-import NormalImageSlider, { SlideItem } from "@/components/NormalImageSlider";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTimelineYear, setSelectedTimelineYear] = useState<string>("1991");
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [show3DHelix, setShow3DHelix] = useState(true);
 
   const accreditations = [
     {
@@ -135,65 +136,103 @@ export default function AboutPage() {
     { src: "/images/drive/campus-grounds.jpg", alt: "Landscaped Technoplex Quad", label: "Technoplex Lawns" },
   ];
 
-  // Normal Image Slides (auto-advancing each after 5 seconds)
-  const aboutNormalSlides: SlideItem[] = [
+  // Curated High-Definition Campus Slides (auto-advancing every 5 seconds just like the main page)
+  const aboutSlides = [
     {
-      src: "/images/drive_fourth/campus_exterior_1.jpg",
+      eyebrow: "CAMPUS ARCHITECTURE & INFRASTRUCTURE",
+      headline: "11-Acre Flagship Technoplex Campus Complex",
+      subheadline: "Four-storeyed modern academic facility in the heart of Infocity IT Corridor, Chandaka Industrial Estate, flanked by global tech leaders.",
+      image: "/images/drive_fourth/campus_exterior_1.jpg",
       tag: "CAMPUS ARCHITECTURE",
-      subtitle: "11-Acre Technoplex Campus Complex",
-      title: "State-of-the-Art Academic Infrastructure",
+      location: "Infocity IT Corridor, Bhubaneswar",
       description: "Our modern four-storeyed academic facility situated in the heart of Infocity IT Corridor, Chandaka Industrial Estate, flanked by global tech giants.",
     },
     {
-      src: "/images/drive/computer-lab.jpg",
+      eyebrow: "COMPUTING & AI SPECIALIZATIONS",
+      headline: "High-Density Cloud Virtualization Hub",
+      subheadline: "High-performance desktop terminals, gigabit fiber optic network, and specialized computing clusters for BCA scholars.",
+      image: "/images/drive/computer-lab.jpg",
       tag: "COMPUTING & AI LABS",
-      subtitle: "Enterprise Systems & Cloud Computing",
-      title: "High-Density Cloud Virtualization Hub",
+      location: "Enterprise Systems Lab",
       description: "Equipped with high-performance desktop terminals, gigabit fiber optic network, and specialized computing clusters for BCA scholars.",
     },
     {
-      src: "/images/drive_third/ClassRooms_Academic.JPG",
+      eyebrow: "ACADEMIC THEATRES & CBCS",
+      headline: "Multimedia Tiered Smart Amphitheatres",
+      subheadline: "Acoustically treated tiered lecture theatres engineered with interactive instructor consoles and digital presentation hubs.",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
       tag: "ACADEMIC THEATRES",
-      subtitle: "CBCS Mentored Lecture Amphitheatres",
-      title: "Multimedia Tiered Smart Amphitheatres",
+      location: "CBCS Lecture Amphitheatres",
       description: "Acoustically treated tiered lecture theatres engineered with interactive instructor consoles and digital presentation hubs for immersive learning.",
     },
     {
-      src: "/images/drive_third/Library_Library.JPG",
+      eyebrow: "CENTRAL RESEARCH ARCHIVES",
+      headline: "Central DELNET & IEEE Stacks",
+      subheadline: "70,000+ text and reference volumes, automated OPAC search, digital resource terminals, and direct IEEE database access.",
+      image: "/images/drive_third/Library_Library.JPG",
       tag: "CENTRAL RESEARCH LIBRARY",
-      subtitle: "70,000+ Volumes & Digital Repositories",
-      title: "Central DELNET & IEEE Stacks",
+      location: "DELNET & IEEE Stacks",
       description: "Vast archival reference collections, automated OPAC search, digital resource terminals, and direct access to international research publications.",
     },
     {
-      src: "/images/drive_third/Sports_IMG20260205104055.jpg",
+      eyebrow: "ATHLETICS & RECREATION",
+      headline: "Full-Track Athletic Grounds & Arena",
+      subheadline: "Expansive multi-discipline sports complex hosting annual athletic meets, inter-collegiate tournaments, and wellness recreational greens.",
+      image: "/images/drive_third/Sports_IMG20260205104055.jpg",
       tag: "ATHLETICS & SPORTS",
-      subtitle: "Multi-Discipline Sports Arena",
-      title: "Full-Track Athletic Grounds & Arena",
+      location: "Sports Complex & Arena",
       description: "Expansive multi-discipline sports complex hosting annual athletic meets, inter-collegiate tournaments, volleyball, and wellness recreational greens.",
     },
     {
-      src: "/images/drive_fourth/hack_day.png",
+      eyebrow: "INNOVATION & HACKATHONS",
+      headline: "National Hack Day & Algorithmic Sprints",
+      subheadline: "24-hour hackathons and software prototyping sprints where students build creative real-world solutions under faculty mentorship.",
+      image: "/images/drive_fourth/hack_day.png",
       tag: "STUDENT INNOVATION",
-      subtitle: "Flagship Programming Chapter",
-      title: "National Hack Day & Algorithmic Sprints",
+      location: "Flagship Programming Chapter",
       description: "24-hour hackathons and software prototyping sprints where students build creative real-world solutions under faculty and industry mentorship.",
     },
     {
-      src: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+      eyebrow: "CAMPUS ENVIRONMENT & GREENERY",
+      headline: "Sunset Promenade & Royal Colonnades",
+      subheadline: "Symmetrical paved walkways flanked by lush green landscape and royal palms, creating an inspiring learning environment.",
+      image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
       tag: "CAMPUS ENVIRONMENT",
-      subtitle: "Infocity Green Tech Corridor",
-      title: "Sunset Promenade & Colonnades",
+      location: "Infocity Green Tech Corridor",
       description: "Symmetrical paved walkways flanked by lush green landscape and royal palms, creating an inspiring environment for student transformation.",
     },
     {
-      src: "/images/drive_second/Activities.jpg",
+      eyebrow: "CULTURAL FORUM & ARTS",
+      headline: "Annual Trifest Cultural Celebration",
+      subheadline: "Vibrant annual cultural extravaganzas, musical concerts, youth forums, and community outreach campaigns fostering holistic leadership.",
+      image: "/images/drive_second/Activities.jpg",
       tag: "CULTURAL FORUM",
-      subtitle: "Student Societies & Creative Expression",
-      title: "Annual Trifest Cultural Celebration",
+      location: "Main Stage Arena",
       description: "Vibrant annual cultural extravaganzas, musical concerts, youth forums, and community outreach campaigns fostering holistic leadership.",
     },
   ];
+
+  // Automatic slide rotation:
+  // The 3D Helix animation plays initially for 5 seconds.
+  // At 5 seconds, it transitions smoothly to sequential full-bleed image slides advancing every 5s just like the main page.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShow3DHelix(false);
+      setCurrentSlide((prev) => (prev + 1) % aboutSlides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [aboutSlides.length]);
+
+  const nextSlide = () => {
+    setShow3DHelix(false);
+    setCurrentSlide((prev) => (prev + 1) % aboutSlides.length);
+  };
+
+  const prevSlide = () => {
+    setShow3DHelix(false);
+    setCurrentSlide((prev) => (prev - 1 + aboutSlides.length) % aboutSlides.length);
+  };
 
   const pillars = [
     {
@@ -346,10 +385,18 @@ export default function AboutPage() {
 
       <main className="flex-1">
         
-        {/* 1ST SECTION: 3D INFINITE SPIRAL MOTION HERO (CLEAN, CONTINUOUS INFINITE LOOP) */}
-        <section className="relative w-full overflow-hidden min-h-[85vh] sm:min-h-[90vh] lg:min-h-[95vh] bg-slate-950 border-b border-slate-800/80 shadow-2xl flex flex-col justify-between">
-          {/* Background 3D Infinite Spiral */}
-          <div className="absolute inset-0 z-0">
+        {/* 1ST SECTION: DUAL-MODE HERO WITH PARTIAL BLACK SHADED MASK (3D HELIX FOR 5S -> AUTO PHOTO SLIDES JUST LIKE MAIN PAGE) */}
+        <section
+          aria-roledescription="carousel"
+          aria-label="Campus highlights and 3D Helix"
+          className="relative w-full h-[85vh] min-h-[620px] max-h-[850px] overflow-hidden bg-[#070D21] text-white"
+        >
+          {/* 1. 3D INFINITE SPIRAL HELIX BACKGROUND (Shown initially for ~5 sec, or toggled on demand) */}
+          <div
+            className={`absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+              show3DHelix ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            }`}
+          >
             <InfiniteSpiral
               items={spiralItems}
               animationMode="all"
@@ -367,76 +414,204 @@ export default function AboutPage() {
               pauseOnHover={false}
               className="w-full h-full"
             />
-            {/* Cinematic Radial Vignettes */}
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "radial-gradient(ellipse at 50% 50%, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.1) 45%, rgba(2, 6, 23, 0.95) 100%)",
-              }}
-            />
-            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
           </div>
 
-          {/* Top Bar & Relevant Institutional Header inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-12 flex flex-col md:flex-row md:items-start justify-between gap-6 pointer-events-none">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md mb-3">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
-              </div>
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight drop-shadow-md">
-                Trident Academy of Professional Studies
-              </h1>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 font-normal leading-relaxed max-w-xl drop-shadow-sm">
-                Odisha&apos;s No. 1 private BCA &amp; BBA institution — 11-acre Infocity Technoplex in continuous 3D photographic motion.
-              </p>
-            </div>
+          {/* 2. FULL-BLEED SEQUENTIAL IMAGE SLIDES: Fade in smoothly after 5s and rotate every 5 seconds */}
+          <div
+            className={`absolute inset-0 z-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+              !show3DHelix ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            {aboutSlides.map((slide, index) => {
+              const isActive = index === currentSlide;
+              return (
+                <div
+                  key={`about-bg-${slide.tag}`}
+                  aria-hidden={!isActive}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    isActive ? "opacity-100 z-[2]" : "opacity-0 pointer-events-none z-[1]"
+                  }`}
+                >
+                  <Image
+                    src={slide.image}
+                    alt={slide.headline}
+                    fill
+                    priority={index === 0 || index === 1}
+                    className={`object-cover object-center filter contrast-105 brightness-95 transition-transform duration-[6000ms] ease-out ${
+                      isActive ? "scale-105" : "scale-100"
+                    }`}
+                    sizes="100vw"
+                  />
+                </div>
+              );
+            })}
+          </div>
 
-            <div className="flex flex-col items-start md:items-end gap-3 pointer-events-auto">
-              <div className="text-xs font-mono text-white/80 tracking-widest bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-md">
-                CONTINUOUS 3D MOTION HELIX • DRAG TO INTERACT
+          {/* 3. PARTIAL BLACK SHADED MASK (ONE-SIDED LEFT-TO-RIGHT DEEP GRADIENT SCRIM JUST LIKE THE MAIN PAGE) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-55% to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/70 via-transparent to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/50 via-transparent to-transparent z-10 pointer-events-none" />
+
+          {/* 4. Top Right Floating Controls: View Mode Toggle & Location/Tag Pill */}
+          <div className="absolute top-6 right-6 sm:right-12 z-30 flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setShow3DHelix((prev) => !prev)}
+              className="flex items-center gap-1.5 bg-[#070D21]/80 hover:bg-[#070D21] backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-indigo-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
+              title={show3DHelix ? "Switch to single photo slides" : "Switch to 3D Helix motion"}
+            >
+              <span className={`w-2 h-2 rounded-full ${show3DHelix ? "bg-cyan-400 animate-pulse" : "bg-emerald-400"}`} />
+              <span className="font-semibold uppercase tracking-wider font-mono">
+                {show3DHelix ? "3D Helix Motion" : "Photo Slides"}
+              </span>
+            </button>
+
+            <div className="hidden sm:flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-indigo-200 font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
+              <span className="font-bold text-white uppercase tracking-wider">{aboutSlides[currentSlide].tag}</span>
+              <span className="text-indigo-400">•</span>
+              <span>{aboutSlides[currentSlide].location}</span>
+            </div>
+          </div>
+
+          {/* 5. 3D Helix Overlay Text (Shown when 3D Helix is active) */}
+          <div
+            className={`absolute inset-0 z-20 flex items-center transition-opacity duration-1000 ease-in-out ${
+              show3DHelix ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center w-full">
+              <div className="max-w-4xl animate-fadeInUp">
+                {/* Eyebrow Pill */}
+                <div className="inline-flex items-center gap-2 bg-blue-900/70 text-blue-100 border border-blue-400/50 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulse" />
+                  <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
+                </div>
+
+                {/* Main Headline */}
+                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  Trident Academy of Professional Studies
+                </h1>
+
+                {/* Subheadline */}
+                <p className="text-white sm:text-slate-100 text-base sm:text-lg max-w-2xl font-normal sm:font-medium mt-4 sm:mt-5 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+                  Odisha&apos;s No. 1 private BCA &amp; BBA institution — 11-acre Infocity Technoplex in continuous 3D photographic motion, transitioning into authentic campus archives.
+                </p>
+
+                {/* CTA Row */}
+                <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mt-8">
+                  <button
+                    onClick={() => {
+                      setShow3DHelix(false);
+                      setCurrentSlide((prev) => (prev + 1) % aboutSlides.length);
+                    }}
+                    className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-xl shadow-blue-600/30 hover-lift cursor-pointer active:scale-95"
+                  >
+                    Explore Photo Slides →
+                  </button>
+
+                  <Link
+                    href="/programmes"
+                    className="border border-indigo-300/50 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-xs active:scale-95"
+                  >
+                    Explore Programmes (BCA &amp; BBA)
+                  </Link>
+                </div>
               </div>
-              <a
-                href="#campus-slides"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/80 hover:bg-blue-600 text-white text-xs font-mono font-semibold transition-all duration-200 border border-blue-400/40 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
+            </div>
+          </div>
+
+          {/* 6. Sequential Photo Slide Content Layers (Cross-fade when show3DHelix is false) */}
+          {aboutSlides.map((slide, index) => {
+            const isActive = !show3DHelix && index === currentSlide;
+            return (
+              <div
+                key={`content-${slide.tag}`}
+                aria-hidden={!isActive}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 pointer-events-none z-0"
+                }`}
               >
-                <span>View Campus Slides Below</span>
-                <span className="text-sm">↓</span>
-              </a>
-            </div>
-          </div>
+                <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center w-full">
+                  <div className="max-w-4xl animate-fadeInUp">
+                    {/* Eyebrow Pill */}
+                    <div className="inline-flex items-center gap-2 bg-blue-900/70 text-blue-100 border border-blue-400/50 px-3.5 py-1 text-xs tracking-widest uppercase rounded-full mb-4 sm:mb-6 backdrop-blur-md shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(34,211,238,0.9)] animate-pulse" />
+                      <span>{slide.eyebrow}</span>
+                    </div>
 
-          {/* Bottom Footer Bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex flex-wrap items-center justify-between gap-4 text-white/70 text-xs font-mono tracking-wider pointer-events-none">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>16 AUTHENTIC TECHNOPLEX LOCATIONS</span>
-            </div>
-            <span className="animate-pulse text-cyan-400 hidden sm:inline">✦ ✦ ✦</span>
-            <span>INFOCITY IT HUB, CHANDAKA INDUSTRIAL ESTATE, BHUBANESWAR</span>
-          </div>
-        </section>
+                    {/* Main Headline */}
+                    <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                      {slide.headline}
+                    </h2>
 
-        {/* 2ND SECTION: NORMAL IMAGE SLIDES (EACH AFTER 5 SECONDS) */}
-        <section id="campus-slides" className="relative w-full py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-[#070D21] to-[#04091A] text-white border-b border-slate-800 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
-            {/* Header with Relevant Text */}
-            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-cyan-300 mb-3 bg-cyan-950/70 border border-cyan-500/30 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                ACADEMIC INFRASTRUCTURE • 5S AUTO-SLIDES
+                    {/* Subheadline */}
+                    <p className="text-white sm:text-slate-100 text-base sm:text-lg max-w-2xl font-normal sm:font-medium mt-4 sm:mt-5 leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+                      {slide.subheadline}
+                    </p>
+
+                    {/* CTA Row */}
+                    <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mt-8">
+                      <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-xl shadow-blue-600/30 hover-lift cursor-pointer active:scale-95"
+                      >
+                        Apply for 2026 Batch →
+                      </button>
+
+                      <button
+                        onClick={() => setShow3DHelix(true)}
+                        className="border border-indigo-300/50 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide hover:bg-white/10 hover:border-white transition-all duration-200 backdrop-blur-xs active:scale-95 cursor-pointer"
+                      >
+                        View 3D Helix Motion
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
-                Campus Highlights &amp; Facilities
-              </h2>
-              <p className="text-sm sm:text-base text-slate-300 mt-3 font-normal leading-relaxed max-w-2xl mx-auto">
-                Auto-advancing every 5 seconds — exploring Eastern India&apos;s benchmark learning infrastructure across our 11-acre flagship Technoplex in Bhubaneswar.
-              </p>
-            </div>
+            );
+          })}
 
-            {/* Normal Image Slider (each after 5 sec) */}
-            <NormalImageSlider slides={aboutNormalSlides} interval={5000} />
+          {/* 7. Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            aria-label="Previous slide"
+            className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            onClick={nextSlide}
+            aria-label="Next slide"
+            className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center backdrop-blur-md border border-white/20 hover:border-white/50 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <svg className="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* 8. Pagination Indicators with Animated Progress Line */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
+            {aboutSlides.map((slide, i) => (
+              <button
+                key={`dot-${slide.tag}`}
+                onClick={() => {
+                  setShow3DHelix(false);
+                  setCurrentSlide(i);
+                }}
+                aria-label={`Go to slide ${i + 1}`}
+                className="group relative py-2 cursor-pointer"
+              >
+                <div
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    !show3DHelix && i === currentSlide ? "w-8 bg-cyan-400" : "w-2 bg-white/40 hover:bg-white/80"
+                  }`}
+                />
+              </button>
+            ))}
           </div>
         </section>
 
