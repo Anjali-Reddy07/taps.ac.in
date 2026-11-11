@@ -75,54 +75,36 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
         </div>
 
         {/* Cardless Open Training & Placement Tower Spotlight */}
-        <div className="max-w-5xl mx-auto mb-20 relative group">
+        <div className="max-w-4xl mx-auto mb-20 relative group">
           <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/10 to-purple-600/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity pointer-events-none" />
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-5 relative min-h-[280px] md:min-h-[320px] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/drive_new/_DSC1852.JPG"
-                alt="Trident Training & Placement Block-5"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute top-4 left-4 z-10">
-                <span className="bg-blue-600/95 text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
-                  Block-5 Placement Hub
-                </span>
+          <div className="relative z-10 bg-[#0D183B]/60 backdrop-blur-md border border-indigo-900/60 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-6">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-2">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                Industry-Academic Synergy
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+                Dedicated Training &amp; Placement Cell
+              </h3>
+              <p className="text-sm sm:text-base text-indigo-200/90 leading-relaxed font-light mb-6">
+                Operating across the 1st, 4th, and 5th floors of Block-5 alongside the Center for Business Analytics and Sustainability Research, our T&amp;P wing coordinates round-the-year mock technical interviews, aptitude prep, and direct on-campus hiring drives with over 100 corporate recruiters.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="pl-4 py-2 border-l-2 border-cyan-400/60 bg-white/5 rounded-r-xl">
+                  <div className="text-xs sm:text-sm font-bold text-white">Center for Business Analytics</div>
+                  <div className="text-xs text-indigo-300">Live Corporate Projects &amp; Modeling</div>
+                </div>
+                <div className="pl-4 py-2 border-l-2 border-indigo-400/60 bg-white/5 rounded-r-xl">
+                  <div className="text-xs sm:text-sm font-bold text-white">Tier-1 IT Pipeline</div>
+                  <div className="text-xs text-indigo-300">TCS, Infosys, Wipro &amp; Capgemini</div>
+                </div>
               </div>
             </div>
 
-            <div className="md:col-span-7 flex flex-col justify-between space-y-4">
-              <div>
-                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  Industry-Academic Synergy
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-                  Dedicated Training &amp; Placement Cell
-                </h3>
-                <p className="text-xs sm:text-sm text-indigo-200/90 leading-relaxed font-light mb-6">
-                  Operating across the 1st, 4th, and 5th floors of Block-5 alongside the Center for Business Analytics and Sustainability Research, our T&amp;P wing coordinates round-the-year mock technical interviews, aptitude prep, and direct on-campus hiring drives with over 100 corporate recruiters.
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="pl-4 py-1 border-l-2 border-cyan-400/60">
-                    <div className="text-xs font-bold text-white">Center for Business Analytics</div>
-                    <div className="text-[11px] text-indigo-300">Live Corporate Projects &amp; Modeling</div>
-                  </div>
-                  <div className="pl-4 py-1 border-l-2 border-indigo-400/60">
-                    <div className="text-xs font-bold text-white">Tier-1 IT Pipeline</div>
-                    <div className="text-[11px] text-indigo-300">TCS, Infosys, Wipro &amp; Capgemini</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-indigo-900/60 flex items-center justify-between text-xs text-indigo-300/80">
-                <span>Trident Placement Consortium</span>
-                <span className="font-mono text-cyan-300 font-bold">138+ Visiting Recruiters</span>
-              </div>
+            <div className="pt-4 border-t border-indigo-900/60 flex flex-wrap items-center justify-between gap-2 text-xs text-indigo-300/80">
+              <span>Trident Placement Consortium • Block-5 Corporate Hub</span>
+              <span className="font-mono text-cyan-300 font-bold text-sm">138+ Visiting Recruiters</span>
             </div>
           </div>
         </div>
