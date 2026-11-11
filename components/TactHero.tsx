@@ -56,9 +56,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "138+ Annual Corporate Recruiters",
       subheadline:
         "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 138+ Annual Corporate Recruitment Partners",
-      image: "/images/drive_third/Placement_DSC_2425.JPG",
-      tag: "CAMPUS PLACEMENT RECRUITMENT SUITES",
-      location: "Block-5 Interview Suites",
+      image: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+      tag: "CORPORATE PLACEMENT DELEGATES",
+      location: "Auditorium Main Stage",
     },
     {
       eyebrow: "INFOCITY CAMPUS LIFE & ATHLETICS",
@@ -115,7 +115,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             "/images/drive_fourth/hack_day.png",
             "/images/drive_new/418523663_877202237525747_6377361483820920683_n.jpg",
             "/images/drive_new/487841832_17914511076094364_1416184591585353408_n.jpg",
-            "/images/drive_third/Placement_DSC_2425.JPG",
+            "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
             "/images/drive_third/Library_Library.JPG",
             "/images/drive_second/alumni3.jpg",
             "/images/drive_second/Activities.jpg",
