@@ -848,161 +848,233 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </Link>
           </div>
 
-          {/* Interactive Kinetic Selector Tabs (Typography-Driven, Animated Gliding Indicator) */}
-          <div className="border-b border-zinc-200/90 mb-8 overflow-x-auto scrollbar-none">
-            <div className="flex items-center gap-2 sm:gap-6 min-w-max pb-3">
-              {facilityHighlights.map((facility, idx) => {
-                const isActive = activeFacility === idx;
-                return (
-                  <button
-                    key={facility.title}
-                    onClick={() => {
-                      setActiveFacility(idx);
-                      setIsAutoPlaying(false);
-                    }}
-                    onMouseEnter={() => {
-                      setActiveFacility(idx);
-                      setIsAutoPlaying(false);
-                    }}
-                    onMouseLeave={() => setIsAutoPlaying(true)}
-                    className={`relative py-2.5 px-3 sm:px-4 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 select-none ${
-                      isActive ? "text-blue-700 font-bold" : "text-slate-500 hover:text-slate-900"
-                    }`}
-                  >
-                    <span className="font-mono text-xs opacity-60">0{idx + 1}</span>
-                    <span>{facility.title}</span>
-
-                    {/* Active Gliding Pill Underline */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="facility-active-tab"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 shadow-[0_1px_8px_rgba(37,99,235,0.4)]"
-                      />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Master Stage (Cardless 2-Column Split: Editorial Narrative Left + High-Def Panoramic Viewport Right) */}
+          {/* CINEMATIC IMMERSIVE PANORAMIC HORIZON STAGE (Matched 100% with User Uploaded Mockup) */}
           <div 
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+            className="relative w-full rounded-3xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800/80 min-h-[580px] lg:min-h-[620px] flex flex-col justify-between"
           >
-            {/* Left Column: Editorial Specs & Narrative (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+            {/* 1. PANORAMIC PHOTOGRAPHIC HORIZON BACKGROUND WITH SMOOTH DISSOLVE */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={facilityHighlights[activeFacility].image}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 z-0"
+              >
+                <Image
+                  src={facilityHighlights[activeFacility].image}
+                  alt={facilityHighlights[activeFacility].title}
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  sizes="100vw"
+                />
+                {/* Cinematic Dark Gradient: Heavy on left for maximum text contrast, fading out to reveal photo on right */}
+                <div 
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: "linear-gradient(to right, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.90) 36%, rgba(2, 6, 23, 0.65) 60%, rgba(2, 6, 23, 0.25) 85%, rgba(2, 6, 23, 0.15) 100%)",
+                  }}
+                />
+                {/* Top & Bottom Vignettes for Header & Footer Legibility */}
+                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* 2. TOP HORIZONTAL NAVIGATION TABS (Inside the Dark Panoramic Stage) */}
+            <div className="relative z-20 border-b border-white/10 px-6 sm:px-10 lg:px-12 py-4 bg-black/35 backdrop-blur-md overflow-x-auto scrollbar-none">
+              <div className="flex items-center gap-6 sm:gap-10 min-w-max">
+                {facilityHighlights.map((facility, idx) => {
+                  const isActive = activeFacility === idx;
+                  return (
+                    <button
+                      key={facility.title}
+                      onClick={() => {
+                        setActiveFacility(idx);
+                        setIsAutoPlaying(false);
+                      }}
+                      className={`relative pb-3 text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-2 select-none ${
+                        isActive ? "text-white font-bold" : "text-white/60 hover:text-white"
+                      }`}
+                    >
+                      <span className="font-mono text-xs opacity-60">0{idx + 1}</span>
+                      <span>{facility.title}</span>
+
+                      {/* Active White Gliding Line Indicator */}
+                      {isActive && (
+                        <motion.div
+                          layoutId="facility-active-tab-mockup"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-white shadow-[0_0_12px_rgba(255,255,255,0.8)]"
+                        />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 3. FLOATING BADGE IN TOP RIGHT / MID PHOTO */}
+            <div className="absolute top-20 right-10 sm:right-16 z-20 hidden md:block">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={facilityHighlights[activeFacility].title}
-                  initial={{ opacity: 0, y: 16 }}
+                  key={facilityHighlights[activeFacility].badge}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-4"
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                  className="px-4 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white/90 border border-white/15 shadow-lg flex items-center gap-2"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-50 text-blue-700 border border-blue-200">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                      {facilityHighlights[activeFacility].subtitle}
-                    </span>
-                  </div>
-
-                  <h4 className="text-2xl sm:text-3xl lg:text-4xl font-light text-slate-900 tracking-tight leading-tight">
-                    {facilityHighlights[activeFacility].title}
-                  </h4>
-
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                    {facilityHighlights[activeFacility].desc}
-                  </p>
-
-                  {/* 3 Technical Specs in Clean Hairline Ledger */}
-                  <div className="space-y-2.5 pt-3 border-t border-slate-100">
-                    {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-2" />
-                        <span>{spec}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Campus Location Tag & CTA */}
-                  <div className="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
-                    <span className="text-xs font-mono font-medium text-slate-500 uppercase tracking-wider">
-                      📍 {facilityHighlights[activeFacility].location}
-                    </span>
-
-                    <button
-                      onClick={onOpenQuery}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-700 hover:text-blue-900 transition-colors group cursor-pointer"
-                    >
-                      <span>Inquire About Facility</span>
-                      <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
-                  </div>
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>{facilityHighlights[activeFacility].badge}</span>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Right Column: Panoramic Cinematic Viewport (7 cols) */}
-            <div className="lg:col-span-7 relative h-[360px] sm:h-[440px] md:h-[480px] w-full">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={facilityHighlights[activeFacility].title}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.02 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative w-full h-full rounded-2xl overflow-hidden border border-zinc-200/90 shadow-sm group bg-slate-950"
-                >
-                  <Image
-                    src={facilityHighlights[activeFacility].image}
-                    alt={facilityHighlights[activeFacility].title}
-                    fill
-                    className="object-cover object-center group-hover:scale-104 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+            {/* 4. MAIN EDITORIAL CONTENT (Left Column Overlay over Dark Gradient) */}
+            <div className="relative z-20 px-6 sm:px-10 lg:px-12 py-8 sm:py-12 flex-1 flex flex-col justify-center">
+              <div className="max-w-xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={facilityHighlights[activeFacility].title}
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -18 }}
+                    transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-5"
+                  >
+                    {/* Subtitle Pill */}
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      <span>{facilityHighlights[activeFacility].subtitle}</span>
+                    </div>
 
-                  {/* Floating Live Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-slate-900 shadow-sm backdrop-blur-xs flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      <span>{facilityHighlights[activeFacility].badge}</span>
+                    {/* Main Title */}
+                    <h4 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
+                      {facilityHighlights[activeFacility].title}
+                    </h4>
+
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                      {facilityHighlights[activeFacility].desc}
+                    </p>
+
+                    {/* 3 Technical Specs with Cyan Bullets */}
+                    <div className="space-y-2.5 pt-2">
+                      {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
+                        <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                          <span className="text-cyan-400 font-bold shrink-0 mt-0.5">•</span>
+                          <span>{spec}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Meta Footer: Campus Location Tag & Inquire CTA */}
+                    <div className="pt-6 flex flex-wrap items-center gap-6">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-white/70 uppercase tracking-wider">
+                        <span className="text-rose-400">📍</span>
+                        <span>{facilityHighlights[activeFacility].location}</span>
+                      </span>
+
+                      <button
+                        onClick={onOpenQuery}
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition-colors group cursor-pointer"
+                      >
+                        <span>Inquire About Facility</span>
+                        <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* 5. BOTTOM-RIGHT HUD CONTROLS & SUB-CAPTION */}
+            <div className="relative z-20 px-6 sm:px-10 lg:px-12 pb-6 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-4">
+              {/* Optional sub-caption */}
+              <div className="hidden sm:block text-white/40 text-[11px] font-mono tracking-wider">
+                {facilityHighlights[activeFacility].subtitle} | {facilityHighlights[activeFacility].title}
+              </div>
+
+              {/* Floating Glassmorphic HUD Card */}
+              <div className="flex items-center gap-3">
+                <div className="bg-black/55 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-center justify-between gap-6 min-w-[290px] sm:min-w-[360px]">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
+                      {facilityHighlights[activeFacility].subtitle}
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white block mt-0.5 line-clamp-1">
+                      {facilityHighlights[activeFacility].title}
                     </span>
                   </div>
 
-                  {/* Bottom Caption Overlay */}
-                  <div className="absolute bottom-5 left-5 right-5 text-white z-10 flex items-end justify-between">
-                    <div>
-                      <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
-                        {facilityHighlights[activeFacility].subtitle}
-                      </div>
-                      <h4 className="text-lg sm:text-xl font-bold text-white mt-0.5">
-                        {facilityHighlights[activeFacility].title}
-                      </h4>
+                  <div className="flex items-center gap-4 shrink-0">
+                    {/* Pagination Indicator Dots */}
+                    <div className="flex items-center gap-1.5">
+                      {facilityHighlights.map((_, dotIdx) => (
+                        <button
+                          key={dotIdx}
+                          onClick={() => {
+                            setActiveFacility(dotIdx);
+                            setIsAutoPlaying(false);
+                          }}
+                          aria-label={`Go to facility ${dotIdx + 1}`}
+                          className={`h-2 rounded-full transition-all cursor-pointer ${
+                            activeFacility === dotIdx ? "bg-cyan-400 w-5" : "bg-white/40 hover:bg-white/70 w-2"
+                          }`}
+                        />
+                      ))}
                     </div>
 
-                    <div className="text-xs font-mono font-bold text-white/70">
-                      0{activeFacility + 1} / 0{facilityHighlights.length}
+                    {/* Counter & Arrows */}
+                    <div className="flex items-center gap-2 text-white/80 text-xs font-mono">
+                      <button
+                        onClick={() => {
+                          setActiveFacility((prev) => (prev - 1 + facilityHighlights.length) % facilityHighlights.length);
+                          setIsAutoPlaying(false);
+                        }}
+                        aria-label="Previous facility"
+                        className="hover:text-white p-1 cursor-pointer transition-colors"
+                      >
+                        &lt;
+                      </button>
+                      <span className="font-bold text-white">
+                        0{activeFacility + 1} / 0{facilityHighlights.length}
+                      </span>
+                      <button
+                        onClick={() => {
+                          setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
+                          setIsAutoPlaying(false);
+                        }}
+                        aria-label="Next facility"
+                        className="hover:text-white p-1 cursor-pointer transition-colors"
+                      >
+                        &gt;
+                      </button>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
 
-              {/* Live Auto-Progress Line Indicator */}
-              <div className="absolute -bottom-4 left-0 right-0 h-0.5 bg-zinc-200 rounded-full overflow-hidden">
-                <motion.div
-                  key={activeFacility}
-                  initial={{ width: "0%" }}
-                  animate={{ width: isAutoPlaying ? "100%" : "0%" }}
-                  transition={{ duration: 5.5, ease: "linear" }}
-                  className="h-full bg-blue-600"
-                />
+                {/* Ambient Sparkle */}
+                <div className="hidden lg:block text-white/35 text-2xl font-serif select-none pointer-events-none">
+                  ✦
+                </div>
               </div>
+            </div>
+
+            {/* Live Auto-Progress Line Indicator at the bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 overflow-hidden z-30">
+              <motion.div
+                key={activeFacility}
+                initial={{ width: "0%" }}
+                animate={{ width: isAutoPlaying ? "100%" : "0%" }}
+                transition={{ duration: 5.5, ease: "linear" }}
+                className="h-full bg-cyan-400"
+              />
             </div>
           </div>
 
