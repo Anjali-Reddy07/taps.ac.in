@@ -63,6 +63,7 @@ function TiltCard({
 
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   const [activeTab, setActiveTab] = useState<"vision" | "mission" | "values">("vision");
+  const [hoveredFacility, setHoveredFacility] = useState<number | null>(null);
 
   // 4 Core Official Benchmark Accreditations (from taps.ac.in)
   const accreditations = [
@@ -205,33 +206,37 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
   ];
 
-  // 4 Facilities
+  // 4 Facilities for Expanding Strips Accordion
   const facilityHighlights = [
     {
-      badge: "TECH LAB 01",
+      num: "01",
+      badge: "01 / TECH LAB",
       title: "Computer Applications Lab",
-      subtitle: "Cloud & AI Computing Nodes",
+      subtitle: "CLOUD & AI COMPUTING NODES",
       spec: "High-performance virtualization clusters, dedicated GPU rigs & 24/7 gigabit fiber network.",
       image: "/images/drive/computer-lab.jpg",
     },
     {
-      badge: "ACADEMICS 02",
+      num: "02",
+      badge: "02 / ACADEMICS",
       title: "Smart Lecture Amphitheatres",
-      subtitle: "Interactive Computing Theatres",
+      subtitle: "INTERACTIVE COMPUTING THEATRES",
       spec: "Multimedia smart theatres, acoustic lecture halls & interactive presentation consoles.",
       image: "/images/drive_third/ClassRooms_Academic.JPG",
     },
     {
-      badge: "RESEARCH 03",
+      num: "03",
+      badge: "03 / RESEARCH",
       title: "Central Research Library",
-      subtitle: "Digital & Physical Archives",
+      subtitle: "DIGITAL & PHYSICAL ARCHIVES",
       spec: "Over 70,000 reference volumes, IEEE / ScienceDirect subscriptions & air-conditioned study pods.",
       image: "/images/drive_third/Library_Library.JPG",
     },
     {
-      badge: "ATHLETICS 04",
+      num: "04",
+      badge: "04 / ATHLETICS",
       title: "Athletic Meet Grounds & Arena",
-      subtitle: "Full-Track Sports Complex",
+      subtitle: "FULL-TRACK SPORTS COMPLEX",
       spec: "Multi-sport athletic grounds, sprint tracks, basketball courts & recreational greens.",
       image: "/images/drive_third/Sports_IMG20260205104055.jpg",
     },
@@ -749,72 +754,135 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </Link>
           </div>
 
-          {/* 4-Column Sleek Facility Image Cards with Aspect-Ratio, Smooth Scale-Up & Refined Bottom Scrim */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {facilityHighlights.map((facility, idx) => (
-              <motion.div
-                key={facility.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="group relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-zinc-200/90 bg-zinc-950 shadow-md hover:shadow-2xl hover:border-black transition-all duration-500"
-              >
-                {/* Background Image with Smooth Scale-up on Hover */}
-                <Image
-                  src={facility.image}
-                  alt={facility.title}
-                  fill
-                  className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out filter grayscale-[15%] group-hover:grayscale-0"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
+          {/* Interactive Horizontal Accordion (Expanding Strips, Zero Margin/Gap, No Outer Card Borders) */}
+          <div
+            onMouseLeave={() => setHoveredFacility(null)}
+            className="relative w-full h-[600px] md:h-[560px] rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl bg-zinc-950"
+          >
+            {facilityHighlights.map((facility, idx) => {
+              const isExpanded = hoveredFacility === idx;
+              const hasHover = hoveredFacility !== null;
+              const flexValue = hasHover ? (isExpanded ? 3 : 0.8) : 1;
 
-                {/* Subtle Hover Darkening Overlay */}
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-500 pointer-events-none" />
+              return (
+                <div
+                  key={facility.title}
+                  onMouseEnter={() => setHoveredFacility(idx)}
+                  onClick={() => setHoveredFacility(isExpanded ? null : idx)}
+                  style={{
+                    flex: flexValue,
+                    transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                  className={`group relative overflow-hidden cursor-pointer flex flex-col justify-between p-6 sm:p-8 select-none border-b md:border-b-0 md:border-r border-white/10 last:border-0 ${
+                    isExpanded ? "min-h-[260px] md:min-h-0" : "min-h-[85px] md:min-h-0"
+                  }`}
+                >
+                  {/* Background Image with Smooth Scale */}
+                  <Image
+                    src={facility.image}
+                    alt={facility.title}
+                    fill
+                    className={`object-cover object-center filter transition-all duration-700 ease-out ${
+                      isExpanded
+                        ? "scale-105 grayscale-0 brightness-100"
+                        : "scale-100 grayscale-[20%] brightness-90 group-hover:grayscale-0"
+                    }`}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
 
-                {/* Top Ambient Scrim for Floating Badge */}
-                <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent pointer-events-none" />
+                  {/* Subtle Dark Gradient Overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+                    style={{
+                      background: isExpanded
+                        ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.1) 100%)"
+                        : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%)",
+                    }}
+                  />
 
-                {/* Top Floating Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="bg-white/95 backdrop-blur-md text-zinc-950 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm border border-white/20">
-                    {facility.badge}
-                  </span>
-                </div>
-
-                {/* Refined Gradient Bottom Scrim for High-Contrast Legible Captions */}
-                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/70 via-50% to-transparent pointer-events-none" />
-
-                {/* Caption Content Directly on the Bottom Scrim */}
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 flex flex-col justify-end text-white">
-                  <div className="text-[11px] uppercase tracking-widest text-zinc-300 font-semibold mb-1">
-                    {facility.subtitle}
-                  </div>
-
-                  <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug group-hover:text-cyan-200 transition-colors">
-                    {facility.title}
-                  </h4>
-
-                  <p className="text-xs text-zinc-300 mt-1.5 font-light leading-relaxed line-clamp-2">
-                    {facility.spec}
-                  </p>
-
-                  {/* Micro-interaction arrow reveal */}
-                  <div className="pt-3 flex items-center justify-between border-t border-white/15 mt-3">
-                    <span className="text-[11px] font-semibold text-zinc-200 uppercase tracking-wider">
-                      Infocity Campus
+                  {/* Top Badge ("01 / TECH LAB", "02 / ACADEMICS", etc.) */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-widest uppercase bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-md">
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                          isExpanded ? "bg-cyan-400 animate-pulse" : "bg-zinc-400 group-hover:bg-cyan-400"
+                        }`}
+                      />
+                      {facility.badge}
                     </span>
-                    <div className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-white text-white group-hover:text-black flex items-center justify-center transition-all duration-300 group-hover:translate-x-1 shrink-0 active:scale-95">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+
+                    <span
+                      className={`text-xs font-mono font-bold transition-colors duration-300 hidden sm:inline-block ${
+                        isExpanded ? "text-cyan-300" : "text-zinc-400"
+                      }`}
+                    >
+                      {facility.num}
+                    </span>
+                  </div>
+
+                  {/* Bottom Content Area */}
+                  <div className="relative z-10 flex flex-col justify-end text-white overflow-hidden">
+                    
+                    {/* Sub-Category Tag: Reveals on Expand with Smooth Slide-Up */}
+                    <div
+                      style={{
+                        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                        opacity: isExpanded ? 1 : 0,
+                        transform: isExpanded ? "translateY(0)" : "translateY(10px)",
+                        maxHeight: isExpanded ? "28px" : "0px",
+                      }}
+                      className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold mb-1 overflow-hidden"
+                    >
+                      {facility.subtitle}
                     </div>
+
+                    {/* Facility Title: Always Visible */}
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
+                      {facility.title}
+                    </h4>
+
+                    {/* Full Descriptive Copy: Collapses when not active, reveals on expand */}
+                    <div
+                      style={{
+                        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                        opacity: isExpanded ? 1 : 0,
+                        transform: isExpanded ? "translateY(0)" : "translateY(14px)",
+                        maxHeight: isExpanded ? "120px" : "0px",
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mt-2 pt-1">
+                        {facility.spec}
+                      </p>
+                    </div>
+
+                    {/* Campus Location Tag & Action Arrow Button: Reveals on Expand */}
+                    <div
+                      style={{
+                        transition: "all 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+                        opacity: isExpanded ? 1 : 0,
+                        transform: isExpanded ? "translateY(0)" : "translateY(14px)",
+                        maxHeight: isExpanded ? "60px" : "0px",
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-3.5 mt-3 border-t border-white/20 flex items-center justify-between">
+                        <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-200 font-semibold">
+                          INFOCITY CAMPUS
+                        </span>
+
+                        <div className="w-8 h-8 rounded-full bg-white text-zinc-950 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform duration-200">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
