@@ -171,37 +171,29 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
       id="programmes" 
       className="relative py-20 sm:py-24 lg:py-28 bg-transparent overflow-hidden"
     >
-      {/* Lightly Shaded Contrast Mask & Dynamic Ambient React Bits <GhostFibers /> Canvas */}
+      {/* Dynamic Ambient React Bits <GhostFibers /> Animated Canvas */}
       <div 
         className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden"
         aria-hidden="true"
       >
-        {/* Soft atmospheric shaded mask: lightly deepens contrast across the stage */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/12 via-indigo-950/18 to-purple-950/14 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/10 via-transparent to-slate-900/10 pointer-events-none" />
-
         <GhostFibers
-          glowColor="#7c3aed"
-          secondaryColor="#2563eb"
-          lineColor="#4f46e5"
+          glowColor="#8b5cf6"
+          secondaryColor="#3b82f6"
+          lineColor="#6366f1"
           gradient="depth"
           layers={3}
           twist={1.2}
-          threads={84}
-          density={1.2}
-          thickness={1.35}
+          threads={72}
           fiberStyle="dots"
-          depthOfField={0.8}
+          depthOfField={0.85}
           hoverEffect="focus"
           intro={true}
           mouseInteraction={true}
           lightMode={true}
-          brightness={1.4}
-          glow={1.1}
-          sparkle={0.8}
-          vignette={0.1}
+          brightness={0.85}
+          vignette={0}
           grain={0}
-          className="w-full h-full opacity-90"
+          className="w-full h-full opacity-65"
         />
       </div>
 
