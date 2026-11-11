@@ -378,39 +378,60 @@ export default function AboutPage() {
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
           </div>
 
-          {/* Top Bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-10 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-white border border-white/20 shadow-md">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
+          {/* Top Bar & Relevant Institutional Header inside Showcase */}
+          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pt-8 sm:pt-12 flex flex-col md:flex-row md:items-start justify-between gap-6 pointer-events-none">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-white/10 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md mb-3">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
+              </div>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight drop-shadow-md">
+                Trident Academy of Professional Studies
+              </h1>
+              <p className="text-xs sm:text-sm text-slate-300 mt-2 font-normal leading-relaxed max-w-xl drop-shadow-sm">
+                Odisha&apos;s No. 1 private BCA &amp; BBA institution — 11-acre Infocity Technoplex in continuous 3D photographic motion.
+              </p>
             </div>
-            <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
-              CONTINUOUS 3D MOTION HELIX • DRAG TO INTERACT
+
+            <div className="flex flex-col items-start md:items-end gap-3 pointer-events-auto">
+              <div className="text-xs font-mono text-white/80 tracking-widest bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-md">
+                CONTINUOUS 3D MOTION HELIX • DRAG TO INTERACT
+              </div>
+              <a
+                href="#campus-slides"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/80 hover:bg-blue-600 text-white text-xs font-mono font-semibold transition-all duration-200 border border-blue-400/40 shadow-lg cursor-pointer hover:scale-105 active:scale-95"
+              >
+                <span>View Campus Slides Below</span>
+                <span className="text-sm">↓</span>
+              </a>
             </div>
           </div>
 
           {/* Bottom Footer Bar inside Showcase */}
-          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
-            <span>16 REAL CAMPUS MOMENTS IN PERSPECTIVE</span>
-            <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
-            <span>TECHNOPLEX ARCHIVES</span>
+          <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex flex-wrap items-center justify-between gap-4 text-white/70 text-xs font-mono tracking-wider pointer-events-none">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>16 AUTHENTIC TECHNOPLEX LOCATIONS</span>
+            </div>
+            <span className="animate-pulse text-cyan-400 hidden sm:inline">✦ ✦ ✦</span>
+            <span>INFOCITY IT HUB, CHANDAKA INDUSTRIAL ESTATE, BHUBANESWAR</span>
           </div>
         </section>
 
         {/* 2ND SECTION: NORMAL IMAGE SLIDES (EACH AFTER 5 SECONDS) */}
         <section id="campus-slides" className="relative w-full py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-[#070D21] to-[#04091A] text-white border-b border-slate-800 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
-            {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            {/* Header with Relevant Text */}
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-cyan-300 mb-3 bg-cyan-950/70 border border-cyan-500/30 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                CAMPUS SHOWCASE • 5S AUTO-SLIDES
+                ACADEMIC INFRASTRUCTURE • 5S AUTO-SLIDES
               </div>
               <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
-                Campus Highlights &amp; Academic Life
+                Campus Highlights &amp; Facilities
               </h2>
               <p className="text-sm sm:text-base text-slate-300 mt-3 font-normal leading-relaxed max-w-2xl mx-auto">
-                Explore our 11-acre Infocity Technoplex — featuring modern computing labs, smart amphitheatres, central DELNET library, and athletic grounds.
+                Auto-advancing every 5 seconds — exploring Eastern India&apos;s benchmark learning infrastructure across our 11-acre flagship Technoplex in Bhubaneswar.
               </p>
             </div>
 
