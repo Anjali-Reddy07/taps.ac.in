@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring, type Variants } from "framer-motion";
+import Lanyard from "./Lanyard";
 
 interface AlumnusTestimonial {
   id: string;
@@ -386,7 +387,7 @@ export default function TactTestimonials() {
                       </div>
                     </div>
 
-                    {/* Alumnus Avatar & Credentials */}
+                    {/* Alumnus 3D Physics Lanyard Badge & Credentials */}
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={current.id}
@@ -396,44 +397,68 @@ export default function TactTestimonials() {
                         exit="exit"
                         className="space-y-4"
                       >
-                        {/* High-Tech Avatar with Rotating Aura */}
-                        <div className="relative inline-block group">
-                          {/* Animated Gradient Glow Ring */}
-                          <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                            className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 opacity-60 blur-xs"
+                        {/* 3D Interactive Lanyard Physical Hanging ID Badge (React Bits) */}
+                        <div className="relative w-full h-[270px] sm:h-[290px] rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-100/50 via-slate-100/30 to-white/60 border border-indigo-150/80 shadow-inner group">
+                          {/* 3D Lanyard Component */}
+                          <Lanyard
+                            frontImage={current.image}
+                            backImage="/images/tact-logo.png"
+                            cardColor="#ffffff"
+                            orientation="portrait"
+                            finish="holographic"
+                            metal="silver"
+                            strapColor="#1e3a8a"
+                            size={0.72}
+                            strapLength={0.42}
+                            strapWidth={0.7}
+                            interactive={true}
+                            breeze={0.45}
+                            gravity={1}
+                            damping={0.5}
+                            elasticity={0.55}
+                            className="w-full h-full"
                           />
-                          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white border border-indigo-150 bg-slate-900">
+
+                          {/* Top Hanging Rivet Fixture (Aesthetic Anchor Accent) */}
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-2 bg-slate-800 rounded-b-md shadow-sm pointer-events-none z-10" />
+
+                          {/* Subtle Interactive Instruction Pill */}
+                          <div className="absolute bottom-2 inset-x-0 flex items-center justify-center pointer-events-none z-10">
+                            <span className="text-[10px] font-mono font-semibold text-slate-500 bg-white/90 backdrop-blur-md px-3 py-0.5 rounded-full border border-indigo-150 shadow-2xs">
+                              ✦ Drag, Toss or Click to Flip 3D Badge
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Name & Title with Verified Thumbnail Avatar */}
+                        <div className="flex items-start gap-3 pt-1">
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 ring-2 ring-indigo-200 border border-white shadow-sm bg-slate-900 mt-0.5">
                             <Image
                               src={current.image}
                               alt={current.name}
                               fill
-                              priority
-                              className="object-cover object-top group-hover:scale-108 transition-transform duration-700 ease-out"
-                              sizes="120px"
+                              className="object-cover object-top"
+                              sizes="48px"
                             />
+                            {/* Verified Badge Check */}
+                            <div className="absolute -bottom-0.5 -right-0.5 bg-blue-600 text-white rounded-full p-0.5 border border-white">
+                              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
                           </div>
 
-                          {/* Verified Blue Badge */}
-                          <div className="absolute -bottom-1.5 -right-1.5 bg-blue-600 text-white rounded-full p-1 shadow-md border-2 border-white flex items-center justify-center">
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                            </svg>
+                          <div className="flex-1">
+                            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
+                              {current.name}
+                            </h3>
+                            <p className="text-xs sm:text-sm font-semibold text-blue-700 mt-0.5">
+                              {current.designation}
+                            </p>
+                            <p className="text-xs text-slate-600 font-medium">
+                              {current.company}
+                            </p>
                           </div>
-                        </div>
-
-                        {/* Name & Title */}
-                        <div>
-                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
-                            {current.name}
-                          </h3>
-                          <p className="text-xs sm:text-sm font-semibold text-blue-700 mt-1">
-                            {current.designation}
-                          </p>
-                          <p className="text-xs text-slate-600 font-medium">
-                            {current.company}
-                          </p>
                         </div>
 
                         {/* Batch Degree Pill */}
