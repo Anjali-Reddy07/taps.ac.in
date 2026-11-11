@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import InfiniteSpiral from "@/components/InfiniteSpiral";
+import NormalImageSlider, { SlideItem } from "@/components/NormalImageSlider";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -132,6 +133,66 @@ export default function AboutPage() {
     { src: "/images/drive_fourth/web_dev_seminar.png", alt: "Web & IoT Tech Colloquium", label: "Developer Workshops" },
     { src: "/images/drive/innovation-mela.png", alt: "Innovation Mela Showcase", label: "Student Innovations" },
     { src: "/images/drive/campus-grounds.jpg", alt: "Landscaped Technoplex Quad", label: "Technoplex Lawns" },
+  ];
+
+  // Normal Image Slides (auto-advancing each after 5 seconds)
+  const aboutNormalSlides: SlideItem[] = [
+    {
+      src: "/images/drive_fourth/campus_exterior_1.jpg",
+      tag: "CAMPUS ARCHITECTURE",
+      subtitle: "11-Acre Technoplex Campus Complex",
+      title: "State-of-the-Art Academic Infrastructure",
+      description: "Our modern four-storeyed academic facility situated in the heart of Infocity IT Corridor, Chandaka Industrial Estate, flanked by global tech giants.",
+    },
+    {
+      src: "/images/drive/computer-lab.jpg",
+      tag: "COMPUTING & AI LABS",
+      subtitle: "Enterprise Systems & Cloud Computing",
+      title: "High-Density Cloud Virtualization Hub",
+      description: "Equipped with high-performance desktop terminals, gigabit fiber optic network, and specialized computing clusters for BCA scholars.",
+    },
+    {
+      src: "/images/drive_third/ClassRooms_Academic.JPG",
+      tag: "ACADEMIC THEATRES",
+      subtitle: "CBCS Mentored Lecture Amphitheatres",
+      title: "Multimedia Tiered Smart Amphitheatres",
+      description: "Acoustically treated tiered lecture theatres engineered with interactive instructor consoles and digital presentation hubs for immersive learning.",
+    },
+    {
+      src: "/images/drive_third/Library_Library.JPG",
+      tag: "CENTRAL RESEARCH LIBRARY",
+      subtitle: "70,000+ Volumes & Digital Repositories",
+      title: "Central DELNET & IEEE Stacks",
+      description: "Vast archival reference collections, automated OPAC search, digital resource terminals, and direct access to international research publications.",
+    },
+    {
+      src: "/images/drive_third/Sports_IMG20260205104055.jpg",
+      tag: "ATHLETICS & SPORTS",
+      subtitle: "Multi-Discipline Sports Arena",
+      title: "Full-Track Athletic Grounds & Arena",
+      description: "Expansive multi-discipline sports complex hosting annual athletic meets, inter-collegiate tournaments, volleyball, and wellness recreational greens.",
+    },
+    {
+      src: "/images/drive_fourth/hack_day.png",
+      tag: "STUDENT INNOVATION",
+      subtitle: "Flagship Programming Chapter",
+      title: "National Hack Day & Algorithmic Sprints",
+      description: "24-hour hackathons and software prototyping sprints where students build creative real-world solutions under faculty and industry mentorship.",
+    },
+    {
+      src: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+      tag: "CAMPUS ENVIRONMENT",
+      subtitle: "Infocity Green Tech Corridor",
+      title: "Sunset Promenade & Colonnades",
+      description: "Symmetrical paved walkways flanked by lush green landscape and royal palms, creating an inspiring environment for student transformation.",
+    },
+    {
+      src: "/images/drive_second/Activities.jpg",
+      tag: "CULTURAL FORUM",
+      subtitle: "Student Societies & Creative Expression",
+      title: "Annual Trifest Cultural Celebration",
+      description: "Vibrant annual cultural extravaganzas, musical concerts, youth forums, and community outreach campaigns fostering holistic leadership.",
+    },
   ];
 
   const pillars = [
@@ -285,14 +346,14 @@ export default function AboutPage() {
 
       <main className="flex-1">
         
-        {/* 1ST SECTION: 3D INFINITE SPIRAL MOTION HERO (CLEAN, NO HEADING TEXT) */}
+        {/* 1ST SECTION: 3D INFINITE SPIRAL MOTION HERO (CLEAN, CONTINUOUS INFINITE LOOP) */}
         <section className="relative w-full overflow-hidden min-h-[85vh] sm:min-h-[90vh] lg:min-h-[95vh] bg-slate-950 border-b border-slate-800/80 shadow-2xl flex flex-col justify-between">
           {/* Background 3D Infinite Spiral */}
           <div className="absolute inset-0 z-0">
             <InfiniteSpiral
               items={spiralItems}
               animationMode="all"
-              speed={0.45}
+              speed={0.52}
               radius={380}
               cardWidth={195}
               cardHeight={138}
@@ -303,7 +364,7 @@ export default function AboutPage() {
               edgeBlur={5}
               edgeFade={0.3}
               cardsPerTurn={8}
-              pauseOnHover={true}
+              pauseOnHover={false}
               className="w-full h-full"
             />
             {/* Cinematic Radial Vignettes */}
@@ -324,15 +385,37 @@ export default function AboutPage() {
               <span>TACT TRUST • ESTD. 2000 • UTKAL UNIVERSITY</span>
             </div>
             <div className="text-xs font-mono text-white/70 tracking-widest hidden sm:block bg-black/40 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
-              DRAG • SCROLL • HOVER TO INTERACT
+              CONTINUOUS 3D MOTION HELIX • DRAG TO INTERACT
             </div>
           </div>
 
           {/* Bottom Footer Bar inside Showcase */}
           <div className="relative z-10 px-6 sm:px-14 lg:px-20 pb-8 sm:pb-10 flex items-center justify-between text-white/60 text-xs font-mono tracking-wider pointer-events-none">
-            <span>16 REAL CAMPUS MOMENTS IN 3D PERSPECTIVE</span>
+            <span>16 REAL CAMPUS MOMENTS IN PERSPECTIVE</span>
             <span className="animate-pulse text-cyan-400">✦ ✦ ✦</span>
             <span>TECHNOPLEX ARCHIVES</span>
+          </div>
+        </section>
+
+        {/* 2ND SECTION: NORMAL IMAGE SLIDES (EACH AFTER 5 SECONDS) */}
+        <section id="campus-slides" className="relative w-full py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-[#070D21] to-[#04091A] text-white border-b border-slate-800 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-cyan-300 mb-3 bg-cyan-950/70 border border-cyan-500/30 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                CAMPUS SHOWCASE • 5S AUTO-SLIDES
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+                Campus Highlights &amp; Academic Life
+              </h2>
+              <p className="text-sm sm:text-base text-slate-300 mt-3 font-normal leading-relaxed max-w-2xl mx-auto">
+                Explore our 11-acre Infocity Technoplex — featuring modern computing labs, smart amphitheatres, central DELNET library, and athletic grounds.
+              </p>
+            </div>
+
+            {/* Normal Image Slider (each after 5 sec) */}
+            <NormalImageSlider slides={aboutNormalSlides} interval={5000} />
           </div>
         </section>
 
