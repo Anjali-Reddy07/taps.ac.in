@@ -33,9 +33,7 @@ export default function Home() {
         <TactAdmissionsBar onOpenQuery={() => setIsModalOpen(true)} />
 
         {/* SECTION 3: ABOUT US (TAPS Institutional Profile, Vision & Mission Cards) */}
-        <AnimatedBackground variant="light">
-          <TactAbout onOpenQuery={() => setIsModalOpen(true)} />
-        </AnimatedBackground>
+        <TactAbout onOpenQuery={() => setIsModalOpen(true)} />
 
         {/* SECTION 4: PROGRAMMES OFFERED (01 BCA, 02 BBA) */}
         <AnimatedBackground variant="light" className="border-y border-indigo-100">

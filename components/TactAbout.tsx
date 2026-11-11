@@ -277,20 +277,47 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   }, [isAutoPlaying, facilityHighlights.length]);
 
   return (
-    <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      {/* 1. SOFT PASTEL AMBIENT BACKGROUND (Matched exactly with UI mockup) */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute top-12 -left-20 w-[550px] h-[550px] rounded-full bg-pink-200/40 blur-[120px] select-none" 
-      />
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute top-20 -right-20 w-[620px] h-[620px] rounded-full bg-sky-200/40 blur-[130px] select-none" 
-      />
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none absolute bottom-10 right-1/4 w-[480px] h-[480px] rounded-full bg-purple-200/25 blur-[120px] select-none" 
-      />
+    <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
+      {/* 1. SOFT PASTEL AMBIENT BACKGROUND CANVAS (Matched 100% with Figma/Dribbble UI Mockup) */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10" aria-hidden="true">
+        {/* Left Organic Pastel-Pink & Rose Aura Curve (Distinct, Visible Curved Boundary) */}
+        <div 
+          className="absolute -top-12 -left-28 sm:-left-20 w-[560px] sm:w-[640px] h-[740px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse at 38% 46%, rgba(244, 114, 182, 0.44) 0%, rgba(249, 168, 212, 0.32) 36%, rgba(253, 232, 241, 0.18) 62%, transparent 78%)",
+            filter: "blur(44px)",
+          }}
+        />
+
+        {/* Top-Right Luminous Sky-Blue, Cyan & Soft Lavender Aurora Glow (Wraps around Campus Photo) */}
+        <div 
+          className="absolute -top-16 -right-20 sm:-right-12 w-[680px] sm:w-[780px] h-[720px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at 62% 38%, rgba(56, 189, 248, 0.46) 0%, rgba(34, 211, 238, 0.35) 28%, rgba(129, 140, 248, 0.28) 52%, rgba(192, 132, 252, 0.18) 72%, transparent 84%)",
+            filter: "blur(48px)",
+          }}
+        />
+
+        {/* Mid/Bottom-Right Cyan-Teal & Soft Purple Ambient Pool (Wraps around Frosted Vision Card) */}
+        <div 
+          className="absolute top-[380px] -right-16 sm:right-[-40px] w-[580px] h-[540px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at 55% 50%, rgba(45, 212, 191, 0.35) 0%, rgba(56, 189, 248, 0.24) 45%, rgba(167, 139, 250, 0.16) 68%, transparent 82%)",
+            filter: "blur(46px)",
+          }}
+        />
+
+        {/* Delicate Ambient Sparkles from Mockup */}
+        <div className="absolute top-20 right-14 text-sky-400/70 text-lg font-serif select-none pointer-events-none animate-pulse">
+          ✦
+        </div>
+        <div className="absolute top-[480px] right-8 text-purple-400/60 text-sm font-serif select-none pointer-events-none">
+          ✦
+        </div>
+        <div className="absolute top-[680px] right-1/4 text-cyan-400/50 text-base font-serif select-none pointer-events-none animate-pulse">
+          ✦
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
