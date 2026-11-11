@@ -13,7 +13,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showReel, setShowReel] = useState(true);
 
-  // Curated High-Definition Drive Photographs
+  // Curated High-Definition Drive Photographs: Balanced mix of Campus Architecture, Students, Culturals & Programs
   const slides = [
     {
       eyebrow: "TACT(U) • ESTD. 2000",
@@ -21,44 +21,53 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       subheadline:
         "Where Ambition Finds Its Direction • Premier BBA & BCA Programs under Utkal University",
       image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
-      tag: "CAMPUS PROMENADE",
-      location: "Infocity, Bhubaneswar",
+      tag: "CAMPUS ARCHITECTURE & PROMENADE",
+      location: "11-Acre Technoplex, Infocity",
     },
     {
-      eyebrow: "UTKAL UNIVERSITY AFFILIATED",
-      headline: "Where Academic Rigor Meets Leadership",
+      eyebrow: "ACADEMIC EXCELLENCE & CBCS",
+      headline: "Empowering Next-Gen Technocrats & Leaders",
       subheadline:
-        "AICTE Approved & Permanently Recognized by Higher Education Dept, Govt. of Odisha • 25+ Years of Educational Excellence",
-      image: "/images/drive_new/1746352355680.jpg",
-      tag: "CENTRAL PROMENADE & ARCHITECTURE",
-      location: "Infocity Campus",
+        "Interactive Tiered Amphitheatres, Case Study Pedagogy & Faculty-Mentored Undergraduate Learning for BCA & BBA",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
+      tag: "STUDENTS IN MULTIMEDIA AMPHITHEATRE",
+      location: "Academic Lecture Theatres",
     },
     {
-      eyebrow: "SCHOOL OF COMPUTING (BCA)",
-      headline: "Cutting-Edge Computer Applications",
+      eyebrow: "TECHNICAL PROGRAMS & HACKATHONS",
+      headline: "24-Hour Hackathons & Software Sprints",
       subheadline:
-        "High-Performance Cloud Labs, Full-Stack Software Engineering, AI Foundational Tracks & 24/7 Gigabit Fiber Network",
-      image: "/images/drive_new/1721020760290.jpg",
-      tag: "BLOCK-4 COMPUTING WING",
+        "High-Performance Cloud Labs, Full-Stack Software Engineering, AI Foundational Tracks & Algorithmic Challenges",
+      image: "/images/drive_fourth/hack_day.png",
+      tag: "APPER CODING CLUB & HACKATHONS",
       location: "Technology Cluster",
     },
     {
-      eyebrow: "INFOCITY CAMPUS LIFE",
-      headline: "Holistic Student Growth & Athletics",
+      eyebrow: "ANNUAL TRIFEST EXTRAVAGANZA",
+      headline: "Vibrant Campus Spirit & Cultural Arts",
       subheadline:
-        "Floodlit Basketball Arena, Multi-Sport Grounds, Open-Air Yoga Pavilions & High-Energy Cultural Fests",
-      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
-      tag: "SPORTS ARENA & ATRIUM",
-      location: "Twilight Campus View",
+        "Annual Multi-Day Spring Festival Uniting Dance, Music, Theatre, Literary Debates & Inter-Collegiate Celebrations",
+      image: "/images/drive_second/Activities.jpg",
+      tag: "TRIFEST CULTURAL FESTIVAL",
+      location: "Main Stage Arena",
     },
     {
       eyebrow: "CORPORATE SYNERGY & PLACEMENTS",
       headline: "138+ Annual Corporate Recruiters",
       subheadline:
         "Active MoUs with TCS, Infosys, Wipro, Capgemini, Deloitte & 138+ Annual Corporate Recruitment Partners",
-      image: "/images/drive_new/_DSC1852.JPG",
-      tag: "TRAINING & PLACEMENTS (BLOCK-5)",
-      location: "Academic Enclave",
+      image: "/images/drive_third/Placement_DSC_2425.JPG",
+      tag: "CAMPUS PLACEMENT RECRUITMENT SUITES",
+      location: "Block-5 Interview Suites",
+    },
+    {
+      eyebrow: "INFOCITY CAMPUS LIFE & ATHLETICS",
+      headline: "Holistic Student Growth & Sports",
+      subheadline:
+        "Floodlit Basketball Arena, Multi-Sport Grounds, Open-Air Yoga Pavilions & High-Energy Student Community",
+      image: "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
+      tag: "SPORTS ARENA & ATRIUM",
+      location: "Twilight Campus View",
     },
   ];
 
@@ -103,7 +112,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
             "/images/drive_new/1721020760290.jpg",
             "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
-            "/images/drive_new/_DSC1852.JPG",
+            "/images/drive_fourth/hack_day.png",
             "/images/drive_new/418523663_877202237525747_6377361483820920683_n.jpg",
             "/images/drive_new/487841832_17914511076094364_1416184591585353408_n.jpg",
             "/images/drive_third/Placement_DSC_2425.JPG",
