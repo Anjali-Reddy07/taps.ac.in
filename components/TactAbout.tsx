@@ -279,42 +279,61 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
       {/* 1. SOFT PASTEL AMBIENT BACKGROUND CANVAS (Matched 100% with Figma/Dribbble UI Mockup) */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10" aria-hidden="true">
-        {/* Left Organic Pastel-Pink & Rose Aura Curve (Distinct, Visible Curved Boundary) */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0" aria-hidden="true">
+        {/* Left Organic Pastel-Pink & Rose Aura Blob (Curved shape on left matching mockup) */}
         <div 
-          className="absolute -top-12 -left-28 sm:-left-20 w-[560px] sm:w-[640px] h-[740px] rounded-full pointer-events-none"
+          className="absolute -top-12 -left-28 sm:-left-16 w-[560px] sm:w-[650px] h-[780px] pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at 38% 46%, rgba(244, 114, 182, 0.44) 0%, rgba(249, 168, 212, 0.32) 36%, rgba(253, 232, 241, 0.18) 62%, transparent 78%)",
+            borderRadius: "44% 56% 72% 28% / 46% 42% 58% 54%",
+            background: "radial-gradient(circle at 36% 46%, rgba(244, 114, 182, 0.50) 0%, rgba(249, 168, 212, 0.36) 38%, rgba(253, 232, 241, 0.18) 65%, transparent 80%)",
+            filter: "blur(36px)",
+          }}
+        />
+
+        {/* Top-Right Rich Indigo & Purple Aura (Behind & above campus photo) */}
+        <div 
+          className="absolute -top-20 right-[-30px] sm:right-[10px] w-[560px] sm:w-[640px] h-[540px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at 60% 40%, rgba(139, 92, 246, 0.46) 0%, rgba(167, 139, 250, 0.34) 38%, rgba(192, 132, 252, 0.18) 65%, transparent 82%)",
+            filter: "blur(42px)",
+          }}
+        />
+
+        {/* Center-Right Vibrant Cyan & Sky-Blue Aurora Glow (Behind campus photo & between columns) */}
+        <div 
+          className="absolute top-10 right-[-50px] sm:right-[30px] w-[620px] sm:w-[720px] h-[640px] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at 55% 45%, rgba(34, 211, 238, 0.50) 0%, rgba(56, 189, 248, 0.40) 32%, rgba(45, 212, 191, 0.26) 58%, transparent 80%)",
             filter: "blur(44px)",
           }}
         />
 
-        {/* Top-Right Luminous Sky-Blue, Cyan & Soft Lavender Aurora Glow (Wraps around Campus Photo) */}
+        {/* Bottom-Right Aqua, Cyan & Lavender Aura Pool (Wraps around frosted vision card) */}
         <div 
-          className="absolute -top-16 -right-20 sm:-right-12 w-[680px] sm:w-[780px] h-[720px] rounded-full pointer-events-none"
+          className="absolute top-[360px] right-[-50px] sm:right-[10px] w-[580px] sm:w-[680px] h-[580px] rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle at 62% 38%, rgba(56, 189, 248, 0.46) 0%, rgba(34, 211, 238, 0.35) 28%, rgba(129, 140, 248, 0.28) 52%, rgba(192, 132, 252, 0.18) 72%, transparent 84%)",
+            background: "radial-gradient(circle at 50% 50%, rgba(45, 212, 191, 0.44) 0%, rgba(56, 189, 248, 0.34) 36%, rgba(167, 139, 250, 0.26) 62%, transparent 82%)",
+            filter: "blur(40px)",
+          }}
+        />
+
+        {/* Far-Right Ambient Sky Wash */}
+        <div 
+          className="absolute top-0 right-0 w-[460px] h-[1000px] pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse at 100% 40%, rgba(56, 189, 248, 0.32) 0%, rgba(192, 132, 252, 0.20) 45%, transparent 75%)",
             filter: "blur(48px)",
           }}
         />
 
-        {/* Mid/Bottom-Right Cyan-Teal & Soft Purple Ambient Pool (Wraps around Frosted Vision Card) */}
-        <div 
-          className="absolute top-[380px] -right-16 sm:right-[-40px] w-[580px] h-[540px] rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle at 55% 50%, rgba(45, 212, 191, 0.35) 0%, rgba(56, 189, 248, 0.24) 45%, rgba(167, 139, 250, 0.16) 68%, transparent 82%)",
-            filter: "blur(46px)",
-          }}
-        />
-
         {/* Delicate Ambient Sparkles from Mockup */}
-        <div className="absolute top-20 right-14 text-sky-400/70 text-lg font-serif select-none pointer-events-none animate-pulse">
+        <div className="absolute top-20 right-14 text-sky-400 text-xl font-serif select-none pointer-events-none animate-pulse drop-shadow-sm">
           ✦
         </div>
-        <div className="absolute top-[480px] right-8 text-purple-400/60 text-sm font-serif select-none pointer-events-none">
+        <div className="absolute top-[460px] right-8 text-purple-400 text-sm font-serif select-none pointer-events-none drop-shadow-sm">
           ✦
         </div>
-        <div className="absolute top-[680px] right-1/4 text-cyan-400/50 text-base font-serif select-none pointer-events-none animate-pulse">
+        <div className="absolute top-[680px] right-1/4 text-cyan-400 text-base font-serif select-none pointer-events-none animate-pulse drop-shadow-sm">
           ✦
         </div>
       </div>
