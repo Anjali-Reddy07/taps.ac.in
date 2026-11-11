@@ -47,83 +47,89 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
           </p>
         </div>
 
-        {/* 3 Large Stat Counters with subtle floating effect */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 max-w-4xl mx-auto mb-14 divide-y sm:divide-y-0 sm:divide-x divide-indigo-900/60 bg-[#0B132E]/90 border border-indigo-900/70 rounded-2xl p-6 sm:p-8 backdrop-blur-md shadow-2xl animate-float">
-          {stats.map((st, idx) => (
-            <div key={st.label} className="text-center py-4 sm:py-2 px-4 group">
-              <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-1 font-serif bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                <SpeedometerCounter
-                  value={st.value}
-                  duration={2.0}
-                  delay={0.1 + idx * 0.15}
-                  maxBlur={8}
-                  className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
-                  suffixClassName="text-cyan-300"
-                />
+        {/* Cardless Holographic 3-Stat Stream (No rigid box border) */}
+        <div className="relative max-w-4xl mx-auto mb-16">
+          <div className="absolute inset-0 bg-blue-600/10 blur-[90px] rounded-full pointer-events-none" />
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-indigo-800/40 relative z-10 py-6">
+            {stats.map((st, idx) => (
+              <div key={st.label} className="text-center py-4 sm:py-2 px-6 group">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-1 font-serif bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <SpeedometerCounter
+                    value={st.value}
+                    duration={2.0}
+                    delay={0.1 + idx * 0.15}
+                    maxBlur={8}
+                    className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
+                    suffixClassName="text-cyan-300"
+                  />
+                </div>
+                <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-blue-100 mb-1">
+                  {st.label}
+                </div>
+                <div className="text-xs sm:text-sm text-indigo-200/80 font-normal">
+                  {st.sub}
+                </div>
               </div>
-              <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-blue-100 mb-1">
-                {st.label}
-              </div>
-              <div className="text-xs sm:text-sm text-indigo-200/80 font-normal">
-                {st.sub}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Training & Placement Tower Spotlight */}
-        <div className="max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden border border-indigo-900/70 bg-[#0B132E]/90 backdrop-blur-md shadow-2xl grid grid-cols-1 md:grid-cols-12 items-stretch group hover-lift">
-          <div className="md:col-span-5 relative min-h-[260px] md:min-h-full overflow-hidden">
-            <Image
-              src="/images/drive_new/_DSC1852.JPG"
-              alt="Trident Training & Placement Block-5"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              sizes="(max-width: 768px) 100vw, 40vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent via-[#0B132E]/40 to-[#0B132E] pointer-events-none" />
-            <div className="absolute top-4 left-4 z-10">
-              <span className="bg-blue-600/95 text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
-                Block-5 Placement Hub
-              </span>
-            </div>
-          </div>
-
-          <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-2">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                Industry-Academic Synergy
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-2.5">
-                Dedicated Training &amp; Placement Cell
-              </h3>
-              <p className="text-xs sm:text-sm text-indigo-200/90 leading-relaxed font-light mb-4">
-                Operating across the 1st, 4th, and 5th floors of Block-5 alongside the Center for Business Analytics and Sustainability Research, our T&amp;P wing coordinates round-the-year mock technical interviews, aptitude prep, and direct on-campus hiring drives with over 100 corporate recruiters.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <div className="p-3 rounded-xl bg-[#070D21] border border-indigo-900/60">
-                  <div className="text-xs font-semibold text-white">Center for Business Analytics</div>
-                  <div className="text-[11px] text-indigo-300">Live Corporate Projects &amp; Modeling</div>
-                </div>
-                <div className="p-3 rounded-xl bg-[#070D21] border border-indigo-900/60">
-                  <div className="text-xs font-semibold text-white">Tier-1 IT Pipeline</div>
-                  <div className="text-[11px] text-indigo-300">TCS, Infosys, Wipro &amp; Capgemini</div>
-                </div>
+        {/* Cardless Open Training & Placement Tower Spotlight */}
+        <div className="max-w-5xl mx-auto mb-20 relative group">
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/10 to-purple-600/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity pointer-events-none" />
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-5 relative min-h-[280px] md:min-h-[320px] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/drive_new/_DSC1852.JPG"
+                alt="Trident Training & Placement Block-5"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute top-4 left-4 z-10">
+                <span className="bg-blue-600/95 text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
+                  Block-5 Placement Hub
+                </span>
               </div>
             </div>
 
-            <div className="pt-4 mt-5 border-t border-indigo-900/70 flex items-center justify-between text-xs text-indigo-300/80">
-              <span>Trident Placement Consortium</span>
-              <span className="font-mono text-cyan-300 font-bold">138+ Visiting Recruiters</span>
+            <div className="md:col-span-7 flex flex-col justify-between space-y-4">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-indigo-300 uppercase tracking-widest mb-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                  Industry-Academic Synergy
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
+                  Dedicated Training &amp; Placement Cell
+                </h3>
+                <p className="text-xs sm:text-sm text-indigo-200/90 leading-relaxed font-light mb-6">
+                  Operating across the 1st, 4th, and 5th floors of Block-5 alongside the Center for Business Analytics and Sustainability Research, our T&amp;P wing coordinates round-the-year mock technical interviews, aptitude prep, and direct on-campus hiring drives with over 100 corporate recruiters.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="pl-4 py-1 border-l-2 border-cyan-400/60">
+                    <div className="text-xs font-bold text-white">Center for Business Analytics</div>
+                    <div className="text-[11px] text-indigo-300">Live Corporate Projects &amp; Modeling</div>
+                  </div>
+                  <div className="pl-4 py-1 border-l-2 border-indigo-400/60">
+                    <div className="text-xs font-bold text-white">Tier-1 IT Pipeline</div>
+                    <div className="text-[11px] text-indigo-300">TCS, Infosys, Wipro &amp; Capgemini</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-indigo-900/60 flex items-center justify-between text-xs text-indigo-300/80">
+                <span>Trident Placement Consortium</span>
+                <span className="font-mono text-cyan-300 font-bold">138+ Visiting Recruiters</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Live Corporate Recruitment Lifecycle Showcase */}
         <div className="mb-16">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-300 uppercase tracking-widest mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
               On-Campus Recruitment Infrastructure
@@ -133,7 +139,7 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 step: "01",
@@ -151,10 +157,10 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
               },
               {
                 step: "03",
-                title: "Corporate Interview Desks",
-                desc: "Dedicated personal interview cabins where recruiters from TCS, Infosys, and Deloitte interact 1-on-1.",
-                img: "/images/drive_third/Placement_DSC_2425.JPG",
-                badge: "Phase 3: Technical & HR",
+                title: "Corporate Recruitment Delegates",
+                desc: "Distinguished corporate HR leads, talent delegates, and technical panels visiting campus.",
+                img: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+                badge: "Phase 3: Executive Interactions",
               },
               {
                 step: "04",
@@ -166,9 +172,9 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
             ].map((item) => (
               <div
                 key={item.step}
-                className="group relative rounded-2xl overflow-hidden border border-indigo-900/70 bg-[#0B132E] shadow-xl hover:border-indigo-400/80 transition-all duration-300 hover-lift-3d card-sheen flex flex-col justify-between"
+                className="group relative transition-all duration-300 flex flex-col justify-between"
               >
-                <div className="relative h-44 w-full overflow-hidden bg-slate-950">
+                <div className="relative h-44 w-full rounded-2xl overflow-hidden shadow-lg group-hover:scale-102 transition-transform duration-500">
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -184,7 +190,7 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
                   </div>
                 </div>
 
-                <div className="p-5 flex-1 flex flex-col justify-between">
+                <div className="pt-4 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="text-[11px] font-mono text-cyan-300 font-bold mb-1">
                       STEP {item.step}

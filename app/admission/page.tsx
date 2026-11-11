@@ -369,8 +369,8 @@ export default function AdmissionPage() {
 
                   <div className="relative h-44 rounded-2xl overflow-hidden border border-zinc-200 shadow-xs group">
                     <Image
-                      src="/images/drive_third/Placement_DSC_2425.JPG"
-                      alt="Academic Counseling & Mentorship"
+                      src="/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg"
+                      alt="Corporate Placement Delegation"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 1024px) 100vw, 25vw"

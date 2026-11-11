@@ -140,12 +140,12 @@ export default function CampusGallery() {
     },
     {
       id: "14",
-      title: "Live Corporate Campus Interview",
+      title: "Corporate Recruitment Delegates & Placement Drive",
       category: "events",
       tag: "Campus Placements",
-      location: "Block-5 Interview Suites",
-      src: "/images/drive_third/Placement_DSC_2425.JPG",
-      description: "Visiting corporate recruiter conducting a one-on-one technical assessment with a final-year candidate.",
+      location: "Main Convention Stage",
+      src: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+      description: "Visiting senior corporate recruitment delegates, HR executives, and industry partners felicitated during annual on-campus hiring drives.",
     },
     {
       id: "15",

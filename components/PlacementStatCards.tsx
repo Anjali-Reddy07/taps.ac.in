@@ -31,23 +31,17 @@ export default function PlacementStatCards({
   className = "",
 }: PlacementStatCardsProps) {
   return (
-    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ${className}`}>
+    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80 py-4 ${className}`}>
       {stats.map((s, idx) => (
         <motion.div
           key={idx}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -10% 0px" }}
           transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ y: -6, transition: { duration: 0.2 } }}
-          className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-blue-500/50 shadow-sm hover:shadow-xl transition-all duration-300 text-center relative overflow-hidden group"
+          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          className="p-6 text-center relative group"
         >
-          {/* Top glowing ambient gradient line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
-          {/* Ambient card back-glow */}
-          <div className="absolute -top-16 -right-16 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors pointer-events-none" />
-
           {/* Speedometer Rolling Counter with Motion Blur */}
           <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 tracking-tight mb-2.5 font-serif group-hover:text-blue-700 transition-colors flex items-center justify-center">
             <SpeedometerCounter

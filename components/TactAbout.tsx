@@ -322,8 +322,8 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   </div>
                 </div>
 
-                {/* 2x2 SLEEK ACCREDITATION PILLS / FEATURE CHIPS WITH ANIMATED SPEEDOMETER COUNTERS & HOVER LIFT */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                {/* Cardless Fluid Accreditation Stream */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
                   {accreditations.map((item, idx) => (
                     <motion.div
                       key={item.title}
@@ -331,34 +331,25 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.45, delay: 0.15 + idx * 0.08 }}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                      whileTap={{ scale: 0.985 }}
-                      className="p-4 rounded-2xl bg-white border border-indigo-100 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-500/15 transition-all duration-300 shadow-xs group cursor-default relative overflow-hidden"
+                      whileHover={{ x: 4 }}
+                      className="pl-4 py-1.5 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default relative"
                     >
-                      {/* Subtle Top Gradient Shimmer on Hover */}
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <div className="flex items-center gap-2.5">
-                          <motion.span 
-                            whileHover={{ rotate: 8, scale: 1.15 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                            className="w-7 h-7 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs"
-                          >
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <div className="flex items-center gap-2">
+                          <span className="w-6 h-6 rounded-md bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
                             {item.icon}
-                          </motion.span>
+                          </span>
                           <h3 className="text-sm font-bold text-slate-950 tracking-tight group-hover:text-blue-700 transition-colors">
                             {item.title}
                           </h3>
                         </div>
                         
-                        {/* Bold Speedometer Motion-Blur Counter Badge */}
-                        <span className="text-lg sm:text-xl font-extrabold text-blue-700 font-serif leading-none tracking-tight shrink-0 bg-blue-50/80 border border-blue-200/60 px-2.5 py-1 rounded-lg shadow-2xs group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <span className="text-xl font-extrabold text-blue-700 font-serif leading-none tracking-tight shrink-0">
                           <SpeedometerCounter value={item.metric} duration={1.6} delay={idx * 0.12} />
                         </span>
                       </div>
 
-                      <p className="text-xs text-slate-600 pl-9 leading-relaxed font-normal">
+                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
                         {item.desc}
                       </p>
                     </motion.div>

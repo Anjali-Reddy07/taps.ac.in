@@ -269,10 +269,10 @@ export default function ProgrammesPage() {
           desc: "Smart presentation suites where corporate leaders, visiting faculty, and scholars debate real-world market cases.",
         },
         {
-          title: "Corporate Interview Suites",
-          subtitle: "One-on-One Technical Assessments",
-          img: "/images/drive_third/Placement_DSC_2425.JPG",
-          desc: "Dedicated glass-partitioned corporate interview rooms equipped for visiting HR teams and live technical evaluations.",
+          title: "Corporate Recruitment Delegates",
+          subtitle: "Executive Industry Placements",
+          img: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+          desc: "Visiting senior corporate recruitment delegates, HR executives, and industry partners felicitated during annual on-campus hiring drives.",
         },
         {
           title: "Executive GD Chambers",
@@ -501,18 +501,18 @@ export default function ProgrammesPage() {
                     Utkal University with comprehensive corporate finishing school training.
                   </p>
 
-                  {/* High-Tech Dual Course Switcher */}
-                  <div className="p-1.5 rounded-2xl bg-zinc-900/90 border border-zinc-700/80 shadow-2xl backdrop-blur-md inline-flex flex-col sm:flex-row gap-1.5 mb-8">
+                  {/* Cardless Floating Dual Degree Switcher */}
+                  <div className="p-1 rounded-full bg-zinc-900/70 border border-zinc-700/60 shadow-lg backdrop-blur-md inline-flex flex-col sm:flex-row gap-1 mb-8">
                     <button
                       onClick={() => setSelectedCourse("bca")}
-                      className={`relative px-5 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
+                      className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
                         selectedCourse === "bca" ? "text-slate-950" : "text-zinc-300 hover:text-white"
                       }`}
                     >
                       {selectedCourse === "bca" && (
                         <motion.div
                           layoutId="activeHeroCourseTab"
-                          className="absolute inset-0 bg-gradient-to-r from-white to-zinc-100 rounded-xl shadow-md"
+                          className="absolute inset-0 bg-white rounded-full shadow-md"
                           transition={{ type: "spring", stiffness: 420, damping: 30 }}
                         />
                       )}
@@ -520,21 +520,21 @@ export default function ProgrammesPage() {
                         <span className="w-2 h-2 rounded-full bg-blue-600" />
                         01. BCA — Computer Applications
                       </span>
-                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900/10 font-bold">
+                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900/10 font-bold">
                         3 Yrs
                       </span>
                     </button>
 
                     <button
                       onClick={() => setSelectedCourse("bba")}
-                      className={`relative px-5 py-3 rounded-xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
+                      className={`relative px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer flex items-center gap-2.5 ${
                         selectedCourse === "bba" ? "text-slate-950" : "text-zinc-300 hover:text-white"
                       }`}
                     >
                       {selectedCourse === "bba" && (
                         <motion.div
                           layoutId="activeHeroCourseTab"
-                          className="absolute inset-0 bg-gradient-to-r from-white to-zinc-100 rounded-xl shadow-md"
+                          className="absolute inset-0 bg-white rounded-full shadow-md"
                           transition={{ type: "spring", stiffness: 420, damping: 30 }}
                         />
                       )}
@@ -542,7 +542,7 @@ export default function ProgrammesPage() {
                         <span className="w-2 h-2 rounded-full bg-purple-600" />
                         02. BBA — Business Administration
                       </span>
-                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900/10 font-bold">
+                      <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900/10 font-bold">
                         4 Yrs NEP
                       </span>
                     </button>
@@ -552,14 +552,14 @@ export default function ProgrammesPage() {
                   <div className="flex flex-wrap items-center gap-4">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="px-6 py-3 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-lg cursor-pointer hover-lift flex items-center gap-2"
+                      className="px-6 py-3 rounded-full bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-lg cursor-pointer hover-lift flex items-center gap-2"
                     >
                       <span>Apply for {current.code} 2026</span>
                       <span>→</span>
                     </button>
                     <a
                       href="#deep-dive"
-                      className="px-6 py-3 rounded-xl bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                      className="px-6 py-3 rounded-full bg-zinc-900/70 text-zinc-200 border border-zinc-700/80 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
                     >
                       Explore Full Curriculum
                     </a>
@@ -567,75 +567,70 @@ export default function ProgrammesPage() {
                 </motion.div>
               </div>
 
-              {/* Right Column: Live Interactive Degree Preview Card */}
-              <div className="lg:col-span-5">
-                <TiltCard className="w-full">
-                  <div className="rounded-3xl border border-white/20 bg-zinc-950/80 backdrop-blur-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
-                    {/* Animated Rotating Conic Border Beam */}
-                    <div className="absolute -inset-px rounded-3xl pointer-events-none overflow-hidden opacity-40">
-                      <div className="absolute inset-[-150%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0_340deg,#3b82f6_360deg)]" />
-                    </div>
+              {/* Right Column: Cardless Open Holographic Degree Cockpit (No Heavy Enclosed Boxes) */}
+              <div className="lg:col-span-5 relative">
+                {/* Dynamic Ambient Color Aura */}
+                <div className="absolute -inset-4 rounded-full blur-[100px] pointer-events-none opacity-40 bg-gradient-to-tr from-blue-600/30 via-indigo-500/20 to-purple-600/30" />
 
-                    {/* Top Program Pill & Seats Status */}
-                    <div className="relative z-10 flex items-center justify-between gap-2 mb-4">
-                      <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-500/20 text-cyan-300 border border-blue-400/30">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                        {current.code} TRACK SNAPSHOT
-                      </div>
-                      <span className="text-xs font-mono text-zinc-400">
-                        {current.intake}
-                      </span>
+                <div className="relative z-10 flex flex-col justify-between">
+                  {/* Top Floating Badges */}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider uppercase px-3.5 py-1 rounded-full bg-blue-500/15 text-cyan-300 border border-blue-400/30 backdrop-blur-md">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      {current.code} TRACK SNAPSHOT
                     </div>
-
-                    {/* Program Thumbnail Image */}
-                    <div className="relative z-10 h-48 w-full rounded-2xl overflow-hidden mb-5 border border-white/10 shadow-md">
-                      <Image
-                        src={current.photo}
-                        alt={current.title}
-                        fill
-                        className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
-                        sizes="(max-width: 1024px) 100vw, 40vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <div className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold">
-                          {current.photoCaption}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Key Attributes Grid */}
-                    <div className="relative z-10 space-y-2.5 mb-5">
-                      <div className="text-base font-bold text-white leading-snug">
-                        {current.title}
-                      </div>
-                      <p className="text-xs text-zinc-300 font-light leading-relaxed">
-                        {current.tagline}
-                      </p>
-                    </div>
-
-                    {/* 4 Feature Micro-Metrics */}
-                    <div className="relative z-10 grid grid-cols-2 gap-2 pt-4 border-t border-zinc-800/80">
-                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
-                        <div className="text-sm font-mono font-bold text-blue-400">100%</div>
-                        <div className="text-[10px] text-zinc-400">NET / Ph.D Faculty</div>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
-                        <div className="text-sm font-mono font-bold text-emerald-400">138+</div>
-                        <div className="text-[10px] text-zinc-400">Corporate Recruiters</div>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
-                        <div className="text-sm font-mono font-bold text-purple-400">Utkal Univ</div>
-                        <div className="text-[10px] text-zinc-400">CBCS Syllabus</div>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left">
-                        <div className="text-sm font-mono font-bold text-amber-400">AICTE</div>
-                        <div className="text-[10px] text-zinc-400">Statutory Approval</div>
-                      </div>
-                    </div>
-
+                    <span className="text-xs font-mono text-zinc-400 font-semibold">
+                      {current.intake}
+                    </span>
                   </div>
-                </TiltCard>
+
+                  {/* Cardless Floating Visual Window */}
+                  <div className="relative h-56 sm:h-64 w-full rounded-3xl overflow-hidden shadow-2xl mb-6 group cursor-pointer">
+                    <Image
+                      src={current.photo}
+                      alt={current.title}
+                      fill
+                      className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-300 font-bold">
+                        {current.photoCaption}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Free-Floating Typography */}
+                  <div className="mb-6 space-y-2">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                      {current.title}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
+                      {current.tagline}
+                    </p>
+                  </div>
+
+                  {/* 4 Cardless Holographic Feature Stats (Divided by subtle hairlines, no rigid boxes) */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-zinc-800/80">
+                    <div className="text-left group">
+                      <div className="text-xl font-mono font-black text-blue-400">100%</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">NET / Ph.D</div>
+                    </div>
+                    <div className="text-left group">
+                      <div className="text-xl font-mono font-black text-emerald-400">138+</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">Recruiters</div>
+                    </div>
+                    <div className="text-left group">
+                      <div className="text-xl font-mono font-black text-purple-400">CBCS</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">Utkal Univ</div>
+                    </div>
+                    <div className="text-left group">
+                      <div className="text-xl font-mono font-black text-amber-400">AICTE</div>
+                      <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">Approval</div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -1134,8 +1129,8 @@ export default function ProgrammesPage() {
                 {/* Visual Banner */}
                 <div className="relative h-60 sm:h-72 w-full rounded-3xl overflow-hidden border border-zinc-200 shadow-md group">
                   <Image
-                    src="/images/drive_third/Placement_DSC_2425.JPG"
-                    alt="Corporate Campus Placement Desk"
+                    src="/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg"
+                    alt="Corporate Campus Placement Delegates"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="100vw"

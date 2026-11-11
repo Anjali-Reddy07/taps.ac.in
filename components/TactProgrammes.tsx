@@ -330,11 +330,11 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
 
             </div>
 
-            {/* 4 Quick Metrics Bar */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-indigo-50">
+            {/* 4 Cardless Quick Metrics Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 pt-6 border-t border-indigo-100">
               {current.metrics.map((m) => (
-                <div key={m.label} className="p-3.5 rounded-xl bg-gradient-to-br from-indigo-50/50 to-purple-50/30 border border-indigo-100">
-                  <div className="text-xs uppercase tracking-wider text-indigo-700 font-bold mb-1">
+                <div key={m.label} className="pl-4 py-1.5 border-l-2 border-indigo-300 hover:border-blue-600 transition-colors duration-200">
+                  <div className="text-[10px] uppercase tracking-wider text-indigo-700 font-bold mb-0.5">
                     {m.label}
                   </div>
                   <div className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight font-serif">

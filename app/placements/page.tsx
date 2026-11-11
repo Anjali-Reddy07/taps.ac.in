@@ -270,10 +270,10 @@ export default function PlacementsPage() {
                   tag: "GD Suites",
                 },
                 {
-                  title: "Corporate Interview Desks",
-                  desc: "Executive interview booths for technical and managerial rounds.",
-                  img: "/images/drive_third/Placement_DSC_2425.JPG",
-                  tag: "Interview Cabins",
+                  title: "Corporate Recruitment Delegates",
+                  desc: "Senior corporate delegates and HR executives during campus recruitment.",
+                  img: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+                  tag: "Executive Panels",
                 },
                 {
                   title: "Major Recruiter Network",

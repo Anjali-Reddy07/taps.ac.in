@@ -376,26 +376,30 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* 2x2 Accreditation Grid with Hover Spring Physics */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                {/* Cardless Fluid Accreditation Stream */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
                   {accreditations.map((item, idx) => (
                     <motion.div 
                       key={item.title}
-                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-indigo-400 hover:shadow-md transition-all duration-300 relative group overflow-hidden"
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.08 }}
+                      whileHover={{ x: 4 }}
+                      className="relative pl-5 py-2 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default"
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200/60">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-700 bg-indigo-50/80 px-2 py-0.5 rounded-md">
                           {item.badge}
                         </span>
-                        <span className="text-lg font-mono font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                        <span className="text-xl font-mono font-extrabold text-blue-600">
                           {item.stat}
                         </span>
                       </div>
-                      <div className="font-semibold text-base text-zinc-950 mb-1">
+                      <div className="font-bold text-base text-zinc-950 group-hover:text-blue-700 transition-colors">
                         {item.title}
                       </div>
-                      <p className="text-xs text-zinc-600 leading-relaxed font-normal">
+                      <p className="text-xs text-zinc-600 leading-relaxed font-normal mt-1">
                         {item.desc}
                       </p>
                     </motion.div>
@@ -605,11 +609,11 @@ export default function AboutPage() {
           </section>
         </AnimatedBackground>
 
-        {/* PROGRESSIVE ACADEMIC PRACTICES: LIGHT VARIANT */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
-          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-            <div className="text-center max-w-2xl mx-auto mb-14 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
+        {/* PROGRESSIVE ACADEMIC PRACTICES: CARDLESS ADVANCED ANIMATED HORIZON */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
                 Pedagogical Framework
               </div>
               <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
@@ -621,61 +625,71 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Seamless Borderless Pedagogical Stream */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80">
               {progressivePractices.map((practice, idx) => (
                 <motion.div
                   key={practice.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className={`relative overflow-hidden p-6 rounded-2xl ${practice.cardBg} border ${practice.borderColor} ${practice.borderHover} transition-all duration-300 flex flex-col justify-between group shadow-sm`}
+                  className="relative p-7 sm:p-8 flex flex-col justify-between group transition-all duration-300"
                 >
-                  {/* Top-Edge 3px Vivid Gradient Accent Bar */}
-                  <div className="absolute top-0 inset-x-0 h-1 overflow-hidden pointer-events-none">
-                    <div className={`h-full w-full bg-gradient-to-r ${practice.topGradient}`} />
+                  {/* Fluid Hover Ambient Light Pool (No rigid box border) */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl">
+                    <div className={`absolute -inset-2 bg-gradient-to-b ${practice.blobGradient} blur-2xl opacity-40`} />
+                    <div className="absolute inset-0 bg-white/70 backdrop-blur-xs rounded-3xl" />
                   </div>
 
-                  {/* Partially Animated Shading Zone (Smooth Moving Pastel Aura in Upper Half) */}
-                  <div className="absolute top-0 inset-x-0 h-44 overflow-hidden pointer-events-none rounded-t-2xl">
-                    <motion.div
-                      animate={{
-                        x: [-15, 20, -15],
-                        y: [-8, 12, -8],
-                        scale: [1, 1.18, 1],
-                      }}
-                      transition={{
-                        duration: 6 + idx * 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      className={`absolute -top-10 -right-8 w-52 h-40 rounded-full blur-2xl opacity-70 group-hover:opacity-95 transition-opacity bg-gradient-to-br ${practice.blobGradient}`}
+                  {/* Top Animated Light Rail */}
+                  <div className="absolute top-0 left-6 right-6 h-0.5 bg-zinc-200 group-hover:bg-transparent transition-colors overflow-hidden">
+                    <motion.div 
+                      className={`h-full w-full bg-gradient-to-r ${practice.topGradient}`}
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "0%" }}
+                      transition={{ duration: 0.4 }}
                     />
-                    {/* Soft Bottom Mask for the Shading */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90 pointer-events-none" />
                   </div>
 
-                  {/* Main Content */}
+                  {/* Content Floating Freely */}
                   <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-4">
-                      {/* Bold Themed Icon */}
-                      <div className={`w-10 h-10 rounded-xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center transition-transform duration-300 group-hover:scale-108`}>
+                    <div className="flex items-center justify-between mb-6">
+                      {/* Illuminated Floating Icon Pedestal */}
+                      <motion.div 
+                        whileHover={{ rotate: 6, scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        className={`w-12 h-12 rounded-2xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center shadow-lg`}
+                      >
                         {practice.icon}
-                      </div>
+                      </motion.div>
 
-                      {/* Visible Colored Tag Badge */}
-                      <span className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full border shadow-2xs ${practice.tagBadge}`}>
+                      {/* Floating Micro-Badge */}
+                      <span className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-1 rounded-full border shadow-2xs ${practice.tagBadge}`}>
                         {practice.tag}
                       </span>
                     </div>
 
-                    <h3 className={`text-base font-bold text-zinc-950 mb-2.5 ${practice.titleHover} transition-colors`}>
+                    <div className="text-[10px] font-mono font-bold tracking-widest text-zinc-400 uppercase mb-1">
+                      PRACTICE 0{idx + 1}
+                    </div>
+
+                    <h3 className={`text-lg font-bold text-zinc-950 mb-3 ${practice.titleHover} transition-colors leading-snug`}>
                       {practice.title}
                     </h3>
+                    
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                       {practice.desc}
                     </p>
+                  </div>
+
+                  {/* Bottom Interactive Arrow Indicator */}
+                  <div className="relative z-10 pt-6 mt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                    <span className="text-[11px] font-semibold">TAPS Standard</span>
+                    <span className="text-blue-600 font-bold group-hover:translate-x-1 transition-transform duration-200">
+                      Learn More →
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -841,7 +855,7 @@ export default function AboutPage() {
                   const isSelected = selectedTimelineYear === m.year;
                   const isEven = idx % 2 === 1;
 
-                  // Narrative Milestone Card
+                  // Cardless Advanced Animated Narrative Milestone Stream
                   const narrativeCard = (
                     <motion.div
                       key={`narrative-${m.year}`}
@@ -849,48 +863,44 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className={`w-full md:w-[calc(50%-32px)] rounded-3xl backdrop-blur-xl transition-all duration-300 overflow-hidden border p-6 sm:p-7 flex flex-col justify-between relative shadow-xl ${
-                        isSelected
-                          ? "bg-zinc-900/95 border-amber-400/60 shadow-[0_16px_50px_rgba(251,191,36,0.14)]"
-                          : "bg-zinc-950/85 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/90"
-                      }`}
+                      className="w-full md:w-[calc(50%-32px)] py-4 sm:py-6 flex flex-col justify-between relative group/narrative z-10"
                     >
-                      {/* Top Ambient Glow */}
-                      <div className={`absolute top-0 right-0 w-44 h-44 rounded-full blur-3xl pointer-events-none bg-gradient-to-br ${m.accentGlow}`} />
+                      {/* Ambient Halo Behind Typography (No rigid card border) */}
+                      <div className={`absolute -top-6 -left-6 w-60 h-60 rounded-full blur-3xl pointer-events-none opacity-40 group-hover/narrative:opacity-80 transition-opacity duration-500 bg-gradient-to-br ${m.accentGlow}`} />
 
                       <div className="relative z-10">
-                        {/* Top Badges */}
-                        <div className="flex items-center justify-between gap-2 mb-4">
-                          <span className="text-2xl sm:text-3xl font-mono font-extrabold bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
+                        {/* Open Floating Year & Era Pillar */}
+                        <div className="flex items-baseline justify-between gap-4 mb-3">
+                          <span className="text-4xl sm:text-6xl font-mono font-black tracking-tight bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
                             {m.year}
                           </span>
-                          <span className={`text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full border ${m.accentBadge}`}>
+                          <span className={`text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full border shadow-2xs backdrop-blur-md ${m.accentBadge}`}>
                             {m.tag}
                           </span>
                         </div>
 
-                        <h3 className="text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-amber-300 transition-colors">
+                        {/* Title Floating Cleanly */}
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover/narrative:text-amber-300 transition-colors">
                           {m.title}
                         </h3>
 
-                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light mb-6">
+                        {/* Description */}
+                        <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-light mb-6">
                           {m.desc}
                         </p>
                       </div>
 
-                      <div className="relative z-10 pt-4 border-t border-zinc-800/80">
-                        <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 mb-3">
-                          <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                          </svg>
+                      {/* Micro Metric & Specs Floating Line */}
+                      <div className="relative z-10 pt-4 border-t border-zinc-800/60">
+                        <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 mb-3 font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                           <span>{m.highlight}</span>
                         </div>
 
-                        {/* Era Micro-Tags */}
-                        <div className="flex flex-wrap gap-1.5">
+                        {/* Era Micro-Tags Floating Badges */}
+                        <div className="flex flex-wrap gap-2">
                           {m.specs.map((spec, sIdx) => (
-                            <span key={sIdx} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/60 text-zinc-400">
+                            <span key={sIdx} className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 backdrop-blur-xs">
                               {spec}
                             </span>
                           ))}
@@ -899,7 +909,7 @@ export default function AboutPage() {
                     </motion.div>
                   );
 
-                  // AI Visual Tech Showcase Card (STRICTLY NO PEOPLE)
+                  // Cardless Cinematic Architectural & Facility Visual Aperture (No Rigid Box Border)
                   const visualCard = (
                     <motion.div
                       key={`visual-${m.year}`}
@@ -907,40 +917,39 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.5, delay: idx * 0.1 + 0.05 }}
-                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className={`w-full md:w-[calc(50%-32px)] rounded-3xl backdrop-blur-xl transition-all duration-300 overflow-hidden border relative group/visual shadow-xl ${
-                        isSelected
-                          ? `bg-zinc-900/90 ${m.accentBorder} shadow-[0_16px_50px_rgba(59,130,246,0.15)]`
-                          : "bg-zinc-950/85 border-zinc-800/90 hover:border-zinc-600 hover:bg-zinc-900/90"
-                      }`}
+                      whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+                      className="w-full md:w-[calc(50%-32px)] relative group/visual z-10"
                     >
-                      {/* Full-Bleed AI Generated Visual (NO PEOPLE) */}
-                      <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
+                      {/* Ambient Vibrant Backlight Beam */}
+                      <div className={`absolute -inset-4 rounded-3xl blur-2xl opacity-40 group-hover/visual:opacity-75 transition-opacity duration-700 bg-gradient-to-br ${m.accentGlow}`} />
+
+                      {/* Borderless Floating Cinematic Window */}
+                      <div className="relative h-64 sm:h-80 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                         <Image
                           src={m.image}
                           alt={m.visualTitle}
                           fill
-                          className="object-cover object-center group-hover/visual:scale-106 transition-transform duration-700 ease-out filter contrast-105"
+                          className="object-cover object-center group-hover/visual:scale-108 transition-transform duration-700 ease-out filter contrast-105"
                           sizes="(max-width: 768px) 100vw, 45vw"
                         />
-                        {/* Cinematic Vignette */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent pointer-events-none" />
+                        {/* Cinematic Vignette Feathering into Canvas */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent pointer-events-none" />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                        {/* Top Indicator: Authentic Campus Facility Tag */}
+                        {/* Top Floating Badge */}
                         <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
+                          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
                             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                             CAMPUS FACILITY
                           </div>
-                          <span className="text-[10px] font-mono text-zinc-300 bg-black/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/15">
+                          <span className="text-[10px] font-mono text-zinc-300 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
                             INFOCITY TECHNOPLEX
                           </span>
                         </div>
 
                         {/* Bottom Caption Overlay */}
                         <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-                          <div className="text-base font-bold tracking-tight text-white leading-snug">
+                          <div className="text-base sm:text-lg font-bold tracking-tight text-white leading-snug">
                             {m.visualTitle}
                           </div>
                           <div className="text-xs font-mono text-cyan-300 font-medium mt-0.5">
@@ -992,17 +1001,17 @@ export default function AboutPage() {
 
             </div>
 
-            {/* Bottom 4-Column Legacy Metrics Banner (Completes Section Elegantly) */}
-            <div className="mt-16 sm:mt-24 pt-12 border-t border-zinc-800/90 max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {/* Bottom 4-Column Legacy Metrics Banner (Seamless Cardless Metric Rail) */}
+            <div className="mt-16 sm:mt-24 pt-12 border-t border-zinc-800/80 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800/80 gap-4 sm:gap-0">
                 {[
                   { stat: "35+ Yrs", label: "Educational Excellence", sub: "Since 1991 Inception" },
                   { stat: "500+", label: "Software Engineers", sub: "Trained in TSPL Finishing School" },
                   { stat: "Permanent", label: "Govt. Recognition", sub: "AICTE & Utkal University" },
                   { stat: "138+", label: "Corporate Partners", sub: "Global Recruitment Linkages" },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors shadow-md">
-                    <div className="text-2xl sm:text-3xl font-mono font-bold bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent">
+                  <div key={idx} className="py-4 px-5 text-center group">
+                    <div className="text-3xl sm:text-4xl font-mono font-black bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
                       {item.stat}
                     </div>
                     <div className="text-xs font-bold text-white mt-1.5">{item.label}</div>
