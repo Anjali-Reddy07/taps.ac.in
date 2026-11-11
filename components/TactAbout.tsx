@@ -278,66 +278,47 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-transparent overflow-hidden">
-      {/* 1. FLUID AMBIENT BACKGROUND: Two decorative blurred gradient ambient orbs behind content */}
+      {/* 1. SOFT PASTEL AMBIENT BACKGROUND (Matched exactly with UI mockup) */}
       <div 
         aria-hidden="true" 
-        className="pointer-events-none absolute -top-12 -left-20 w-[580px] h-[580px] rounded-full bg-[#38bdf8] blur-3xl opacity-30 select-none" 
+        className="pointer-events-none absolute top-12 -left-20 w-[550px] h-[550px] rounded-full bg-pink-200/40 blur-[120px] select-none" 
       />
       <div 
         aria-hidden="true" 
-        className="pointer-events-none absolute top-36 -right-20 w-[640px] h-[640px] rounded-full bg-[#818cf8] blur-3xl opacity-30 select-none" 
+        className="pointer-events-none absolute top-20 -right-20 w-[620px] h-[620px] rounded-full bg-sky-200/40 blur-[130px] select-none" 
       />
-
-      {/* Seamless Fluid Wave Patterns & Organic Curves */}
-      <svg className="absolute inset-0 w-full h-full opacity-35 pointer-events-none select-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 900">
-        <path d="M-100,180 C320,80 520,360 920,240 C1220,150 1420,300 1620,220" fill="none" stroke="url(#organic-aura-1)" strokeWidth="1.5" strokeDasharray="6 8" />
-        <path d="M-100,520 C220,640 620,470 1020,600 C1320,700 1520,540 1680,620" fill="none" stroke="url(#organic-aura-2)" strokeWidth="1.2" opacity="0.6" />
-        <defs>
-          <linearGradient id="organic-aura-1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.3" />
-            <stop offset="50%" stopColor="#6366f1" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.25" />
-          </linearGradient>
-          <linearGradient id="organic-aura-2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.12" />
-          </linearGradient>
-        </defs>
-      </svg>
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none absolute bottom-10 right-1/4 w-[480px] h-[480px] rounded-full bg-purple-200/25 blur-[120px] select-none" 
+      />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
-        {/* FLUID BORDERLESS HERO SPREAD: Left Typography & Open Metrics | Right Feathered Photo & Frosted Vision Console */}
+        {/* FLUID HERO SPREAD: Left Typography & 2x2 Grid | Right Campus Photo Card & Light Frosted Vision Console */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-20 sm:mb-24">
           
-          {/* LEFT HERO SECTION: Bold Typography, Descriptive Narrative & Open Non-Boxed Metrics Strip */}
+          {/* LEFT HERO SECTION: Bold Typography, Descriptive Narrative & 2x2 Accreditations Grid */}
           <div className="lg:col-span-7 flex flex-col justify-between py-2 space-y-6">
             
             {/* Header Block */}
             <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4 }}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50/90 border border-blue-200/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-sm"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-white/80 border border-slate-200/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
                   <span>UNDER TACT TRUST • ESTD. 2000</span>
-                </motion.div>
+                </div>
 
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 bg-slate-100/80 border border-slate-200/80 px-2.5 py-1 rounded-full">
-                  Utkal University Affiliated
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 bg-white/70 border border-slate-200/80 px-3 py-1 rounded-full shadow-2xs">
+                  UTKAL UNIVERSITY AFFILIATED
                 </span>
               </div>
 
               {/* Bold Typography Header */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-950 leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 leading-tight tracking-tight">
                 Trident Academy of Professional Studies
               </h2>
 
-              <p className="text-base sm:text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800">
+              <p className="text-base sm:text-lg font-semibold text-indigo-900">
                 Premier BCA &amp; BBA Institution • No. 1 Private College under Utkal University
               </p>
 
@@ -346,52 +327,113 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 Functioning under the aegis of the renowned <strong className="text-slate-950 font-semibold">Trident Group (TACT Trust)</strong>, TAPS is permanently recognized by the Higher Education Department, Govt. of Odisha, and approved by AICTE. The BBA and BCA courses are conducted in the new four-storeyed building at the <strong className="text-slate-950 font-semibold">11-acre Technoplex</strong> in Chandaka Industrial Estate, Infocity, Bhubaneswar.
               </p>
 
-              {/* Clean Inline Infocity Cluster Tags (No Rigid Box Container) */}
-              <div className="flex flex-wrap items-center gap-2 text-xs text-slate-600 pt-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-blue-700 font-bold mr-1">
-                  INFOCITY CLUSTER:
-                </span>
-                {["Infosys", "TCS", "Wipro", "MindTree"].map((co) => (
-                  <span 
-                    key={co} 
-                    className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full border border-slate-200/80 text-[11px] font-medium text-slate-700 shadow-2xs"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    <span>{co}</span>
+              {/* Elongated Infocity Cluster Pill Capsule */}
+              <div className="pt-1">
+                <div className="inline-flex flex-wrap items-center gap-3 bg-white/90 backdrop-blur-md rounded-full px-5 py-2 border border-slate-200/70 shadow-xs">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-bold">
+                    INFOCITY CLUSTER:
                   </span>
-                ))}
+                  {["Infosys", "TCS", "Wipro", "MindTree"].map((co) => (
+                    <span key={co} className="inline-flex items-center gap-1.5 text-xs text-slate-700 font-medium">
+                      <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                      <span>{co}</span>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* OPEN, NON-BOXED ROW OF STATISTICS & KEY PERFORMANCE METRICS (Subtle Line Dividers, Cyan Icons & Numbers) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/90 py-5 my-2 border-t border-b border-slate-200/90">
-              {accreditations.map((item, idx) => (
-                <div 
-                  key={item.title} 
-                  className={`py-2 group ${idx === 0 ? "sm:pr-4" : idx === 3 ? "sm:pl-4" : "sm:px-4"}`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
+            {/* 2x2 ACCREDITATIONS & STATISTICS GRID (With Delicate Cross Hairline Dividers) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 divide-slate-200/80 py-2 my-2 border-t border-b border-slate-200/90">
+              
+              {/* Row 1, Col 1: Utkal Univ Affiliated */}
+              <div className="sm:border-r sm:border-b border-slate-200/90 p-4 sm:pr-6 sm:pb-5">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2">
                     <span className="w-5 h-5 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
-                      {item.icon}
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
                     </span>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 font-bold">
-                      {item.badge}
-                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 tracking-tight">
+                      Utkal Univ Affiliated
+                    </h4>
                   </div>
-
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700">
-                    <SpeedometerCounter value={item.metric} duration={1.6} delay={idx * 0.1} />
-                  </div>
-
-                  <div className="text-xs font-bold text-slate-800 mt-0.5 line-clamp-1">
-                    {item.title}
-                  </div>
-
-                  <p className="text-[11px] text-slate-500 leading-snug mt-0.5 line-clamp-2 font-normal">
-                    {item.desc}
-                  </p>
+                  <span className="text-2xl font-bold text-sky-600 font-serif">
+                    <SpeedometerCounter value="#1" duration={1.6} delay={0.1} />
+                  </span>
                 </div>
-              ))}
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Rank 1 Private BBA and BCA College under Utkal University with Govt. of Odisha approval.
+                </p>
+              </div>
+
+              {/* Row 1, Col 2: Doctoral & NET Faculty */}
+              <div className="sm:border-b border-slate-200/90 p-4 sm:pl-6 sm:pb-5">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                      </svg>
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 tracking-tight">
+                      Doctoral &amp; NET Faculty
+                    </h4>
+                  </div>
+                  <span className="text-2xl font-bold text-sky-600 font-serif">
+                    <SpeedometerCounter value="100%" duration={1.6} delay={0.2} />
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  All full-time regular faculties are M.Tech/NET qualified, all pursuing Ph.D programs.
+                </p>
+              </div>
+
+              {/* Row 2, Col 1: Approved Annual Intake */}
+              <div className="sm:border-r border-slate-200/90 p-4 sm:pr-6 sm:pt-5">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 tracking-tight">
+                      Approved Annual Intake
+                    </h4>
+                  </div>
+                  <span className="text-2xl font-bold text-sky-600 font-serif">
+                    <SpeedometerCounter value="128" duration={1.6} delay={0.3} />
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Maximum sanctioned intake of 128 each for BBA &amp; BCA approved by Govt. of Odisha.
+                </p>
+              </div>
+
+              {/* Row 2, Col 2: Tier-1 Corporate Recruiters */}
+              <div className="p-4 sm:pl-6 sm:pt-5">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 tracking-tight">
+                      Tier-1 Corporate Recruiters
+                    </h4>
+                  </div>
+                  <span className="text-2xl font-bold text-sky-600 font-serif">
+                    <SpeedometerCounter value="138+" duration={1.6} delay={0.4} />
+                  </span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Active MoUs and recruitment linkages with TCS, Infosys, Wipro, Capgemini, Deloitte &amp; CGI.
+                </p>
+              </div>
+
             </div>
 
             {/* BOTTOM SECTION: Glimpse of Student Activities & Seminar Suites (Rounded Corner Photos) */}
@@ -403,7 +445,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
-                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
+                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group cursor-pointer"
                 >
                   <Image
                     src="/images/drive_third/ClassRooms__MG_2339.JPG"
@@ -426,7 +468,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
-                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-indigo-100 shadow-xs group cursor-pointer"
+                  className="relative h-28 sm:h-32 rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs group cursor-pointer"
                 >
                   <Image
                     src="/images/drive_third/MBA_seminar_1.jpeg"
@@ -467,7 +509,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onOpenQuery}
-                className="px-6 py-3 rounded-full bg-white/90 backdrop-blur-xs border border-indigo-200 hover:border-indigo-400 hover:bg-indigo-50/50 text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs"
+                className="px-6 py-3 rounded-full bg-white/90 backdrop-blur-xs border border-slate-200 hover:border-indigo-400 hover:bg-indigo-50/50 text-indigo-950 text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer shadow-xs"
               >
                 Download Institutional Prospectus
               </motion.button>
@@ -475,77 +517,62 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
           </div>
 
-          {/* RIGHT COLUMN: Feathered Campus Visual (Top) + Glassmorphic Frosted Institutional Vision Console (Bottom) */}
+          {/* RIGHT COLUMN: Campus Visual Card (Top) + White Frosted Glass Vision Console (Bottom) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
-            {/* HERO VISUAL FEATURE: Large Campus Photography with Organic Dry-Brush Paint Stroke Mask */}
-            <div className="relative h-80 sm:h-96 lg:h-[420px] w-full group">
-              {/* Soft Ambient Light Bloom Behind Image */}
-              <div className="absolute -inset-6 bg-gradient-to-tr from-cyan-400/25 via-sky-300/20 to-purple-400/25 rounded-full blur-3xl opacity-70 pointer-events-none" />
+            {/* TOP RIGHT: Campus Photo Card (Matched with Mockup) */}
+            <div className="relative h-72 sm:h-80 md:h-[340px] w-full rounded-3xl overflow-hidden shadow-lg group">
+              <Image
+                src="/images/drive_new/1746352355680.jpg"
+                alt="Trident Academy 11-Acre Technoplex Campus"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-800 ease-out"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-              {/* Organic Paint-Brush Stroke Mask (Rough Dry-Brush / Watercolor Dissolve, Zero Box Card) */}
-              <div 
-                className="relative w-full h-full overflow-hidden transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                style={{
-                  WebkitMaskImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650' preserveAspectRatio='none'><filter id='brush'><feTurbulence type='fractalNoise' baseFrequency='0.03 0.05' numOctaves='4' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='26' xChannelSelector='R' yChannelSelector='G'/></filter><path d='M65,45 C180,25 320,50 480,30 C640,15 780,40 930,35 C965,90 945,210 970,320 C950,440 965,540 925,595 C780,620 620,590 470,615 C310,635 170,600 60,605 C30,530 45,410 25,310 C45,190 30,85 65,45 Z' fill='black' filter='url(%23brush)'/><circle cx='960' cy='120' r='14' fill='black'/><circle cx='40' cy='460' r='12' fill='black'/><circle cx='940' cy='490' r='10' fill='black'/><circle cx='70' cy='85' r='12' fill='black'/></svg>")`,
-                  maskImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 650' preserveAspectRatio='none'><filter id='brush'><feTurbulence type='fractalNoise' baseFrequency='0.03 0.05' numOctaves='4' result='noise'/><feDisplacementMap in='SourceGraphic' in2='noise' scale='26' xChannelSelector='R' yChannelSelector='G'/></filter><path d='M65,45 C180,25 320,50 480,30 C640,15 780,40 930,35 C965,90 945,210 970,320 C950,440 965,540 925,595 C780,620 620,590 470,615 C310,635 170,600 60,605 C30,530 45,410 25,310 C45,190 30,85 65,45 Z' fill='black' filter='url(%23brush)'/><circle cx='960' cy='120' r='14' fill='black'/><circle cx='40' cy='460' r='12' fill='black'/><circle cx='940' cy='490' r='10' fill='black'/><circle cx='70' cy='85' r='12' fill='black'/></svg>")`,
-                  WebkitMaskSize: "100% 100%",
-                  maskSize: "100% 100%",
-                  WebkitMaskRepeat: "no-repeat",
-                  maskRepeat: "no-repeat",
-                }}
-              >
-                <Image
-                  src="/images/drive_new/1746352355680.jpg"
-                  alt="Trident Academy 11-Acre Technoplex Campus"
-                  fill
-                  className="object-cover object-center group-hover:scale-106 transition-transform duration-1000 ease-out"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-                {/* Bottom Caption Overlay */}
-                <div className="absolute inset-x-0 bottom-5 px-6 sm:px-8 text-white z-10 flex flex-col justify-end">
-                  <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 font-mono font-bold mb-1 drop-shadow-sm">
-                    Trident Heritage Since 1991 • Bhubaneswar
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
-                    State-of-the-Art Technoplex Campus
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-200 mt-1 font-light leading-relaxed line-clamp-2 drop-shadow-sm max-w-lg">
-                    Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
-                  </p>
-                </div>
-              </div>
-
-              {/* Minimal Floating Pill-Shaped Location Badges Above the Photo */}
-              <div className="absolute top-4 left-6 z-20 flex items-center gap-2">
-                <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md border border-white/60 flex items-center gap-1.5">
+              {/* Floating Location Badges on Top */}
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] sm:text-[11px] uppercase tracking-widest px-3.5 py-1 rounded-full shadow-sm border border-white/60 flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                   </span>
                   <span>11-ACRE TECHNOPLEX</span>
                 </span>
-                <span className="bg-blue-600/95 backdrop-blur-md text-white font-semibold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                <span className="bg-blue-600/95 backdrop-blur-md text-white font-semibold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
                   INFOCITY, BHUBANESWAR
                 </span>
               </div>
+
+              {/* Bottom Caption Overlay */}
+              <div className="absolute inset-x-0 bottom-4 px-6 text-white z-10 flex flex-col justify-end">
+                <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-300 font-mono font-bold mb-1">
+                  TRIDENT HERITAGE SINCE 1991
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug drop-shadow-sm">
+                  State-of-the-Art Technoplex Campus
+                </h3>
+                <p className="text-xs text-slate-200 mt-1 font-light leading-relaxed line-clamp-2">
+                  Four-storeyed academic facility on an 11-acre technoplex with ₹20 Crore project outlay, in close proximity to Infosys, TCS, and Wipro.
+                </p>
+              </div>
             </div>
 
-            {/* SLEEK GLASSMORPHIC FROSTED-CARD TABBED SECTION ("Our Institutional Vision") */}
-            <div className="relative w-full bg-[#070D21]/95 backdrop-blur-xl text-white rounded-3xl p-6 sm:p-7 border border-white/10 shadow-[0_20px_50px_rgba(7,13,33,0.35)] flex flex-col justify-between overflow-hidden">
+            {/* SLEEK LIGHT GLASSMORPHIC FROSTED-CARD TABBED SECTION ("Our Institutional Vision") */}
+            <div className="relative w-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 sm:p-7 border border-white/80 shadow-[0_20px_50px_rgba(37,99,235,0.08)] flex flex-col justify-between overflow-hidden">
               
-              {/* Ambient Glow Highlights */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-500/20 via-blue-600/20 to-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Subtle Ambient Inner Glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-300/30 via-sky-200/20 to-purple-300/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-gradient-to-tr from-teal-200/30 to-transparent rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative z-10">
-                {/* Pill-Shaped Switch Buttons with Glowing Active State */}
+                {/* Pill-Shaped Switch Buttons */}
                 <div 
                   role="tablist"
                   aria-label="Vision, Mission and Values Selector"
-                  className="flex items-center gap-1.5 p-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 w-fit mb-5"
+                  className="flex items-center gap-1.5 p-1 bg-slate-100/70 backdrop-blur-md rounded-full border border-slate-200/60 w-fit mb-5"
                 >
                   {[
                     { id: "vision", label: "OUR VISION" },
@@ -559,10 +586,10 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                         role="tab"
                         aria-selected={isSelected}
                         onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                        className={`px-3.5 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer ${
+                        className={`px-4 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer ${
                           isSelected
-                            ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/30"
-                            : "text-indigo-200/80 hover:text-white"
+                            ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30"
+                            : "text-slate-600 hover:text-slate-900"
                         }`}
                       >
                         {tab.label}
@@ -574,21 +601,21 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 {/* Tab Header with Glowing Icon Badge */}
                 <div className="mb-4">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                    <h3 className="text-xl font-bold tracking-tight text-slate-900">
                       {activeTab === "vision" && "Our Institutional Vision"}
                       {activeTab === "mission" && "Our Pedagogical Mission"}
-                      {activeTab === "values" && "Our Values & Quality Framework"}
+                      {activeTab === "values" && "Our Core Quality Values"}
                     </h3>
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
                   </div>
-                  <p className="text-xs text-indigo-200/80 mt-1 font-light">
+                  <p className="text-xs text-slate-500 mt-1 font-normal">
                     {activeTab === "vision" && "Official vision benchmarked for Eastern India human resource development."}
                     {activeTab === "mission" && "Bridging academic rigor with high-impact corporate industry readiness."}
-                    {activeTab === "values" && "Students are our first, second, and third priority through ISO certified quality."}
+                    {activeTab === "values" && "Students are our first, second, and third priority through certified quality."}
                   </p>
                 </div>
 
-                {/* Clean Borderless List with Glowing Icon Badges */}
+                {/* 3 Items: First Item in Glowing Teal/Mint Capsule, Others in Clean Frosted White */}
                 <AnimatePresence mode="wait">
                   <motion.div 
                     key={activeTab}
@@ -596,47 +623,60 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
-                    className="space-y-3.5"
+                    className="space-y-3"
                   >
-                    {(activeTab === "vision" ? visionPoints : activeTab === "mission" ? missionPoints : valuesPoints).map((point, i) => (
-                      <motion.div 
-                        key={point.label}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.06, duration: 0.25 }}
-                        whileHover={{ x: 3 }}
-                        className="flex items-start gap-3 group"
-                      >
-                        <div className="w-8 h-8 rounded-xl bg-blue-500/15 border border-blue-400/30 text-cyan-300 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_12px_rgba(56,189,248,0.2)] group-hover:scale-105 group-hover:border-cyan-400/50 transition-all">
-                          {point.icon}
-                        </div>
-
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between">
-                            <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-cyan-200 transition-colors">
-                              {point.label}
-                            </h4>
-                            <span className="text-[10px] font-mono text-indigo-300/60 font-semibold">
-                              0{i + 1}
-                            </span>
+                    {(activeTab === "vision" ? visionPoints : activeTab === "mission" ? missionPoints : valuesPoints).map((point, i) => {
+                      const isFirst = i === 0;
+                      return (
+                        <motion.div 
+                          key={point.label}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.06, duration: 0.25 }}
+                          whileHover={{ x: 3 }}
+                          className={`p-4 rounded-2xl flex items-start gap-3.5 group cursor-default transition-all ${
+                            isFirst 
+                              ? "bg-gradient-to-r from-teal-50/90 via-emerald-50/70 to-cyan-50/80 border border-teal-200/60 shadow-xs" 
+                              : "bg-white/70 border border-slate-100/90 hover:bg-white/95 shadow-2xs"
+                          }`}
+                        >
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5 shadow-xs ${
+                            i === 0 
+                              ? "bg-cyan-100 text-cyan-700" 
+                              : i === 1 
+                                ? "bg-purple-100 text-purple-700" 
+                                : "bg-blue-100 text-blue-700"
+                          }`}>
+                            {point.icon}
                           </div>
-                          <p className="text-xs text-slate-300 leading-relaxed font-light mt-0.5">
-                            {point.text}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ))}
+
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between">
+                              <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                                {point.label}
+                              </h4>
+                              <span className="text-[10px] font-mono text-slate-400 font-bold">
+                                0{i + 1}
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-600 leading-relaxed font-normal mt-0.5">
+                              {point.text}
+                            </p>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
                   </motion.div>
                 </AnimatePresence>
               </div>
 
               {/* Bottom Card Micro-Badge */}
-              <div className="relative z-10 pt-4 mt-5 border-t border-white/10 flex items-center justify-between text-[11px] text-indigo-300/80">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              <div className="relative z-10 pt-4 mt-5 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500">
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
                   <span>Trident Trust • Excellence Since 2000</span>
                 </span>
-                <span className="font-mono text-indigo-200">Patia, Bhubaneswar</span>
+                <span className="font-mono text-slate-600 font-semibold">Patia, Bhubaneswar</span>
               </div>
 
             </div>
