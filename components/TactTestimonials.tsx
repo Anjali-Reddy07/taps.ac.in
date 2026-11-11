@@ -357,12 +357,32 @@ export default function TactTestimonials() {
               className="[perspective:1200px]"
             >
               <motion.div
+                animate={{
+                  y: [0, -14, 0, -5, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 style={{ rotateX, rotateY }}
                 className="relative rounded-[2.5rem] bg-white/85 backdrop-blur-2xl p-6 sm:p-7 border border-white shadow-[0_25px_70px_-15px_rgba(147,112,219,0.18)] flex flex-col justify-between overflow-hidden"
               >
                 {/* 3D Interactive Lanyard Physical Hanging ID Badge (React Bits) */}
-                <div className="relative w-full h-[280px] sm:h-[300px] rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-50/60 via-slate-50/40 to-white/80 border border-slate-150/70 shadow-inner group">
+                <motion.div 
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 3.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.2,
+                  }}
+                  className="relative w-full h-[280px] sm:h-[300px] rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-50/60 via-slate-50/40 to-white/80 border border-slate-150/70 shadow-inner group"
+                >
                   <Lanyard
+                    key={current.id}
                     frontImage={current.image}
                     backImage="/images/tact-logo.png"
                     cardColor="#ffffff"
@@ -374,10 +394,10 @@ export default function TactTestimonials() {
                     strapLength={0.42}
                     strapWidth={0.7}
                     interactive={true}
-                    breeze={0.45}
+                    breeze={0.65}
                     gravity={1}
-                    damping={0.5}
-                    elasticity={0.55}
+                    damping={0.45}
+                    elasticity={0.65}
                     className="w-full h-full"
                   />
 
@@ -390,7 +410,7 @@ export default function TactTestimonials() {
                       + Drag, Toss or Click to Flip 3D Badge
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Alumnus Identity & Verified Credentials */}
                 <div className="pt-5 space-y-3">

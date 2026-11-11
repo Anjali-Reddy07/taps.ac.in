@@ -699,6 +699,11 @@ const stepSimulation = (sim: Simulation, dt: number, physics: ReturnType<typeof 
   const { nodes, previous, velocities, body } = sim;
   const windX = physics.breeze * (Math.sin(time * 0.53) * 0.7 + Math.sin(time * 1.31 + 1.7) * 0.3) * 3;
   const windZ = physics.breeze * Math.sin(time * 0.37 + 0.6) * 2;
+  // Dynamic rhythmic vertical jump & spring bounce (continuous looping jump)
+  const jumpLift = physics.breeze * (
+    Math.sin(time * 2.4) * 0.35 +
+    Math.pow(Math.max(0, Math.sin(time * 1.4)), 2.5) * 0.65
+  ) * physics.gravity * 0.35;
   const grab = sim.grab;
   const pin = scratch.pin;
   const nodeDrag = Math.exp(-physics.nodeDrag * h);
@@ -708,7 +713,7 @@ const stepSimulation = (sim: Simulation, dt: number, physics: ReturnType<typeof 
   for (let s = 0; s < steps; s++) {
     for (let i = 1; i < JOINTS; i++) {
       const v = velocities[i];
-      v.y -= physics.gravity * h;
+      v.y -= (physics.gravity - jumpLift * (i / JOINTS)) * h;
       v.x += windX * h;
       v.z += windZ * h;
       previous[i].copy(nodes[i]);
@@ -740,7 +745,7 @@ const stepSimulation = (sim: Simulation, dt: number, physics: ReturnType<typeof 
       const spin = body.angular.dot(up);
       body.angular.addScaledVector(up, (physics.twist * (sim.turn - sim.twist) - physics.twistDamping * spin) * h);
     }
-    body.velocity.y -= physics.gravity * h;
+    body.velocity.y -= (physics.gravity - jumpLift) * h;
     body.velocity.x += windX * 0.35 * h;
     body.velocity.z += windZ * 0.35 * h;
     body.position.addScaledVector(body.velocity, h);
