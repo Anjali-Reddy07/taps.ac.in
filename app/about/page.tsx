@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import FlyingPosters from "@/components/FlyingPosters";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,6 +112,22 @@ export default function AboutPage() {
       accentBorder: "border-purple-400/40",
       accentBadge: "text-purple-400 bg-purple-400/10 border-purple-400/30",
     },
+  ];
+
+  // 12 Authentic Historical & Campus Memorabilia Posters for 3D FlyingPosters
+  const heritagePosters = [
+    { image: "/images/drive/computer-lab.jpg", alt: "1991: Foundation of TSPL & First High-Density Software Lab" },
+    { image: "/images/drive_third/Library_Library.JPG", alt: "1995: Central DELNET Stacks & IEEE Digital Library" },
+    { image: "/images/drive_third/ClassRooms__MG_2339.JPG", alt: "2000: Multimedia Tiered Smart Amphitheatre" },
+    { image: "/images/drive_fourth/campus_exterior_1.jpg", alt: "2005: 11-Acre Technoplex Campus in Infocity IT Corridor" },
+    { image: "/images/drive/campus-walkway.jpg", alt: "2026: Symmetrical Royal Palm Promenade & Campus Quads" },
+    { image: "/images/drive_fourth/hack_day.png", alt: "National Hack Day Coding Marathon & Prototyping" },
+    { image: "/images/drive_second/Activities.jpg", alt: "Annual Trifest Cultural Celebration & Arts Forum" },
+    { image: "/images/drive_third/Sports_IMG20260205104055.jpg", alt: "Athletic Meet Grounds & Arena Tournament" },
+    { image: "/images/drive_fourth/cloud_club.png", alt: "Enterprise Cloud Computing & Server Virtualization" },
+    { image: "/images/drive_fourth/brain_logic_club.png", alt: "Brain Logic, Analytics & Business Intelligence" },
+    { image: "/images/drive_fourth/web_dev_seminar.png", alt: "Web & IoT Tech Colloquium" },
+    { image: "/images/drive/innovation-mela.png", alt: "Innovation Mela & Student Technology Exposition" },
   ];
 
   const pillars = [
@@ -838,6 +855,61 @@ export default function AboutPage() {
                     </button>
                   );
                 })}
+              </div>
+            </div>
+
+            {/* 3D INTERACTIVE FLYING POSTERS HERITAGE ARCHIVE (REACT BITS) */}
+            <div className="relative w-full rounded-3xl overflow-hidden mb-16 sm:mb-20 bg-zinc-950/90 border border-amber-500/30 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl group">
+              {/* Top Bar Indicator */}
+              <div className="absolute top-0 inset-x-0 z-20 px-6 sm:px-10 py-5 flex items-center justify-between pointer-events-none bg-gradient-to-b from-zinc-950/95 via-zinc-950/60 to-transparent">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase bg-amber-400/15 backdrop-blur-md text-amber-300 border border-amber-400/30 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span>3D HERITAGE FLYING POSTERS • REACT BITS</span>
+                </div>
+                <div className="text-[11px] font-mono text-zinc-400 tracking-widest hidden sm:block bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+                  DRAG • SCROLL • HOVER TO INTERACT
+                </div>
+              </div>
+
+              {/* WebGL Canvas Container */}
+              <div style={{ height: 560, position: "relative" }} className="w-full">
+                <FlyingPosters
+                  items={heritagePosters}
+                  planeWidth={320}
+                  planeHeight={320}
+                  distortion={3}
+                  scrollEase={0.015}
+                  cameraFov={45}
+                  cameraZ={20}
+                  columns={2}
+                  columnGap={40}
+                  alternate={true}
+                  radius={16}
+                  rotation={180}
+                  axis="vertical"
+                  speed={20}
+                  lean={0.2}
+                  fade={0.2}
+                  shading={0.3}
+                  wheel={true}
+                  drag={true}
+                  pageScroll={0.12}
+                  onItemClick={(_item, index) => {
+                    const eraYears = ["1991", "1995", "2000", "2005", "2026"];
+                    const targetYear = eraYears[index % eraYears.length];
+                    setSelectedTimelineYear(targetYear);
+                    const el = document.getElementById(`milestone-${targetYear}`);
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }}
+                  className="w-full h-full"
+                />
+              </div>
+
+              {/* Bottom Bar Info */}
+              <div className="absolute bottom-0 inset-x-0 z-20 px-6 sm:px-10 py-4 flex items-center justify-between text-zinc-400 text-[11px] font-mono tracking-wider pointer-events-none bg-gradient-to-t from-zinc-950/95 via-zinc-950/60 to-transparent">
+                <span>1991 — 2026 TRIDENT ARCHIVES IN 3D PERSPECTIVE</span>
+                <span className="text-amber-400 font-semibold animate-pulse hidden sm:inline">✦ CLICK ANY POSTER TO JUMP TO ERA ✦</span>
+                <span>HISTORICAL MEMORABILIA &amp; CAMPUS RUNWAY</span>
               </div>
             </div>
 
