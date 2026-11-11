@@ -53,8 +53,10 @@ export default function Home() {
         {/* SECTION 7: STUDENT LIFE ("Life Beyond the Classroom" - Interactive Student Hub) */}
         <TactStudentLife />
 
-        {/* SECTION 8: CAMPUS GALLERY (3D Infinite Spiral Complete Background & Bento Media Showcase) */}
-        <CampusGallery />
+        {/* SECTION 8: CAMPUS GALLERY (Interactive Filterable Bento Media Showcase) */}
+        <AnimatedBackground variant="light" className="border-t border-indigo-100">
+          <CampusGallery />
+        </AnimatedBackground>
 
         {/* SECTION 9: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
         <AnimatedBackground variant="light" className="border-t border-indigo-100">
