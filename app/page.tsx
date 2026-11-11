@@ -9,7 +9,6 @@ import TactProgrammes from "@/components/TactProgrammes";
 import TactNews from "@/components/TactNews";
 import TactPlacements from "@/components/TactPlacements";
 import TactStudentLife from "@/components/TactStudentLife";
-import CampusGallery from "@/components/CampusGallery";
 import TactTestimonials from "@/components/TactTestimonials";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
@@ -53,12 +52,7 @@ export default function Home() {
         {/* SECTION 7: STUDENT LIFE ("Life Beyond the Classroom" - Interactive Student Hub) */}
         <TactStudentLife />
 
-        {/* SECTION 8: CAMPUS GALLERY (Interactive Filterable Bento Media Showcase) */}
-        <AnimatedBackground variant="light" className="border-t border-indigo-100">
-          <CampusGallery />
-        </AnimatedBackground>
-
-        {/* SECTION 9: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
+        {/* SECTION 8: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
         <div className="border-t border-indigo-100/60">
           <TactTestimonials />
         </div>
