@@ -53,6 +53,24 @@ export default function TactTestimonials() {
 
   const testimonials: AlumnusTestimonial[] = [
     {
+      id: "ananya-senapati",
+      name: "Ananya Senapati",
+      initials: "AS",
+      image: "/images/drive_second/Picture3.jpg",
+      degreeBadge: "Class of 2019 • BBA",
+      batchYear: "Class of '19",
+      designation: "Business & Marketing Strategist",
+      company: "Deloitte",
+      location: "Bengaluru, India",
+      companyTag: "DELOITTE",
+      avatarGradient: "from-pink-600 via-rose-600 to-purple-600",
+      accentColor: "text-pink-600",
+      careerHighlight: "Business Analytics & Corporate Strategy",
+      companyLogoBg: "bg-black text-emerald-400",
+      quote:
+        "The rigorous case study pedagogy and business innovation incubators at TAPS shaped my strategic intuition. We graduated not just with academic honors, but with an executive acumen and presentation polish ready for modern corporate engagements.",
+    },
+    {
       id: "jiban-samal",
       name: "Jiban Samal",
       initials: "JS",
@@ -123,24 +141,6 @@ export default function TactTestimonials() {
       companyLogoBg: "bg-purple-900 text-white",
       quote:
         "Life at Trident was transformative. The foundation in computational science, database architecture, and collaborative hackathons continues to serve me at every stage of designing high-availability enterprise cloud architectures.",
-    },
-    {
-      id: "ananya-senapati",
-      name: "Ananya Senapati",
-      initials: "AS",
-      image: "/images/drive_second/Picture3.jpg",
-      degreeBadge: "Class of 2019 • BBA",
-      batchYear: "Class of '19",
-      designation: "Business & Marketing Strategist",
-      company: "Deloitte",
-      location: "Bengaluru, India",
-      companyTag: "DELOITTE",
-      avatarGradient: "from-pink-600 via-rose-600 to-purple-600",
-      accentColor: "text-pink-600",
-      careerHighlight: "Business Analytics & Corporate Strategy",
-      companyLogoBg: "bg-black text-emerald-400",
-      quote:
-        "The rigorous case study pedagogy and business innovation incubators at TAPS shaped my strategic intuition. We graduated not just with academic honors, but with an executive acumen and presentation polish ready for modern corporate engagements.",
     },
   ];
 
@@ -240,413 +240,321 @@ export default function TactTestimonials() {
 
   return (
     <section 
-      aria-label="Alumni Speak"
-      className="relative py-20 sm:py-24 lg:py-28 bg-transparent overflow-hidden"
+      aria-label="Alumni Testimonials"
+      className="relative py-20 sm:py-28 bg-gradient-to-br from-[#FAFCFF] via-[#F4F7FF] via-40% via-[#FAF5FF] to-[#FFF8F6] overflow-hidden"
     >
-      {/* Dynamic Animated Ambient Glow Canvas */}
+      {/* 1. Dynamic Ambient Pastel Glow Canvases */}
       <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-gradient-to-tr from-blue-500/18 via-indigo-500/20 to-purple-500/18 blur-[140px] rounded-full pointer-events-none -z-10 animate-drift-slow"
+        className="absolute top-1/4 left-1/4 w-[600px] h-[500px] bg-gradient-to-tr from-sky-200/40 via-blue-200/30 to-purple-200/30 blur-[130px] rounded-full pointer-events-none -z-10"
         aria-hidden="true"
       />
       <div 
-        className="absolute -bottom-10 right-10 w-[550px] h-[350px] bg-gradient-to-br from-cyan-400/15 via-indigo-400/15 to-purple-400/15 blur-[120px] rounded-full pointer-events-none -z-10 animate-drift-reverse"
+        className="absolute top-1/3 right-1/4 w-[650px] h-[550px] bg-gradient-to-bl from-purple-200/40 via-pink-200/30 to-indigo-200/30 blur-[140px] rounded-full pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute bottom-10 right-10 w-[500px] h-[400px] bg-gradient-to-tl from-pink-200/35 via-rose-100/30 to-amber-100/25 blur-[120px] rounded-full pointer-events-none -z-10"
         aria-hidden="true"
       />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3 bg-blue-50/90 border border-blue-200/90 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-            <span>ALUMNI SPEAK • TACT BENCHMARK</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight">
-            Voices from the Trident Legacy
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 mt-3 font-normal leading-relaxed">
-            Our graduates lead enterprise software architectures, corporate business strategy, and public administration across premier global organizations.
-          </p>
-        </div>
-
-        {/* ALUMNI HOMECOMING SPOTLIGHT BANNER */}
-        <motion.div 
-          whileHover={{ y: -4 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="max-w-5xl mx-auto mb-10 rounded-3xl overflow-hidden border border-indigo-150 shadow-xl bg-slate-950 group"
-        >
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden">
-            <Image
-              src="/images/drive_second/alumni3.jpg"
-              alt="Trident Annual Alumni Meet TRANSCEND"
-              fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-              sizes="(max-width: 1200px) 100vw, 1024px"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent pointer-events-none" />
-            
-            {/* Top Badges */}
-            <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-              <span className="bg-white/95 backdrop-blur-md text-slate-900 font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
-                Alumni Meet • TRANSCEND
-              </span>
-              <span className="bg-blue-600/90 text-white font-medium text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm hidden sm:inline-block">
-                Annual Homecoming
-              </span>
-            </div>
-
-            {/* Bottom Caption Overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 z-10 text-white flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
-                  Trident Alumni Association • TRANSCEND Annual Homecoming
-                </h3>
-                <p className="text-xs text-slate-200 mt-1 font-light max-w-xl leading-relaxed">
-                  Graduates leading computational transformations, enterprise management, and public administration reuniting at the Infocity campus.
-                </p>
-              </div>
-              <span className="text-xs font-mono font-semibold text-cyan-300 self-start sm:self-auto shrink-0 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
-                Alumni Network
-              </span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 3D TILT INTERACTIVE TESTIMONIAL SHOWCASE WITH DYNAMIC BORDER BEAM */}
-        <div 
-          ref={cardRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={handleMouseLeave}
-          className="relative max-w-5xl mx-auto [perspective:1200px]"
-        >
-          {/* Ambient Glowing Halo Behind */}
-          <div 
-            className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-r from-blue-500/25 via-indigo-500/30 to-purple-500/25 blur-3xl opacity-80 pointer-events-none -z-10 animate-pulseGlow" 
-            aria-hidden="true" 
+      {/* 2. Floating 3D and Pastel Vector Shapes (Squiggles, Spheres, Sparkles) */}
+      {/* Left Wavy Squiggle Ribbon */}
+      <motion.div
+        animate={{ y: [0, -10, 0], rotate: [0, 3, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-6 sm:left-14 bottom-32 pointer-events-none select-none z-0 hidden md:block"
+      >
+        <svg className="w-24 h-16 drop-shadow-sm" viewBox="0 0 120 70" fill="none">
+          <path
+            d="M10 50 C 30 15, 55 65, 80 25 C 95 5, 105 35, 115 20"
+            stroke="url(#squiggleLeft)"
+            strokeWidth="10"
+            strokeLinecap="round"
           />
+          <defs>
+            <linearGradient id="squiggleLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F472B6" />
+              <stop offset="50%" stopColor="#C084FC" />
+              <stop offset="100%" stopColor="#818CF8" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </motion.div>
 
-          {/* 3D Tilt Card Shell */}
-          <motion.div
-            style={{ rotateX, rotateY }}
-            className="relative rounded-3xl p-[1.5px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(79,70,229,0.18)]"
-          >
-            {/* CONTINUOUS CONIC BORDER BEAM (Animated Laser Tracing Around the Card) */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-[150%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#3b82f6_330deg,#8b5cf6_350deg,#06b6d4_360deg)] opacity-75 blur-[1px] pointer-events-none"
-            />
+      {/* Right Wavy Squiggle Ribbon */}
+      <motion.div
+        animate={{ y: [0, 12, 0], rotate: [0, -4, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute right-8 sm:right-16 top-28 pointer-events-none select-none z-0 hidden md:block"
+      >
+        <svg className="w-24 h-16 drop-shadow-sm" viewBox="0 0 120 70" fill="none">
+          <path
+            d="M10 25 C 25 55, 50 10, 75 45 C 90 65, 105 30, 115 45"
+            stroke="url(#squiggleRight)"
+            strokeWidth="10"
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient id="squiggleRight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#C084FC" />
+              <stop offset="60%" stopColor="#F472B6" />
+              <stop offset="100%" stopColor="#FBBF24" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </motion.div>
 
-            {/* Inner Master Glassmorphic Card Container */}
-            <div className="relative bg-white/95 backdrop-blur-2xl rounded-3xl overflow-hidden border border-white/80">
-              
-              {/* Top Countdown Laser Progress Bar */}
-              <div className="absolute top-0 left-0 right-0 h-[4px] bg-indigo-50/80 overflow-hidden z-30" aria-hidden="true">
-                <motion.div
-                  key={`${current.id}-${isPaused}`}
-                  initial={{ width: "0%" }}
-                  animate={{ width: isPaused ? undefined : "100%" }}
-                  transition={{ duration: 7.5, ease: "linear" }}
-                  className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 via-purple-600 to-cyan-400 shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                />
-              </div>
+      {/* Left Pastel Floating Spheres */}
+      <motion.div
+        animate={{ y: [0, -14, 0], x: [0, 6, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-8 sm:left-20 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-gradient-to-br from-purple-300 via-indigo-300 to-purple-500 shadow-[0_8px_20px_rgba(168,85,247,0.32)] pointer-events-none hidden sm:block"
+      />
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute left-20 sm:left-28 top-28 w-4 h-4 rounded-full bg-gradient-to-br from-indigo-300 to-purple-400 opacity-70 shadow-xs pointer-events-none hidden sm:block"
+      />
 
-              {/* Split Layout: Left Profile Column + Right Testimonial Column */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-                
-                {/* LEFT COLUMN: ALUMNUS IDENTITY & PROFILE HERO */}
-                <div className="lg:col-span-5 bg-gradient-to-br from-indigo-50/90 via-slate-50/70 to-purple-50/60 p-7 sm:p-9 border-b lg:border-b-0 lg:border-r border-indigo-100/90 flex flex-col justify-between relative overflow-hidden">
-                  
-                  {/* Subtle Geometric Background Dot Matrix */}
-                  <div 
-                    className="absolute inset-0 bg-[radial-gradient(rgba(99,102,241,0.09)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" 
-                    aria-hidden="true"
+      {/* Right Pastel Spheres & Sparkles */}
+      <motion.div
+        animate={{ y: [0, -12, 0], rotate: [0, 10, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+        className="absolute right-12 sm:right-20 top-1/2 w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 via-pink-400 to-amber-300 shadow-[0_10px_25px_rgba(244,114,182,0.35)] pointer-events-none hidden sm:block"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.15, 1], rotate: [0, 15, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-16 sm:right-24 top-20 text-amber-300 pointer-events-none hidden sm:block"
+      >
+        <svg className="w-6 h-6 fill-amber-300 drop-shadow-xs" viewBox="0 0 24 24">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+      </motion.div>
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+        className="absolute right-20 sm:right-28 bottom-24 text-purple-400 pointer-events-none hidden sm:block"
+      >
+        <svg className="w-7 h-7 fill-purple-400/80 drop-shadow-xs" viewBox="0 0 24 24">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+      </motion.div>
+      <div className="absolute right-36 top-36 w-3 h-3 rounded-full bg-pink-400/60 pointer-events-none hidden sm:block" />
+
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Main Showcase Layout (Matching exact ReactBits / Figma pastel design) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center mb-12">
+          
+          {/* LEFT COLUMN: Frosted Glass Shell with 3D Lanyard & Identity (5 cols) */}
+          <div className="lg:col-span-5 max-w-md mx-auto w-full">
+            <div 
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={handleMouseLeave}
+              className="[perspective:1200px]"
+            >
+              <motion.div
+                style={{ rotateX, rotateY }}
+                className="relative rounded-[2.5rem] bg-white/85 backdrop-blur-2xl p-6 sm:p-7 border border-white shadow-[0_25px_70px_-15px_rgba(147,112,219,0.18)] flex flex-col justify-between overflow-hidden"
+              >
+                {/* 3D Interactive Lanyard Physical Hanging ID Badge (React Bits) */}
+                <div className="relative w-full h-[280px] sm:h-[300px] rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-50/60 via-slate-50/40 to-white/80 border border-slate-150/70 shadow-inner group">
+                  <Lanyard
+                    frontImage={current.image}
+                    backImage="/images/tact-logo.png"
+                    cardColor="#ffffff"
+                    orientation="portrait"
+                    finish="holographic"
+                    metal="silver"
+                    strapColor="#1e3a8a"
+                    size={0.72}
+                    strapLength={0.42}
+                    strapWidth={0.7}
+                    interactive={true}
+                    breeze={0.45}
+                    gravity={1}
+                    damping={0.5}
+                    elasticity={0.55}
+                    className="w-full h-full"
                   />
 
-                  <div className="relative z-10">
-                    {/* Top Header Strip: Company Monogram & Verified Badge */}
-                    <div className="flex items-center justify-between gap-2 mb-7">
-                      <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[11px] font-mono font-bold tracking-wider uppercase shadow-xs ${current.companyLogoBg}`}>
-                        {current.companyTag}
-                      </span>
+                  {/* Top Hanging Rivet */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-2 bg-slate-800 rounded-b-md shadow-sm pointer-events-none z-10" />
 
-                      {/* Live Audio Waveform Voice Indicator */}
-                      <div className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-indigo-150 shadow-2xs">
-                        <div className="flex items-end gap-[2px] h-3">
-                          {[0.4, 0.9, 0.5, 1, 0.7].map((h, i) => (
-                            <motion.span
-                              key={i}
-                              animate={{ scaleY: [h, 1.2, 0.3, h] }}
-                              transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.15, ease: "easeInOut" }}
-                              className="w-[2px] h-3 bg-blue-600 rounded-full origin-bottom"
-                            />
-                          ))}
-                        </div>
-                        <span className="text-[10px] font-mono font-bold text-blue-700 ml-0.5">ALUMNI VOICE</span>
+                  {/* Subtle Interactive Instruction Pill */}
+                  <div className="absolute bottom-2.5 inset-x-0 flex items-center justify-center pointer-events-none z-10">
+                    <span className="text-[11px] font-mono font-medium text-slate-500 bg-white/95 backdrop-blur-md px-3.5 py-0.5 rounded-full border border-slate-200/80 shadow-2xs">
+                      + Drag, Toss or Click to Flip 3D Badge
+                    </span>
+                  </div>
+                </div>
+
+                {/* Alumnus Identity & Verified Credentials */}
+                <div className="pt-5 space-y-3">
+                  <div className="flex items-center gap-3">
+                    {/* Avatar Thumbnail */}
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 ring-2 ring-indigo-200 border border-white shadow-sm bg-slate-900">
+                      <Image
+                        src={current.image}
+                        alt={current.name}
+                        fill
+                        className="object-cover object-top"
+                        sizes="48px"
+                      />
+                      <div className="absolute -bottom-0.5 -right-0.5 bg-blue-600 text-white rounded-full p-0.5 border border-white shadow-2xs">
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                        </svg>
                       </div>
                     </div>
 
-                    {/* Alumnus 3D Physics Lanyard Badge & Credentials */}
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={current.id}
-                        variants={avatarVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="space-y-4"
-                      >
-                        {/* 3D Interactive Lanyard Physical Hanging ID Badge (React Bits) */}
-                        <div className="relative w-full h-[270px] sm:h-[290px] rounded-2xl overflow-hidden bg-gradient-to-b from-indigo-100/50 via-slate-100/30 to-white/60 border border-indigo-150/80 shadow-inner group">
-                          {/* 3D Lanyard Component */}
-                          <Lanyard
-                            frontImage={current.image}
-                            backImage="/images/tact-logo.png"
-                            cardColor="#ffffff"
-                            orientation="portrait"
-                            finish="holographic"
-                            metal="silver"
-                            strapColor="#1e3a8a"
-                            size={0.72}
-                            strapLength={0.42}
-                            strapWidth={0.7}
-                            interactive={true}
-                            breeze={0.45}
-                            gravity={1}
-                            damping={0.5}
-                            elasticity={0.55}
-                            className="w-full h-full"
-                          />
-
-                          {/* Top Hanging Rivet Fixture (Aesthetic Anchor Accent) */}
-                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-2 bg-slate-800 rounded-b-md shadow-sm pointer-events-none z-10" />
-
-                          {/* Subtle Interactive Instruction Pill */}
-                          <div className="absolute bottom-2 inset-x-0 flex items-center justify-center pointer-events-none z-10">
-                            <span className="text-[10px] font-mono font-semibold text-slate-500 bg-white/90 backdrop-blur-md px-3 py-0.5 rounded-full border border-indigo-150 shadow-2xs">
-                              ✦ Drag, Toss or Click to Flip 3D Badge
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Name & Title with Verified Thumbnail Avatar */}
-                        <div className="flex items-start gap-3 pt-1">
-                          <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 ring-2 ring-indigo-200 border border-white shadow-sm bg-slate-900 mt-0.5">
-                            <Image
-                              src={current.image}
-                              alt={current.name}
-                              fill
-                              className="object-cover object-top"
-                              sizes="48px"
-                            />
-                            {/* Verified Badge Check */}
-                            <div className="absolute -bottom-0.5 -right-0.5 bg-blue-600 text-white rounded-full p-0.5 border border-white">
-                              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                              </svg>
-                            </div>
-                          </div>
-
-                          <div className="flex-1">
-                            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">
-                              {current.name}
-                            </h3>
-                            <p className="text-xs sm:text-sm font-semibold text-blue-700 mt-0.5">
-                              {current.designation}
-                            </p>
-                            <p className="text-xs text-slate-600 font-medium">
-                              {current.company}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Batch Degree Pill */}
-                        <div className="pt-1">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-100/90 text-purple-900 border border-purple-200/90 shadow-2xs">
-                            <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
-                            {current.degreeBadge}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug truncate">
+                          {current.name}
+                        </h3>
+                        <svg className="w-5 h-5 text-blue-600 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-700 truncate">
+                        {current.designation}
+                      </p>
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+                        <span>{current.company}</span>
+                        {current.companyTag === "DELOITTE" ? (
+                          <span className="inline-flex items-center justify-center px-1.5 py-0.2 bg-black text-white text-[10px] font-bold rounded">
+                            D.
                           </span>
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
+                        ) : (
+                          <span className="inline-flex items-center px-1.5 py-0.2 bg-slate-800 text-white text-[10px] font-mono font-bold rounded">
+                            {current.companyTag}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Bottom Details: Location & Career Milestone */}
-                  <div className="relative z-10 pt-5 mt-6 border-t border-indigo-100/90 space-y-2">
-                    <div className="flex items-center gap-2 text-xs text-slate-600 font-medium">
-                      <svg className="w-4 h-4 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Batch Degree Pill */}
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200/80 shadow-2xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />
+                      {current.degreeBadge}
+                    </span>
+                  </div>
+
+                  {/* Divider & Metadata */}
+                  <div className="pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-3.5 h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                       <span>{current.location}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-indigo-950 font-medium">
-                      <svg className="w-4 h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-3.5 h-3.5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                       <span className="truncate">{current.careerHighlight}</span>
                     </div>
                   </div>
-
                 </div>
+              </motion.div>
+            </div>
+          </div>
 
-                {/* RIGHT COLUMN: QUOTATION BODY & INTERACTIVE CONTROLS */}
-                <div className="lg:col-span-7 p-7 sm:p-10 lg:p-12 flex flex-col justify-between relative bg-white">
-                  
-                  {/* Floating Stylized Oversized Quotation Mark with Floating Animation */}
-                  <motion.div 
-                    animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-6 right-8 sm:right-12 text-indigo-100/60 select-none pointer-events-none font-serif text-[140px] sm:text-[180px] leading-none"
-                    aria-hidden="true"
-                  >
-                    “
-                  </motion.div>
+          {/* RIGHT COLUMN: Typography, Rating & Controls (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col justify-between py-2 sm:py-6 lg:py-8 space-y-6 sm:space-y-8">
+            
+            {/* Top Row: Star Rating Badge */}
+            <div className="flex items-center justify-between">
+              <div className="hidden sm:block" />
+              <div className="inline-flex items-center gap-1.5 text-amber-500 text-xs font-semibold bg-amber-50/90 px-3.5 py-1 rounded-full border border-amber-200/70 shadow-2xs">
+                <span className="tracking-widest">★★★★★</span>
+                <span className="text-slate-800 font-medium ml-1">TRCT Benchmark Legacy</span>
+              </div>
+            </div>
 
-                  {/* Top Meta Strip: Star Rating & Slide Index */}
-                  <div className="relative z-10 flex items-center justify-between gap-3 mb-6">
-                    <div className="inline-flex items-center gap-1.5 text-amber-500 text-xs font-semibold bg-amber-50 px-3 py-1 rounded-full border border-amber-200/80 shadow-2xs">
-                      <span className="tracking-widest">★★★★★</span>
-                      <span className="text-slate-800 font-medium ml-1">TACT Benchmark Legacy</span>
-                    </div>
+            {/* Quotation Body */}
+            <div className="space-y-2">
+              <div className="text-indigo-200/90 font-serif text-7xl sm:text-8xl select-none leading-none -mb-6">
+                “
+              </div>
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.blockquote
+                  key={current.id}
+                  custom={direction}
+                  variants={contentVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="font-serif italic text-2xl sm:text-3xl lg:text-[2.15rem] text-slate-800 leading-snug sm:leading-relaxed font-normal tracking-tight"
+                >
+                  &ldquo;{current.quote}&rdquo;
+                </motion.blockquote>
+              </AnimatePresence>
+            </div>
 
-                    <div className="text-xs font-mono font-bold tracking-widest text-slate-400">
-                      <span className="text-blue-700 font-bold">0{currentIndex + 1}</span> / 0{testimonials.length}
-                    </div>
-                  </div>
-
-                  {/* Animated Quotation Body with Framer Motion Kinetic Fade */}
-                  <div className="relative z-10 my-auto py-3">
-                    <AnimatePresence mode="wait" custom={direction}>
-                      <motion.blockquote
-                        key={current.id}
-                        custom={direction}
-                        variants={contentVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="text-xl sm:text-2xl lg:text-[25px] font-serif italic text-slate-900 leading-relaxed font-normal tracking-tight"
-                      >
-                        &ldquo;{current.quote}&rdquo;
-                      </motion.blockquote>
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Bottom Navigation & Controls */}
-                  <div className="relative z-10 pt-6 mt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    
-                    {/* Active Indicator Dots with Smooth Spring Expansion */}
-                    <div className="flex items-center gap-2 order-2 sm:order-1" role="tablist" aria-label="Alumni testimonials">
-                      {testimonials.map((item, idx) => {
-                        const isActive = idx === currentIndex;
-                        return (
-                          <button
-                            key={item.id}
-                            onClick={() => handleSelect(idx)}
-                            role="tab"
-                            aria-selected={isActive}
-                            aria-label={`Go to testimonial ${idx + 1}: ${item.name}`}
-                            className="relative py-1 cursor-pointer"
-                          >
-                            <motion.div
-                              layout
-                              className={`h-2.5 rounded-full transition-all duration-300 ${
-                                isActive 
-                                  ? "w-10 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-sm shadow-blue-500/30" 
-                                  : "w-2.5 bg-indigo-150 hover:bg-indigo-300"
-                              }`}
-                              transition={{ type: "spring", stiffness: 450, damping: 30 }}
-                            />
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Previous / Next Tactile Arrow Buttons with Hover Elevation */}
-                    <div className="flex items-center gap-3 order-1 sm:order-2">
-                      <motion.button
-                        whileHover={{ scale: 1.1, x: -2 }}
-                        whileTap={{ scale: 0.92 }}
-                        onClick={handlePrev}
-                        aria-label="Previous testimonial"
-                        className="w-11 h-11 rounded-full border border-indigo-200 hover:border-blue-600 bg-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 text-slate-800 hover:text-white flex items-center justify-center transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </motion.button>
-
-                      <motion.button
-                        whileHover={{ scale: 1.1, x: 2 }}
-                        whileTap={{ scale: 0.92 }}
-                        onClick={handleNext}
-                        aria-label="Next testimonial"
-                        className="w-11 h-11 rounded-full border border-indigo-200 hover:border-blue-600 bg-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 text-slate-800 hover:text-white flex items-center justify-center transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer"
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </motion.button>
-                    </div>
-
-                  </div>
-
-                </div>
-
+            {/* Bottom Row: Progress Capsule & Arrows */}
+            <div className="flex items-center justify-between gap-4 pt-4">
+              {/* Capsule Progress Indicator */}
+              <div className="flex items-center gap-2" role="tablist" aria-label="Alumni testimonials">
+                {testimonials.map((item, idx) => {
+                  const isActive = idx === currentIndex;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleSelect(idx)}
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`Go to testimonial ${idx + 1}: ${item.name}`}
+                      className="relative py-2 cursor-pointer"
+                    >
+                      <motion.div
+                        layout
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                          isActive
+                            ? "w-14 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 shadow-sm shadow-blue-500/30"
+                            : "w-2.5 bg-indigo-200/70 hover:bg-indigo-300"
+                        }`}
+                        transition={{ type: "spring", stiffness: 450, damping: 30 }}
+                      />
+                    </button>
+                  );
+                })}
               </div>
 
-            </div>
-          </motion.div>
-
-          {/* INTERACTIVE ALUMNI DOCK SELECTOR (Mac-Style Spring Elevation) */}
-          <div className="mt-8 flex items-center justify-center gap-2.5 sm:gap-3.5 flex-wrap">
-            {testimonials.map((item, idx) => {
-              const isActive = idx === currentIndex;
-              return (
+              {/* Previous / Next Circular Buttons */}
+              <div className="flex items-center gap-3">
                 <motion.button
-                  key={item.id}
-                  onClick={() => handleSelect(idx)}
-                  whileHover={{ y: -3, scale: 1.03 }}
-                  whileTap={{ scale: 0.96 }}
-                  className={`relative flex items-center gap-2.5 px-3.5 py-2 rounded-2xl transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? "bg-white shadow-lg border-2 border-indigo-500 scale-105 ring-2 ring-indigo-500/20"
-                      : "bg-white/80 hover:bg-white border border-indigo-150 hover:border-indigo-300 shadow-2xs"
-                  }`}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={handlePrev}
+                  aria-label="Previous testimonial"
+                  className="w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow-sm hover:shadow-md border border-slate-200/80 flex items-center justify-center transition-all cursor-pointer"
                 >
-                  {/* Active Backdrop Highlight */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeAlumniDock"
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-50/50 via-indigo-50/50 to-purple-50/50 -z-10"
-                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                    />
-                  )}
-
-                  <div className="relative w-8 h-8 rounded-xl overflow-hidden shrink-0 shadow-2xs border border-indigo-200 bg-slate-900">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="32px"
-                    />
-                  </div>
-
-                  <div className="text-left hidden sm:block">
-                    <div className="text-xs font-bold text-slate-900 leading-tight">
-                      {item.name.split(" ")[0]}
-                    </div>
-                    <div className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-1">
-                      <span>{item.companyTag}</span>
-                      <span className="text-indigo-400">•</span>
-                      <span className="text-slate-400">{item.batchYear}</span>
-                    </div>
-                  </div>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+                  </svg>
                 </motion.button>
-              );
-            })}
+
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
+                  onClick={handleNext}
+                  aria-label="Next testimonial"
+                  className="w-11 h-11 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow-sm hover:shadow-md border border-slate-200/80 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.button>
+              </div>
+            </div>
           </div>
 
         </div>

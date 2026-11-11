@@ -59,9 +59,9 @@ export default function Home() {
         </AnimatedBackground>
 
         {/* SECTION 9: TESTIMONIALS ("Alumni Speak" & Global Alumni Network) */}
-        <AnimatedBackground variant="light" className="border-t border-indigo-100">
+        <div className="border-t border-indigo-100/60">
           <TactTestimonials />
-        </AnimatedBackground>
+        </div>
       </main>
 
       {/* COMPREHENSIVE INSTITUTIONAL FOOTER (SOLID BLACK) */}
