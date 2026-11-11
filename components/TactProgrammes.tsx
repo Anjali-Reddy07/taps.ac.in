@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import GhostFibers from "./GhostFibers";
 
 interface TactProgrammesProps {
   onOpenQuery?: () => void;
@@ -170,6 +171,32 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
       id="programmes" 
       className="relative py-20 sm:py-24 lg:py-28 bg-transparent overflow-hidden"
     >
+      {/* Dynamic Ambient React Bits <GhostFibers /> Animated Canvas */}
+      <div 
+        className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <GhostFibers
+          glowColor="#8b5cf6"
+          secondaryColor="#3b82f6"
+          lineColor="#6366f1"
+          gradient="depth"
+          layers={3}
+          twist={1.2}
+          threads={72}
+          fiberStyle="dots"
+          depthOfField={0.85}
+          hoverEffect="focus"
+          intro={true}
+          mouseInteraction={true}
+          lightMode={true}
+          brightness={0.85}
+          vignette={0}
+          grain={0}
+          className="w-full h-full opacity-65"
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Section Header */}
