@@ -449,7 +449,7 @@ export default function FacilitiesPage() {
     if (totalSlides <= 1 || lightboxImage !== null) return;
     const timer = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
-    }, 3000);
+    }, 3200);
     return () => clearInterval(timer);
   }, [totalSlides, lightboxImage]);
 
@@ -804,17 +804,14 @@ export default function FacilitiesPage() {
                 style={{ perspective: 1200 }}
               >
                 {filteredSlides.map((slide, index) => {
-                  // Calculate offset from current active slide with wrap-around
-                  let offset = index - currentSlideIndex;
-                  if (offset < -Math.floor(totalSlides / 2)) offset += totalSlides;
-                  if (offset > Math.floor(totalSlides / 2)) offset -= totalSlides;
-
-                  // Render only nearby slides for maximum 60fps performance
-                  if (Math.abs(offset) > 2) return null;
+                  // True circular shortest distance on continuous carousel ring
+                  let offset = (index - currentSlideIndex) % totalSlides;
+                  if (offset > totalSlides / 2) offset -= totalSlides;
+                  if (offset < -totalSlides / 2) offset += totalSlides;
 
                   const isCenter = offset === 0;
 
-                  // Dynamic 3D transform metrics
+                  // Smooth positions without unmounting popping
                   let translateX = 0;
                   let rotateY = 0;
                   let scale = 1;
@@ -830,33 +827,40 @@ export default function FacilitiesPage() {
                     opacity = 1;
                     filter = "brightness(1) blur(0px)";
                   } else if (offset === -1) {
-                    translateX = -360;
-                    rotateY = 24;
+                    translateX = -380;
+                    rotateY = 22;
                     scale = 0.86;
                     zIndex = 20;
                     opacity = 0.65;
                     filter = "brightness(0.7) blur(1px)";
                   } else if (offset === 1) {
-                    translateX = 360;
-                    rotateY = -24;
+                    translateX = 380;
+                    rotateY = -22;
                     scale = 0.86;
                     zIndex = 20;
                     opacity = 0.65;
                     filter = "brightness(0.7) blur(1px)";
                   } else if (offset === -2) {
-                    translateX = -620;
-                    rotateY = 36;
+                    translateX = -680;
+                    rotateY = 34;
                     scale = 0.72;
                     zIndex = 10;
                     opacity = 0.25;
                     filter = "brightness(0.4) blur(3px)";
                   } else if (offset === 2) {
-                    translateX = 620;
-                    rotateY = -36;
+                    translateX = 680;
+                    rotateY = -34;
                     scale = 0.72;
                     zIndex = 10;
                     opacity = 0.25;
                     filter = "brightness(0.4) blur(3px)";
+                  } else {
+                    translateX = offset > 0 ? 900 : -900;
+                    rotateY = offset > 0 ? -40 : 40;
+                    scale = 0.55;
+                    zIndex = 0;
+                    opacity = 0;
+                    filter = "brightness(0.3) blur(5px)";
                   }
 
                   return (
@@ -870,10 +874,8 @@ export default function FacilitiesPage() {
                         zIndex: zIndex,
                       }}
                       transition={{
-                        type: "spring",
-                        stiffness: 280,
-                        damping: 28,
-                        mass: 0.8,
+                        duration: 0.85,
+                        ease: [0.22, 1, 0.36, 1], // Buttery smooth Apple ease-out curve
                       }}
                       onClick={() => {
                         if (!isCenter) setCurrentSlideIndex(index);
@@ -886,6 +888,7 @@ export default function FacilitiesPage() {
                       style={{
                         transformStyle: "preserve-3d",
                         filter: filter,
+                        pointerEvents: Math.abs(offset) > 2 ? "none" : "auto",
                       }}
                       drag={isCenter ? "x" : false}
                       dragConstraints={{ left: 0, right: 0 }}
@@ -990,7 +993,7 @@ export default function FacilitiesPage() {
                 key={currentSlideIndex}
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 3.0, ease: "linear" }}
+                transition={{ duration: 3.2, ease: "linear" }}
                 className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]"
               />
             </div>
