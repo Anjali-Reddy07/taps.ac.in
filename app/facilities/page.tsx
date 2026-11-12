@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,11 +30,30 @@ interface Facility {
   glow: string;
 }
 
+interface CampusDriveSlide {
+  id: string;
+  num: string;
+  title: string;
+  category: "academic" | "hostel" | "sports" | "campus";
+  badge: string;
+  tagline: string;
+  src: string;
+  desc: string;
+  accentGlow: string;
+  accentBorder: string;
+  accentText: string;
+}
+
 export default function FacilitiesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFacilityId, setActiveFacilityId] = useState<string>("technoplex-block");
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<string | null>(null);
+
+  // 3D Cinematic Horizon Slider States
   const [galleryFilter, setGalleryFilter] = useState<string>("all");
+  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [lightboxImage, setLightboxImage] = useState<CampusDriveSlide | null>(null);
 
   const facilities: Facility[] = [
     {
@@ -251,97 +270,205 @@ export default function FacilitiesPage() {
   const currentFacility = facilities.find((f) => f.id === activeFacilityId) || facilities[0];
   const activeDisplayImage = selectedGalleryImage || currentFacility.image;
 
-  // Real campus gallery items from Google Drive
-  const campusDriveGallery = [
+  // Real campus gallery slides from Google Drive with tailored futuristic visual tokens
+  const campusDriveSlides: CampusDriveSlide[] = [
     {
+      id: "slide-01",
+      num: "01",
       title: "Trident Academy of Creative Technology Main Facade",
       category: "academic",
-      badge: "Main Campus",
+      badge: "MAIN CAMPUS FACADE",
+      tagline: "ARCHITECTURAL PORTICO • INFOCITY BHUBANESWAR",
       src: "/images/drive_facilities/_dsc1828.jpg",
-      desc: "Primary entrance and architectural facade of Trident Academy of Creative Technology in Infocity.",
+      desc: "The primary institution campus at Infocity housing undergraduate departments, smart amphitheatres, and high-performance computing centers.",
+      accentGlow: "from-cyan-500/40 via-blue-600/30 to-purple-600/20",
+      accentBorder: "border-cyan-400/50",
+      accentText: "text-cyan-300",
     },
     {
-      title: "Tournament Basketball Hardcourt",
+      id: "slide-02",
+      num: "02",
+      title: "Tournament Basketball Hardcourt Arena",
       category: "sports",
-      badge: "Athletics Arena",
+      badge: "ATHLETICS ARENA",
+      tagline: "REGULATION HARDCOURT • FLOODLIT ATHLETIC GROUNDS",
       src: "/images/drive_facilities/_dsc1859.jpg",
-      desc: "Olympic-regulation outdoor basketball arena with painted color keys and perimeter fencing.",
+      desc: "Olympic-regulation outdoor basketball arena featuring vibrant colored keys, three-point arcs, perimeter fencing, and adjacent botanical greenhouse.",
+      accentGlow: "from-emerald-500/40 via-teal-600/30 to-blue-600/20",
+      accentBorder: "border-emerald-400/50",
+      accentText: "text-emerald-300",
     },
     {
-      title: "Sapphire Residential Hostel",
+      id: "slide-03",
+      num: "03",
+      title: "Sapphire Student Residential Hostel",
       category: "hostel",
-      badge: "Student Living",
+      badge: "STUDENT RESIDENTIAL",
+      tagline: "MULTI-STOREY DORMITORIES • 24/7 WI-FI & DINING",
       src: "/images/drive_facilities/_dsc1862.jpg",
-      desc: "Spacious multi-storey student accommodation with modern amenities and scenic campus views.",
+      desc: "Spacious multi-storey student hostel pavilion with well-furnished rooms, reading rooms, indoor games, and round-the-clock security surveillance.",
+      accentGlow: "from-amber-500/40 via-orange-600/30 to-rose-600/20",
+      accentBorder: "border-amber-400/50",
+      accentText: "text-amber-300",
     },
     {
-      title: "Ruby Residential Hostel",
+      id: "slide-04",
+      num: "04",
+      title: "Ruby Residential Hostel Block",
       category: "hostel",
-      badge: "Residential Block",
+      badge: "RESIDENTIAL PAVILION",
+      tagline: "ARCHITECTURAL BLUE-GLASS TOWER • INMATE WING",
       src: "/images/drive_facilities/_dsc1863.jpg",
-      desc: "Distinct multi-storey residential wing featuring blue glass architectural stairwells.",
+      desc: "Distinct multi-storey residential wing featuring high-speed connectivity, separate hostel library, and hygienic stainless-steel dining mess.",
+      accentGlow: "from-rose-500/40 via-pink-600/30 to-purple-600/20",
+      accentBorder: "border-rose-400/50",
+      accentText: "text-rose-300",
     },
     {
+      id: "slide-05",
+      num: "05",
       title: "Applied Physics & Electronics Lab",
       category: "academic",
-      badge: "Technical Lab",
+      badge: "PRACTICAL LAB",
+      tagline: "PRECISION INSTRUMENTATION • HARDWARE TRAINERS",
       src: "/images/drive_facilities/_dsc1807.jpg",
-      desc: "Undergraduate students working hands-on with precision laboratory instrumentation.",
+      desc: "Undergraduate students working hands-on with precision laboratory instrumentation, digital oscilloscopes, and optical experimental setups.",
+      accentGlow: "from-blue-500/40 via-indigo-600/30 to-cyan-600/20",
+      accentBorder: "border-blue-400/50",
+      accentText: "text-blue-300",
     },
     {
+      id: "slide-06",
+      num: "06",
       title: "Biotechnology Plant Tissue Culture Chambers",
       category: "academic",
-      badge: "Research Facility",
+      badge: "RESEARCH CENTER",
+      tagline: "CONTROLLED GROWTH CHAMBERS • LED LIGHT SPECTRA",
       src: "/images/drive_facilities/_dsc1819.jpg",
-      desc: "Controlled environmental growth chambers illuminated by calibrated scientific grow lights.",
+      desc: "Controlled scientific plant tissue culture chambers illuminated by calibrated growth spectra for specialized botanical and life sciences research.",
+      accentGlow: "from-teal-500/40 via-emerald-600/30 to-cyan-600/20",
+      accentBorder: "border-teal-400/50",
+      accentText: "text-teal-300",
     },
     {
+      id: "slide-07",
+      num: "07",
       title: "Campus Transit Fleet & Open-Air Yoga",
       category: "campus",
-      badge: "Logistics & Wellness",
+      badge: "LOGISTICS & WELLNESS",
+      tagline: "6 CITY BUS ROUTES • MINDFULNESS YOGA PAVILION",
       src: "/images/drive_facilities/_dsc1854.jpg",
-      desc: "Yellow Trident college bus fleet stationed next to the peaceful Open-Air Yoga Center.",
+      desc: "Trident's dedicated yellow college transit fleet operating across 6 major Bhubaneswar routes, stationed beside the serene Open-Air Yoga Center.",
+      accentGlow: "from-yellow-500/40 via-amber-600/30 to-orange-600/20",
+      accentBorder: "border-yellow-400/50",
+      accentText: "text-yellow-300",
     },
     {
+      id: "slide-08",
+      num: "08",
       title: "Open-Air Fitness Center",
       category: "sports",
-      badge: "Outdoor Gym",
+      badge: "CAMPUS GYMNASIUM",
+      tagline: "OUTDOOR FITNESS RIGS • PHYSICAL CONDITIONING",
       src: "/images/drive_facilities/_dsc1853.jpg",
-      desc: "Outdoor health and body conditioning center situated on the campus athletics grounds.",
+      desc: "Dedicated outdoor health and body conditioning facility on the athletics grounds, supporting active physical fitness and morning workouts.",
+      accentGlow: "from-purple-500/40 via-fuchsia-600/30 to-pink-600/20",
+      accentBorder: "border-purple-400/50",
+      accentText: "text-purple-300",
     },
     {
+      id: "slide-09",
+      num: "09",
       title: "Block 5 Business Analytics Complex",
       category: "academic",
-      badge: "Research Complex",
+      badge: "RESEARCH & PLACEMENT",
+      tagline: "MBA INCUBATOR • SUSTAINABILITY RESEARCH • PLACEMENT CELL",
       src: "/images/drive_facilities/_dsc1852.jpg",
-      desc: "Houses the Center for Business Analytics, Sustainability Research, and Placement Cell.",
+      desc: "Multi-storey academic wing housing the Center for Business Analytics, Center for Sustainability Research, MBA Department, and Training & Placement suites.",
+      accentGlow: "from-cyan-500/40 via-blue-600/30 to-indigo-600/20",
+      accentBorder: "border-cyan-400/50",
+      accentText: "text-cyan-300",
     },
     {
+      id: "slide-10",
+      num: "10",
       title: "Basketball Arena & Botanical Greenhouse",
       category: "sports",
-      badge: "Sports Complex",
+      badge: "ATHLETICS & BOTANY",
+      tagline: "ALL-WEATHER COURT • INTEGRATED CAMPUS GREENHOUSE",
       src: "/images/drive_facilities/_dsc1857.jpg",
-      desc: "Clear perspective showing the court alongside the campus horticultural greenhouse.",
+      desc: "Tournament basketball hardcourt viewed alongside the institutional agricultural greenhouse and surrounding residential pavilions.",
+      accentGlow: "from-emerald-500/40 via-green-600/30 to-teal-600/20",
+      accentBorder: "border-emerald-400/50",
+      accentText: "text-emerald-300",
     },
     {
+      id: "slide-11",
+      num: "11",
       title: "Tree-Lined Botanical Walkway",
       category: "campus",
-      badge: "Eco Walkway",
+      badge: "ECO PROMENADE",
+      tagline: "SHADED PEDESTRIAN BOULEVARD • ZERO-NOISE ZONE",
       src: "/images/drive_facilities/_dsc1845.jpg",
-      desc: "Shaded green pedestrian avenue connecting academic blocks with hostel accommodations.",
+      desc: "Shaded green pedestrian promenade connecting academic blocks with hostel accommodations under a canopy of mature native trees.",
+      accentGlow: "from-green-500/40 via-emerald-600/30 to-cyan-600/20",
+      accentBorder: "border-green-400/50",
+      accentText: "text-green-300",
     },
     {
+      id: "slide-12",
+      num: "12",
       title: "150 KLD Sewage Treatment Plant",
       category: "campus",
-      badge: "Sustainability",
+      badge: "GREEN SUSTAINABILITY",
+      tagline: "MBBR TECHNOLOGY • 100% ON-CAMPUS WATER RECYCLING",
       src: "/images/drive_facilities/_dsc1856.jpg",
-      desc: "Campus MBBR wastewater treatment facility delivering sustainable 100% water recycling.",
+      desc: "State-of-the-art 150 KLD MBBR wastewater treatment facility delivering complete water recycling for campus irrigation and botanical green belts.",
+      accentGlow: "from-sky-500/40 via-blue-600/30 to-teal-600/20",
+      accentBorder: "border-sky-400/50",
+      accentText: "text-sky-300",
     },
   ];
 
-  const filteredGallery = galleryFilter === "all"
-    ? campusDriveGallery
-    : campusDriveGallery.filter((item) => item.category === galleryFilter);
+  const filteredSlides = galleryFilter === "all"
+    ? campusDriveSlides
+    : campusDriveSlides.filter((item) => item.category === galleryFilter);
+
+  const totalSlides = filteredSlides.length;
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlideIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
+
+  // Handle slide autoplay
+  useEffect(() => {
+    if (!isAutoPlaying || totalSlides <= 1) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, nextSlide, totalSlides]);
+
+  // Reset slide index on category change
+  useEffect(() => {
+    setCurrentSlideIndex(0);
+  }, [galleryFilter]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key === "ArrowRight") nextSlide();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, prevSlide]);
+
+  const activeSlide = filteredSlides[currentSlideIndex] || filteredSlides[0];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-blue-600 selection:text-white">
@@ -350,7 +477,6 @@ export default function FacilitiesPage() {
       <main className="flex-1">
         {/* HERO BANNER: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
-          {/* Authentic Campus Life & Cultural Fest Stage Background Image */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
             <Image
               src="/images/facilities-concert-hero.jpg"
@@ -361,7 +487,6 @@ export default function FacilitiesPage() {
               className="object-cover object-[68%_40%] filter contrast-105 saturate-110 opacity-95 scale-100"
               sizes="100vw"
             />
-            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-50% to-[#070D21]/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent" />
           </div>
@@ -584,105 +709,378 @@ export default function FacilitiesPage() {
         </AnimatedBackground>
 
         {/* ========================================================================= */}
-        {/* NEW SECTION: AUTHENTIC CAMPUS GLIMPSES REEL (DRIVE PHOTOS SHOWCASE)       */}
+        {/* ADVANCED ANIMATED 3D HORIZON COVERFLOW SLIDER (REPLACES FLAT CARD GRID)   */}
         {/* ========================================================================= */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
-          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <section 
+          id="campus-glimpses-slides"
+          className="relative py-24 sm:py-32 bg-gradient-to-b from-[#060A1C] via-[#09112B] to-[#050817] text-white overflow-hidden border-y border-indigo-900/50"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          {/* Dynamic Ambient Background Glow reflecting active slide */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full blur-[140px] opacity-30 bg-gradient-to-tr ${activeSlide.accentGlow} transition-all duration-1000 ease-out`} />
+            <div className="absolute -top-32 left-1/4 w-96 h-96 rounded-full blur-[120px] bg-blue-600/15 pointer-events-none" />
+            <div className="absolute -bottom-32 right-1/4 w-96 h-96 rounded-full blur-[120px] bg-purple-600/15 pointer-events-none" />
+            {/* Subtle grid mesh */}
+            <div 
+              className="absolute inset-0 opacity-[0.035] pointer-events-none"
+              style={{
+                backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                backgroundSize: "48px 48px"
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            {/* Header with Title and Category Filters */}
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
               <div>
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
-                  CAMPUS PHOTO ARCHIVE
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-400 mb-3 bg-cyan-950/60 border border-cyan-800/80 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-md">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                  <span>Interactive 3D Horizon Reel</span>
                 </div>
-                <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
-                  Authentic Glimpses from the Technoplex
+                <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
+                  Authentic Campus Glimpses
                 </h2>
-                <p className="text-sm sm:text-base text-zinc-600 mt-2 max-w-xl font-normal leading-relaxed">
-                  Real, unfiltered glimpses of our academic blocks, student hostels, sports hardcourts, technical laboratories, and green campus.
+                <p className="text-sm sm:text-base text-zinc-300 mt-2 max-w-xl font-light leading-relaxed">
+                  Swipe, drag, or glide through real photography from the Infocity Technoplex — captured across academic blocks, student hostels, and tournament sports grounds.
                 </p>
               </div>
 
-              {/* Category Filter Pills */}
+              {/* Category Filter Pills & Auto-Play Indicator */}
               <div className="flex flex-wrap items-center gap-2">
                 {[
-                  { id: "all", label: "All Photos" },
+                  { id: "all", label: "All Slides" },
                   { id: "academic", label: "Academic & Labs" },
                   { id: "hostel", label: "Hostels" },
                   { id: "sports", label: "Sports & Fitness" },
                   { id: "campus", label: "Eco Campus" },
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setGalleryFilter(tab.id)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
-                      galleryFilter === tab.id
-                        ? "bg-zinc-900 text-white shadow-sm"
-                        : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200/80 hover:text-zinc-900"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+                ].map((tab) => {
+                  const isCurrent = galleryFilter === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setGalleryFilter(tab.id)}
+                      className={`relative px-4 py-2 rounded-full text-xs font-mono font-semibold transition-all duration-300 cursor-pointer ${
+                        isCurrent
+                          ? "text-white shadow-[0_0_20px_rgba(59,130,246,0.5)] border border-blue-400/80 bg-blue-600/80 backdrop-blur-md"
+                          : "text-zinc-400 hover:text-white bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Responsive Photo Grid */}
+            {/* 3D Horizon Stage */}
+            <div className="relative w-full h-[520px] sm:h-[580px] lg:h-[620px] flex items-center justify-center select-none overflow-visible">
+              
+              {/* Left & Right Glowing Navigation Trigger Buttons (Floating on sides) */}
+              <div className="absolute left-0 sm:left-4 z-40 top-1/2 -translate-y-1/2">
+                <button
+                  onClick={prevSlide}
+                  aria-label="Previous Slide"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-cyan-400/80 backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 group cursor-pointer"
+                >
+                  <span className="text-xl sm:text-2xl transform group-hover:-translate-x-0.5 transition-transform">←</span>
+                </button>
+              </div>
+
+              <div className="absolute right-0 sm:right-4 z-40 top-1/2 -translate-y-1/2">
+                <button
+                  onClick={nextSlide}
+                  aria-label="Next Slide"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-cyan-400/80 backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 group cursor-pointer"
+                >
+                  <span className="text-xl sm:text-2xl transform group-hover:translate-x-0.5 transition-transform">→</span>
+                </button>
+              </div>
+
+              {/* Swiper Deck with 3D Perspective */}
+              <div 
+                className="relative w-full h-full flex items-center justify-center"
+                style={{ perspective: 1200 }}
+              >
+                {filteredSlides.map((slide, index) => {
+                  // Calculate offset from current active slide with wrap-around
+                  let offset = index - currentSlideIndex;
+                  if (offset < -Math.floor(totalSlides / 2)) offset += totalSlides;
+                  if (offset > Math.floor(totalSlides / 2)) offset -= totalSlides;
+
+                  // Render only nearby slides for maximum 60fps performance
+                  if (Math.abs(offset) > 2) return null;
+
+                  const isCenter = offset === 0;
+
+                  // Dynamic 3D transform metrics
+                  let translateX = 0;
+                  let rotateY = 0;
+                  let scale = 1;
+                  let zIndex = 30;
+                  let opacity = 1;
+                  let filter = "brightness(1) blur(0px)";
+
+                  if (offset === 0) {
+                    translateX = 0;
+                    rotateY = 0;
+                    scale = 1;
+                    zIndex = 30;
+                    opacity = 1;
+                    filter = "brightness(1) blur(0px)";
+                  } else if (offset === -1) {
+                    translateX = -360;
+                    rotateY = 24;
+                    scale = 0.86;
+                    zIndex = 20;
+                    opacity = 0.65;
+                    filter = "brightness(0.7) blur(1px)";
+                  } else if (offset === 1) {
+                    translateX = 360;
+                    rotateY = -24;
+                    scale = 0.86;
+                    zIndex = 20;
+                    opacity = 0.65;
+                    filter = "brightness(0.7) blur(1px)";
+                  } else if (offset === -2) {
+                    translateX = -620;
+                    rotateY = 36;
+                    scale = 0.72;
+                    zIndex = 10;
+                    opacity = 0.25;
+                    filter = "brightness(0.4) blur(3px)";
+                  } else if (offset === 2) {
+                    translateX = 620;
+                    rotateY = -36;
+                    scale = 0.72;
+                    zIndex = 10;
+                    opacity = 0.25;
+                    filter = "brightness(0.4) blur(3px)";
+                  }
+
+                  return (
+                    <motion.div
+                      key={slide.id}
+                      animate={{
+                        x: translateX,
+                        rotateY: rotateY,
+                        scale: scale,
+                        opacity: opacity,
+                        zIndex: zIndex,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 280,
+                        damping: 28,
+                        mass: 0.8,
+                      }}
+                      onClick={() => {
+                        if (!isCenter) setCurrentSlideIndex(index);
+                      }}
+                      className={`absolute w-[86vw] sm:w-[500px] lg:w-[620px] h-[440px] sm:h-[500px] lg:h-[540px] rounded-3xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-300 ${
+                        isCenter
+                          ? `ring-2 ${slide.accentBorder} shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)]`
+                          : "hover:opacity-90"
+                      }`}
+                      style={{
+                        transformStyle: "preserve-3d",
+                        filter: filter,
+                      }}
+                      drag={isCenter ? "x" : false}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      onDragEnd={(e, { offset }) => {
+                        if (offset.x < -40) nextSlide();
+                        else if (offset.x > 40) prevSlide();
+                      }}
+                    >
+                      {/* Photographic Horizon Background */}
+                      <div className="absolute inset-0 bg-zinc-950">
+                        <Image
+                          src={slide.src}
+                          alt={slide.title}
+                          fill
+                          priority={isCenter}
+                          quality={92}
+                          className="object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 620px"
+                        />
+                        {/* Cinematic gradient scrims */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 via-50% to-black/50" />
+                        
+                        {/* Shimmer light beam at the top edge of the active slide */}
+                        {isCenter && (
+                          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
+                        )}
+                      </div>
+
+                      {/* Slide Top Bar: Badge, Number & Location */}
+                      <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between text-white">
+                        <div className="flex items-center gap-2">
+                          <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-white border border-white/20 shadow-md">
+                            {slide.badge}
+                          </span>
+                          <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${slide.accentText}`}>
+                            {slide.tagline.split("•")[0]}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-2 font-mono text-xs">
+                          <span className="text-zinc-400">SLIDE</span>
+                          <span className="font-bold text-white px-2 py-0.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/15">
+                            {slide.num}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Slide Bottom Panel: Frosted Glass Information Bar */}
+                      <div className="absolute bottom-0 inset-x-0 z-10 p-6 sm:p-8 bg-gradient-to-t from-black/95 via-black/80 to-transparent backdrop-blur-md border-t border-white/10 text-white">
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
+                            <span>● INFOCITY CAMPUS</span>
+                            <span>•</span>
+                            <span className="text-zinc-300 truncate">{slide.tagline}</span>
+                          </div>
+
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-white tracking-tight leading-snug drop-shadow-md">
+                            {slide.title}
+                          </h3>
+
+                          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-3">
+                            {slide.desc}
+                          </p>
+
+                          {/* Quick Interactive Actions */}
+                          {isCenter && (
+                            <div className="pt-3 flex items-center justify-between">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setLightboxImage(slide);
+                                }}
+                                className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-white/90 hover:text-white bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-full border border-white/20 transition-all cursor-pointer backdrop-blur-sm"
+                              >
+                                <span>Inspect Fullscreen</span>
+                                <span>⤢</span>
+                              </button>
+
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setIsModalOpen(true);
+                                }}
+                                className={`inline-flex items-center gap-1.5 text-xs font-bold ${slide.accentText} hover:underline cursor-pointer`}
+                              >
+                                <span>Schedule Visit</span>
+                                <span>→</span>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Slider Bottom Controller Strip: Scrubber, Counter & Play/Pause */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-6">
+              
+              {/* Monospace Slide Index Counter */}
+              <div className="flex items-center gap-3 font-mono text-xs text-zinc-400">
+                <span className="text-cyan-400 font-bold text-sm">
+                  {String(currentSlideIndex + 1).padStart(2, "0")}
+                </span>
+                <span className="text-zinc-600">/</span>
+                <span>{String(totalSlides).padStart(2, "0")}</span>
+                <span className="hidden sm:inline-block text-zinc-600">•</span>
+                <span className="hidden sm:inline-block text-zinc-400 truncate max-w-xs">
+                  {activeSlide.title}
+                </span>
+              </div>
+
+              {/* Interactive Slide Progress Pagination Dots */}
+              <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 scrollbar-none">
+                {filteredSlides.map((s, idx) => {
+                  const isCurrent = currentSlideIndex === idx;
+                  return (
+                    <button
+                      key={s.id}
+                      onClick={() => setCurrentSlideIndex(idx)}
+                      aria-label={`Go to slide ${idx + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        isCurrent
+                          ? "w-8 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-md"
+                          : "w-2 bg-zinc-700 hover:bg-zinc-500"
+                      }`}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Autoplay & Keyboard Control Tips */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                  className="px-3 py-1 rounded-full text-[11px] font-mono text-zinc-300 bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${isAutoPlaying ? "bg-emerald-400 animate-pulse" : "bg-zinc-500"}`} />
+                  <span>{isAutoPlaying ? "Autoplay ON" : "Paused"}</span>
+                </button>
+                <span className="text-[11px] font-mono text-zinc-500 hidden md:inline">
+                  Drag or use ← → keys
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* FULLSCREEN LIGHTBOX MODAL */}
+        <AnimatePresence>
+          {lightboxImage && (
             <motion.div
-              layout
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setLightboxImage(null)}
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-10 cursor-zoom-out"
             >
-              <AnimatePresence>
-                {filteredGallery.map((item, idx) => (
-                  <motion.div
-                    layout
-                    key={item.src}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.35, delay: idx * 0.04 }}
-                    className="group relative rounded-2xl overflow-hidden bg-white border border-zinc-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
-                  >
-                    <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-zinc-100">
-                      <Image
-                        src={item.src}
-                        alt={item.title}
-                        fill
-                        className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={90}
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-                      
-                      <div className="absolute top-3 left-3">
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-white/95 text-zinc-900 shadow-md backdrop-blur-sm">
-                          {item.badge}
-                        </span>
-                      </div>
-                    </div>
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center cursor-default"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setLightboxImage(null)}
+                  className="absolute -top-12 right-0 text-white/80 hover:text-white font-mono text-sm px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all cursor-pointer"
+                >
+                  Close ✕
+                </button>
 
-                    <div className="p-5 flex-1 flex flex-col justify-between bg-white">
-                      <div>
-                        <h4 className="text-base font-semibold text-zinc-950 group-hover:text-blue-600 transition-colors tracking-tight leading-snug mb-1.5">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-zinc-600 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
+                <div className="relative w-full h-[65vh] sm:h-[75vh] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                  <Image
+                    src={lightboxImage.src}
+                    alt={lightboxImage.title}
+                    fill
+                    className="object-contain object-center"
+                    quality={96}
+                    priority
+                  />
+                </div>
 
-                      <div className="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                        <span>Infocity Campus</span>
-                        <span className="text-blue-600 font-bold group-hover:translate-x-1 transition-transform">Live View →</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                <div className="mt-4 text-center text-white max-w-2xl">
+                  <div className="text-xs font-mono text-cyan-400 mb-1">{lightboxImage.badge} • INFOCITY TECHNOPLEX</div>
+                  <h3 className="text-xl sm:text-2xl font-light text-white">{lightboxImage.title}</h3>
+                  <p className="text-xs sm:text-sm text-zinc-300 mt-1">{lightboxImage.desc}</p>
+                </div>
+              </div>
             </motion.div>
-
-          </section>
-        </AnimatedBackground>
+          )}
+        </AnimatePresence>
 
         {/* ========================================================================= */}
         {/* FULL-WIDTH EDITORIAL WALKTHROUGH (APPLE STYLE, ZERO BOXES)                */}
