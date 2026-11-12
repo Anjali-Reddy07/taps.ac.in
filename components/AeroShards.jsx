@@ -2226,3 +2226,4 @@ export default function AeroShards({
 
   return <div ref={containerRef} className={[ROOT, className].filter(Boolean).join(' ')} style={style} />;
 }
+
