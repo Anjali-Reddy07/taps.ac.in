@@ -773,7 +773,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20 sm:mb-24 py-12 px-6 sm:px-10 border border-indigo-100/90 shadow-xs relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/80 via-indigo-50/20 to-white/90"
+          className="mb-16 sm:mb-20 py-8 sm:py-10 px-5 sm:px-8 border border-indigo-100/90 shadow-xs relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/80 via-indigo-50/20 to-white/90"
         >
           {/* AeroShards WebGPU Interactive Canvas Background */}
           <div className="absolute inset-0 pointer-events-auto z-0 overflow-hidden opacity-85">
@@ -818,7 +818,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </div>
 
             {/* Vibrant 3-Column Bento Grid with Rich Colors & Advanced Hover Animations */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
               {[
                 {
                   num: "01",
@@ -828,11 +828,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "Top Ranked in Odisha",
                   gradient: "from-blue-600 to-indigo-600",
                   bgGlow: "group-hover:from-blue-600/15 group-hover:via-indigo-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-blue-400/80 hover:shadow-[0_20px_45px_-12px_rgba(37,99,235,0.3)]",
+                  borderHover: "hover:border-blue-400/80 hover:shadow-[0_16px_32px_-10px_rgba(37,99,235,0.25)]",
                   badgeBg: "bg-blue-50 text-blue-700 border-blue-200",
                   iconBg: "from-blue-600 to-indigo-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
                   ),
@@ -845,11 +845,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "M.Tech • NET • Ph.D",
                   gradient: "from-purple-600 to-fuchsia-600",
                   bgGlow: "group-hover:from-purple-600/15 group-hover:via-fuchsia-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-purple-400/80 hover:shadow-[0_20px_45px_-12px_rgba(147,51,234,0.3)]",
+                  borderHover: "hover:border-purple-400/80 hover:shadow-[0_16px_32px_-10px_rgba(147,51,234,0.25)]",
                   badgeBg: "bg-purple-50 text-purple-700 border-purple-200",
                   iconBg: "from-purple-600 to-fuchsia-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                     </svg>
                   ),
@@ -862,11 +862,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "Startup Incubation",
                   gradient: "from-emerald-600 to-teal-600",
                   bgGlow: "group-hover:from-emerald-600/15 group-hover:via-teal-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-emerald-400/80 hover:shadow-[0_20px_45px_-12px_rgba(16,185,129,0.3)]",
+                  borderHover: "hover:border-emerald-400/80 hover:shadow-[0_16px_32px_-10px_rgba(16,185,129,0.25)]",
                   badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
                   iconBg: "from-emerald-600 to-teal-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   ),
@@ -879,11 +879,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "Executive Grooming",
                   gradient: "from-amber-500 to-orange-600",
                   bgGlow: "group-hover:from-amber-500/15 group-hover:via-orange-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-amber-400/80 hover:shadow-[0_20px_45px_-12px_rgba(245,158,11,0.3)]",
+                  borderHover: "hover:border-amber-400/80 hover:shadow-[0_16px_32px_-10px_rgba(245,158,11,0.25)]",
                   badgeBg: "bg-amber-50 text-amber-700 border-amber-200",
                   iconBg: "from-amber-500 to-orange-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   ),
@@ -896,11 +896,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "138+ Active Partners",
                   gradient: "from-rose-500 to-pink-600",
                   bgGlow: "group-hover:from-rose-500/15 group-hover:via-pink-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-rose-400/80 hover:shadow-[0_20px_45px_-12px_rgba(244,63,94,0.3)]",
+                  borderHover: "hover:border-rose-400/80 hover:shadow-[0_16px_32px_-10px_rgba(244,63,94,0.25)]",
                   badgeBg: "bg-rose-50 text-rose-700 border-rose-200",
                   iconBg: "from-rose-500 to-pink-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   ),
@@ -913,11 +913,11 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   pill: "Weekly Conclaves",
                   gradient: "from-cyan-600 to-blue-600",
                   bgGlow: "group-hover:from-cyan-600/15 group-hover:via-blue-500/10 group-hover:to-transparent",
-                  borderHover: "hover:border-cyan-400/80 hover:shadow-[0_20px_45px_-12px_rgba(6,182,212,0.3)]",
+                  borderHover: "hover:border-cyan-400/80 hover:shadow-[0_16px_32px_-10px_rgba(6,182,212,0.25)]",
                   badgeBg: "bg-cyan-50 text-cyan-700 border-cyan-200",
                   iconBg: "from-cyan-600 to-blue-600",
                   iconSvg: (
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                     </svg>
                   ),
@@ -925,12 +925,12 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
               ].map((f, idx) => (
                 <motion.div
                   key={f.num}
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -6, scale: 1.02 }}
-                  className={`relative p-6 sm:p-7 rounded-3xl bg-white/90 hover:bg-white backdrop-blur-md border border-indigo-100/90 ${f.borderHover} transition-all duration-300 group cursor-default shadow-sm flex flex-col justify-between overflow-hidden`}
+                  transition={{ duration: 0.45, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4, scale: 1.015 }}
+                  className={`relative p-4 sm:p-5 rounded-2xl bg-white/90 hover:bg-white backdrop-blur-md border border-indigo-100/90 ${f.borderHover} transition-all duration-300 group cursor-default shadow-sm flex flex-col justify-between overflow-hidden`}
                 >
                   {/* Top Animated Color Shimmer Line */}
                   <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${f.gradient} opacity-90 group-hover:h-1.5 transition-all duration-300`} />
@@ -940,38 +940,38 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
                   <div className="relative z-10">
                     {/* Header: Icon, Number & Tag */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className={`w-11 h-11 rounded-2xl bg-gradient-to-tr ${f.iconBg} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className={`w-8 h-8 rounded-xl bg-gradient-to-tr ${f.iconBg} flex items-center justify-center shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                         {f.iconSvg}
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${f.badgeBg} shadow-2xs`}>
+                        <span className={`text-[9px] font-mono font-bold tracking-wider px-2 py-0.5 rounded-full border ${f.badgeBg} shadow-2xs`}>
                           {f.tag}
                         </span>
-                        <span className="font-mono font-black text-sm text-slate-300 group-hover:text-slate-500 transition-colors">
+                        <span className="font-mono font-black text-xs text-slate-300 group-hover:text-slate-500 transition-colors">
                           {f.num}
                         </span>
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors tracking-tight leading-snug mb-2.5">
+                    <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors tracking-tight leading-snug mb-1.5">
                       {f.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-slate-600 group-hover:text-slate-700 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-[13px] text-slate-600 group-hover:text-slate-700 leading-relaxed font-normal">
                       {f.desc}
                     </p>
                   </div>
 
                   {/* Bottom Highlight Pill */}
-                  <div className="relative z-10 mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-bold text-slate-500 group-hover:text-slate-800 transition-colors">
+                  <div className="relative z-10 mt-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold text-slate-500 group-hover:text-slate-800 transition-colors">
                       {f.pill}
                     </span>
-                    <span className="text-xs font-bold text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                    <span className="text-[11px] font-bold text-blue-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
                       Explore →
                     </span>
                   </div>
@@ -981,26 +981,26 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
             {/* Institutional Motto: Cinematic Golden-Sapphire Quote Banner */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-14 relative rounded-3xl overflow-hidden p-8 sm:p-10 border border-indigo-200/80 bg-gradient-to-r from-blue-900/90 via-indigo-900/90 to-slate-950/95 text-white shadow-xl backdrop-blur-md"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-8 sm:mt-10 relative rounded-2xl overflow-hidden p-6 sm:p-7 border border-indigo-200/80 bg-gradient-to-r from-blue-900/90 via-indigo-900/90 to-slate-950/95 text-white shadow-xl backdrop-blur-md"
             >
               {/* Ambient radial glows */}
               <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl bg-cyan-500/20 pointer-events-none" />
               <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full blur-3xl bg-amber-500/20 pointer-events-none" />
 
               <div className="relative z-10 max-w-4xl mx-auto text-center">
-                <span className="text-5xl sm:text-6xl font-serif text-cyan-400/40 block -mb-4 select-none">&ldquo;</span>
-                <p className="italic text-base sm:text-lg lg:text-xl font-light text-zinc-100 leading-relaxed px-4">
+                <span className="text-4xl sm:text-5xl font-serif text-cyan-400/40 block -mb-3 select-none">&ldquo;</span>
+                <p className="italic text-sm sm:text-base lg:text-lg font-light text-zinc-100 leading-relaxed px-4">
                   <span className="text-white font-medium">Destiny</span> is not a matter of chance, It is a matter of{" "}
                   <span className="text-amber-300 font-medium">choice</span>; It is not a thing to be waited for, It is a thing to be{" "}
                   <span className="text-cyan-300 font-medium">achieved</span>. Let us repeat endlessly to our self, &lsquo;We will achieve{" "}
                   <span className="text-amber-300 font-medium underline decoration-amber-400/50 underline-offset-4">extraordinary success in life</span>. It all depends on us.&rsquo;
                 </p>
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-mono uppercase tracking-widest text-cyan-300 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5 text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                   <span>Official TAPS Institutional Motto</span>
                   <span className="text-white/40">•</span>
                   <span className="text-zinc-300">Founded 1991 • taps.ac.in</span>
