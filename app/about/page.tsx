@@ -64,12 +64,12 @@ export default function AboutPage() {
       tag: "ERA 02 • SPECIALIZED IT TRAINING",
       desc: "Through Trident's Advanced Computer Training (TACT), fresh engineering graduates were trained in enterprise packages including SYBASE, POWERBUILDER, ORACLE, DB-2, and JCL, securing coveted careers in competitive corporate markets.",
       highlight: "Pioneered specialized software education in Eastern India.",
-      image: "/images/drive_third/Library_Library.JPG",
-      visualTitle: "Central DELNET Research Library",
-      visualSubtitle: "70,000+ Text & Reference Volumes with IEEE & ACM Access",
-      specs: ["70,000 Volumes", "DELNET Stacks", "IEEE & ACM Databases"],
-      accentGlow: "from-cyan-500/20 via-blue-500/10 to-transparent",
-      accentBorder: "border-cyan-400/40",
+      image: "/images/drive/computer-lab.jpg",
+      visualTitle: "Enterprise Software & Computing Clusters",
+      visualSubtitle: "Eastern India's Pioneer High-Density RDBMS Workstations",
+      specs: ["UNIX & SYBASE Labs", "500+ Engineers Placed", "RDBMS Certifications"],
+      accentGlow: "from-cyan-500/25 via-blue-500/15 to-transparent",
+      accentBorder: "border-cyan-400/50",
       accentBadge: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
     },
     {
@@ -78,12 +78,12 @@ export default function AboutPage() {
       tag: "ERA 03 • TAPS INAUGURATION",
       desc: "Formal launch of Trident Academy of Professional Studies (TAPS) under TACT Trust, offering BCA and BBA affiliated to Utkal University with Govt. of Odisha approval.",
       highlight: "Permanent AICTE and Higher Education Department recognition.",
-      image: "/images/drive_third/ClassRooms__MG_2339.JPG",
+      image: "/images/drive_third/ClassRooms_Academic.JPG",
       visualTitle: "Multimedia Tiered Smart Amphitheatre",
       visualSubtitle: "Faculty-Mentored Pedagogy & Interactive Lecture Theatres",
-      specs: ["Acoustically Engineered Tiered Seating", "Interactive Smart Boards", "Multimedia Digital Podiums"],
-      accentGlow: "from-indigo-500/20 via-purple-500/10 to-transparent",
-      accentBorder: "border-indigo-400/40",
+      specs: ["Acoustically Engineered Tiered Seating", "Utkal University CBCS", "Multimedia Digital Podiums"],
+      accentGlow: "from-indigo-500/25 via-purple-500/15 to-transparent",
+      accentBorder: "border-indigo-400/50",
       accentBadge: "text-indigo-400 bg-indigo-400/10 border-indigo-400/30",
     },
     {
@@ -93,11 +93,11 @@ export default function AboutPage() {
       desc: "Expanded into an 11-acre flagship Technoplex in the heart of Infocity, Bhubaneswar, flanked by Infosys, TCS, and Wipro development centers.",
       highlight: "High-density cloud computing labs and central research library established.",
       image: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
-      visualTitle: "11-Acre Technoplex Campus Complex",
-      visualSubtitle: "Infocity IT Corridor, Patia, Bhubaneswar",
-      specs: ["11-Acre Flagship Technoplex", "Infocity IT Hub", "Modern Institutional Blocks"],
-      accentGlow: "from-emerald-500/20 via-teal-500/10 to-transparent",
-      accentBorder: "border-emerald-400/40",
+      visualTitle: "11-Acre Flagship Technoplex Campus",
+      visualSubtitle: "Patia Infocity Tech Corridor Flanked by Global IT Giants",
+      specs: ["11-Acre Technoplex", "Infocity IT Hub", "Modern Institutional Blocks"],
+      accentGlow: "from-emerald-500/25 via-teal-500/15 to-transparent",
+      accentBorder: "border-emerald-400/50",
       accentBadge: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
     },
     {
@@ -106,12 +106,12 @@ export default function AboutPage() {
       tag: "ERA 05 • CONTEMPORARY BENCHMARK",
       desc: "Recognized as the benchmark undergraduate institute under Utkal University for BCA and BBA with sustained placement records and corporate tie-ups.",
       highlight: "Odisha's premier academic benchmark for BCA & BBA scholars.",
-      image: "/images/drive/campus-walkway.jpg",
-      visualTitle: "Central Campus Promenade & Academic Quads",
-      visualSubtitle: "Symmetrical Paved Walkway Flanked by Royal Palm Trees",
-      specs: ["Royal Palm Promenade", "Infocity Tech Corridor", "24/7 Connected Campus"],
-      accentGlow: "from-purple-500/20 via-pink-500/10 to-transparent",
-      accentBorder: "border-purple-400/40",
+      image: "/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg",
+      visualTitle: "Sunset Campus Promenade & Modern Colonnades",
+      visualSubtitle: "Vibrant Academic Life & Sustained Campus Placement Drives",
+      specs: ["138+ Annual Recruiters", "Utkal Univ CBCS No. 1", "24/7 Connected Campus"],
+      accentGlow: "from-purple-500/25 via-pink-500/15 to-transparent",
+      accentBorder: "border-purple-400/50",
       accentBadge: "text-purple-400 bg-purple-400/10 border-purple-400/30",
     },
   ];
@@ -1084,7 +1084,7 @@ export default function AboutPage() {
           <section id="history" className="relative z-10 py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             
             {/* Centered Section Header */}
-            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-amber-400 mb-4 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/25 shadow-2xs backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 ESTABLISHED: 1991 • TRIDENT ARCHIVE
@@ -1097,195 +1097,279 @@ export default function AboutPage() {
               <p className="text-sm sm:text-base text-zinc-300 mt-4 font-light leading-relaxed max-w-2xl mx-auto">
                 Tracing over three decades of academic dominance, technological breakthroughs, and sustained corporate campus placements under the TACT Trust.
               </p>
+            </div>
 
-              {/* Interactive Era Quick-Jumper Pill Buttons */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mr-2 font-semibold hidden sm:inline-block">
-                  Jump to Era:
-                </span>
-                {milestones.map((m) => {
-                  const isSelected = selectedTimelineYear === m.year;
+            {/* 1. Kinetic Horizon Era Ribbon (Progress Rail) */}
+            <div className="relative max-w-4xl mx-auto mb-12 sm:mb-16 px-4">
+              {/* Connecting glowing progress line */}
+              <div className="absolute top-1/2 left-8 right-8 -translate-y-1/2 h-1 bg-zinc-800 rounded-full hidden sm:block">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-amber-400 via-cyan-400 via-indigo-500 to-purple-500 rounded-full"
+                  animate={{
+                    width: `${((milestones.findIndex((m) => m.year === selectedTimelineYear)) / (milestones.length - 1)) * 100}%`,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                />
+              </div>
+
+              {/* 5 Milestone Points */}
+              <div className="relative z-10 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar py-2">
+                {milestones.map((m, idx) => {
+                  const isActive = selectedTimelineYear === m.year;
                   return (
                     <button
                       key={m.year}
-                      onClick={() => {
-                        setSelectedTimelineYear(m.year);
-                        const el = document.getElementById(`milestone-${m.year}`);
-                        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                      }}
-                      className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all duration-300 cursor-pointer ${
-                        isSelected
-                          ? "bg-gradient-to-r from-amber-400 to-orange-400 text-slate-950 shadow-lg scale-105"
-                          : "bg-zinc-900/90 text-zinc-300 border border-zinc-700/80 hover:border-amber-400 hover:text-white"
-                      }`}
+                      onClick={() => setSelectedTimelineYear(m.year)}
+                      className="group flex flex-col items-center gap-2 cursor-pointer focus:outline-hidden"
                     >
-                      {m.year}
+                      <div
+                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center font-mono font-bold text-xs sm:text-sm transition-all duration-300 ${
+                          isActive
+                            ? "bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 shadow-[0_0_25px_rgba(251,191,36,0.6)] scale-110 ring-4 ring-amber-400/20"
+                            : "bg-zinc-900/90 text-zinc-400 border border-zinc-700/80 hover:border-amber-400 hover:text-white hover:scale-105"
+                        }`}
+                      >
+                        {isActive ? (
+                          <span className="relative flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950" />
+                          </span>
+                        ) : (
+                          <span>0{idx + 1}</span>
+                        )}
+                      </div>
+                      <span className={`text-xs font-mono font-bold transition-colors ${
+                        isActive ? "text-amber-400" : "text-zinc-400 group-hover:text-zinc-200"
+                      }`}>
+                        {m.year}
+                      </span>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Balanced Symmetrical Timeline Stream (Completely Eliminates Blank Void) */}
-            <div className="relative max-w-6xl mx-auto">
-              
-              {/* Continuous Center Glowing Spine */}
-              <div 
-                className="absolute left-6 md:left-1/2 top-4 bottom-8 w-[3px] -translate-x-1/2 bg-gradient-to-b from-amber-400 via-sky-400 via-indigo-500 to-purple-500 opacity-60 pointer-events-none rounded-full hidden md:block" 
-                aria-hidden="true"
-              />
+            {/* 2. Spotlight Cinema Stage: Large Cinematic Split Showcase with AnimatePresence */}
+            {(() => {
+              const currentMilestoneIdx = milestones.findIndex((m) => m.year === selectedTimelineYear);
+              const currentMilestone = milestones[currentMilestoneIdx >= 0 ? currentMilestoneIdx : 0];
+              const handlePrevMilestone = () => {
+                const prev = (currentMilestoneIdx - 1 + milestones.length) % milestones.length;
+                setSelectedTimelineYear(milestones[prev].year);
+              };
+              const handleNextMilestone = () => {
+                const next = (currentMilestoneIdx + 1) % milestones.length;
+                setSelectedTimelineYear(milestones[next].year);
+              };
 
-              <div className="space-y-12 sm:space-y-16">
-                {milestones.map((m, idx) => {
-                  const isSelected = selectedTimelineYear === m.year;
-                  const isEven = idx % 2 === 1;
-
-                  // Cardless Advanced Animated Narrative Milestone Stream
-                  const narrativeCard = (
+              return (
+                <div className="relative max-w-6xl mx-auto mb-16 sm:mb-20">
+                  <AnimatePresence mode="wait">
                     <motion.div
-                      key={`narrative-${m.year}`}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 }}
-                      className="w-full md:w-[calc(50%-32px)] py-4 sm:py-6 flex flex-col justify-between relative group/narrative z-10"
+                      key={currentMilestone.year}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-zinc-900/90 via-zinc-900/70 to-zinc-950/90 border border-zinc-800/90 shadow-2xl backdrop-blur-2xl relative overflow-hidden"
                     >
-                      {/* Ambient Halo Behind Typography (No rigid card border) */}
-                      <div className={`absolute -top-6 -left-6 w-60 h-60 rounded-full blur-3xl pointer-events-none opacity-40 group-hover/narrative:opacity-80 transition-opacity duration-500 bg-gradient-to-br ${m.accentGlow}`} />
+                      {/* Dynamic Ambient Glow matching Era */}
+                      <div className={`absolute -top-24 -left-24 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-50 bg-gradient-to-br ${currentMilestone.accentGlow}`} />
+                      <div className={`absolute -bottom-24 -right-24 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-40 bg-gradient-to-tl ${currentMilestone.accentGlow}`} />
 
-                      <div className="relative z-10">
-                        {/* Open Floating Year & Era Pillar */}
-                        <div className="flex items-baseline justify-between gap-4 mb-3">
-                          <span className="text-4xl sm:text-6xl font-mono font-black tracking-tight bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent drop-shadow-sm">
-                            {m.year}
-                          </span>
-                          <span className={`text-[10px] font-mono uppercase tracking-widest font-bold px-3 py-1 rounded-full border shadow-2xs backdrop-blur-md ${m.accentBadge}`}>
-                            {m.tag}
-                          </span>
-                        </div>
+                      {/* Top kinetic color bar */}
+                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-cyan-400 to-indigo-500" />
 
-                        {/* Title Floating Cleanly */}
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 leading-snug group-hover/narrative:text-amber-300 transition-colors">
-                          {m.title}
-                        </h3>
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                        
+                        {/* Left Column: Narrative, Typography & Metrics */}
+                        <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
+                          
+                          {/* Floating Watermark & Badge */}
+                          <div>
+                            <div className="flex items-center justify-between gap-4 mb-4">
+                              <span className={`text-[11px] font-mono uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border shadow-2xs backdrop-blur-md ${currentMilestone.accentBadge}`}>
+                                {currentMilestone.tag}
+                              </span>
+                              <span className="text-xs font-mono text-zinc-500 font-semibold">
+                                ERA 0{currentMilestoneIdx + 1} OF 0{milestones.length}
+                              </span>
+                            </div>
 
-                        {/* Description */}
-                        <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-light mb-6">
-                          {m.desc}
-                        </p>
-                      </div>
+                            {/* Large Animated Year */}
+                            <div className="text-5xl sm:text-7xl font-mono font-black tracking-tight bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent mb-3 drop-shadow-md">
+                              {currentMilestone.year}
+                            </div>
 
-                      {/* Micro Metric & Specs Floating Line */}
-                      <div className="relative z-10 pt-4 border-t border-zinc-800/60">
-                        <div className="flex items-center gap-2 text-xs font-mono text-cyan-300 mb-3 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                          <span>{m.highlight}</span>
-                        </div>
+                            {/* Title */}
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white leading-snug tracking-tight mb-4">
+                              {currentMilestone.title}
+                            </h3>
 
-                        {/* Era Micro-Tags Floating Badges */}
-                        <div className="flex flex-wrap gap-2">
-                          {m.specs.map((spec, sIdx) => (
-                            <span key={sIdx} className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 backdrop-blur-xs">
-                              {spec}
+                            {/* Story Description */}
+                            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-light mb-6">
+                              {currentMilestone.desc}
+                            </p>
+                          </div>
+
+                          {/* Highlight Callout Card */}
+                          <div className="p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700/60 backdrop-blur-md flex items-center gap-3 shadow-inner">
+                            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                            <span className="text-xs sm:text-sm text-cyan-200 font-medium">
+                              {currentMilestone.highlight}
                             </span>
-                          ))}
+                          </div>
+
+                          {/* 3 Key Era Specs Chips */}
+                          <div className="flex flex-wrap gap-2 pt-2">
+                            {currentMilestone.specs.map((spec, sIdx) => (
+                              <span
+                                key={sIdx}
+                                className="text-xs font-mono px-3 py-1.5 rounded-xl bg-zinc-800/80 border border-zinc-700 text-zinc-300 shadow-2xs"
+                              >
+                                {spec}
+                              </span>
+                            ))}
+                          </div>
+
+                          {/* Navigation Controls */}
+                          <div className="pt-6 border-t border-zinc-800 flex items-center justify-between">
+                            <button
+                              onClick={handlePrevMilestone}
+                              className="px-4 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2"
+                            >
+                              <span>←</span>
+                              <span>Previous Era</span>
+                            </button>
+
+                            <div className="flex items-center gap-1.5">
+                              {milestones.map((m, dIdx) => (
+                                <span
+                                  key={dIdx}
+                                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                                    dIdx === currentMilestoneIdx
+                                      ? "w-6 bg-amber-400"
+                                      : "w-2 bg-zinc-700"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+
+                            <button
+                              onClick={handleNextMilestone}
+                              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-mono font-bold text-xs transition-all cursor-pointer flex items-center gap-2 shadow-lg shadow-amber-400/20"
+                            >
+                              <span>Next Era</span>
+                              <span>→</span>
+                            </button>
+                          </div>
+
                         </div>
+
+                        {/* Right Column: Cinematic 3D Archival Window */}
+                        <div className="lg:col-span-6 relative">
+                          <div className="relative h-72 sm:h-96 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 group/window">
+                            <Image
+                              src={currentMilestone.image}
+                              alt={currentMilestone.visualTitle}
+                              fill
+                              loading="lazy"
+                              quality={92}
+                              className="object-cover object-center group-hover/window:scale-106 transition-transform duration-700 ease-out filter contrast-105"
+                              sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                            {/* Film grain vignette */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                            {/* Top Badges */}
+                            <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
+                              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                                VERIFIED ARCHIVAL EXHIBIT
+                              </div>
+                              <span className="text-[10px] font-mono text-zinc-300 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+                                TRIDENT HERITAGE
+                              </span>
+                            </div>
+
+                            {/* Bottom Caption Overlay */}
+                            <div className="absolute bottom-5 left-5 right-5 z-10 text-white">
+                              <div className="text-lg sm:text-xl font-bold tracking-tight text-white leading-snug">
+                                {currentMilestone.visualTitle}
+                              </div>
+                              <div className="text-xs font-mono text-cyan-300 font-medium mt-1">
+                                {currentMilestone.visualSubtitle}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
                       </div>
                     </motion.div>
-                  );
+                  </AnimatePresence>
+                </div>
+              );
+            })()}
 
-                  // Cardless Cinematic Architectural & Facility Visual Aperture (No Rigid Box Border)
-                  const visualCard = (
+            {/* 3. Panoramic Milestone Shelf: 5 Eras Cards side by side */}
+            <div className="max-w-6xl mx-auto mb-16 sm:mb-20">
+              <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold mb-5 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                Explore Complete 35-Year Archival Timeline
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {milestones.map((m, idx) => {
+                  const isActive = selectedTimelineYear === m.year;
+                  return (
                     <motion.div
-                      key={`visual-${m.year}`}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.5, delay: idx * 0.1 + 0.05 }}
-                      whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                      className="w-full md:w-[calc(50%-32px)] relative group/visual z-10"
+                      key={m.year}
+                      whileHover={{ y: -6, scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                      onClick={() => setSelectedTimelineYear(m.year)}
+                      className={`rounded-2xl p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between border relative overflow-hidden ${
+                        isActive
+                          ? "bg-zinc-800/90 border-amber-400 shadow-xl shadow-amber-500/15 ring-2 ring-amber-400/30"
+                          : "bg-zinc-900/70 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/50"
+                      }`}
                     >
-                      {/* Ambient Vibrant Backlight Beam */}
-                      <div className={`absolute -inset-4 rounded-3xl blur-2xl opacity-40 group-hover/visual:opacity-75 transition-opacity duration-700 bg-gradient-to-br ${m.accentGlow}`} />
-
-                      {/* Borderless Floating Cinematic Window */}
-                      <div className="relative h-64 sm:h-80 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                      {/* Top thumbnail */}
+                      <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-zinc-700/60">
                         <Image
                           src={m.image}
-                          alt={m.visualTitle}
+                          alt={m.title}
                           fill
                           loading="lazy"
-                          quality={92}
-                          className="object-cover object-center group-hover/visual:scale-108 transition-transform duration-700 ease-out filter contrast-105"
-                          sizes="(max-width: 768px) 100vw, 45vw"
+                          quality={85}
+                          className="object-cover object-center group-hover:scale-108 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, 20vw"
                         />
-                        {/* Cinematic Vignette Feathering into Canvas */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent pointer-events-none" />
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
-
-                        {/* Top Floating Badge */}
-                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
-                          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-300 shadow-md">
-                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                            CAMPUS FACILITY
-                          </div>
-                          <span className="text-[10px] font-mono text-zinc-300 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
-                            INFOCITY TECHNOPLEX
-                          </span>
-                        </div>
-
-                        {/* Bottom Caption Overlay */}
-                        <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
-                          <div className="text-base sm:text-lg font-bold tracking-tight text-white leading-snug">
-                            {m.visualTitle}
-                          </div>
-                          <div className="text-xs font-mono text-cyan-300 font-medium mt-0.5">
-                            {m.visualSubtitle}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-
-                  return (
-                    <div
-                      id={`milestone-${m.year}`}
-                      key={m.year}
-                      onMouseEnter={() => setSelectedTimelineYear(m.year)}
-                      className="relative flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-16 group"
-                    >
-                      {/* Center Glowing Timeline Node on Desktop */}
-                      <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 items-center justify-center pointer-events-none">
-                        <span className="relative flex h-8 w-8 items-center justify-center">
-                          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                            isSelected ? "bg-amber-400" : "bg-sky-400"
-                          }`} />
-                          <span className={`relative inline-flex rounded-full h-8 w-8 border-2 border-white shadow-xl transition-colors duration-300 items-center justify-center ${
-                            isSelected ? "bg-amber-400" : "bg-zinc-900 group-hover:bg-amber-400"
-                          }`}>
-                            <span className="w-2 h-2 rounded-full bg-slate-950" />
-                          </span>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                        <span className="absolute bottom-1.5 left-2 text-[10px] font-mono font-bold text-amber-300 uppercase">
+                          ERA 0{idx + 1}
                         </span>
                       </div>
 
-                      {/* Alternating Dual-Panel Layout: Zero Blank Space */}
-                      {isEven ? (
-                        <>
-                          {visualCard}
-                          {narrativeCard}
-                        </>
-                      ) : (
-                        <>
-                          {narrativeCard}
-                          {visualCard}
-                        </>
-                      )}
+                      <div>
+                        <div className="text-xl font-mono font-black text-white mb-1">
+                          {m.year}
+                        </div>
+                        <h4 className="text-xs font-bold text-zinc-200 line-clamp-2 leading-snug mb-1">
+                          {m.title}
+                        </h4>
+                      </div>
 
-                    </div>
+                      <div className="pt-2 mt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-zinc-500">Exhibit 0{idx + 1}</span>
+                        <span className={isActive ? "text-amber-400 font-bold" : "text-zinc-400"}>
+                          {isActive ? "Viewing ●" : "Select →"}
+                        </span>
+                      </div>
+                    </motion.div>
                   );
                 })}
               </div>
-
             </div>
 
             {/* Bottom 4-Column Legacy Metrics Banner (Seamless Cardless Metric Rail) */}
