@@ -444,14 +444,14 @@ export default function FacilitiesPage() {
     setCurrentSlideIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Handle slide autoplay
+  // Handle continuous automatic looping one-by-one (pauses only if lightbox is open)
   useEffect(() => {
-    if (!isAutoPlaying || totalSlides <= 1) return;
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 4500);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide, totalSlides]);
+    if (totalSlides <= 1 || lightboxImage !== null) return;
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [totalSlides, lightboxImage]);
 
   // Reset slide index on category change
   useEffect(() => {
@@ -709,13 +709,11 @@ export default function FacilitiesPage() {
         </AnimatedBackground>
 
         {/* ========================================================================= */}
-        {/* ADVANCED ANIMATED 3D HORIZON COVERFLOW SLIDER (REPLACES FLAT CARD GRID)   */}
+        {/* ADVANCED ANIMATED 3D HORIZON COVERFLOW SLIDER (AUTOMATIC CONTINUOUS LOOP) */}
         {/* ========================================================================= */}
         <section 
           id="campus-glimpses-slides"
           className="relative py-24 sm:py-32 bg-gradient-to-b from-[#060A1C] via-[#09112B] to-[#050817] text-white overflow-hidden border-y border-indigo-900/50"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
         >
           {/* Dynamic Ambient Background Glow reflecting active slide */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -738,14 +736,14 @@ export default function FacilitiesPage() {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-400 mb-3 bg-cyan-950/60 border border-cyan-800/80 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                  <span>Interactive 3D Horizon Reel</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                  <span>Auto-Looping 3D Horizon Reel</span>
                 </div>
                 <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
                   Authentic Campus Glimpses
                 </h2>
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 max-w-xl font-light leading-relaxed">
-                  Swipe, drag, or glide through real photography from the Infocity Technoplex — captured across academic blocks, student hostels, and tournament sports grounds.
+                  Moving continuously in an automatic loop through high-resolution photography from the Infocity Technoplex — captured across academic blocks, student hostels, and tournament sports grounds.
                 </p>
               </div>
 
@@ -986,8 +984,19 @@ export default function FacilitiesPage() {
               </div>
             </div>
 
+            {/* Automatic Continuous Loop Progress Bar */}
+            <div className="mt-6 w-full max-w-md mx-auto h-1 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                key={currentSlideIndex}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 3.0, ease: "linear" }}
+                className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]"
+              />
+            </div>
+
             {/* Slider Bottom Controller Strip: Scrubber, Counter & Play/Pause */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-6">
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-6">
               
               {/* Monospace Slide Index Counter */}
               <div className="flex items-center gap-3 font-mono text-xs text-zinc-400">
