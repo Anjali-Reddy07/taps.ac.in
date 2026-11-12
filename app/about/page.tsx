@@ -241,7 +241,15 @@ export default function AboutPage() {
       title: "Academic Vision",
       subtitle: "Excellence in Teaching, Research & Mentorship",
       gradient: "from-blue-600 via-indigo-600 to-cyan-500",
-      accentBg: "bg-blue-50 text-blue-700 border-blue-200",
+      accentBg: "bg-blue-50/90 text-blue-700 border-blue-200",
+      tagColor: "text-blue-700 bg-blue-50/90 border-blue-200/90",
+      beaconColor: "bg-blue-500",
+      glowBorder: "hover:border-blue-300/80",
+      glowShadow: "hover:shadow-blue-500/15",
+      cardHoverBg: "from-blue-50/70 via-indigo-50/30 to-white",
+      iconGradient: "bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25",
+      dotGradient: "bg-gradient-to-r from-blue-600 to-indigo-500 shadow-xs shadow-blue-500/40",
+      learnMoreColor: "text-blue-600 group-hover:text-blue-700",
       desc: "To achieve and sustain a reputation for excellence in teaching, learning, applied research, and industry mentorship while upholding enduring human and ethical values.",
       points: [
         "Undisputed undergraduate institute of choice for Computer Applications & Business Administration.",
@@ -262,7 +270,15 @@ export default function AboutPage() {
       title: "Pedagogical Mission",
       subtitle: "Bridging Academic Rigor with Industry Readiness",
       gradient: "from-indigo-600 via-purple-600 to-pink-600",
-      accentBg: "bg-purple-50 text-purple-700 border-purple-200",
+      accentBg: "bg-purple-50/90 text-purple-700 border-purple-200",
+      tagColor: "text-purple-700 bg-purple-50/90 border-purple-200/90",
+      beaconColor: "bg-purple-500",
+      glowBorder: "hover:border-purple-300/80",
+      glowShadow: "hover:shadow-purple-500/15",
+      cardHoverBg: "from-purple-50/70 via-pink-50/30 to-white",
+      iconGradient: "bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-md shadow-purple-500/25",
+      dotGradient: "bg-gradient-to-r from-purple-600 to-pink-500 shadow-xs shadow-purple-500/40",
+      learnMoreColor: "text-purple-600 group-hover:text-purple-700",
       desc: "To provide the highest caliber of technical acumen, business ethics, and practical experience to undergraduate scholars through structured experiential learning.",
       points: [
         "Maintain premier computing virtualization clusters and continuous data science labs.",
@@ -281,7 +297,15 @@ export default function AboutPage() {
       title: "Core Institutional Values",
       subtitle: "Students are Our First, Second & Third Priority",
       gradient: "from-emerald-600 via-teal-600 to-cyan-600",
-      accentBg: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      accentBg: "bg-emerald-50/90 text-emerald-700 border-emerald-200",
+      tagColor: "text-emerald-700 bg-emerald-50/90 border-emerald-200/90",
+      beaconColor: "bg-emerald-500",
+      glowBorder: "hover:border-emerald-300/80",
+      glowShadow: "hover:shadow-emerald-500/15",
+      cardHoverBg: "from-emerald-50/70 via-teal-50/30 to-white",
+      iconGradient: "bg-gradient-to-tr from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/25",
+      dotGradient: "bg-gradient-to-r from-emerald-600 to-teal-500 shadow-xs shadow-emerald-500/40",
+      learnMoreColor: "text-emerald-600 group-hover:text-emerald-700",
       desc: "At Trident, collaborative learning, administrative integrity, and student career transformation govern every policy and pedagogical decision.",
       points: [
         "ISO 9001:2008 certified academic quality framework and transparent institutional governance.",
@@ -652,8 +676,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Cardless Fluid Accreditation Stream */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                {/* Elevated Fluid Accreditation Stream */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   {accreditations.map((item, idx) => (
                     <motion.div 
                       key={item.title}
@@ -661,11 +685,11 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.08 }}
-                      whileHover={{ x: 4 }}
-                      className="relative pl-5 py-2 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default"
+                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                      className="relative p-4 rounded-2xl bg-white/70 backdrop-blur-md border border-slate-200/80 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 hover:bg-gradient-to-r hover:from-blue-50/60 hover:to-white transition-all duration-300 group cursor-default"
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-700 bg-indigo-50/80 px-2 py-0.5 rounded-md">
+                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-700 bg-indigo-50/90 border border-indigo-200/60 px-2 py-0.5 rounded-md">
                           {item.badge}
                         </span>
                         <span className="text-xl font-mono font-extrabold text-blue-600">
@@ -754,6 +778,11 @@ export default function AboutPage() {
 
         {/* 3 PILLARS OF DISTINCTION: VISION, MISSION & VALUES (HIGH IMPACT MODERN SHOWCASE) */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Subtle Ambient Color Transition Glows */}
+          <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-gradient-to-tr from-blue-400/20 via-indigo-300/15 to-transparent blur-[90px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[520px] h-[360px] rounded-full bg-gradient-to-br from-purple-400/15 via-pink-300/10 to-transparent blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
+          <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-gradient-to-tl from-emerald-400/20 via-teal-300/15 to-transparent blur-[90px] pointer-events-none animate-pulse" style={{ animationDuration: '9s' }} />
+
           {/* Ambient Decorative Grid */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
@@ -765,50 +794,60 @@ export default function AboutPage() {
           </svg>
 
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
-            
             {/* Section Header */}
             <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50/90 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                </span>
                 Vision, Mission &amp; Values
               </div>
               <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
-                What We Stand For, and How We Lead
+                What We Stand For, <span className="font-semibold bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-600 bg-clip-text text-transparent">and How We Lead</span>
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
                 The institutional pillars underpinning 26+ years of academic dominance and ethical leadership in Eastern India.
               </p>
             </div>
 
-            {/* 3 Luxury Institutional Pillars (Cardless Architectural Triad) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200/80">
+            {/* 3 Luxury Institutional Pillars (Card Architectural Triad with Transition Colours) */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {pillars.map((pillar, idx) => (
                 <motion.div
                   key={pillar.id}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.12 }}
-                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className="p-8 sm:p-10 flex flex-col justify-between relative group"
+                  transition={{ duration: 0.55, delay: idx * 0.12 }}
+                  whileHover={{ y: -8, transition: { duration: 0.28, ease: "easeOut" } }}
+                  className={`p-8 sm:p-10 rounded-3xl bg-white/85 backdrop-blur-xl border border-zinc-200/90 shadow-sm flex flex-col justify-between relative group overflow-hidden transition-all duration-500 ease-out hover:shadow-2xl ${pillar.glowShadow} ${pillar.glowBorder}`}
                 >
-                  {/* Top Glowing Gradient Beam Accent */}
-                  <div className={`absolute top-0 left-8 right-8 h-1 bg-gradient-to-r ${pillar.gradient}`} />
+                  {/* Top Glowing Shimmer Gradient Beam Accent */}
+                  <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${pillar.gradient}`} />
 
-                  <div>
-                    {/* Header Strip with Pillar Pill */}
+                  {/* Subtle Internal Transition Color Hover Pool */}
+                  <div className={`absolute inset-0 bg-gradient-to-b ${pillar.cardHoverBg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                  <div className="relative z-10">
+                    {/* Header Strip with Glowing Pillar Badge & Icon */}
                     <div className="flex items-center justify-between gap-2 mb-6">
-                      <span className={`inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full border ${pillar.accentBg}`}>
+                      <span className={`inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${pillar.tagColor}`}>
+                        <span className="relative flex h-2 w-2 mr-0.5">
+                          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${pillar.beaconColor}`}></span>
+                          <span className={`relative inline-flex rounded-full h-2 w-2 ${pillar.beaconColor}`}></span>
+                        </span>
                         {pillar.number}
                       </span>
-                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-800 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-2xs">
+                      <div className={`w-11 h-11 rounded-2xl ${pillar.iconGradient} flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md`}>
                         {pillar.icon}
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2 group-hover:text-blue-900 transition-colors duration-200">
                       {pillar.title}
                     </h3>
-                    <div className="text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-4">
+                    <div className={`text-xs font-mono font-semibold uppercase tracking-wider mb-4 ${pillar.learnMoreColor}`}>
                       {pillar.subtitle}
                     </div>
 
@@ -816,20 +855,25 @@ export default function AboutPage() {
                       {pillar.desc}
                     </p>
 
-                    {/* Bullet Points */}
-                    <ul className="space-y-3 pt-4 border-t border-slate-100">
+                    {/* Bullet Points with glowing pips */}
+                    <ul className="space-y-2.5 pt-4 border-t border-slate-100/90">
                       {pillar.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2.5 text-xs text-slate-700 leading-snug">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
-                          <span>{pt}</span>
+                        <li 
+                          key={pIdx} 
+                          className="flex items-start gap-2.5 text-xs text-slate-700 leading-snug p-2 -mx-2 rounded-xl hover:bg-white/80 transition-colors duration-200"
+                        >
+                          <span className={`w-2 h-2 rounded-full ${pillar.dotGradient} shrink-0 mt-1 shadow-xs`} />
+                          <span className="font-normal">{pt}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-400">
-                    <span>TRIDENT CHARTER</span>
-                    <span className="text-blue-600 font-semibold group-hover:translate-x-1 transition-transform">Core Commitment →</span>
+                  <div className="relative z-10 pt-6 mt-6 border-t border-slate-100/90 flex items-center justify-between text-xs font-mono text-slate-400">
+                    <span className="font-semibold text-[11px] tracking-wider text-slate-400">TRIDENT CHARTER</span>
+                    <span className={`font-bold inline-flex items-center gap-1 ${pillar.learnMoreColor} group-hover:translate-x-1.5 transition-transform duration-200`}>
+                      Core Commitment <span>→</span>
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -840,13 +884,21 @@ export default function AboutPage() {
 
         {/* PROGRESSIVE ACADEMIC PRACTICES: CARDLESS ADVANCED ANIMATED HORIZON */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Subtle Ambient Color Transition Glows */}
+          <div className="absolute top-1/3 -right-20 w-96 h-96 rounded-full bg-gradient-to-bl from-indigo-400/15 via-purple-300/10 to-transparent blur-[90px] pointer-events-none animate-pulse" style={{ animationDuration: '9s' }} />
+          <div className="absolute bottom-10 -left-20 w-96 h-96 rounded-full bg-gradient-to-tr from-blue-400/15 via-teal-300/10 to-transparent blur-[90px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
             <div className="text-center max-w-2xl mx-auto mb-16 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50/90 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
+                </span>
                 Pedagogical Framework
               </div>
               <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
-                Progressive Academic Practices
+                Progressive <span className="font-semibold bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Academic Practices</span>
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
                 Leading universities globally emphasize holistic student development. 
@@ -854,8 +906,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Seamless Borderless Pedagogical Stream */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80">
+            {/* Seamless Elevated Pedagogical Stream with Transition Colours */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {progressivePractices.map((practice, idx) => (
                 <motion.div
                   key={practice.title}
@@ -863,17 +915,17 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className="relative p-7 sm:p-8 flex flex-col justify-between group transition-all duration-300"
+                  whileHover={{ y: -8, transition: { duration: 0.25, ease: "easeOut" } }}
+                  className="relative p-7 sm:p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-zinc-200/90 shadow-sm hover:shadow-xl hover:border-indigo-300/80 flex flex-col justify-between group overflow-hidden transition-all duration-500"
                 >
-                  {/* Fluid Hover Ambient Light Pool (No rigid box border) */}
+                  {/* Fluid Hover Ambient Light Pool */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl">
                     <div className={`absolute -inset-2 bg-gradient-to-b ${practice.blobGradient} blur-2xl opacity-40`} />
                     <div className="absolute inset-0 bg-white/70 backdrop-blur-xs rounded-3xl" />
                   </div>
 
                   {/* Top Animated Light Rail */}
-                  <div className="absolute top-0 left-6 right-6 h-0.5 bg-zinc-200 group-hover:bg-transparent transition-colors overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-zinc-200 to-transparent group-hover:from-transparent group-hover:to-transparent transition-colors overflow-hidden">
                     <motion.div 
                       className={`h-full w-full bg-gradient-to-r ${practice.topGradient}`}
                       initial={{ x: "-100%" }}
@@ -889,7 +941,7 @@ export default function AboutPage() {
                       <motion.div 
                         whileHover={{ rotate: 6, scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                        className={`w-12 h-12 rounded-2xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center shadow-lg`}
+                        className={`w-12 h-12 rounded-2xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center shadow-lg transition-transform`}
                       >
                         {practice.icon}
                       </motion.div>
@@ -915,8 +967,8 @@ export default function AboutPage() {
 
                   {/* Bottom Interactive Arrow Indicator */}
                   <div className="relative z-10 pt-6 mt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-zinc-900 transition-colors">
-                    <span className="text-[11px] font-semibold">TAPS Standard</span>
-                    <span className="text-blue-600 font-bold group-hover:translate-x-1 transition-transform duration-200">
+                    <span className="text-[11px] font-semibold text-slate-400">TAPS Standard</span>
+                    <span className="text-blue-600 font-bold group-hover:translate-x-1.5 transition-transform duration-200">
                       Learn More →
                     </span>
                   </div>
