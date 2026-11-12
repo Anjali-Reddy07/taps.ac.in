@@ -47,7 +47,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "Vibrant Campus Spirit & Cultural Arts",
       subheadline:
         "Annual Multi-Day Spring Festival Uniting Dance, Music, Theatre, Literary Debates & Inter-Collegiate Celebrations",
-      image: "/images/drive_second/Activities.jpg",
+      image: "/images/trifest-odissi-dance.webp",
       tag: "TRIFEST CULTURAL FESTIVAL",
       location: "Main Stage Arena",
     },
@@ -118,7 +118,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
             "/images/drive_third/Library_Library.JPG",
             "/images/drive_second/alumni3.jpg",
-            "/images/drive_second/Activities.jpg",
+            "/images/trifest-odissi-dance.webp",
             "/images/drive_third/ClassRooms_Academic.JPG",
           ]}
           rows={5}
