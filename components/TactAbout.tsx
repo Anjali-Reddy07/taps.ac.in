@@ -212,7 +212,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
   ];
 
-  // 4 Academic Infrastructure Hubs for Kinetic Architectural Horizon
+  // 6 Academic Infrastructure Hubs for Kinetic Architectural Horizon
   const facilityHighlights = [
     {
       num: "01",
@@ -259,16 +259,44 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     {
       num: "04",
       badge: "04 • ATHLETICS",
-      title: "Athletic Meet Grounds & Arena",
-      subtitle: "FULL-TRACK SPORTS COMPLEX",
-      desc: "Expansive multi-discipline sports arena hosting annual athletic meets, inter-collegiate tournaments, standard sprint tracks, full-court basketball, volleyball, and wellness greens.",
+      title: "Basketball Court & Sports Arena",
+      subtitle: "TOURNAMENT-GRADE HARDCOURTS",
+      desc: "Expansive multi-discipline sports complex featuring standard tournament basketball hardcourts, badminton, volleyball, outdoor fitness centers, and green campus recreation plazas.",
       specs: [
-        "Multi-Lane Sprint Tracks & Turf Cricket Pitch",
-        "Floodlit Basketball & Badminton Tournament Courts",
-        "Dedicated Recreational Greens & Annual Sports Pavilions",
+        "Standard Tournament Basketball Hardcourt & Athletics Field",
+        "Open-Air Fitness Gymnasium & Dedicated Yoga Center",
+        "Annual Inter-College Sports Meets & Intramural Tournaments",
       ],
-      location: "Technoplex West Athletic Grounds",
-      image: "/images/drive_third/Sports_IMG20260205104055.jpg",
+      location: "Athletics Arena & Sports Grounds",
+      image: "/images/drive_facilities/_dsc1859.jpg",
+    },
+    {
+      num: "05",
+      badge: "05 • RESIDENTIAL",
+      title: "Sapphire & Ruby Hostels",
+      subtitle: "1,200 INMATE RESIDENTIAL WINGS",
+      desc: "Three spacious in-campus residential hostel wings (Sapphire, Ruby & Emerald) accommodating 1,200 students with hygienic vegetarian and non-vegetarian mess, Wi-Fi, and 24/7 medical care.",
+      specs: [
+        "Multi-Storey Well-Furnished Hostels (Sapphire & Ruby Wings)",
+        "Hygienic Multi-Cuisine Dining Hall & Purified Water Supply",
+        "Round-the-Clock Security, CCTV Surveillance & Resident Wardens",
+      ],
+      location: "In-Campus Residential Enclave",
+      image: "/images/drive_facilities/_dsc1862.jpg",
+    },
+    {
+      num: "06",
+      badge: "06 • CAMPUS",
+      title: "Technoplex Academic Block",
+      subtitle: "11-ACRE INFOCITY ECOSYSTEM",
+      desc: "The primary Trident Academy of Creative Technology academic building housing state-of-the-art departments, Business Analytics center, corporate finishing school, and lush botanical pathways.",
+      specs: [
+        "Trident Academy of Creative Technology Primary Campus",
+        "Center for Sustainability Research & Business Analytics",
+        "Zero-Noise Green Academic Zone Located in Infocity",
+      ],
+      location: "Block-1 Main Academic Facade, Infocity",
+      image: "/images/drive_facilities/_dsc1828.jpg",
     },
   ];
 
