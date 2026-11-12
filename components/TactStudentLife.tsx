@@ -349,7 +349,8 @@ export default function TactStudentLife() {
                       src={activeClub.image}
                       alt={activeClub.title}
                       fill
-                      priority
+                      loading="lazy"
+                      quality={92}
                       className="object-cover object-center group-hover:scale-106 transition-transform duration-1000 ease-out"
                       sizes="(max-width: 1024px) 100vw, 60vw"
                     />
@@ -467,8 +468,10 @@ export default function TactStudentLife() {
                         src={club.image}
                         alt={club.title}
                         fill
+                        loading="lazy"
+                        quality={90}
                         className="object-cover object-center"
-                        sizes="70px"
+                        sizes="80px"
                       />
                     </div>
 

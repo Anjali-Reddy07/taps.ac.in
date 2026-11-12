@@ -437,6 +437,7 @@ export default function AboutPage() {
                     alt={slide.headline}
                     fill
                     priority={index === 0 || index === 1}
+                    quality={92}
                     className={`object-cover object-center filter contrast-105 brightness-105 transition-transform duration-[6000ms] ease-out ${
                       isActive ? "scale-105" : "scale-100"
                     }`}
@@ -696,6 +697,8 @@ export default function AboutPage() {
                     src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
                     alt="Trident Technoplex Campus Infocity"
                     fill
+                    loading="lazy"
+                    quality={90}
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
@@ -976,6 +979,8 @@ export default function AboutPage() {
                       src={item.img}
                       alt={item.title}
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
@@ -1011,6 +1016,8 @@ export default function AboutPage() {
               src="/images/drive_new/1746352355680.jpg"
               alt="Trident Campus Heritage"
               fill
+              loading="lazy"
+              quality={90}
               className="object-cover object-center filter contrast-105 opacity-20"
               sizes="100vw"
             />
@@ -1155,6 +1162,8 @@ export default function AboutPage() {
                           src={m.image}
                           alt={m.visualTitle}
                           fill
+                          loading="lazy"
+                          quality={92}
                           className="object-cover object-center group-hover/visual:scale-108 transition-transform duration-700 ease-out filter contrast-105"
                           sizes="(max-width: 768px) 100vw, 45vw"
                         />

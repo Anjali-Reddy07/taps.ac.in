@@ -453,6 +453,7 @@ export default function ProgrammesPage() {
                   alt={`${current.title} at TAPS Infocity Campus`}
                   fill
                   priority
+                  quality={92}
                   className="object-cover object-center filter contrast-105"
                   sizes="100vw"
                 />
@@ -590,6 +591,8 @@ export default function ProgrammesPage() {
                       src={current.photo}
                       alt={current.title}
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
@@ -980,6 +983,8 @@ export default function ProgrammesPage() {
                         src={lab.img}
                         alt={lab.title}
                         fill
+                        loading="lazy"
+                        quality={90}
                         className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
@@ -1069,6 +1074,8 @@ export default function ProgrammesPage() {
                       src={current.photo}
                       alt="Academic Lecture Theatre"
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 40vw"
                     />
@@ -1128,6 +1135,8 @@ export default function ProgrammesPage() {
                     src="/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg"
                     alt="Corporate Campus Placement Delegates"
                     fill
+                    loading="lazy"
+                    quality={90}
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     sizes="100vw"
                   />
@@ -1201,6 +1210,8 @@ export default function ProgrammesPage() {
                       src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
                       alt="Major Corporate Recruiters at TAPS"
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-contain bg-white rounded-xl"
                       sizes="100vw"
                     />
@@ -1222,6 +1233,8 @@ export default function ProgrammesPage() {
               src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
               alt="TAPS Campus Promenade"
               fill
+              loading="lazy"
+              quality={90}
               className="object-cover object-center filter contrast-105 opacity-20"
               sizes="100vw"
             />

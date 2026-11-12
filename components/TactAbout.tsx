@@ -497,6 +497,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     src="/images/drive_third/ClassRooms__MG_2339.JPG"
                     alt="Tiered Lecture Amphitheatres"
                     fill
+                    quality={90}
                     className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
@@ -520,6 +521,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                     src="/images/drive_third/MBA_seminar_1.jpeg"
                     alt="Corporate Business Seminars"
                     fill
+                    quality={90}
                     className="object-cover group-hover:scale-106 transition-transform duration-700 ease-out"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
@@ -572,6 +574,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 src="/images/drive_new/1746352355680.jpg"
                 alt="Trident Academy 11-Acre Technoplex Campus"
                 fill
+                quality={90}
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-800 ease-out"
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 priority
@@ -871,6 +874,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   src={facilityHighlights[activeFacility].image}
                   alt={facilityHighlights[activeFacility].title}
                   fill
+                  quality={92}
                   className="object-cover object-center filter contrast-105 brightness-105"
                   priority
                   sizes="100vw"

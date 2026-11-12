@@ -115,6 +115,7 @@ export default function PlacementsPage() {
               alt="TAPS Undergraduate Student in Campus Placement Interview"
               fill
               priority
+              quality={92}
               className="object-cover object-[75%_30%] filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />
@@ -193,6 +194,8 @@ export default function PlacementsPage() {
                   src="/images/taps_official/anand_kumar_award.jpg"
                   alt="Mr. Anand Kumar of SUPER-30 awarding TRIDENT at Ranchi"
                   fill
+                  loading="lazy"
+                  quality={90}
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 320px"
                 />
@@ -296,6 +299,8 @@ export default function PlacementsPage() {
                       src={c.img}
                       alt={c.title}
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />
@@ -400,6 +405,8 @@ export default function PlacementsPage() {
                 src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
                 alt="Major Corporate Recruiters at Trident"
                 fill
+                loading="lazy"
+                quality={90}
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 70vw"
               />

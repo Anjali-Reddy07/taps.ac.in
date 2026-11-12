@@ -26,7 +26,8 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
                   width={150}
                   height={44}
                   className="h-[38px] sm:h-[40px] md:h-[42px] max-h-[44px] w-auto object-contain block"
-                  priority
+                  loading="lazy"
+                  quality={95}
                 />
               </div>
             </Link>

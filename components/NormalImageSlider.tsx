@@ -78,6 +78,7 @@ export default function NormalImageSlider({
               alt={currentSlide.title}
               fill
               priority={currentIndex === 0}
+              quality={92}
               className="object-cover object-center filter contrast-105"
               sizes="100vw"
             />

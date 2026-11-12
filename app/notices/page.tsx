@@ -125,6 +125,7 @@ export default function NoticesPage() {
               alt="Trident Campus Notice Board"
               fill
               priority
+              quality={92}
               className="object-cover object-center filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />
@@ -179,6 +180,8 @@ export default function NoticesPage() {
                   src="/images/drive_third/ClassRooms_Academic.JPG"
                   alt="Academic & Examination Circulars"
                   fill
+                  loading="lazy"
+                  quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -203,6 +206,8 @@ export default function NoticesPage() {
                   src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
                   alt="Corporate Placement Circulars"
                   fill
+                  loading="lazy"
+                  quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

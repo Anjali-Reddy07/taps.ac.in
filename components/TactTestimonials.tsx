@@ -421,8 +421,10 @@ export default function TactTestimonials() {
                         src={current.image}
                         alt={current.name}
                         fill
+                        loading="lazy"
+                        quality={95}
                         className="object-cover object-top"
-                        sizes="48px"
+                        sizes="96px"
                       />
                       <div className="absolute -bottom-0.5 -right-0.5 bg-blue-600 text-white rounded-full p-0.5 border border-white shadow-2xs">
                         <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

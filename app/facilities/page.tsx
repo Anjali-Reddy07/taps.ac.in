@@ -177,6 +177,7 @@ export default function FacilitiesPage() {
               alt="TAPS Campus Fest, Cultural Performances & Student Life"
               fill
               priority
+              quality={92}
               className="object-cover object-[68%_40%] filter contrast-105 saturate-110 opacity-95 scale-100"
               sizes="100vw"
             />
@@ -285,6 +286,7 @@ export default function FacilitiesPage() {
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 60vw"
                       priority
+                      quality={92}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                     
@@ -395,6 +397,8 @@ export default function FacilitiesPage() {
                           src={f.image}
                           alt={f.title}
                           fill
+                          loading="lazy"
+                          quality={90}
                           className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
                           sizes="(max-width: 1024px) 100vw, 55vw"
                         />

@@ -48,6 +48,7 @@ export default function ContactPage() {
               alt="Trident Academy of Professional Studies Campus Building"
               fill
               priority
+              quality={92}
               className="object-cover object-center filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />

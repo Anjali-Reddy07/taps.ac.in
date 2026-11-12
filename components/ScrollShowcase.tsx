@@ -60,6 +60,8 @@ export default function ScrollShowcase({ onOpenQuery }: ScrollShowcaseProps) {
             src="/asset/intro-banner.jpg"
             alt="Trident Technoplex Campus Grounds at Infocity"
             fill
+            loading="lazy"
+            quality={90}
             sizes="(max-width: 768px) 250px, 320px"
             className="object-cover brightness-[0.95] contrast-[1.05] group-hover:scale-105 transition-transform duration-500"
           />
@@ -89,6 +91,8 @@ export default function ScrollShowcase({ onOpenQuery }: ScrollShowcaseProps) {
             src="/asset/campus-banner.png"
             alt="Trident Academy Academic Charter & Excellence"
             fill
+            loading="lazy"
+            quality={90}
             sizes="(max-width: 768px) 250px, 320px"
             className="object-contain p-4 group-hover:scale-105 transition-transform duration-500 bg-white"
           />

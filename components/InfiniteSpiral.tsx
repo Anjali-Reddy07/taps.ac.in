@@ -283,6 +283,7 @@ export default function InfiniteSpiral({
                 src={item.src}
                 alt={item.alt}
                 loading={index < 6 ? 'eager' : 'lazy'}
+                decoding="async"
                 draggable={false}
                 style={{
                   width: cardWidth,

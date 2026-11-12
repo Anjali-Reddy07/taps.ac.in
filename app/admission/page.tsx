@@ -110,6 +110,7 @@ export default function AdmissionPage() {
               alt="Trident Campus Admission Cell"
               fill
               priority
+              quality={92}
               className="object-cover object-center filter contrast-105 opacity-80 scale-100"
               sizes="100vw"
             />
@@ -353,6 +354,8 @@ export default function AdmissionPage() {
                       src="/images/drive_third/ClassRooms_Academic.JPG"
                       alt="Academic Lecture Amphitheatre"
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 1024px) 100vw, 25vw"
                     />
@@ -372,6 +375,8 @@ export default function AdmissionPage() {
                       src="/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg"
                       alt="Corporate Placement Delegation"
                       fill
+                      loading="lazy"
+                      quality={90}
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 1024px) 100vw, 25vw"
                     />
@@ -595,6 +600,8 @@ export default function AdmissionPage() {
                   src="/images/drive_third/Library_Library.JPG"
                   alt="Central Research Library"
                   fill
+                  loading="lazy"
+                  quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -614,6 +621,8 @@ export default function AdmissionPage() {
                   src="/images/drive_third/Sports_IMG20260205104055.jpg"
                   alt="Athletic Excellence Grants"
                   fill
+                  loading="lazy"
+                  quality={90}
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -662,6 +671,8 @@ export default function AdmissionPage() {
               src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
               alt="Trident Colonnades"
               fill
+              loading="lazy"
+              quality={90}
               className="object-cover object-center filter contrast-105 opacity-25"
               sizes="100vw"
             />

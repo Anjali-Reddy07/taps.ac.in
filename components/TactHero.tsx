@@ -160,6 +160,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                 alt={slide.headline}
                 fill
                 priority={index === 0 || index === 1}
+                quality={92}
                 className={`object-cover object-center filter contrast-105 brightness-105 transition-transform duration-[6000ms] ease-out ${
                   isActive ? "scale-105" : "scale-100"
                 }`}

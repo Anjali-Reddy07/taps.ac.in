@@ -109,6 +109,7 @@ export default function Hero({ onOpenQuery }: HeroProps) {
                 alt={activeMedia === "campus" ? "Trident Academy Main Campus Grounds" : "Trident Academic Emblem & Charter"}
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
+                quality={92}
                 className={`transition-all duration-700 ease-out ${
                   activeMedia === "campus"
                     ? "object-cover group-hover:scale-[1.03] brightness-[0.94] contrast-[1.05]"

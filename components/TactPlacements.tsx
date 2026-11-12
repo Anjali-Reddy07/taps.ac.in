@@ -161,8 +161,10 @@ export default function TactPlacements({ onOpenQuery }: TactPlacementsProps) {
                     src={item.img}
                     alt={item.title}
                     fill
+                    loading="lazy"
+                    quality={90}
                     className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B132E] via-transparent to-black/30 pointer-events-none" />
                   <div className="absolute top-3 left-3">

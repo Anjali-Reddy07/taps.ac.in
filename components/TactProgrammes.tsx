@@ -546,6 +546,8 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                   src={current.buildingImage}
                   alt={current.buildingTitle}
                   fill
+                  quality={90}
+                  loading="lazy"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
                   sizes="(max-width: 1024px) 100vw, 80vw"
                 />

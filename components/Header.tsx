@@ -163,6 +163,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                     width={260}
                     height={91}
                     priority
+                    quality={100}
                     className="h-10 sm:h-12 w-auto object-contain block"
                   />
                 </div>
@@ -263,8 +264,9 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                     src="/asset/logo.png"
                     alt="Trident Academy of Professional Studies"
                     fill
+                    quality={100}
                     className="object-contain object-left"
-                    sizes="180px"
+                    sizes="200px"
                   />
                 </div>
                 <button

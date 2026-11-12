@@ -77,9 +77,10 @@ export default function TactNews() {
                 src="/images/drive_second/IMG_5567.JPG"
                 alt="Student Keynote Address at Trident Academic Symposium"
                 fill
-                priority
+                loading="lazy"
+                quality={90}
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                sizes="(max-width: 1024px) 100vw, 60vw"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 800px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/95 via-[#070D21]/45 to-transparent" />
               
@@ -161,6 +162,8 @@ export default function TactNews() {
                 src="/images/drive_second/alumni2.jpg"
                 alt="Academic Medal Felicitation"
                 fill
+                loading="lazy"
+                quality={90}
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />

@@ -279,6 +279,8 @@ export default function CampusGallery() {
                 src={item.src}
                 alt={item.title}
                 fill
+                loading="lazy"
+                quality={90}
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
@@ -338,7 +340,8 @@ export default function CampusGallery() {
                 alt={selectedPhoto.title}
                 fill
                 className="object-contain"
-                sizes="100vw"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                quality={95}
                 priority
               />
             </div>

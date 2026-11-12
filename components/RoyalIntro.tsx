@@ -82,6 +82,7 @@ export default function RoyalIntro() {
             src="/asset/intro-banner.jpg"
             alt="Trident Campus"
             fill sizes="100vw"
+            quality={92}
             className="object-cover scale-100 contrast-[1.08] brightness-[0.88]"
             priority
           />
@@ -186,6 +187,7 @@ export default function RoyalIntro() {
                   width={76}
                   height={76}
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  quality={100}
                   priority
                 />
               </div>
