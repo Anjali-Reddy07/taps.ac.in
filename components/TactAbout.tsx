@@ -871,20 +871,20 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   src={facilityHighlights[activeFacility].image}
                   alt={facilityHighlights[activeFacility].title}
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-center filter contrast-105 brightness-105"
                   priority
                   sizes="100vw"
                 />
-                {/* Cinematic Dark Gradient: Heavy on left for maximum text contrast, fading out to reveal photo on right */}
+                {/* Cinematic Lightly Shaded Scrim: Soft gradient keeping text legible on left while making the image & animation significantly more visible */}
                 <div 
                   className="absolute inset-0 pointer-events-none"
                   style={{
-                    background: "linear-gradient(to right, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.90) 36%, rgba(2, 6, 23, 0.65) 60%, rgba(2, 6, 23, 0.25) 85%, rgba(2, 6, 23, 0.15) 100%)",
+                    background: "linear-gradient(to right, rgba(2, 6, 23, 0.80) 0%, rgba(2, 6, 23, 0.45) 42%, rgba(2, 6, 23, 0.15) 75%, transparent 100%)",
                   }}
                 />
                 {/* Top & Bottom Vignettes for Header & Footer Legibility */}
-                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 via-black/20 to-transparent pointer-events-none" />
               </motion.div>
             </AnimatePresence>
 
@@ -958,19 +958,19 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                       </div>
 
                       {/* Main Title */}
-                      <h4 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
+                      <h4 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                         {facilityHighlights[activeFacility].title}
                       </h4>
 
                       {/* Description */}
-                      <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                      <p className="text-sm sm:text-base text-white/90 leading-relaxed font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                         {facilityHighlights[activeFacility].desc}
                       </p>
 
                       {/* 3 Technical Specs with Cyan Bullets */}
                       <div className="space-y-2.5 pt-2">
                         {facilityHighlights[activeFacility].specs.map((spec, sIdx) => (
-                          <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-white/90 leading-relaxed">
+                          <div key={sIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-white/95 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                             <span className="text-cyan-400 font-bold shrink-0 mt-0.5">•</span>
                             <span>{spec}</span>
                           </div>

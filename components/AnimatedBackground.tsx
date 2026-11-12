@@ -46,29 +46,34 @@ export default function AnimatedBackground({
         <div
           className={`absolute inset-[-48px] animate-grid-travel ${
             isDark
-              ? "bg-[radial-gradient(rgba(196,181,253,0.18)_1.2px,transparent_1.2px)]"
-              : "bg-[radial-gradient(rgba(99,102,241,0.12)_1.2px,transparent_1.2px)]"
-          } [background-size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)] opacity-80`}
+              ? "bg-[radial-gradient(rgba(196,181,253,0.24)_1.2px,transparent_1.2px)]"
+              : "bg-[radial-gradient(rgba(99,102,241,0.18)_1.2px,transparent_1.2px)]"
+          } [background-size:24px_24px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] opacity-90`}
         />
 
         {/* 3. Dynamic Colorful Aurora & Iridescent Gradient Blur Spheres (Blue & Lavender) */}
         {isDark ? (
           <>
             {/* Dark Variant: Deep Midnight Sapphire, Royal Blue, Indigo & Radiant Lavender Orbs */}
-            <div className="absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-blue-600/40 via-indigo-600/35 to-purple-600/30 blur-[130px] animate-aurora" />
-            <div className="absolute top-1/3 -right-32 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-indigo-500/35 via-purple-600/30 to-violet-500/25 blur-[140px] animate-aurora-reverse" />
-            <div className="absolute -bottom-32 left-1/4 w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-sky-500/30 via-blue-600/25 to-indigo-500/20 blur-[135px] animate-drift-slow" />
-            <div className="absolute top-2/3 -left-28 w-[520px] h-[520px] rounded-full bg-gradient-to-r from-purple-600/25 via-violet-500/20 to-blue-500/25 blur-[125px] animate-drift-reverse" />
+            <div className="absolute -top-32 -left-32 w-[640px] h-[640px] rounded-full bg-gradient-to-tr from-blue-600/50 via-indigo-600/45 to-purple-600/40 blur-[120px] animate-aurora" />
+            <div className="absolute top-1/3 -right-32 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-indigo-500/45 via-purple-600/40 to-violet-500/35 blur-[130px] animate-aurora-reverse" />
+            <div className="absolute -bottom-32 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-sky-500/40 via-blue-600/35 to-indigo-500/30 blur-[125px] animate-drift-slow" />
+            <div className="absolute top-2/3 -left-28 w-[540px] h-[540px] rounded-full bg-gradient-to-r from-purple-600/35 via-violet-500/30 to-blue-500/35 blur-[120px] animate-drift-reverse" />
           </>
         ) : (
           <>
             {/* Light Variant: Soft Prismatic Blue, Periwinkle & Lavender Pastel Orbs */}
-            <div className="absolute -top-32 -left-32 w-[580px] h-[580px] rounded-full bg-gradient-to-tr from-blue-300/35 via-indigo-300/30 to-purple-300/30 blur-[120px] animate-aurora" />
-            <div className="absolute top-1/3 -right-32 w-[640px] h-[640px] rounded-full bg-gradient-to-br from-purple-200/40 via-indigo-200/35 to-sky-200/30 blur-[130px] animate-aurora-reverse" />
-            <div className="absolute -bottom-32 left-1/4 w-[540px] h-[540px] rounded-full bg-gradient-to-tl from-sky-200/35 via-blue-200/30 to-purple-100/25 blur-[120px] animate-drift-slow" />
-            <div className="absolute top-2/3 -left-28 w-[490px] h-[490px] rounded-full bg-gradient-to-r from-indigo-200/30 via-purple-200/25 to-blue-200/30 blur-[115px] animate-drift-reverse" />
+            <div className="absolute -top-32 -left-32 w-[620px] h-[620px] rounded-full bg-gradient-to-tr from-blue-300/50 via-indigo-300/45 to-purple-300/40 blur-[110px] animate-aurora" />
+            <div className="absolute top-1/3 -right-32 w-[680px] h-[680px] rounded-full bg-gradient-to-br from-purple-300/50 via-indigo-200/45 to-sky-200/40 blur-[120px] animate-aurora-reverse" />
+            <div className="absolute -bottom-32 left-1/4 w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-sky-300/45 via-blue-200/40 to-purple-200/35 blur-[110px] animate-drift-slow" />
+            <div className="absolute top-2/3 -left-28 w-[540px] h-[540px] rounded-full bg-gradient-to-r from-indigo-300/40 via-purple-300/35 to-blue-200/40 blur-[110px] animate-drift-reverse" />
           </>
         )}
+
+        {/* Soft lightly shaded contrast mask: gently enhances visibility of ambient animations across every section */}
+        <div className={`absolute inset-0 pointer-events-none ${
+          isDark ? "bg-gradient-to-b from-transparent via-[#070D21]/20 to-transparent" : "bg-gradient-to-b from-transparent via-indigo-950/[0.03] to-transparent"
+        }`} />
       </div>
 
       {/* FOREGROUND CONTENT */}
