@@ -160,7 +160,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
                 alt={slide.headline}
                 fill
                 priority={index === 0 || index === 1}
-                className={`object-cover object-center filter contrast-105 brightness-90 transition-transform duration-[6000ms] ease-out ${
+                className={`object-cover object-center filter contrast-105 brightness-105 transition-transform duration-[6000ms] ease-out ${
                   isActive ? "scale-105" : "scale-100"
                 }`}
                 sizes="100vw"
@@ -170,9 +170,9 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
         })}
       </div>
 
-      {/* 3. One-Sided Left-to-Right Shaded Scrim: Deep dark on left for maximum text legibility, clear and vibrant on right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-55% to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/70 via-transparent to-transparent z-10 pointer-events-none" />
+      {/* 3. One-Sided Left-to-Right Shaded Scrim: Brighter & lighter mask so background image is significantly more visible */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/80 via-[#070D21]/45 via-42% to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/40 via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* 4. Slide Content Layer with Cross-Fade */}
       {slides.map((slide, index) => {

@@ -437,7 +437,7 @@ export default function AboutPage() {
                     alt={slide.headline}
                     fill
                     priority={index === 0 || index === 1}
-                    className={`object-cover object-center filter contrast-105 brightness-95 transition-transform duration-[6000ms] ease-out ${
+                    className={`object-cover object-center filter contrast-105 brightness-105 transition-transform duration-[6000ms] ease-out ${
                       isActive ? "scale-105" : "scale-100"
                     }`}
                     sizes="100vw"
@@ -447,10 +447,10 @@ export default function AboutPage() {
             })}
           </div>
 
-          {/* 3. PARTIAL BLACK SHADED MASK (ONE-SIDED LEFT-TO-RIGHT DEEP GRADIENT SCRIM JUST LIKE THE MAIN PAGE) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-55% to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/70 via-transparent to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/50 via-transparent to-transparent z-10 pointer-events-none" />
+          {/* 3. PARTIAL SHADED MASK: Brighter & lighter scrim so background image is significantly more visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/80 via-[#070D21]/45 via-42% to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/40 via-transparent to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/30 via-transparent to-transparent z-10 pointer-events-none" />
 
           {/* 4. Top Right Floating Controls: View Mode Toggle & Location/Tag Pill */}
           <div className="absolute top-6 right-6 sm:right-12 z-30 flex items-center gap-2.5">
