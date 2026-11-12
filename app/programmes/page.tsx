@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import PrismaticSlats from "@/components/PrismaticSlats";
 
 // Interactive 3D Tilt Card with dynamic cursor-following specular glare
 function TiltCard({
@@ -1367,54 +1368,63 @@ export default function ProgrammesPage() {
         </AnimatedBackground>
 
         {/* ========================================================================= */}
-        {/* BOTTOM CALL TO ACTION: ADMISSION 2026 ENROLMENT */}
+        {/* BOTTOM CALL TO ACTION: ADMISSION 2026 ENROLMENT WITH PRISMATIC SLATS */}
         {/* ========================================================================= */}
-        <AnimatedBackground variant="dark" className="border-t border-zinc-800 relative overflow-hidden">
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-            <Image
-              src="/images/drive_new/486600220_1163639735548661_1664987409974324893_n.jpg"
-              alt="TAPS Campus Promenade"
-              fill
-              loading="lazy"
-              quality={90}
-              className="object-cover object-center filter contrast-105 opacity-20"
-              sizes="100vw"
+        <div className="relative border-t border-zinc-800 overflow-hidden bg-[#070D21] min-h-[520px] flex items-center justify-center">
+          {/* Prismatic Slats - Colored liquid refracted through fluted glass */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <PrismaticSlats
+              colors={["#2563EB", "#7C3AED", "#EC4899"]}
+              backgroundColor="#070D21"
+              flutes={18}
+              refraction={4.2}
+              aberration={0.7}
+              angle={24}
+              speed={1.0}
+              grain={0.05}
+              interactive={true}
+              autoplay={true}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#070D21] via-[#070D21]/90 to-[#070D21]" />
+            {/* Cinematic subtle gradient overlays so text remains pin-sharp and readable */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/60 pointer-events-none" />
+            <div className="absolute inset-0 bg-[#070D21]/30 pointer-events-none backdrop-blur-[1px]" />
           </div>
 
-          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center text-white">
-            <div className="max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-cyan-300 mb-4 bg-cyan-950/60 border border-cyan-800/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
+          <section className="relative z-10 py-24 sm:py-32 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-center text-white pointer-events-none">
+            <div className="max-w-3xl mx-auto pointer-events-auto">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-cyan-300 mb-5 bg-black/60 border border-cyan-500/40 px-4 py-1.5 rounded-full shadow-2xl backdrop-blur-xl">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
                 Admissions Open • Academic Batch 2026-27
               </div>
 
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight mb-4">
-                Step into Eastern India&apos;s Premier Undergraduate Academy
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight mb-5 drop-shadow-lg">
+                Step into Eastern India&apos;s Premier{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-300 via-indigo-200 to-pink-300 bg-clip-text text-transparent">
+                  Undergraduate Academy
+                </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-zinc-300 font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-zinc-200 font-normal leading-relaxed mb-10 max-w-2xl mx-auto drop-shadow-md">
                 Secure your seat in BCA or BBA under Utkal University. Early applications benefit from faculty mentorship, hostel allotment, and industry certification priority.
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-8 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-xl cursor-pointer hover-lift"
+                  className="px-8 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-2xl cursor-pointer hover-lift"
                 >
                   Apply Online for 2026 Batch →
                 </button>
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 rounded-xl bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
+                  className="px-8 py-3.5 rounded-xl bg-black/60 text-white border border-white/30 font-semibold text-sm hover:bg-white/15 hover:border-white transition-all duration-300 backdrop-blur-md shadow-xl"
                 >
                   Visit Campus / Contact Desk
                 </Link>
               </div>
             </div>
           </section>
-        </AnimatedBackground>
+        </div>
 
       </main>
 
