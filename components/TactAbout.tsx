@@ -1,10 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
+
+const AeroShards = dynamic(() => import("@/components/AeroShards"), {
+  ssr: false,
+});
 
 interface TactAboutProps {
   onOpenQuery?: () => void;
@@ -734,93 +739,124 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
         </div>
 
-        {/* SALIENT FEATURES & OFFICIAL MOTTO (CARDLESS ARCHITECTURAL SPREAD) */}
+        {/* SALIENT FEATURES & OFFICIAL MOTTO (CARDLESS ARCHITECTURAL SPREAD WITH AEROSHARDS) */}
         <motion.div 
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-20 sm:mb-24 py-10 border-t border-b border-indigo-100/80 relative"
+          className="mb-20 sm:mb-24 py-12 px-6 sm:px-10 border border-indigo-100/90 shadow-xs relative rounded-3xl overflow-hidden bg-gradient-to-b from-white/80 via-indigo-50/20 to-white/90"
         >
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full shadow-2xs">
-              OFFICIAL BENCHMARKS
-            </span>
-            <h3 className="text-2xl sm:text-4xl font-light text-slate-950 mt-3 tracking-tight">
-              Salient Features of TAPS
-            </h3>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
-              Recognized under Utkal University for foundational rigor, doctoral faculty mentorship, and corporate excellence.
-            </p>
+          {/* AeroShards WebGPU Interactive Canvas Background */}
+          <div className="absolute inset-0 pointer-events-auto z-0 overflow-hidden opacity-85">
+            <AeroShards
+              shardColor="#896ABD"
+              accentColor="#A855F7"
+              backgroundColor="transparent"
+              lightMode={true}
+              placement="full"
+              material="glass"
+              markers="plus"
+              count={1300}
+              shardSize={1}
+              spread={1}
+              twist={1}
+              billow={1}
+              speed={1}
+              scale={1}
+              depthOfField={0.75}
+              glow={0.35}
+              grain={0.06}
+              vignette={0.3}
+              intro={true}
+              mouseInteraction={true}
+              mouseStrength={0.6}
+              pulseOnClick={true}
+              holdToGather={true}
+            />
           </div>
 
-          {/* Open 3-Column Architectural Ledger (No Enclosed Boxes) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-            {[
-              {
-                num: "01",
-                title: "No. 1 Private College",
-                desc: "No. 1 Private BBA and BCA College under Utkal University.",
-              },
-              {
-                num: "02",
-                title: "Doctoral & NET Faculty",
-                desc: "All of its fulltime regular faculties are M. Tech/NET qualified, all pursuing Ph.D programs.",
-              },
-              {
-                num: "03",
-                title: "Leadership & Innovation",
-                desc: "Heavy focus on leadership modeling and Business innovation.",
-              },
-              {
-                num: "04",
-                title: "Peer-Support Soft Skills",
-                desc: "Emphasis on peer-support and peer-analysis for acquisition of soft skills under expert guidance.",
-              },
-              {
-                num: "05",
-                title: "Corporate Internships",
-                desc: "Excellent network with Companies for internship projects and placements.",
-              },
-              {
-                num: "06",
-                title: "Industry-Led Seminars",
-                desc: "Regular Industry led Seminars and interaction with corporate Professionals.",
-              },
-            ].map((f, idx) => (
-              <motion.div
-                key={f.num}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.06 }}
-                whileHover={{ x: 4 }}
-                className="pl-5 py-2 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default"
-              >
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                    {f.num}
-                  </span>
-                  <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
-                    {f.title}
-                  </h4>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                  {f.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <div className="relative z-10">
+            <div className="max-w-3xl mb-10">
+              <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50/90 backdrop-blur-xs border border-blue-200 px-3 py-1 rounded-full shadow-2xs">
+                OFFICIAL BENCHMARKS
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-light text-slate-950 mt-3 tracking-tight">
+                Salient Features of TAPS
+              </h3>
+              <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
+                Recognized under Utkal University for foundational rigor, doctoral faculty mentorship, and corporate excellence.
+              </p>
+            </div>
 
-          {/* Institutional Motto: Open Typographic Pull-Quote (No Enclosed Gradient Box) */}
-          <div className="mt-14 pt-8 border-t border-indigo-100/70 text-center max-w-4xl mx-auto relative">
-            <span className="text-4xl sm:text-5xl font-serif text-blue-500/20 block -mb-4 select-none">&ldquo;</span>
-            <p className="italic text-sm sm:text-base font-light text-slate-700 leading-relaxed px-4">
-              Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;
-            </p>
-            <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest text-blue-700 font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-              <span>Official TAPS Motto • taps.ac.in</span>
+            {/* Open 3-Column Architectural Ledger with Frosted Glass Panels */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+              {[
+                {
+                  num: "01",
+                  title: "No. 1 Private College",
+                  desc: "No. 1 Private BBA and BCA College under Utkal University.",
+                },
+                {
+                  num: "02",
+                  title: "Doctoral & NET Faculty",
+                  desc: "All of its fulltime regular faculties are M. Tech/NET qualified, all pursuing Ph.D programs.",
+                },
+                {
+                  num: "03",
+                  title: "Leadership & Innovation",
+                  desc: "Heavy focus on leadership modeling and Business innovation.",
+                },
+                {
+                  num: "04",
+                  title: "Peer-Support Soft Skills",
+                  desc: "Emphasis on peer-support and peer-analysis for acquisition of soft skills under expert guidance.",
+                },
+                {
+                  num: "05",
+                  title: "Corporate Internships",
+                  desc: "Excellent network with Companies for internship projects and placements.",
+                },
+                {
+                  num: "06",
+                  title: "Industry-Led Seminars",
+                  desc: "Regular Industry led Seminars and interaction with corporate Professionals.",
+                },
+              ].map((f, idx) => (
+                <motion.div
+                  key={f.num}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.06 }}
+                  whileHover={{ x: 4 }}
+                  className="pl-5 py-3 border-l-2 border-indigo-300 hover:border-blue-600 bg-white/75 hover:bg-white/95 backdrop-blur-xs rounded-r-2xl transition-all duration-300 group cursor-default shadow-2xs hover:shadow-md"
+                >
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <span className="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                      {f.num}
+                    </span>
+                    <h4 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                      {f.title}
+                    </h4>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {f.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Institutional Motto: Open Typographic Pull-Quote with Translucent Backdrop */}
+            <div className="mt-14 pt-8 border-t border-indigo-100/80 text-center max-w-4xl mx-auto relative bg-white/70 backdrop-blur-xs rounded-2xl p-6 shadow-2xs">
+              <span className="text-4xl sm:text-5xl font-serif text-blue-500/20 block -mb-4 select-none">&ldquo;</span>
+              <p className="italic text-sm sm:text-base font-light text-slate-700 leading-relaxed px-4">
+                Destiny is not a matter of chance, It is a matter of choice; It is not a thing to be waited for, It is a thing to be achieved. Let us repeat endlessly to our self, &lsquo;We will achieve extraordinary success in life. It all depends on us.&rsquo;
+              </p>
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-widest text-blue-700 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span>Official TAPS Motto • taps.ac.in</span>
+              </div>
             </div>
           </div>
         </motion.div>
