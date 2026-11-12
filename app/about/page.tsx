@@ -92,7 +92,7 @@ export default function AboutPage() {
       tag: "ERA 04 • INFRASTRUCTURE SCALE",
       desc: "Expanded into an 11-acre flagship Technoplex in the heart of Infocity, Bhubaneswar, flanked by Infosys, TCS, and Wipro development centers.",
       highlight: "High-density cloud computing labs and central research library established.",
-      image: "/images/drive_fourth/campus_exterior_1.jpg",
+      image: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
       visualTitle: "11-Acre Technoplex Campus Complex",
       visualSubtitle: "Infocity IT Corridor, Patia, Bhubaneswar",
       specs: ["11-Acre Flagship Technoplex", "Infocity IT Hub", "Modern Institutional Blocks"],
@@ -118,7 +118,7 @@ export default function AboutPage() {
 
   // 16 Real Drive Images for the 3D Infinite Spiral Helix Showcase (1st Section Hero)
   const spiralItems = [
-    { src: "/images/drive_fourth/campus_exterior_1.jpg", alt: "11-Acre Technoplex Campus Building", label: "Campus Architecture" },
+    { src: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg", alt: "11-Acre Technoplex Campus Building", label: "Campus Architecture" },
     { src: "/images/drive/computer-lab.jpg", alt: "Computer Applications Cloud Lab", label: "Tech Labs" },
     { src: "/images/drive_third/ClassRooms_Academic.JPG", alt: "Smart Interactive Amphitheatres", label: "Smart Classrooms" },
     { src: "/images/drive_third/Library_Library.JPG", alt: "Central Research & IEEE Library", label: "Central Library" },
@@ -142,7 +142,7 @@ export default function AboutPage() {
       eyebrow: "CAMPUS ARCHITECTURE & INFRASTRUCTURE",
       headline: "11-Acre Flagship Technoplex Campus Complex",
       subheadline: "Four-storeyed modern academic facility in the heart of Infocity IT Corridor, Chandaka Industrial Estate, flanked by global tech leaders.",
-      image: "/images/drive_fourth/campus_exterior_1.jpg",
+      image: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
       tag: "CAMPUS ARCHITECTURE",
       location: "Infocity IT Corridor, Bhubaneswar",
       description: "Our modern four-storeyed academic facility situated in the heart of Infocity IT Corridor, Chandaka Industrial Estate, flanked by global tech giants.",
