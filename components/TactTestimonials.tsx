@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring, type Variants } from "framer-motion";
 import Lanyard from "./Lanyard";
-import AsciiRipple from "./AsciiRipple";
 
 interface AlumnusTestimonial {
   id: string;
@@ -244,32 +243,6 @@ export default function TactTestimonials() {
       aria-label="Alumni Testimonials"
       className="relative py-20 sm:py-28 bg-gradient-to-br from-[#FAFCFF] via-[#F4F7FF] via-40% via-[#FAF5FF] to-[#FFF8F6] overflow-hidden"
     >
-      {/* Interactive ASCII Ripple Background (React Bits Pro) */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <AsciiRipple
-          text="TAPS ACADEMY OF PROFESSIONAL STUDIES • PREMIER UNDERGRADUATE PEDAGOGY • BCA COMPUTING • BBA BUSINESS • UTKAL UNIVERSITY CBCS • CORPORATE FINISHING SCHOOL • ALUMNI LEADERSHIP • DELOITTE • TCS • INFOSYS • AWS • "
-          chars="·.,:;-~=+*%#@"
-          fontSize={14}
-          color="#6366F1"
-          glowColor="#4338CA"
-          backgroundColor="transparent"
-          textOpacity={0.32}
-          speed={0.55}
-          damping={0.038}
-          viscosity={0.3}
-          rain={1.2}
-          rainStrength={0.6}
-          dropStrength={1.5}
-          dropRadius={32}
-          dragStrength={0.5}
-          dragRadius={18}
-          sensitivity={2.6}
-          refraction={4.2}
-          scramble={0.85}
-          interactive={true}
-        />
-      </div>
-
       {/* 1. Dynamic Ambient Pastel Glow Canvases */}
       <div 
         className="absolute top-1/4 left-1/4 w-[600px] h-[500px] bg-gradient-to-tr from-sky-200/40 via-blue-200/30 to-purple-200/30 blur-[130px] rounded-full pointer-events-none -z-10"
