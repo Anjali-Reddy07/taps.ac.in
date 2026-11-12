@@ -643,14 +643,25 @@ export default function ProgrammesPage() {
         {/* ========================================================================= */}
         {/* AT-A-GLANCE DUAL PROGRAMME COMPARISON CARDS (BCA vs BBA) */}
         {/* ========================================================================= */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
-          <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        {/* AT-A-GLANCE DUAL PROGRAMME COMPARISON CARDS (BCA vs BBA) */}
+        {/* ========================================================================= */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Vibrant Multi-Color Ambient Aurora Glows */}
+          <div className="absolute top-1/2 -left-32 -translate-y-1/2 w-[480px] h-[480px] bg-gradient-to-tr from-blue-500/20 via-cyan-400/15 to-transparent rounded-full blur-[110px] pointer-events-none animate-pulse" />
+          <div className="absolute top-1/2 -right-32 -translate-y-1/2 w-[480px] h-[480px] bg-gradient-to-bl from-purple-500/20 via-pink-400/15 to-transparent rounded-full blur-[110px] pointer-events-none animate-pulse" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-gradient-to-r from-blue-400/10 via-indigo-400/10 to-pink-400/10 rounded-full blur-[90px] pointer-events-none" />
+
+          <section className="relative z-10 py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            <div className="text-center max-w-2xl mx-auto mb-12 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
+            <div className="text-center max-w-2xl mx-auto mb-14 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mb-3 bg-white/90 border border-indigo-200/70 shadow-sm px-4 py-1.5 rounded-full backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
+                </span>
                 Two Specialized Undergraduate Pathways
               </div>
-              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
                 Select Your Degree Specialization
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
@@ -658,118 +669,190 @@ export default function ProgrammesPage() {
               </p>
             </div>
 
-            {/* Cardless Dual Pathway Split Horizon (No Rigid Box Cards) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200/80">
+            {/* Advanced Animated Dual Glassmorphic Showcase */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 relative z-10">
               
               {/* 1. BCA SHOWCASE */}
               <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.25 }}
+                whileHover={{ y: -8, scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 onClick={() => {
                   setSelectedCourse("bca");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`p-8 sm:p-12 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
-                  selectedCourse === "bca" ? "bg-blue-50/40" : "hover:bg-zinc-50/60"
+                className={`rounded-3xl p-8 sm:p-11 transition-all duration-500 cursor-pointer flex flex-col justify-between relative group overflow-hidden ${
+                  selectedCourse === "bca"
+                    ? "bg-gradient-to-br from-white via-blue-50/60 to-cyan-50/30 border-2 border-blue-500 shadow-[0_25px_60px_-15px_rgba(59,130,246,0.25)] ring-4 ring-blue-500/10"
+                    : "bg-white/90 backdrop-blur-xl border border-zinc-200/90 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/80"
                 }`}
               >
-                <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500" />
+                {/* Top Kinetic Shimmer Ribbon */}
+                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-600 via-cyan-400 via-indigo-600 to-sky-400 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                </div>
+
+                {/* Subtle Ambient Hover Glow in Corner */}
+                <div className="absolute -top-12 -right-12 w-64 h-64 bg-gradient-to-bl from-blue-400/20 via-cyan-400/10 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
                 
-                <div>
+                <div className="relative z-10">
                   <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-100 text-blue-800">
+                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                      </span>
                       BCA • 3-YEAR TRACK
                     </span>
-                    <span className="text-xs font-mono text-zinc-500 font-semibold">
+                    <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 border border-blue-200/80 px-3 py-1 rounded-full shadow-2xs">
                       128 Seats Approved
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight mb-2 group-hover:text-blue-600 transition-colors duration-300">
                     Bachelor of Computer Applications
                   </h3>
-                  <p className="text-xs font-mono text-blue-700 uppercase tracking-wider mb-4 font-semibold">
-                    Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
-                  </p>
+                  <div className="mb-4">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 rounded-lg px-3 py-1.5 inline-block shadow-2xs">
+                      Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
+                    </span>
+                  </div>
 
                   <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
                     Comprehensive full-stack software development, cloud virtualization clusters, discrete algorithms, and applied machine learning foundations.
                   </p>
 
-                  {/* 4 Core Competency Chips */}
-                  <div className="grid grid-cols-2 gap-3 mb-8">
+                  {/* 4 Core Competency Interactive Chips */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                     {programmes.bca.keySkills.map((k, i) => (
-                      <div key={i} className="pl-3.5 py-1.5 border-l-2 border-blue-400 text-xs">
-                        <div className="font-bold text-zinc-950">{k.name}</div>
-                        <div className="text-[10px] font-mono text-blue-600 mt-0.5">{k.tag}</div>
+                      <div 
+                        key={i} 
+                        className="group/chip relative p-3.5 rounded-2xl bg-white/95 border border-blue-100/90 hover:border-blue-400 hover:shadow-md hover:shadow-blue-500/10 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 backdrop-blur-sm overflow-hidden"
+                      >
+                        <div className="w-1 h-8 rounded-full bg-gradient-to-b from-blue-600 to-cyan-400 shrink-0 group-hover/chip:h-10 transition-all duration-300" />
+                        <div>
+                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover/chip:text-blue-700 transition-colors">
+                            {k.name}
+                          </div>
+                          <div className="text-[10px] font-mono font-semibold text-blue-700 mt-1 inline-block px-2 py-0.5 rounded-md bg-blue-50 border border-blue-100">
+                            {k.tag}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-zinc-200/80 flex items-center justify-between">
-                  <span className="text-xs font-mono text-zinc-500 font-medium">138+ Annual Recruiters</span>
-                  <span className="text-xs font-bold text-blue-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
-                    <span>{selectedCourse === "bca" ? "Currently Viewing Track" : "Switch to BCA Track"}</span>
-                    <span>→</span>
+                <div className="pt-6 border-t border-blue-100/90 flex items-center justify-between relative z-10">
+                  <span className="text-xs font-mono text-zinc-600 font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    138+ Annual Recruiters
                   </span>
+                  
+                  {selectedCourse === "bca" ? (
+                    <span className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold shadow-md shadow-blue-500/30 flex items-center gap-1.5">
+                      <span>✓</span>
+                      <span>Currently Viewing Track</span>
+                    </span>
+                  ) : (
+                    <span className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-2xs group-hover:translate-x-1">
+                      <span>Switch to BCA Track</span>
+                      <span>→</span>
+                    </span>
+                  )}
                 </div>
               </motion.div>
 
               {/* 2. BBA SHOWCASE */}
               <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.25 }}
+                whileHover={{ y: -8, scale: 1.01 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 onClick={() => {
                   setSelectedCourse("bba");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`p-8 sm:p-12 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
-                  selectedCourse === "bba" ? "bg-purple-50/40" : "hover:bg-zinc-50/60"
+                className={`rounded-3xl p-8 sm:p-11 transition-all duration-500 cursor-pointer flex flex-col justify-between relative group overflow-hidden ${
+                  selectedCourse === "bba"
+                    ? "bg-gradient-to-br from-white via-purple-50/60 to-pink-50/30 border-2 border-purple-500 shadow-[0_25px_60px_-15px_rgba(168,85,247,0.25)] ring-4 ring-purple-500/10"
+                    : "bg-white/90 backdrop-blur-xl border border-zinc-200/90 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-400/80"
                 }`}
               >
-                <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600" />
+                {/* Top Kinetic Shimmer Ribbon */}
+                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-600 via-fuchsia-500 via-pink-500 to-rose-400 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                </div>
+
+                {/* Subtle Ambient Hover Glow in Corner */}
+                <div className="absolute -top-12 -right-12 w-64 h-64 bg-gradient-to-bl from-purple-400/20 via-pink-400/10 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
                 
-                <div>
+                <div className="relative z-10">
                   <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-purple-100 text-purple-800">
+                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm shadow-purple-500/30">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-300 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                      </span>
                       BBA • 4-YEAR NEP TRACK
                     </span>
-                    <span className="text-xs font-mono text-zinc-500 font-semibold">
+                    <span className="text-xs font-mono font-bold text-purple-900 bg-purple-100/80 border border-purple-200/80 px-3 py-1 rounded-full shadow-2xs">
                       128 Seats Approved
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight mb-2 group-hover:text-purple-700 transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight mb-2 group-hover:text-purple-600 transition-colors duration-300">
                     Bachelor of Business Administration
                   </h3>
-                  <p className="text-xs font-mono text-purple-700 uppercase tracking-wider mb-4 font-semibold">
-                    Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
-                  </p>
+                  <div className="mb-4">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 rounded-lg px-3 py-1.5 inline-block shadow-2xs">
+                      Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
+                    </span>
+                  </div>
 
                   <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
                     Executive leadership acumen, DCF financial modeling, corporate marketing strategies, and supply chain ERP simulations.
                   </p>
 
-                  {/* 4 Core Competency Chips */}
-                  <div className="grid grid-cols-2 gap-3 mb-8">
+                  {/* 4 Core Competency Interactive Chips */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                     {programmes.bba.keySkills.map((k, i) => (
-                      <div key={i} className="pl-3.5 py-1.5 border-l-2 border-purple-400 text-xs">
-                        <div className="font-bold text-zinc-950">{k.name}</div>
-                        <div className="text-[10px] font-mono text-purple-600 mt-0.5">{k.tag}</div>
+                      <div 
+                        key={i} 
+                        className="group/chip relative p-3.5 rounded-2xl bg-white/95 border border-purple-100/90 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 backdrop-blur-sm overflow-hidden"
+                      >
+                        <div className="w-1 h-8 rounded-full bg-gradient-to-b from-purple-600 to-pink-400 shrink-0 group-hover/chip:h-10 transition-all duration-300" />
+                        <div>
+                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover/chip:text-purple-700 transition-colors">
+                            {k.name}
+                          </div>
+                          <div className="text-[10px] font-mono font-semibold text-purple-700 mt-1 inline-block px-2 py-0.5 rounded-md bg-purple-50 border border-purple-100">
+                            {k.tag}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-zinc-200/80 flex items-center justify-between">
-                  <span className="text-xs font-mono text-zinc-500 font-medium">138+ Annual Recruiters</span>
-                  <span className="text-xs font-bold text-purple-700 group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
-                    <span>{selectedCourse === "bba" ? "Currently Viewing Track" : "Switch to BBA Track"}</span>
-                    <span>→</span>
+                <div className="pt-6 border-t border-purple-100/90 flex items-center justify-between relative z-10">
+                  <span className="text-xs font-mono text-zinc-600 font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    138+ Annual Recruiters
                   </span>
+                  
+                  {selectedCourse === "bba" ? (
+                    <span className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-bold shadow-md shadow-purple-500/30 flex items-center gap-1.5">
+                      <span>✓</span>
+                      <span>Currently Viewing Track</span>
+                    </span>
+                  ) : (
+                    <span className="px-4 py-2 rounded-xl bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white border border-purple-200 text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-2xs group-hover:translate-x-1">
+                      <span>Switch to BBA Track</span>
+                      <span>→</span>
+                    </span>
+                  )}
                 </div>
               </motion.div>
             </div>
@@ -780,20 +863,40 @@ export default function ProgrammesPage() {
         {/* ========================================================================= */}
         {/* IN-DEPTH PROGRAMME EXPLORATION CONSOLE: TABS & CURRICULUM */}
         {/* ========================================================================= */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
-          <section id="deep-dive" className="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Ambient Glow Backdrop */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-72 bg-gradient-to-r from-blue-400/10 via-indigo-400/10 to-purple-400/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <section id="deep-dive" className="relative z-10 py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
             {/* Header Card for Active Track */}
-            <div className="relative bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs mb-10 overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600" />
+            <div className={`relative border rounded-3xl p-8 sm:p-10 shadow-lg mb-10 overflow-hidden transition-all duration-500 backdrop-blur-xl ${
+              selectedCourse === "bca"
+                ? "bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/20 border-blue-200/80 shadow-blue-500/5"
+                : "bg-gradient-to-br from-white via-purple-50/40 to-pink-50/20 border-purple-200/80 shadow-purple-500/5"
+            }`}>
+              {/* Dynamic Animated Top Shimmer Beam */}
+              <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r overflow-hidden ${
+                selectedCourse === "bca"
+                  ? "from-blue-600 via-cyan-400 via-indigo-600 to-sky-400"
+                  : "from-purple-600 via-fuchsia-500 via-pink-500 to-rose-400"
+              }`}>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-[shimmer_3s_infinite]" />
+              </div>
               
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-zinc-200 pb-8 mb-8">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-zinc-200/80 pb-8 mb-8">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold text-indigo-700 bg-indigo-50 px-3.5 py-1 rounded-full border border-indigo-200/60 mb-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                  <div className={`inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold px-3.5 py-1.5 rounded-full border mb-3 shadow-2xs ${
+                    selectedCourse === "bca"
+                      ? "text-blue-700 bg-blue-50 border-blue-200"
+                      : "text-purple-700 bg-purple-50 border-purple-200"
+                  }`}>
+                    <span className={`w-2 h-2 rounded-full animate-ping ${
+                      selectedCourse === "bca" ? "bg-blue-500" : "bg-purple-500"
+                    }`} />
                     Interactive Degree Console • {current.code}
                   </div>
-                  <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
+                  <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
                     {current.title}
                   </h2>
                   <p className="text-xs sm:text-sm text-zinc-600 mt-2 font-medium">
@@ -804,13 +907,17 @@ export default function ProgrammesPage() {
                 <div className="flex flex-wrap items-center gap-3 shrink-0">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-6 py-3 rounded-xl bg-black text-white font-semibold text-xs sm:text-sm hover:bg-zinc-800 transition-all duration-300 shadow-md cursor-pointer hover-lift"
+                    className={`px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 ${
+                      selectedCourse === "bca"
+                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-blue-500/30"
+                        : "bg-gradient-to-r from-purple-600 to-pink-600 hover:shadow-purple-500/30"
+                    }`}
                   >
                     Apply for {current.code} 2026 →
                   </button>
                   <Link
                     href="/admission"
-                    className="px-5 py-3 rounded-xl bg-zinc-100 text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-200 transition-all duration-300"
+                    className="px-5 py-3 rounded-xl bg-white text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-all duration-300 shadow-2xs"
                   >
                     Admission Guidelines
                   </Link>
@@ -821,19 +928,28 @@ export default function ProgrammesPage() {
                 {current.summary}
               </p>
 
-              {/* 4 Feature Highlights */}
+              {/* 4 Feature Highlights with Colorful Transitions */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {current.highlights.map((h, i) => (
-                  <div key={i} className="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-slate-50 border border-zinc-200/80 text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
+                  <div 
+                    key={i} 
+                    className={`p-4 rounded-2xl bg-white/90 border text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-3 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${
+                      selectedCourse === "bca"
+                        ? "border-blue-100 hover:border-blue-300 hover:bg-blue-50/40"
+                        : "border-purple-100 hover:border-purple-300 hover:bg-purple-50/40"
+                    }`}
+                  >
+                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
+                      selectedCourse === "bca" ? "bg-blue-600" : "bg-purple-600"
+                    }`} />
                     <span>{h}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 5-Tab Navigation Bar with Kinetic Motion Indicator */}
-            <div className="flex border-b border-zinc-200 mb-10 overflow-x-auto relative no-scrollbar">
+            {/* 5-Tab Navigation Bar with Kinetic Motion Capsule */}
+            <div className="flex p-1.5 rounded-2xl bg-zinc-100/90 border border-zinc-200/80 mb-10 overflow-x-auto relative no-scrollbar gap-1.5 backdrop-blur-md">
               {[
                 { id: "curriculum", label: "01. Semester Curriculum" },
                 { id: "certifications", label: "02. Included Certifications" },
@@ -846,18 +962,18 @@ export default function ProgrammesPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`relative py-4 px-6 font-semibold text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer ${
-                      isActive ? "text-blue-700 font-bold" : "text-zinc-500 hover:text-zinc-900"
+                    className={`relative py-3 px-5 font-semibold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer rounded-xl flex items-center gap-2 ${
+                      isActive
+                        ? selectedCourse === "bca"
+                          ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 font-bold"
+                          : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/25 font-bold"
+                        : "text-zinc-600 hover:text-zinc-950 hover:bg-white/80"
                     }`}
                   >
-                    {tab.label}
                     {isActive && (
-                      <motion.div
-                        layoutId="activeSubTabIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
-                        transition={{ type: "spring", stiffness: 450, damping: 30 }}
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                     )}
+                    {tab.label}
                   </button>
                 );
               })}
@@ -873,45 +989,71 @@ export default function ProgrammesPage() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                {current.semesters.map((s, idx) => (
-                  <div
-                    key={s.sem}
-                    className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-4 pb-3 border-b border-zinc-100 flex items-center justify-between">
-                        <span className="text-blue-700 font-bold flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                          {s.sem}
-                        </span>
-                        <span className="text-[10px] text-zinc-400 font-semibold px-2 py-0.5 bg-zinc-100 rounded-md">
-                          Utkal Univ CBCS
-                        </span>
+                {current.semesters.map((s, idx) => {
+                  const gradientStrips = [
+                    "from-blue-600 via-cyan-500 to-sky-400",
+                    "from-blue-600 via-indigo-600 to-cyan-500",
+                    "from-indigo-600 via-purple-600 to-pink-500",
+                    "from-purple-600 via-fuchsia-600 to-pink-500",
+                    "from-fuchsia-600 via-pink-600 to-rose-400",
+                    "from-rose-500 via-pink-500 to-purple-600",
+                    "from-teal-600 via-emerald-500 to-cyan-500",
+                    "from-indigo-600 via-blue-600 to-cyan-500",
+                  ];
+                  const currentGradient = gradientStrips[idx % gradientStrips.length];
+
+                  return (
+                    <motion.div
+                      key={s.sem}
+                      whileHover={{ y: -6 }}
+                      transition={{ duration: 0.25 }}
+                      className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-zinc-200/90 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-sm"
+                    >
+                      {/* Top Glowing Color Shimmer */}
+                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${currentGradient}`} />
+
+                      <div>
+                        <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-4 pb-3 border-b border-zinc-100 flex items-center justify-between">
+                          <span className="text-blue-700 font-bold flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                            {s.sem}
+                          </span>
+                          <span className="text-[10px] text-zinc-500 font-semibold px-2.5 py-0.5 bg-zinc-100/90 rounded-full border border-zinc-200/60">
+                            Utkal Univ CBCS
+                          </span>
+                        </div>
+
+                        <ul className="space-y-3 text-xs text-zinc-700">
+                          {s.subjects.map((sub, sIdx) => {
+                            const isLab = sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab") || sub.toLowerCase().includes("project");
+                            return (
+                              <li key={sIdx} className="flex items-start gap-2.5 group/sub">
+                                <span className="text-zinc-400 font-mono text-[11px] shrink-0 mt-0.5 group-hover/sub:text-blue-600 transition-colors">
+                                  0{sIdx + 1}.
+                                </span>
+                                <span className={`leading-relaxed transition-colors ${
+                                  isLab 
+                                    ? "font-semibold text-blue-900 bg-blue-50/80 px-2 py-0.5 rounded-md border border-blue-100" 
+                                    : "font-normal group-hover/sub:text-zinc-950"
+                                }`}>
+                                  {sub}
+                                </span>
+                              </li>
+                            );
+                          })}
+                        </ul>
                       </div>
 
-                      <ul className="space-y-2.5 text-xs text-zinc-700">
-                        {s.subjects.map((sub, sIdx) => {
-                          const isLab = sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab") || sub.toLowerCase().includes("project");
-                          return (
-                            <li key={sIdx} className="flex items-start gap-2.5">
-                              <span className="text-zinc-400 font-mono text-[11px] shrink-0 mt-0.5">
-                                {sIdx + 1}.
-                              </span>
-                              <span className={`leading-relaxed ${isLab ? "font-semibold text-blue-900" : "font-normal"}`}>
-                                {sub}
-                              </span>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-
-                    <div className="pt-4 mt-5 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                      <span>Module Track 0{idx + 1}</span>
-                      <span className="text-blue-600 font-semibold">Continuous Assessment</span>
-                    </div>
-                  </div>
-                ))}
+                      <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                        <span className="font-semibold text-zinc-500">Module Track 0{idx + 1}</span>
+                        <span className="text-blue-600 font-bold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                          Continuous Assessment
+                        </span>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             )}
 
