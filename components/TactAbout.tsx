@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -69,7 +69,7 @@ function TiltCard({
 export default function TactAbout({ onOpenQuery }: TactAboutProps) {
   const [activeTab, setActiveTab] = useState<"vision" | "mission" | "values">("vision");
   const [activeFacility, setActiveFacility] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [direction, setDirection] = useState(1);
 
   // 4 Core Official Benchmark Accreditations (from taps.ac.in)
   const accreditations = [
@@ -300,14 +300,29 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
     },
   ];
 
-  // Auto-advance through facilities every 5.5 seconds unless paused by user interaction
+  // Helper actions for sliding through facilities
+  const nextSlide = useCallback(() => {
+    setDirection(1);
+    setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
+  }, [facilityHighlights.length]);
+
+  const prevSlide = useCallback(() => {
+    setDirection(-1);
+    setActiveFacility((prev) => (prev - 1 + facilityHighlights.length) % facilityHighlights.length);
+  }, [facilityHighlights.length]);
+
+  const goToSlide = useCallback((index: number) => {
+    setDirection(index >= activeFacility ? 1 : -1);
+    setActiveFacility(index);
+  }, [activeFacility]);
+
+  // Continuously slide automatically in a loop every 4.0 seconds (resets timer on manual interaction)
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(() => {
-      setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
-    }, 5500);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, facilityHighlights.length]);
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [nextSlide, activeFacility]);
 
   return (
     <section id="about" className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
@@ -1041,18 +1056,38 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
 
         {/* FULL-BLEED CINEMATIC IMMERSIVE PANORAMIC HORIZON STAGE (100% Screen Width, No White Background on Sides or Corners) */}
         <div 
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
           className="relative w-full overflow-hidden shadow-2xl bg-slate-950 border-y border-slate-800/80 min-h-[660px] sm:min-h-[740px] lg:min-h-[85vh] flex flex-col justify-between rounded-none"
         >
-            {/* 1. PANORAMIC PHOTOGRAPHIC HORIZON BACKGROUND WITH SMOOTH DISSOLVE */}
-            <AnimatePresence mode="wait">
+            {/* 1. PANORAMIC PHOTOGRAPHIC HORIZON BACKGROUND WITH DIRECTIONAL SLIDE */}
+            <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={facilityHighlights[activeFacility].image}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                custom={direction}
+                variants={{
+                  enter: (dir: number) => ({
+                    x: dir > 0 ? "100%" : "-100%",
+                    opacity: 0,
+                  }),
+                  center: {
+                    x: "0%",
+                    opacity: 1,
+                    transition: {
+                      x: { type: "spring", stiffness: 220, damping: 28 },
+                      opacity: { duration: 0.45 },
+                    },
+                  },
+                  exit: (dir: number) => ({
+                    x: dir > 0 ? "-100%" : "100%",
+                    opacity: 0,
+                    transition: {
+                      x: { type: "spring", stiffness: 220, damping: 28 },
+                      opacity: { duration: 0.45 },
+                    },
+                  }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
                 className="absolute inset-0 z-0"
               >
                 <Image
@@ -1085,10 +1120,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                   return (
                     <button
                       key={facility.title}
-                      onClick={() => {
-                        setActiveFacility(idx);
-                        setIsAutoPlaying(false);
-                      }}
+                      onClick={() => goToSlide(idx)}
                       className={`relative pb-3 text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-2 select-none ${
                         isActive ? "text-white font-bold" : "text-white/60 hover:text-white"
                       }`}
@@ -1131,13 +1163,35 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             <div className="relative z-20 px-6 sm:px-12 lg:px-16 py-8 sm:py-16 flex-1 flex flex-col justify-center">
               <div className="max-w-7xl mx-auto w-full">
                 <div className="max-w-2xl">
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                       key={facilityHighlights[activeFacility].title}
-                      initial={{ opacity: 0, y: 18 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -18 }}
-                      transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+                      custom={direction}
+                      variants={{
+                        enter: (dir: number) => ({
+                          x: dir > 0 ? 50 : -50,
+                          opacity: 0,
+                        }),
+                        center: {
+                          x: 0,
+                          opacity: 1,
+                          transition: {
+                            x: { type: "spring", stiffness: 260, damping: 26, delay: 0.05 },
+                            opacity: { duration: 0.35, delay: 0.04 },
+                          },
+                        },
+                        exit: (dir: number) => ({
+                          x: dir > 0 ? -40 : 40,
+                          opacity: 0,
+                          transition: {
+                            duration: 0.22,
+                            ease: "easeInOut",
+                          },
+                        }),
+                      }}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
                       className="space-y-5"
                     >
                       {/* Subtitle Pill */}
@@ -1213,10 +1267,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                         {facilityHighlights.map((_, dotIdx) => (
                           <button
                             key={dotIdx}
-                            onClick={() => {
-                              setActiveFacility(dotIdx);
-                              setIsAutoPlaying(false);
-                            }}
+                            onClick={() => goToSlide(dotIdx)}
                             aria-label={`Go to facility ${dotIdx + 1}`}
                             className={`h-2 rounded-full transition-all cursor-pointer ${
                               activeFacility === dotIdx ? "bg-cyan-400 w-5" : "bg-white/40 hover:bg-white/70 w-2"
@@ -1228,10 +1279,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                       {/* Counter & Arrows */}
                       <div className="flex items-center gap-2 text-white/80 text-xs font-mono">
                         <button
-                          onClick={() => {
-                            setActiveFacility((prev) => (prev - 1 + facilityHighlights.length) % facilityHighlights.length);
-                            setIsAutoPlaying(false);
-                          }}
+                          onClick={prevSlide}
                           aria-label="Previous facility"
                           className="hover:text-white p-1 cursor-pointer transition-colors"
                         >
@@ -1241,10 +1289,7 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                           0{activeFacility + 1} / 0{facilityHighlights.length}
                         </span>
                         <button
-                          onClick={() => {
-                            setActiveFacility((prev) => (prev + 1) % facilityHighlights.length);
-                            setIsAutoPlaying(false);
-                          }}
+                          onClick={nextSlide}
                           aria-label="Next facility"
                           className="hover:text-white p-1 cursor-pointer transition-colors"
                         >
@@ -1263,13 +1308,13 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
             </div>
 
             {/* Live Auto-Progress Line Indicator at the bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 overflow-hidden z-30">
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 overflow-hidden z-30">
               <motion.div
                 key={activeFacility}
                 initial={{ width: "0%" }}
-                animate={{ width: isAutoPlaying ? "100%" : "0%" }}
-                transition={{ duration: 5.5, ease: "linear" }}
-                className="h-full bg-cyan-400"
+                animate={{ width: "100%" }}
+                transition={{ duration: 4.0, ease: "linear" }}
+                className="h-full bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 shadow-[0_0_12px_rgba(34,211,238,0.8)]"
               />
             </div>
           </div>
