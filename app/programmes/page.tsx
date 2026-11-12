@@ -865,8 +865,10 @@ export default function ProgrammesPage() {
         {/* IN-DEPTH PROGRAMME EXPLORATION CONSOLE: TABS & CURRICULUM */}
         {/* ========================================================================= */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
-          {/* Ambient Glow Backdrop */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-72 bg-gradient-to-r from-blue-400/10 via-indigo-400/10 to-purple-400/10 rounded-full blur-[100px] pointer-events-none" />
+          {/* Dynamic Ambient Color Orbs */}
+          <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] bg-gradient-to-tr from-blue-500/18 via-cyan-400/14 to-transparent rounded-full blur-[120px] pointer-events-none animate-pulse" />
+          <div className="absolute top-1/2 -right-20 w-[550px] h-[550px] bg-gradient-to-bl from-purple-500/18 via-pink-400/14 to-transparent rounded-full blur-[120px] pointer-events-none animate-pulse" />
+          <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-gradient-to-r from-indigo-500/12 via-purple-500/12 to-pink-500/12 rounded-full blur-[110px] pointer-events-none" />
 
           <section id="deep-dive" className="relative z-10 py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
@@ -981,62 +983,156 @@ export default function ProgrammesPage() {
             </div>
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM */}
+            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM WITH ADVANCED ANIMATIONS & VIBRANT PALETTES */}
             {/* ========================================================================= */}
             {activeTab === "curriculum" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
               >
                 {current.semesters.map((s, idx) => {
-                  const gradientStrips = [
-                    "from-blue-600 via-cyan-500 to-sky-400",
-                    "from-blue-600 via-indigo-600 to-cyan-500",
-                    "from-indigo-600 via-purple-600 to-pink-500",
-                    "from-purple-600 via-fuchsia-600 to-pink-500",
-                    "from-fuchsia-600 via-pink-600 to-rose-400",
-                    "from-rose-500 via-pink-500 to-purple-600",
-                    "from-teal-600 via-emerald-500 to-cyan-500",
-                    "from-indigo-600 via-blue-600 to-cyan-500",
+                  // Dedicated progressive phase themes across the curriculum
+                  const phaseConfigs = [
+                    {
+                      beam: "from-blue-600 via-cyan-400 to-indigo-600",
+                      cardBg: "bg-gradient-to-br from-blue-50/70 via-white via-60% to-cyan-50/40",
+                      borderColor: "border-blue-200/90 hover:border-blue-500 hover:shadow-blue-500/20",
+                      pill: "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-blue-500/25",
+                      phase: "Phase 01 • Computational Foundations",
+                      textColor: "text-blue-700",
+                      badgeBg: "bg-blue-100/80 text-blue-900 border-blue-200",
+                    },
+                    {
+                      beam: "from-blue-600 via-indigo-600 to-cyan-400",
+                      cardBg: "bg-gradient-to-br from-cyan-50/60 via-white via-60% to-blue-50/40",
+                      borderColor: "border-cyan-200/90 hover:border-cyan-500 hover:shadow-cyan-500/20",
+                      pill: "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-cyan-500/25",
+                      phase: "Phase 01 • Advanced Core Algorithms",
+                      textColor: "text-cyan-800",
+                      badgeBg: "bg-cyan-100/80 text-cyan-900 border-cyan-200",
+                    },
+                    {
+                      beam: "from-indigo-600 via-purple-500 to-pink-500",
+                      cardBg: "bg-gradient-to-br from-indigo-50/70 via-white via-60% to-purple-50/40",
+                      borderColor: "border-indigo-200/90 hover:border-indigo-500 hover:shadow-indigo-500/20",
+                      pill: "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-500/25",
+                      phase: "Phase 02 • Core Systems Architecture",
+                      textColor: "text-indigo-700",
+                      badgeBg: "bg-indigo-100/80 text-indigo-900 border-indigo-200",
+                    },
+                    {
+                      beam: "from-purple-600 via-fuchsia-500 to-pink-500",
+                      cardBg: "bg-gradient-to-br from-purple-50/70 via-white via-60% to-pink-50/40",
+                      borderColor: "border-purple-200/90 hover:border-purple-500 hover:shadow-purple-500/20",
+                      pill: "bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white shadow-purple-500/25",
+                      phase: "Phase 02 • Full-Stack Cloud Engineering",
+                      textColor: "text-purple-700",
+                      badgeBg: "bg-purple-100/80 text-purple-900 border-purple-200",
+                    },
+                    {
+                      beam: "from-fuchsia-600 via-pink-500 to-rose-400",
+                      cardBg: "bg-gradient-to-br from-pink-50/70 via-white via-60% to-rose-50/40",
+                      borderColor: "border-pink-200/90 hover:border-pink-500 hover:shadow-pink-500/20",
+                      pill: "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-pink-500/25",
+                      phase: "Phase 03 • AI Foundations & Shell Networks",
+                      textColor: "text-pink-700",
+                      badgeBg: "bg-pink-100/80 text-pink-900 border-pink-200",
+                    },
+                    {
+                      beam: "from-rose-500 via-pink-500 to-purple-600",
+                      cardBg: "bg-gradient-to-br from-rose-50/70 via-white via-60% to-purple-50/40",
+                      borderColor: "border-rose-200/90 hover:border-rose-500 hover:shadow-rose-500/20",
+                      pill: "bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-rose-500/25",
+                      phase: "Phase 03 • Capstone Project & Viva-Voce",
+                      textColor: "text-rose-700",
+                      badgeBg: "bg-rose-100/80 text-rose-900 border-rose-200",
+                    },
+                    {
+                      beam: "from-emerald-600 via-teal-500 to-cyan-500",
+                      cardBg: "bg-gradient-to-br from-emerald-50/70 via-white via-60% to-teal-50/40",
+                      borderColor: "border-emerald-200/90 hover:border-emerald-500 hover:shadow-emerald-500/20",
+                      pill: "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-emerald-500/25",
+                      phase: "Phase 04 • Strategic Management Honors",
+                      textColor: "text-emerald-700",
+                      badgeBg: "bg-emerald-100/80 text-emerald-900 border-emerald-200",
+                    },
+                    {
+                      beam: "from-indigo-600 via-blue-600 to-cyan-500",
+                      cardBg: "bg-gradient-to-br from-teal-50/70 via-white via-60% to-blue-50/40",
+                      borderColor: "border-teal-200/90 hover:border-teal-500 hover:shadow-teal-500/20",
+                      pill: "bg-gradient-to-r from-teal-600 to-blue-600 text-white shadow-teal-500/25",
+                      phase: "Phase 04 • Executive Corporate Thesis",
+                      textColor: "text-teal-700",
+                      badgeBg: "bg-teal-100/80 text-teal-900 border-teal-200",
+                    },
                   ];
-                  const currentGradient = gradientStrips[idx % gradientStrips.length];
+                  const cfg = phaseConfigs[idx % phaseConfigs.length];
 
                   return (
                     <motion.div
                       key={s.sem}
-                      whileHover={{ y: -6 }}
-                      transition={{ duration: 0.25 }}
-                      className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-zinc-200/90 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-sm"
+                      whileHover={{ y: -8, scale: 1.015 }}
+                      transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                      className={`p-6 sm:p-7 rounded-3xl ${cfg.cardBg} border ${cfg.borderColor} shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-xl`}
                     >
-                      {/* Top Glowing Color Shimmer */}
-                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${currentGradient}`} />
+                      {/* Top Kinetic Glowing Gradient Shimmer Beam */}
+                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${cfg.beam} overflow-hidden`}>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+                      </div>
 
-                      <div>
-                        <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-4 pb-3 border-b border-zinc-100 flex items-center justify-between">
-                          <span className="text-blue-700 font-bold flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                      {/* Corner Ambient Glow */}
+                      <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-bl from-blue-300/20 via-purple-300/10 to-transparent rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+
+                      <div className="relative z-10">
+                        {/* Header Badge Row */}
+                        <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-zinc-200/70">
+                          <span className={`inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-md ${cfg.pill}`}>
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                            </span>
                             {s.sem}
                           </span>
-                          <span className="text-[10px] text-zinc-500 font-semibold px-2.5 py-0.5 bg-zinc-100/90 rounded-full border border-zinc-200/60">
+                          <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-full border shadow-2xs ${cfg.badgeBg}`}>
                             Utkal Univ CBCS
                           </span>
                         </div>
 
-                        <ul className="space-y-3 text-xs text-zinc-700">
+                        {/* Subjects List with Rich Lab & Practical Highlighting */}
+                        <ul className="space-y-2.5 text-xs text-zinc-800">
                           {s.subjects.map((sub, sIdx) => {
-                            const isLab = sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab") || sub.toLowerCase().includes("project");
+                            const isLab = 
+                              sub.toLowerCase().includes("practical") || 
+                              sub.toLowerCase().includes("lab") || 
+                              sub.toLowerCase().includes("project");
+
+                            if (isLab) {
+                              return (
+                                <li 
+                                  key={sIdx} 
+                                  className="flex items-center justify-between gap-2 p-2 rounded-xl bg-gradient-to-r from-blue-500/12 via-indigo-500/8 to-cyan-500/10 border border-blue-300/80 hover:border-blue-500 hover:shadow-xs transition-all duration-200"
+                                >
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <span className="text-base shrink-0">⚡</span>
+                                    <span className="font-bold text-blue-950 text-xs truncate">
+                                      {sub}
+                                    </span>
+                                  </div>
+                                  <span className="text-[9px] font-mono font-extrabold uppercase px-2 py-0.5 rounded-md bg-blue-600 text-white shrink-0 shadow-2xs">
+                                    PRACTICAL
+                                  </span>
+                                </li>
+                              );
+                            }
+
                             return (
-                              <li key={sIdx} className="flex items-start gap-2.5 group/sub">
-                                <span className="text-zinc-400 font-mono text-[11px] shrink-0 mt-0.5 group-hover/sub:text-blue-600 transition-colors">
-                                  0{sIdx + 1}.
+                              <li key={sIdx} className="flex items-center gap-2.5 py-1 group/sub">
+                                <span className="w-5 h-5 rounded-md bg-white border border-zinc-200/90 text-[10px] font-mono font-bold text-zinc-500 flex items-center justify-center shrink-0 group-hover/sub:bg-blue-600 group-hover/sub:text-white group-hover/sub:border-blue-600 transition-colors shadow-2xs">
+                                  0{sIdx + 1}
                                 </span>
-                                <span className={`leading-relaxed transition-colors ${
-                                  isLab 
-                                    ? "font-semibold text-blue-900 bg-blue-50/80 px-2 py-0.5 rounded-md border border-blue-100" 
-                                    : "font-normal group-hover/sub:text-zinc-950"
-                                }`}>
+                                <span className="text-xs font-semibold text-zinc-800 group-hover/sub:text-blue-700 transition-colors leading-relaxed">
                                   {sub}
                                 </span>
                               </li>
@@ -1045,11 +1141,14 @@ export default function ProgrammesPage() {
                         </ul>
                       </div>
 
-                      <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                        <span className="font-semibold text-zinc-500">Module Track 0{idx + 1}</span>
-                        <span className="text-blue-600 font-bold flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                          Continuous Assessment
+                      {/* Card Footer Bar */}
+                      <div className="pt-4 mt-6 border-t border-zinc-200/80 flex items-center justify-between text-[11px] font-mono relative z-10">
+                        <span className="font-bold text-zinc-600 truncate mr-2">
+                          {cfg.phase}
+                        </span>
+                        <span className="text-blue-700 font-bold flex items-center gap-1.5 shrink-0">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          24 Credits
                         </span>
                       </div>
                     </motion.div>
@@ -1059,50 +1158,84 @@ export default function ProgrammesPage() {
             )}
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS */}
+            {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS WITH VIBRANT VENDOR BADGES */}
             {/* ========================================================================= */}
             {activeTab === "certifications" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7"
               >
-                {current.certifications.map((c) => (
-                  <div
-                    key={c.name}
-                    className="p-7 rounded-3xl bg-white border border-zinc-200 hover:border-indigo-400 hover:shadow-xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <span className="text-2xl">{c.icon}</span>
-                        <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
-                          {c.badge}
+                {current.certifications.map((c, cIdx) => {
+                  const certThemes = [
+                    {
+                      beam: "from-blue-600 via-indigo-600 to-cyan-400",
+                      bg: "bg-gradient-to-br from-blue-50/70 via-white to-cyan-50/30",
+                      border: "border-blue-200 hover:border-blue-400 hover:shadow-blue-500/20",
+                      badge: "bg-blue-600 text-white",
+                    },
+                    {
+                      beam: "from-amber-500 via-orange-500 to-yellow-400",
+                      bg: "bg-gradient-to-br from-amber-50/70 via-white to-orange-50/30",
+                      border: "border-amber-200 hover:border-amber-400 hover:shadow-amber-500/20",
+                      badge: "bg-amber-600 text-white",
+                    },
+                    {
+                      beam: "from-emerald-600 via-teal-500 to-cyan-400",
+                      bg: "bg-gradient-to-br from-emerald-50/70 via-white to-teal-50/30",
+                      border: "border-emerald-200 hover:border-emerald-400 hover:shadow-emerald-500/20",
+                      badge: "bg-emerald-600 text-white",
+                    },
+                    {
+                      beam: "from-purple-600 via-pink-500 to-rose-400",
+                      bg: "bg-gradient-to-br from-purple-50/70 via-white to-pink-50/30",
+                      border: "border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20",
+                      badge: "bg-purple-600 text-white",
+                    },
+                  ];
+                  const t = certThemes[cIdx % certThemes.length];
+
+                  return (
+                    <motion.div
+                      key={c.name}
+                      whileHover={{ y: -6, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                      className={`p-8 rounded-3xl ${t.bg} border ${t.border} shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`}
+                    >
+                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${t.beam}`} />
+                      
+                      <div>
+                        <div className="flex items-center justify-between gap-3 mb-5">
+                          <span className="text-3xl p-2.5 rounded-2xl bg-white shadow-sm border border-zinc-200/80">{c.icon}</span>
+                          <span className={`text-xs font-mono font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full shadow-sm ${t.badge}`}>
+                            {c.badge}
+                          </span>
+                        </div>
+
+                        <div className="text-xs tracking-widest font-bold uppercase text-zinc-500 mb-1.5 font-mono">
+                          {c.provider}
+                        </div>
+
+                        <h3 className="text-xl font-extrabold text-zinc-950 mb-3 group-hover:text-blue-700 transition-colors">
+                          {c.name}
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                          {c.desc}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 border-t border-zinc-200/70 flex items-center justify-between text-xs font-mono text-emerald-700 font-bold">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          Zero Extra Tuition Cost
                         </span>
+                        <span className="text-zinc-500 bg-white px-2.5 py-1 rounded-lg border border-zinc-200 shadow-2xs">Included in Curriculum</span>
                       </div>
-
-                      <div className="text-[11px] tracking-widest font-semibold uppercase text-zinc-500 mb-1">
-                        {c.provider}
-                      </div>
-
-                      <h3 className="text-lg font-bold text-zinc-950 mb-3 group-hover:text-blue-700 transition-colors">
-                        {c.name}
-                      </h3>
-
-                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-5">
-                        {c.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-emerald-600 font-semibold">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Zero Extra Tuition Cost
-                      </span>
-                      <span className="text-zinc-400">Included in Degree</span>
-                    </div>
-                  </div>
-                ))}
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             )}
 
