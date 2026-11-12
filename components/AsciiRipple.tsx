@@ -43,24 +43,24 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
       text = DEFAULT_TEXT,
       chars = '·.,:;-~=+*%#@',
       fontSize = 14,
-      color = 'rgba(79, 70, 229, 0.22)',
-      glowColor = '#4F46E5',
+      color = '#6366F1',
+      glowColor = '#2563EB',
       backgroundColor = 'transparent',
-      textOpacity = 0.18,
+      textOpacity = 0.35,
       resolution = 2,
       speed = 0.55,
-      damping = 0.045,
-      viscosity = 0.35,
+      damping = 0.038,
+      viscosity = 0.3,
       edges = 'absorb',
-      dropStrength = 1.2,
-      dropRadius = 24,
-      dragStrength = 0.4,
-      dragRadius = 14,
+      dropStrength = 1.4,
+      dropRadius = 32,
+      dragStrength = 0.5,
+      dragRadius = 18,
       rain = 1.2,
-      rainStrength = 0.5,
-      sensitivity = 2.4,
-      refraction = 3.5,
-      scramble = 0.8,
+      rainStrength = 0.6,
+      sensitivity = 2.6,
+      refraction = 4.2,
+      scramble = 0.85,
       interactive = true,
       className = '',
       style = {},
@@ -69,7 +69,7 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
   ) => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-    // Wave buffers
+    // Wave simulation state
     const simRef = useRef<{
       width: number;
       height: number;
@@ -79,7 +79,6 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
       cellH: number;
       buffer1: Float32Array;
       buffer2: Float32Array;
-      scrambleMap: Uint8Array;
       lastRain: number;
       lastPointerX: number;
       lastPointerY: number;
@@ -92,7 +91,6 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
       cellH: 16,
       buffer1: new Float32Array(0),
       buffer2: new Float32Array(0),
-      scrambleMap: new Uint8Array(0),
       lastRain: 0,
       lastPointerX: -1,
       lastPointerY: -1,
@@ -159,7 +157,7 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
         // Measure monospace character metrics
         const metrics = ctx.measureText('M');
         const charW = metrics.width || fontSize * 0.6 * dpr;
-        const charH = fontSize * 1.25 * dpr;
+        const charH = fontSize * 1.35 * dpr;
 
         // Grid resolution
         const cols = Math.ceil(canvas.width / charW);
@@ -175,32 +173,48 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
           cellH: charH,
           buffer1: new Float32Array(total),
           buffer2: new Float32Array(total),
-          scrambleMap: new Uint8Array(total),
           lastRain: performance.now(),
           lastPointerX: -1,
           lastPointerY: -1,
         };
+
+        // Trigger initial ripples on mount so the effect is immediately alive
+        setTimeout(() => {
+          triggerDrop(canvas.width * 0.35, canvas.height * 0.45, 1.8, 50 * dpr);
+          triggerDrop(canvas.width * 0.65, canvas.height * 0.55, 1.6, 45 * dpr);
+        }, 150);
       };
 
       window.addEventListener('resize', resize);
       resize();
 
-      // Mouse/Pointer Events
+      // Window-level mouse tracking so ripples trigger even when hovering over child cards
       const handlePointerMove = (e: MouseEvent) => {
         if (!interactive || !canvas) return;
         const rect = canvas.getBoundingClientRect();
+
+        // Check if mouse is within vertical and horizontal bounds of the section
+        if (
+          e.clientX < rect.left ||
+          e.clientX > rect.right ||
+          e.clientY < rect.top ||
+          e.clientY > rect.bottom
+        ) {
+          simRef.current.lastPointerX = -1;
+          simRef.current.lastPointerY = -1;
+          return;
+        }
+
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const x = (e.clientX - rect.left) * dpr;
         const y = (e.clientY - rect.top) * dpr;
-
-        if (x < 0 || x > canvas.width || y < 0 || y > canvas.height) return;
 
         const sim = simRef.current;
         if (sim.lastPointerX >= 0) {
           const dx = x - sim.lastPointerX;
           const dy = y - sim.lastPointerY;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist > 4) {
+          if (dist > 3) {
             triggerDrop(x, y, dragStrength, dragRadius * dpr);
           }
         }
@@ -211,16 +225,22 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
       const handleClick = (e: MouseEvent) => {
         if (!interactive || !canvas) return;
         const rect = canvas.getBoundingClientRect();
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const x = (e.clientX - rect.left) * dpr;
-        const y = (e.clientY - rect.top) * dpr;
-        triggerDrop(x, y, dropStrength * 1.5, dropRadius * dpr * 1.4);
+        if (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        ) {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const x = (e.clientX - rect.left) * dpr;
+          const y = (e.clientY - rect.top) * dpr;
+          triggerDrop(x, y, dropStrength * 1.6, dropRadius * dpr * 1.5);
+        }
       };
 
-      const container = canvas.parentElement || canvas;
       if (interactive) {
-        container.addEventListener('mousemove', handlePointerMove, { passive: true });
-        container.addEventListener('click', handleClick);
+        window.addEventListener('mousemove', handlePointerMove, { passive: true });
+        window.addEventListener('click', handleClick);
       }
 
       // Physics and Render Loop
@@ -242,9 +262,9 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
         // Autonomous Gentle Raindrops when idle
         if (rain > 0 && time - sim.lastRain > 1000 / rain) {
           sim.lastRain = time;
-          const rx = Math.random() * sim.width;
-          const ry = Math.random() * sim.height;
-          triggerDrop(rx, ry, rainStrength, (dropRadius * 0.75) * (sim.width / 800));
+          const rx = (0.15 + Math.random() * 0.7) * sim.width;
+          const ry = (0.15 + Math.random() * 0.7) * sim.height;
+          triggerDrop(rx, ry, rainStrength, (dropRadius * 0.8) * (sim.width / 900));
         }
 
         const cols = sim.cols;
@@ -300,7 +320,9 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
         }
 
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        ctx.font = `${fontSize * dpr}px "Geist Mono", "JetBrains Mono", monospace`;
+        const baseFont = `${fontSize * dpr}px "Geist Mono", "JetBrains Mono", monospace`;
+        const boldFont = `bold ${fontSize * dpr}px "Geist Mono", "JetBrains Mono", monospace`;
+        ctx.font = baseFont;
         ctx.textBaseline = 'top';
 
         // Render Monospace ASCII Characters Refracted by Waves
@@ -321,14 +343,14 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
             let glyph = cleanText[charIndex % textLen];
             charIndex++;
 
-            if (absH > 0.04) {
+            if (absH > 0.035) {
               // Calculate surface slope (refraction gradient)
               const nx = (c < cols - 1 ? currentBuffer[idx + 1] : 0) - (c > 0 ? currentBuffer[idx - 1] : 0);
               const ny = (r < rows - 1 ? currentBuffer[idx + cols] : 0) - (r > 0 ? currentBuffer[idx - cols] : 0);
               const slope = Math.sqrt(nx * nx + ny * ny);
 
               // Wave intensity
-              const intensity = Math.min(1, absH * sensitivity + slope * refraction);
+              const intensity = Math.min(1.0, absH * sensitivity + slope * refraction);
 
               // Scramble to fluid glyph palette based on height
               if (scramble > 0 && Math.random() < scramble * intensity) {
@@ -340,10 +362,12 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
               }
 
               // Color tinting towards wave glow color
+              ctx.font = boldFont;
               ctx.fillStyle = glowColor;
-              ctx.globalAlpha = Math.min(1.0, textOpacity + intensity * 0.85);
+              ctx.globalAlpha = Math.min(1.0, 0.45 + intensity * 0.55);
             } else {
               // Resting baseline state
+              ctx.font = baseFont;
               ctx.fillStyle = color;
               ctx.globalAlpha = textOpacity;
             }
@@ -361,8 +385,8 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
       return () => {
         window.removeEventListener('resize', resize);
         if (interactive) {
-          container.removeEventListener('mousemove', handlePointerMove);
-          container.removeEventListener('click', handleClick);
+          window.removeEventListener('mousemove', handlePointerMove);
+          window.removeEventListener('click', handleClick);
         }
         cancelAnimationFrame(animationFrameId);
       };
@@ -396,7 +420,7 @@ const AsciiRipple = forwardRef<AsciiRippleHandle, AsciiRippleProps>(
         ref={canvasRef}
         className={`w-full h-full block ${className}`}
         style={{
-          pointerEvents: interactive ? 'auto' : 'none',
+          pointerEvents: 'none',
           ...style,
         }}
       />

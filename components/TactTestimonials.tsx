@@ -245,27 +245,27 @@ export default function TactTestimonials() {
       className="relative py-20 sm:py-28 bg-gradient-to-br from-[#FAFCFF] via-[#F4F7FF] via-40% via-[#FAF5FF] to-[#FFF8F6] overflow-hidden"
     >
       {/* Interactive ASCII Ripple Background (React Bits Pro) */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-auto opacity-70">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <AsciiRipple
           text="TAPS ACADEMY OF PROFESSIONAL STUDIES • PREMIER UNDERGRADUATE PEDAGOGY • BCA COMPUTING • BBA BUSINESS • UTKAL UNIVERSITY CBCS • CORPORATE FINISHING SCHOOL • ALUMNI LEADERSHIP • DELOITTE • TCS • INFOSYS • AWS • "
           chars="·.,:;-~=+*%#@"
-          fontSize={13}
-          color="rgba(99, 102, 241, 0.20)"
-          glowColor="#6366F1"
+          fontSize={14}
+          color="#6366F1"
+          glowColor="#4338CA"
           backgroundColor="transparent"
-          textOpacity={0.18}
+          textOpacity={0.32}
           speed={0.55}
-          damping={0.045}
-          viscosity={0.35}
-          rain={1.0}
-          rainStrength={0.45}
-          dropStrength={1.2}
-          dropRadius={28}
-          dragStrength={0.4}
-          dragRadius={16}
-          sensitivity={2.2}
-          refraction={3.8}
-          scramble={0.8}
+          damping={0.038}
+          viscosity={0.3}
+          rain={1.2}
+          rainStrength={0.6}
+          dropStrength={1.5}
+          dropRadius={32}
+          dragStrength={0.5}
+          dragRadius={18}
+          sensitivity={2.6}
+          refraction={4.2}
+          scramble={0.85}
           interactive={true}
         />
       </div>
