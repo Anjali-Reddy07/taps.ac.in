@@ -50,7 +50,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 flex items-center justify-between">
             {/* Left Corner: Social Media Icons */}
-            <div className="flex items-center gap-2.5 text-zinc-600">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 text-zinc-600">
               {/* Facebook */}
               <a
                 href="https://facebook.com"
@@ -142,7 +142,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 <input
                   type="text"
                   placeholder="Search TAPS..."
-                  className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-zinc-200 rounded-full focus:outline-none focus:border-black text-zinc-900 placeholder-zinc-400 w-28 sm:w-36 focus:w-48 transition-all"
+                  className="pl-7 pr-2.5 py-0.5 text-[11px] bg-white border border-zinc-200 rounded-full focus:outline-none focus:border-black text-zinc-900 placeholder-zinc-400 w-24 sm:w-36 focus:w-44 transition-all"
                 />
                 <svg
                   className="w-3.5 h-3.5 text-zinc-500 absolute left-2 pointer-events-none"
@@ -198,7 +198,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             </div>
 
             {/* CENTER / DESKTOP: ANIMATED PILLNAV COMPONENT FROM REACT BITS */}
-            <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-2">
+            <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-1 xl:px-2">
               <PillNav
                 items={navItems}
                 activeHref={pathname}
@@ -208,10 +208,11 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 itemStyle="pill"
                 hoverEffect="fill"
                 indicator="dot"
-                size="md"
+                size="sm"
+                collapse="never"
                 highlightColor="#2563eb"
                 highlightTextColor="#ffffff"
-                className="shadow-xs"
+                className="shadow-xs xl:scale-105 transition-transform"
               />
             </div>
 
@@ -219,7 +220,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={onOpenQuery}
-                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xs sm:text-xs xl:text-sm tracking-wide px-4 sm:px-5 xl:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-blue-500/25 cursor-pointer whitespace-nowrap hover-lift"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-[11px] sm:text-xs xl:text-sm tracking-wide px-3 sm:px-5 xl:px-6 py-1.5 sm:py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-blue-500/25 cursor-pointer whitespace-nowrap hover-lift"
               >
                 Apply Now
               </button>

@@ -1047,8 +1047,8 @@ export default function TactAbout({ onOpenQuery }: TactAboutProps) {
                 </div>
 
                 {/* Floating Glassmorphic HUD Card */}
-                <div className="flex items-center gap-3">
-                  <div className="bg-black/55 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-center justify-between gap-6 min-w-[290px] sm:min-w-[360px]">
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <div className="bg-black/55 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 shadow-2xl flex items-center justify-between gap-4 sm:gap-6 w-full sm:w-auto min-w-0 sm:min-w-[340px] max-w-full">
                     <div>
                       <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-bold block">
                         {facilityHighlights[activeFacility].subtitle}
