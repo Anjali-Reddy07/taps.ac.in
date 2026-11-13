@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import PrismaticSlats from "@/components/PrismaticSlats";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 // Interactive 3D Tilt Card with dynamic cursor-following specular glare
 function TiltCard({
@@ -989,25 +990,33 @@ export default function ProgrammesPage() {
               >
                 {/* 1. Master Semester Horizon Selector Rail (Cardless Open Strip) */}
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200">
-                  {/* Semester Pickers */}
+                  {/* Semester Pickers with Year Groups */}
                   <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
                     {current.semesters.map((s, idx) => {
                       const isActive = selectedSemIdx === idx;
+                      const yearNum = Math.floor(idx / 2) + 1;
                       return (
                         <button
                           key={s.sem}
                           type="button"
                           onClick={() => setSelectedSemIdx(idx)}
-                          className={`group relative py-2 px-3 sm:px-4 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+                          className={`group relative py-2.5 px-3.5 sm:px-4 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer flex flex-col items-start gap-0.5 ${
                             isActive
                               ? "bg-slate-900 text-white shadow-sm font-bold"
                               : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
                           }`}
                         >
-                          <span className={`w-1.5 h-1.5 rounded-full ${
-                            isActive ? "bg-cyan-400 animate-pulse" : "bg-zinc-400 group-hover:bg-zinc-600"
-                          }`} />
-                          <span>SEM 0{idx + 1}</span>
+                          <div className="flex items-center gap-1.5">
+                            <span className={`w-1.5 h-1.5 rounded-full ${
+                              isActive ? "bg-cyan-400 animate-pulse shadow-[0_0_6px_rgba(34,211,238,0.8)]" : "bg-zinc-400 group-hover:bg-zinc-600"
+                            }`} />
+                            <span className="font-bold">SEM 0{idx + 1}</span>
+                          </div>
+                          <span className={`text-[9px] font-sans uppercase tracking-wider ${
+                            isActive ? "text-cyan-300" : "text-zinc-400"
+                          }`}>
+                            Year 0{yearNum}
+                          </span>
                         </button>
                       );
                     })}
@@ -1050,6 +1059,7 @@ export default function ProgrammesPage() {
                   const labSubjects = activeSem.subjects.filter(
                     (sub) => sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab")
                   );
+                  const yearNum = Math.floor(safeSemIdx / 2) + 1;
 
                   return (
                     <AnimatePresence mode="wait">
@@ -1059,14 +1069,14 @@ export default function ProgrammesPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start"
+                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start pt-2"
                       >
                         {/* Left Column: Semester Meta & Milestones */}
                         <div className="lg:col-span-4 space-y-6">
                           <div>
                             <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-3">
                               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                              ACADEMIC MILESTONE • SEMESTER 0{safeSemIdx + 1}
+                              YEAR 0{yearNum} • SEMESTER 0{safeSemIdx + 1}
                             </div>
                             
                             <h3 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
@@ -1082,7 +1092,9 @@ export default function ProgrammesPage() {
                           <div className="space-y-3 pt-4 border-t border-zinc-200">
                             <div className="pl-3.5 border-l-2 border-blue-600">
                               <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Credit Load</div>
-                              <div className="text-lg font-mono font-extrabold text-zinc-950">24 Credits Total</div>
+                              <div className="text-lg font-mono font-extrabold text-zinc-950">
+                                <SpeedometerCounter value="24" duration={1.2} /> Credits Total
+                              </div>
                             </div>
                             <div className="pl-3.5 border-l-2 border-indigo-600">
                               <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Evaluation Scheme</div>
@@ -1100,7 +1112,7 @@ export default function ProgrammesPage() {
                               type="button"
                               disabled={safeSemIdx === 0}
                               onClick={() => setSelectedSemIdx((prev) => Math.max(0, prev - 1))}
-                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-zinc-100 hover:bg-zinc-200 text-zinc-800"
+                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-zinc-100 hover:bg-zinc-200 text-zinc-800 active:scale-95"
                             >
                               <span>←</span>
                               <span>Prev Sem</span>
@@ -1114,7 +1126,7 @@ export default function ProgrammesPage() {
                               type="button"
                               disabled={safeSemIdx === current.semesters.length - 1}
                               onClick={() => setSelectedSemIdx((prev) => Math.min(current.semesters.length - 1, prev + 1))}
-                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
+                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700 text-white shadow-sm active:scale-95"
                             >
                               <span>Next Sem</span>
                               <span>→</span>
