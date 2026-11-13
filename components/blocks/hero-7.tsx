@@ -24,6 +24,7 @@ export interface Hero7Props {
   slides: Hero7Slide[];
   autoPlayInterval?: number;
   className?: string;
+  theme?: "light" | "dark";
 }
 
 export function Hero7({
@@ -34,9 +35,11 @@ export function Hero7({
   slides,
   autoPlayInterval = 3600,
   className = "",
+  theme = "light",
 }: Hero7Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const total = slides.length;
+  const isDark = theme === "dark";
 
   const nextSlide = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % total);
@@ -70,21 +73,29 @@ export function Hero7({
       {/* Header Block */}
       <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 px-4 animate-fadeInUp">
         {badge && (
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3.5 bg-blue-50 border border-blue-200/80 px-4 py-1.5 rounded-full shadow-2xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+          <div className={`inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold mb-3.5 px-4 py-1.5 rounded-full shadow-2xs ${
+            isDark
+              ? "bg-zinc-900 border border-zinc-700 text-cyan-300"
+              : "bg-blue-50 border border-blue-200/80 text-blue-700"
+          }`}>
+            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isDark ? "bg-cyan-400" : "bg-blue-600"}`} />
             <span>{badge}</span>
           </div>
         )}
 
-        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
+        <h2 className={`text-2xl sm:text-4xl lg:text-5xl font-light tracking-tight leading-tight ${
+          isDark ? "text-white" : "text-zinc-950"
+        }`}>
           {title}{" "}
-          <span className="font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
             {highlightText}
           </span>
         </h2>
 
         {description && (
-          <p className="text-sm sm:text-base text-zinc-600 mt-3.5 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className={`text-sm sm:text-base mt-3.5 font-normal leading-relaxed max-w-2xl mx-auto ${
+            isDark ? "text-zinc-300" : "text-zinc-600"
+          }`}>
             {description}
           </p>
         )}
@@ -234,7 +245,7 @@ export function Hero7({
           <div className="absolute inset-0 -top-2 h-6 bg-gradient-to-r from-blue-500/50 via-cyan-400/70 via-indigo-500/60 to-purple-600/50 rounded-full blur-xl opacity-80 pointer-events-none animate-pulse" />
 
           {/* Primary High-Intensity Laser Glow Bar */}
-          <div className="relative h-2 w-full rounded-full bg-zinc-200 overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.7)]">
+          <div className={`relative h-2 w-full rounded-full ${isDark ? "bg-zinc-800" : "bg-zinc-200"} overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.7)]`}>
             {/* Animated Laser Track: Re-triggers on activeIndex to fill linearly across autoPlayInterval */}
             <motion.div
               key={`glow-fill-${activeIndex}`}
@@ -260,11 +271,17 @@ export function Hero7({
                 onClick={() => setActiveIndex(sIdx)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2 ${
                   isSelected
-                    ? "bg-zinc-950 text-white shadow-lg scale-105 ring-2 ring-blue-500"
+                    ? isDark
+                      ? "bg-white text-black shadow-lg scale-105 ring-2 ring-cyan-400"
+                      : "bg-zinc-950 text-white shadow-lg scale-105 ring-2 ring-blue-500"
+                    : isDark
+                    ? "text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
                     : "text-zinc-600 hover:text-zinc-950 bg-zinc-100 hover:bg-zinc-200"
                 }`}
               >
-                <span className={isSelected ? "text-cyan-400" : "text-zinc-400"}>0{sIdx + 1}</span>
+                <span className={isSelected ? (isDark ? "text-cyan-600" : "text-cyan-400") : "text-zinc-500"}>
+                  0{sIdx + 1}
+                </span>
                 <span>{s.tag}</span>
               </button>
             );

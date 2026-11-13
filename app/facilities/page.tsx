@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
+import { Hero7, Hero7Slide } from "@/components/blocks/hero-7";
 
 interface GalleryItem {
   label: string;
@@ -31,20 +32,6 @@ interface Facility {
   glow: string;
 }
 
-interface CampusDriveSlide {
-  id: string;
-  num: string;
-  title: string;
-  category: "academic" | "hostel" | "sports" | "campus";
-  badge: string;
-  tagline: string;
-  src: string;
-  desc: string;
-  accentGlow: string;
-  accentBorder: string;
-  accentText: string;
-}
-
 export default function FacilitiesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFacilityId, setActiveFacilityId] = useState<string>("technoplex-block");
@@ -53,12 +40,6 @@ export default function FacilitiesPage() {
   const [currentStudioImageIndex, setCurrentStudioImageIndex] = useState<number>(0);
   const [studioSlideDirection, setStudioSlideDirection] = useState<number>(1);
   const [isStudioAutoPlaying, setIsStudioAutoPlaying] = useState<boolean>(true);
-
-  // 3D Cinematic Horizon Slider States
-  const [galleryFilter, setGalleryFilter] = useState<string>("all");
-  const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
-  const [lightboxImage, setLightboxImage] = useState<CampusDriveSlide | null>(null);
 
   // Dynamic Multi-Angle Hero Architecture Backgrounds
   const [heroSlideIndex, setHeroSlideIndex] = useState<number>(0);
@@ -355,192 +336,73 @@ export default function FacilitiesPage() {
     return () => clearInterval(timer);
   }, [isStudioAutoPlaying, currentFacilityGallery.length, activeFacilityId]);
 
-  // Real campus gallery slides from Google Drive with tailored futuristic visual tokens
-  const campusDriveSlides: CampusDriveSlide[] = [
+  // React Bits Pro: Hero 7 Slides with authentic campus facility photography
+  const facilitiesHero7Slides: Hero7Slide[] = [
     {
-      id: "slide-01",
-      num: "01",
-      title: "Trident Academy of Creative Technology Main Facade",
-      category: "academic",
-      badge: "MAIN CAMPUS FACADE",
-      tagline: "ARCHITECTURAL PORTICO • INFOCITY BHUBANESWAR",
-      src: "/images/drive_facilities/_dsc1828.jpg",
-      desc: "The primary institution campus at Infocity housing undergraduate departments, smart amphitheatres, and high-performance computing centers.",
-      accentGlow: "from-cyan-500/40 via-blue-600/30 to-purple-600/20",
-      accentBorder: "border-cyan-400/50",
-      accentText: "text-cyan-300",
-    },
-    {
-      id: "slide-02",
-      num: "02",
-      title: "Tournament Basketball Hardcourt Arena",
-      category: "sports",
-      badge: "ATHLETICS ARENA",
-      tagline: "REGULATION HARDCOURT • FLOODLIT ATHLETIC GROUNDS",
-      src: "/images/drive_facilities/_dsc1859.jpg",
-      desc: "Olympic-regulation outdoor basketball arena featuring vibrant colored keys, three-point arcs, perimeter fencing, and adjacent botanical greenhouse.",
-      accentGlow: "from-emerald-500/40 via-teal-600/30 to-blue-600/20",
-      accentBorder: "border-emerald-400/50",
-      accentText: "text-emerald-300",
-    },
-    {
-      id: "slide-03",
-      num: "03",
-      title: "Sapphire Student Residential Hostel",
-      category: "hostel",
-      badge: "STUDENT RESIDENTIAL",
-      tagline: "MULTI-STOREY DORMITORIES • 24/7 WI-FI & DINING",
-      src: "/images/drive_facilities/_dsc1862.jpg",
-      desc: "Spacious multi-storey student hostel pavilion with well-furnished rooms, reading rooms, indoor games, and round-the-clock security surveillance.",
-      accentGlow: "from-amber-500/40 via-orange-600/30 to-rose-600/20",
-      accentBorder: "border-amber-400/50",
-      accentText: "text-amber-300",
-    },
-    {
-      id: "slide-04",
-      num: "04",
+      id: "ruby-hostel",
       title: "Ruby Residential Hostel Block",
-      category: "hostel",
-      badge: "RESIDENTIAL PAVILION",
-      tagline: "ARCHITECTURAL BLUE-GLASS TOWER • INMATE WING",
-      src: "/images/drive_facilities/_dsc1863.jpg",
       desc: "Distinct multi-storey residential wing featuring high-speed connectivity, separate hostel library, and hygienic stainless-steel dining mess.",
-      accentGlow: "from-rose-500/40 via-pink-600/30 to-purple-600/20",
-      accentBorder: "border-rose-400/50",
-      accentText: "text-rose-300",
+      img: "/images/drive_facilities/_dsc1863.jpg",
+      tag: "Residential Block",
+      metric: "Blue-Glass Wing",
     },
     {
-      id: "slide-05",
-      num: "05",
+      id: "sapphire-hostel",
+      title: "Sapphire Student Residential Hostel",
+      desc: "Spacious multi-storey student hostel pavilion with well-furnished rooms, reading rooms, indoor games, and round-the-clock security surveillance.",
+      img: "/images/drive_facilities/_dsc1862.jpg",
+      tag: "Student Hostels",
+      metric: "Multi-Storey",
+    },
+    {
+      id: "physics-lab",
       title: "Applied Physics & Electronics Lab",
-      category: "academic",
-      badge: "PRACTICAL LAB",
-      tagline: "PRECISION INSTRUMENTATION • HARDWARE TRAINERS",
-      src: "/images/drive_facilities/_dsc1807.jpg",
       desc: "Undergraduate students working hands-on with precision laboratory instrumentation, digital oscilloscopes, and optical experimental setups.",
-      accentGlow: "from-blue-500/40 via-indigo-600/30 to-cyan-600/20",
-      accentBorder: "border-blue-400/50",
-      accentText: "text-blue-300",
+      img: "/images/drive_facilities/_dsc1807.jpg",
+      tag: "Precision Labs",
+      metric: "Hardware Trainers",
     },
     {
-      id: "slide-06",
-      num: "06",
-      title: "Campus Transit Fleet & Open-Air Yoga",
-      category: "campus",
-      badge: "LOGISTICS & WELLNESS",
-      tagline: "6 CITY BUS ROUTES • MINDFULNESS YOGA PAVILION",
-      src: "/images/drive_facilities/_dsc1854.jpg",
-      desc: "Trident's dedicated yellow college transit fleet operating across 6 major Bhubaneswar routes, stationed beside the serene Open-Air Yoga Center.",
-      accentGlow: "from-yellow-500/40 via-amber-600/30 to-orange-600/20",
-      accentBorder: "border-yellow-400/50",
-      accentText: "text-yellow-300",
+      id: "basketball-arena",
+      title: "Tournament Basketball Hardcourt Arena",
+      desc: "Olympic-regulation outdoor basketball arena featuring vibrant colored keys, three-point arcs, perimeter fencing, and adjacent botanical greenhouse.",
+      img: "/images/drive_facilities/_dsc1859.jpg",
+      tag: "Athletics Arena",
+      metric: "Tournament Court",
     },
     {
-      id: "slide-07",
-      num: "07",
-      title: "Open-Air Fitness Center",
-      category: "sports",
-      badge: "CAMPUS GYMNASIUM",
-      tagline: "OUTDOOR FITNESS RIGS • PHYSICAL CONDITIONING",
-      src: "/images/drive_facilities/_dsc1853.jpg",
-      desc: "Dedicated outdoor health and body conditioning facility on the athletics grounds, supporting active physical fitness and morning workouts.",
-      accentGlow: "from-purple-500/40 via-fuchsia-600/30 to-pink-600/20",
-      accentBorder: "border-purple-400/50",
-      accentText: "text-purple-300",
-    },
-    {
-      id: "slide-08",
-      num: "08",
+      id: "block-5",
       title: "Block 5 Business Analytics Complex",
-      category: "academic",
-      badge: "RESEARCH & PLACEMENT",
-      tagline: "MBA INCUBATOR • SUSTAINABILITY RESEARCH • PLACEMENT CELL",
-      src: "/images/drive_facilities/_dsc1852.jpg",
       desc: "Multi-storey academic wing housing the Center for Business Analytics, Center for Sustainability Research, MBA Department, and Training & Placement suites.",
-      accentGlow: "from-cyan-500/40 via-blue-600/30 to-indigo-600/20",
-      accentBorder: "border-cyan-400/50",
-      accentText: "text-cyan-300",
+      img: "/images/drive_facilities/_dsc1852.jpg",
+      tag: "Block 5 Complex",
+      metric: "Analytics & MBA",
     },
     {
-      id: "slide-09",
-      num: "09",
-      title: "Basketball Arena & Botanical Greenhouse",
-      category: "sports",
-      badge: "ATHLETICS & BOTANY",
-      tagline: "ALL-WEATHER COURT • INTEGRATED CAMPUS GREENHOUSE",
-      src: "/images/drive_facilities/_dsc1857.jpg",
-      desc: "Tournament basketball hardcourt viewed alongside the institutional agricultural greenhouse and surrounding residential pavilions.",
-      accentGlow: "from-emerald-500/40 via-green-600/30 to-teal-600/20",
-      accentBorder: "border-emerald-400/50",
-      accentText: "text-emerald-300",
+      id: "facade",
+      title: "Trident Campus Primary Facade & Portico",
+      desc: "The primary institution campus at Infocity housing undergraduate departments, smart amphitheatres, and high-performance computing centers.",
+      img: "/images/drive_facilities/_dsc1828.jpg",
+      tag: "Campus Facade",
+      metric: "Infocity Hub",
     },
     {
-      id: "slide-10",
-      num: "10",
-      title: "Tree-Lined Botanical Walkway",
-      category: "campus",
-      badge: "ECO PROMENADE",
-      tagline: "SHADED PEDESTRIAN BOULEVARD • ZERO-NOISE ZONE",
-      src: "/images/drive_facilities/_dsc1845.jpg",
-      desc: "Shaded green pedestrian promenade connecting academic blocks with hostel accommodations under a canopy of mature native trees.",
-      accentGlow: "from-green-500/40 via-emerald-600/30 to-cyan-600/20",
-      accentBorder: "border-green-400/50",
-      accentText: "text-green-300",
+      id: "transit-yoga",
+      title: "Campus Transit Fleet & Open-Air Yoga",
+      desc: "Dedicated college transit fleet operating across 6 major Bhubaneswar routes, stationed beside the serene Open-Air Yoga Center.",
+      img: "/images/drive_facilities/_dsc1854.jpg",
+      tag: "Transit Fleet",
+      metric: "6 City Routes",
     },
     {
-      id: "slide-11",
-      num: "11",
-      title: "150 KLD Sewage Treatment Plant",
-      category: "campus",
-      badge: "GREEN SUSTAINABILITY",
-      tagline: "MBBR TECHNOLOGY • 100% ON-CAMPUS WATER RECYCLING",
-      src: "/images/drive_facilities/_dsc1856.jpg",
-      desc: "State-of-the-art 150 KLD MBBR wastewater treatment facility delivering complete water recycling for campus irrigation and botanical green belts.",
-      accentGlow: "from-sky-500/40 via-blue-600/30 to-teal-600/20",
-      accentBorder: "border-sky-400/50",
-      accentText: "text-sky-300",
+      id: "fitness-center",
+      title: "Open-Air Fitness Center",
+      desc: "Dedicated outdoor health and body conditioning facility on the athletics grounds, supporting active physical fitness and morning workouts.",
+      img: "/images/drive_facilities/_dsc1853.jpg",
+      tag: "Campus Gymnasium",
+      metric: "Outdoor Rig",
     },
   ];
-
-  const filteredSlides = galleryFilter === "all"
-    ? campusDriveSlides
-    : campusDriveSlides.filter((item) => item.category === galleryFilter);
-
-  const totalSlides = filteredSlides.length;
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlideIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-  }, [totalSlides]);
-
-  // Handle continuous automatic looping one-by-one (pauses only if lightbox is open)
-  useEffect(() => {
-    if (totalSlides <= 1 || lightboxImage !== null) return;
-    const timer = setInterval(() => {
-      setCurrentSlideIndex((prev) => (prev + 1) % totalSlides);
-    }, 3200);
-    return () => clearInterval(timer);
-  }, [totalSlides, lightboxImage]);
-
-  // Reset slide index on category change
-  useEffect(() => {
-    setCurrentSlideIndex(0);
-  }, [galleryFilter]);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prevSlide();
-      if (e.key === "ArrowRight") nextSlide();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [nextSlide, prevSlide]);
-
-  const activeSlide = filteredSlides[currentSlideIndex] || filteredSlides[0];
 
   return (
     <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-blue-600 selection:text-white">
@@ -1036,18 +898,17 @@ export default function FacilitiesPage() {
         </AnimatedBackground>
 
         {/* ========================================================================= */}
-        {/* ADVANCED ANIMATED 3D HORIZON COVERFLOW SLIDER (AUTOMATIC CONTINUOUS LOOP) */}
+        {/* REACT BITS PRO: HERO 7 (3D ROTATING CAROUSEL WITH A GLOW BAR) */}
         {/* ========================================================================= */}
         <section 
           id="campus-glimpses-slides"
-          className="relative py-24 sm:py-32 bg-gradient-to-b from-[#060A1C] via-[#09112B] to-[#050817] text-white overflow-hidden border-y border-indigo-900/50"
+          className="relative py-16 sm:py-24 bg-gradient-to-b from-[#060A1C] via-[#09112B] to-[#050817] text-white overflow-hidden border-y border-indigo-900/50"
         >
-          {/* Dynamic Ambient Background Glow reflecting active slide */}
+          {/* Dynamic Ambient Background Glow */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full blur-[140px] opacity-30 bg-gradient-to-tr ${activeSlide.accentGlow} transition-all duration-1000 ease-out`} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full blur-[140px] opacity-25 bg-gradient-to-tr from-cyan-600/30 via-blue-600/20 to-purple-600/20" />
             <div className="absolute -top-32 left-1/4 w-96 h-96 rounded-full blur-[120px] bg-blue-600/15 pointer-events-none" />
             <div className="absolute -bottom-32 right-1/4 w-96 h-96 rounded-full blur-[120px] bg-purple-600/15 pointer-events-none" />
-            {/* Subtle grid mesh */}
             <div 
               className="absolute inset-0 opacity-[0.035] pointer-events-none"
               style={{
@@ -1058,370 +919,17 @@ export default function FacilitiesPage() {
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-            
-            {/* Header with Title and Category Filters */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-              <div>
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-cyan-400 mb-3 bg-cyan-950/60 border border-cyan-800/80 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>Auto-Looping 3D Horizon Reel</span>
-                </div>
-                <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight leading-tight">
-                  Authentic Campus Glimpses
-                </h2>
-                <p className="text-sm sm:text-base text-zinc-300 mt-2 max-w-xl font-light leading-relaxed">
-                  Moving continuously in an automatic loop through high-resolution photography from the Infocity Technoplex — captured across academic blocks, student hostels, and tournament sports grounds.
-                </p>
-              </div>
-
-              {/* Category Filter Pills & Auto-Play Indicator */}
-              <div className="flex flex-wrap items-center gap-2">
-                {[
-                  { id: "all", label: "All Slides" },
-                  { id: "academic", label: "Academic & Labs" },
-                  { id: "hostel", label: "Hostels" },
-                  { id: "sports", label: "Sports & Fitness" },
-                  { id: "campus", label: "Eco Campus" },
-                ].map((tab) => {
-                  const isCurrent = galleryFilter === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setGalleryFilter(tab.id)}
-                      className={`relative px-4 py-2 rounded-full text-xs font-mono font-semibold transition-all duration-300 cursor-pointer ${
-                        isCurrent
-                          ? "text-white shadow-[0_0_20px_rgba(59,130,246,0.5)] border border-blue-400/80 bg-blue-600/80 backdrop-blur-md"
-                          : "text-zinc-400 hover:text-white bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700"
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 3D Horizon Stage */}
-            <div className="relative w-full h-[520px] sm:h-[580px] lg:h-[620px] flex items-center justify-center select-none overflow-visible">
-              
-              {/* Left & Right Glowing Navigation Trigger Buttons (Floating on sides) */}
-              <div className="absolute left-0 sm:left-4 z-40 top-1/2 -translate-y-1/2">
-                <button
-                  onClick={prevSlide}
-                  aria-label="Previous Slide"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-cyan-400/80 backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 group cursor-pointer"
-                >
-                  <span className="text-xl sm:text-2xl transform group-hover:-translate-x-0.5 transition-transform">←</span>
-                </button>
-              </div>
-
-              <div className="absolute right-0 sm:right-4 z-40 top-1/2 -translate-y-1/2">
-                <button
-                  onClick={nextSlide}
-                  aria-label="Next Slide"
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 hover:border-cyan-400/80 backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95 group cursor-pointer"
-                >
-                  <span className="text-xl sm:text-2xl transform group-hover:translate-x-0.5 transition-transform">→</span>
-                </button>
-              </div>
-
-              {/* Swiper Deck with 3D Perspective */}
-              <div 
-                className="relative w-full h-full flex items-center justify-center"
-                style={{ perspective: 1200 }}
-              >
-                {filteredSlides.map((slide, index) => {
-                  // True circular shortest distance on continuous carousel ring
-                  let offset = (index - currentSlideIndex) % totalSlides;
-                  if (offset > totalSlides / 2) offset -= totalSlides;
-                  if (offset < -totalSlides / 2) offset += totalSlides;
-
-                  const isCenter = offset === 0;
-
-                  // Smooth positions without unmounting popping
-                  let translateX = 0;
-                  let rotateY = 0;
-                  let scale = 1;
-                  let zIndex = 30;
-                  let opacity = 1;
-                  let filter = "brightness(1) blur(0px)";
-
-                  if (offset === 0) {
-                    translateX = 0;
-                    rotateY = 0;
-                    scale = 1;
-                    zIndex = 30;
-                    opacity = 1;
-                    filter = "brightness(1) blur(0px)";
-                  } else if (offset === -1) {
-                    translateX = -380;
-                    rotateY = 22;
-                    scale = 0.86;
-                    zIndex = 20;
-                    opacity = 0.65;
-                    filter = "brightness(0.7) blur(1px)";
-                  } else if (offset === 1) {
-                    translateX = 380;
-                    rotateY = -22;
-                    scale = 0.86;
-                    zIndex = 20;
-                    opacity = 0.65;
-                    filter = "brightness(0.7) blur(1px)";
-                  } else if (offset === -2) {
-                    translateX = -680;
-                    rotateY = 34;
-                    scale = 0.72;
-                    zIndex = 10;
-                    opacity = 0.25;
-                    filter = "brightness(0.4) blur(3px)";
-                  } else if (offset === 2) {
-                    translateX = 680;
-                    rotateY = -34;
-                    scale = 0.72;
-                    zIndex = 10;
-                    opacity = 0.25;
-                    filter = "brightness(0.4) blur(3px)";
-                  } else {
-                    translateX = offset > 0 ? 900 : -900;
-                    rotateY = offset > 0 ? -40 : 40;
-                    scale = 0.55;
-                    zIndex = 0;
-                    opacity = 0;
-                    filter = "brightness(0.3) blur(5px)";
-                  }
-
-                  return (
-                    <motion.div
-                      key={slide.id}
-                      animate={{
-                        x: translateX,
-                        rotateY: rotateY,
-                        scale: scale,
-                        opacity: opacity,
-                        zIndex: zIndex,
-                      }}
-                      transition={{
-                        duration: 0.85,
-                        ease: [0.22, 1, 0.36, 1], // Buttery smooth Apple ease-out curve
-                      }}
-                      onClick={() => {
-                        if (!isCenter) setCurrentSlideIndex(index);
-                      }}
-                      className={`absolute w-[86vw] sm:w-[500px] lg:w-[620px] h-[440px] sm:h-[500px] lg:h-[540px] rounded-3xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-300 ${
-                        isCenter
-                          ? `ring-2 ${slide.accentBorder} shadow-[0_25px_70px_-15px_rgba(0,0,0,0.9)]`
-                          : "hover:opacity-90"
-                      }`}
-                      style={{
-                        transformStyle: "preserve-3d",
-                        filter: filter,
-                        pointerEvents: Math.abs(offset) > 2 ? "none" : "auto",
-                      }}
-                      drag={isCenter ? "x" : false}
-                      dragConstraints={{ left: 0, right: 0 }}
-                      onDragEnd={(e, { offset }) => {
-                        if (offset.x < -40) nextSlide();
-                        else if (offset.x > 40) prevSlide();
-                      }}
-                    >
-                      {/* Photographic Horizon Background */}
-                      <div className="absolute inset-0 bg-zinc-950">
-                        <Image
-                          src={slide.src}
-                          alt={slide.title}
-                          fill
-                          priority={isCenter}
-                          quality={92}
-                          className="object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
-                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 60vw, 620px"
-                        />
-                        {/* Cinematic gradient scrims */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 via-50% to-black/50" />
-                        
-                        {/* Shimmer light beam at the top edge of the active slide */}
-                        {isCenter && (
-                          <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
-                        )}
-                      </div>
-
-                      {/* Slide Top Bar: Badge, Number & Location */}
-                      <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between text-white">
-                        <div className="flex items-center gap-2">
-                          <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-white border border-white/20 shadow-md">
-                            {slide.badge}
-                          </span>
-                          <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${slide.accentText}`}>
-                            {slide.tagline.split("•")[0]}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2 font-mono text-xs">
-                          <span className="text-zinc-400">SLIDE</span>
-                          <span className="font-bold text-white px-2 py-0.5 rounded-md bg-white/10 backdrop-blur-sm border border-white/15">
-                            {slide.num}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Slide Bottom Panel: Frosted Glass Information Bar */}
-                      <div className="absolute bottom-0 inset-x-0 z-10 p-6 sm:p-8 bg-gradient-to-t from-black/95 via-black/80 to-transparent backdrop-blur-md border-t border-white/10 text-white">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
-                            <span>● INFOCITY CAMPUS</span>
-                            <span>•</span>
-                            <span className="text-zinc-300 truncate">{slide.tagline}</span>
-                          </div>
-
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-white tracking-tight leading-snug drop-shadow-md">
-                            {slide.title}
-                          </h3>
-
-                          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-3">
-                            {slide.desc}
-                          </p>
-
-                          {/* Quick Interactive Actions */}
-                          {isCenter && (
-                            <div className="pt-3 flex items-center justify-between">
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setLightboxImage(slide);
-                                }}
-                                className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-white/90 hover:text-white bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-full border border-white/20 transition-all cursor-pointer backdrop-blur-sm"
-                              >
-                                <span>Inspect Fullscreen</span>
-                                <span>⤢</span>
-                              </button>
-
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setIsModalOpen(true);
-                                }}
-                                className={`inline-flex items-center gap-1.5 text-xs font-bold ${slide.accentText} hover:underline cursor-pointer`}
-                              >
-                                <span>Schedule Visit</span>
-                                <span>→</span>
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Automatic Continuous Loop Progress Bar */}
-            <div className="mt-6 w-full max-w-md mx-auto h-1 bg-white/10 rounded-full overflow-hidden">
-              <motion.div
-                key={currentSlideIndex}
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 3.2, ease: "linear" }}
-                className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 shadow-[0_0_12px_rgba(6,182,212,0.8)]"
-              />
-            </div>
-
-            {/* Slider Bottom Controller Strip: Scrubber, Counter & Play/Pause */}
-            <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/10 pt-6">
-              
-              {/* Monospace Slide Index Counter */}
-              <div className="flex items-center gap-3 font-mono text-xs text-zinc-400">
-                <span className="text-cyan-400 font-bold text-sm">
-                  {String(currentSlideIndex + 1).padStart(2, "0")}
-                </span>
-                <span className="text-zinc-600">/</span>
-                <span>{String(totalSlides).padStart(2, "0")}</span>
-                <span className="hidden sm:inline-block text-zinc-600">•</span>
-                <span className="hidden sm:inline-block text-zinc-400 truncate max-w-xs">
-                  {activeSlide.title}
-                </span>
-              </div>
-
-              {/* Interactive Slide Progress Pagination Dots */}
-              <div className="flex items-center gap-2 overflow-x-auto max-w-full pb-1 scrollbar-none">
-                {filteredSlides.map((s, idx) => {
-                  const isCurrent = currentSlideIndex === idx;
-                  return (
-                    <button
-                      key={s.id}
-                      onClick={() => setCurrentSlideIndex(idx)}
-                      aria-label={`Go to slide ${idx + 1}`}
-                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        isCurrent
-                          ? "w-8 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-md"
-                          : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                      }`}
-                    />
-                  );
-                })}
-              </div>
-
-              {/* Autoplay & Keyboard Control Tips */}
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                  className="px-3 py-1 rounded-full text-[11px] font-mono text-zinc-300 bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full ${isAutoPlaying ? "bg-emerald-400 animate-pulse" : "bg-zinc-500"}`} />
-                  <span>{isAutoPlaying ? "Autoplay ON" : "Paused"}</span>
-                </button>
-                <span className="text-[11px] font-mono text-zinc-500 hidden md:inline">
-                  Drag or use ← → keys
-                </span>
-              </div>
-            </div>
-
+            <Hero7
+              badge="AUTHENTIC CAMPUS HORIZON • HERO 7"
+              title="Living Campus Architecture &"
+              highlightText="3D Horizon Stage"
+              description="Explore undergraduate residential hostel pavilions, precision applied physics laboratories, and tournament athletics facilities in an automated 3D rotating carousel with React Bits Pro laser glow bar."
+              slides={facilitiesHero7Slides}
+              autoPlayInterval={3600}
+              theme="dark"
+            />
           </div>
         </section>
-
-        {/* FULLSCREEN LIGHTBOX MODAL */}
-        <AnimatePresence>
-          {lightboxImage && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setLightboxImage(null)}
-              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-10 cursor-zoom-out"
-            >
-              <div 
-                onClick={(e) => e.stopPropagation()}
-                className="relative max-w-6xl w-full max-h-[90vh] flex flex-col items-center cursor-default"
-              >
-                {/* Close Button */}
-                <button
-                  onClick={() => setLightboxImage(null)}
-                  className="absolute -top-12 right-0 text-white/80 hover:text-white font-mono text-sm px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-all cursor-pointer"
-                >
-                  Close ✕
-                </button>
-
-                <div className="relative w-full h-[65vh] sm:h-[75vh] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-                  <Image
-                    src={lightboxImage.src}
-                    alt={lightboxImage.title}
-                    fill
-                    className="object-contain object-center"
-                    quality={96}
-                    priority
-                  />
-                </div>
-
-                <div className="mt-4 text-center text-white max-w-2xl">
-                  <div className="text-xs font-mono text-cyan-400 mb-1">{lightboxImage.badge} • INFOCITY TECHNOPLEX</div>
-                  <h3 className="text-xl sm:text-2xl font-light text-white">{lightboxImage.title}</h3>
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-1">{lightboxImage.desc}</p>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-
 
         {/* BOTTOM CTA: DARK VARIANT */}
         <AnimatedBackground variant="dark" className="border-t border-zinc-800">
