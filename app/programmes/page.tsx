@@ -979,89 +979,166 @@ export default function ProgrammesPage() {
             </div>
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM (CARDLESS ARCHITECTURAL HORIZON) */}
+            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM (VIBRANT COLOURFUL & CARDLESS) */}
             {/* ========================================================================= */}
-            {activeTab === "curriculum" && (
-              <motion.div 
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-10"
-              >
-                {/* 1. Master Semester Horizon Selector Rail (Cardless Open Strip) */}
-                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200">
-                  {/* Semester Pickers with Year Groups */}
-                  <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
-                    {current.semesters.map((s, idx) => {
-                      const isActive = selectedSemIdx === idx;
-                      const yearNum = Math.floor(idx / 2) + 1;
-                      return (
-                        <button
-                          key={s.sem}
-                          type="button"
-                          onClick={() => setSelectedSemIdx(idx)}
-                          className={`group relative py-2.5 px-3.5 sm:px-4 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer flex flex-col items-start gap-0.5 ${
-                            isActive
-                              ? "bg-slate-900 text-white shadow-sm font-bold"
-                              : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
-                          }`}
-                        >
-                          <div className="flex items-center gap-1.5">
-                            <span className={`w-1.5 h-1.5 rounded-full ${
-                              isActive ? "bg-cyan-400 animate-pulse shadow-[0_0_6px_rgba(34,211,238,0.8)]" : "bg-zinc-400 group-hover:bg-zinc-600"
-                            }`} />
-                            <span className="font-bold">SEM 0{idx + 1}</span>
-                          </div>
-                          <span className={`text-[9px] font-sans uppercase tracking-wider ${
-                            isActive ? "text-cyan-300" : "text-zinc-400"
-                          }`}>
-                            Year 0{yearNum}
-                          </span>
-                        </button>
-                      );
-                    })}
+            {activeTab === "curriculum" && (() => {
+              const semThemes = [
+                {
+                  gradient: "from-blue-600 via-indigo-600 to-cyan-500",
+                  pillActive: "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/35 ring-2 ring-blue-400/40",
+                  badge: "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/25",
+                  border: "border-blue-600",
+                  text: "text-blue-700",
+                  dot: "bg-cyan-400",
+                },
+                {
+                  gradient: "from-emerald-600 via-teal-600 to-cyan-500",
+                  pillActive: "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/35 ring-2 ring-emerald-400/40",
+                  badge: "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-sm shadow-emerald-500/25",
+                  border: "border-emerald-600",
+                  text: "text-emerald-700",
+                  dot: "bg-emerald-400",
+                },
+                {
+                  gradient: "from-amber-500 via-orange-500 to-yellow-500",
+                  pillActive: "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-md shadow-amber-500/35 ring-2 ring-amber-400/40",
+                  badge: "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-sm shadow-amber-500/25",
+                  border: "border-amber-500",
+                  text: "text-amber-700",
+                  dot: "bg-amber-400",
+                },
+                {
+                  gradient: "from-purple-600 via-violet-600 to-pink-500",
+                  pillActive: "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/35 ring-2 ring-purple-400/40",
+                  badge: "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm shadow-purple-500/25",
+                  border: "border-purple-600",
+                  text: "text-purple-700",
+                  dot: "bg-purple-400",
+                },
+                {
+                  gradient: "from-rose-600 via-pink-600 to-purple-500",
+                  pillActive: "bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-500/35 ring-2 ring-rose-400/40",
+                  badge: "bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-500/25",
+                  border: "border-rose-600",
+                  text: "text-rose-700",
+                  dot: "bg-rose-400",
+                },
+                {
+                  gradient: "from-cyan-600 via-blue-600 to-indigo-600",
+                  pillActive: "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-md shadow-cyan-500/35 ring-2 ring-cyan-400/40",
+                  badge: "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-sm shadow-cyan-500/25",
+                  border: "border-cyan-600",
+                  text: "text-cyan-700",
+                  dot: "bg-cyan-400",
+                },
+              ];
+
+              const subjectGradients = [
+                "bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-xs shadow-blue-500/30",
+                "bg-gradient-to-br from-purple-600 to-pink-600 text-white shadow-xs shadow-purple-500/30",
+                "bg-gradient-to-br from-emerald-600 to-teal-600 text-white shadow-xs shadow-emerald-500/30",
+                "bg-gradient-to-br from-amber-500 to-orange-600 text-white shadow-xs shadow-amber-500/30",
+                "bg-gradient-to-br from-rose-500 to-red-600 text-white shadow-xs shadow-rose-500/30",
+                "bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-xs shadow-cyan-500/30",
+                "bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-xs shadow-indigo-500/30",
+              ];
+
+              const disciplineTags = [
+                { label: "FOUNDATIONAL CORE", color: "bg-blue-100 text-blue-900 border-blue-300" },
+                { label: "ANALYTIC LOGIC", color: "bg-purple-100 text-purple-900 border-purple-300" },
+                { label: "SYSTEMS ARCHITECTURE", color: "bg-emerald-100 text-emerald-900 border-emerald-300" },
+                { label: "CORE ALGORITHMS", color: "bg-amber-100 text-amber-950 border-amber-300" },
+                { label: "SOFTWARE METHODS", color: "bg-rose-100 text-rose-900 border-rose-300" },
+                { label: "DATABASE SYSTEMS", color: "bg-cyan-100 text-cyan-900 border-cyan-300" },
+                { label: "APPLIED SPECIALIZATION", color: "bg-indigo-100 text-indigo-900 border-indigo-300" },
+              ];
+
+              const safeSemIdx = Math.min(selectedSemIdx, current.semesters.length - 1);
+              const activeTheme = semThemes[safeSemIdx % semThemes.length];
+              const activeSem = current.semesters[safeSemIdx];
+              const theorySubjects = activeSem.subjects.filter(
+                (sub) => !sub.toLowerCase().includes("practical") && !sub.toLowerCase().includes("lab")
+              );
+              const labSubjects = activeSem.subjects.filter(
+                (sub) => sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab")
+              );
+              const yearNum = Math.floor(safeSemIdx / 2) + 1;
+
+              return (
+                <motion.div 
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-10 relative"
+                >
+                  {/* Vibrant Ambient Glow behind curriculum */}
+                  <div className="absolute -top-10 left-1/4 w-[450px] h-[350px] rounded-full bg-gradient-to-tr from-blue-400/20 via-purple-300/15 to-transparent blur-[120px] pointer-events-none" />
+                  <div className="absolute bottom-10 right-10 w-[450px] h-[350px] rounded-full bg-gradient-to-bl from-pink-400/20 via-cyan-300/15 to-transparent blur-[120px] pointer-events-none" />
+
+                  {/* 1. Master Semester Horizon Selector Rail (Colourful & Cardless) */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200 relative z-10">
+                    {/* Semester Pickers with Dynamic Rainbow Themes */}
+                    <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto no-scrollbar py-1">
+                      {current.semesters.map((s, idx) => {
+                        const isActive = selectedSemIdx === idx;
+                        const theme = semThemes[idx % semThemes.length];
+                        const sYear = Math.floor(idx / 2) + 1;
+                        return (
+                          <button
+                            key={s.sem}
+                            type="button"
+                            onClick={() => setSelectedSemIdx(idx)}
+                            className={`group relative py-2.5 px-4 rounded-xl font-mono text-xs transition-all duration-300 cursor-pointer flex flex-col items-start gap-0.5 active:scale-95 ${
+                              isActive
+                                ? theme.pillActive
+                                : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100 border border-transparent hover:border-zinc-300"
+                            }`}
+                          >
+                            <div className="flex items-center gap-1.5">
+                              <span className={`w-2 h-2 rounded-full ${
+                                isActive ? `${theme.dot} animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.9)]` : "bg-zinc-400 group-hover:bg-zinc-600"
+                              }`} />
+                              <span className="font-bold tracking-tight">SEM 0{idx + 1}</span>
+                            </div>
+                            <span className={`text-[10px] font-sans font-semibold uppercase tracking-wider ${
+                              isActive ? "text-white/90" : "text-zinc-400"
+                            }`}>
+                              Year 0{sYear}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* View Mode Toggle Button */}
+                    <div className="flex items-center gap-1 p-1 bg-zinc-100 rounded-xl text-[11px] font-mono">
+                      <button
+                        type="button"
+                        onClick={() => setCurriculumViewMode("inspector")}
+                        className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
+                          curriculumViewMode === "inspector"
+                            ? "bg-white text-zinc-950 shadow-2xs font-bold"
+                            : "text-zinc-500 hover:text-zinc-800"
+                        }`}
+                      >
+                        ✦ Focused Stepper
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCurriculumViewMode("matrix")}
+                        className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
+                          curriculumViewMode === "matrix"
+                            ? "bg-white text-zinc-950 shadow-2xs font-bold"
+                            : "text-zinc-500 hover:text-zinc-800"
+                        }`}
+                      >
+                        ☰ All Semesters Matrix
+                      </button>
+                    </div>
                   </div>
 
-                  {/* View Mode Toggle Button */}
-                  <div className="flex items-center gap-1 p-1 bg-zinc-100 rounded-xl text-[11px] font-mono">
-                    <button
-                      type="button"
-                      onClick={() => setCurriculumViewMode("inspector")}
-                      className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
-                        curriculumViewMode === "inspector"
-                          ? "bg-white text-zinc-950 shadow-2xs font-bold"
-                          : "text-zinc-500 hover:text-zinc-800"
-                      }`}
-                    >
-                      ✦ Focused Stepper
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setCurriculumViewMode("matrix")}
-                      className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
-                        curriculumViewMode === "matrix"
-                          ? "bg-white text-zinc-950 shadow-2xs font-bold"
-                          : "text-zinc-500 hover:text-zinc-800"
-                      }`}
-                    >
-                      ☰ All Semesters Matrix
-                    </button>
-                  </div>
-                </div>
-
-                {/* 2A. Focused Stepper View (Completely Cardless & Box-Free) */}
-                {curriculumViewMode === "inspector" && (() => {
-                  const safeSemIdx = Math.min(selectedSemIdx, current.semesters.length - 1);
-                  const activeSem = current.semesters[safeSemIdx];
-                  const theorySubjects = activeSem.subjects.filter(
-                    (sub) => !sub.toLowerCase().includes("practical") && !sub.toLowerCase().includes("lab")
-                  );
-                  const labSubjects = activeSem.subjects.filter(
-                    (sub) => sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab")
-                  );
-                  const yearNum = Math.floor(safeSemIdx / 2) + 1;
-
-                  return (
+                  {/* 2A. Focused Stepper View (Vibrant Colours, Cardless & Box-Free) */}
+                  {curriculumViewMode === "inspector" && (
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeSem.sem}
@@ -1069,40 +1146,46 @@ export default function ProgrammesPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -12 }}
                         transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start pt-2"
+                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start pt-2 relative z-10"
                       >
-                        {/* Left Column: Semester Meta & Milestones */}
+                        {/* Left Column: Semester Meta & Vibrant Milestones */}
                         <div className="lg:col-span-4 space-y-6">
                           <div>
-                            <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-3">
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                            {/* Colorful Eyebrow Pill */}
+                            <div className={`inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-bold px-4 py-1.5 rounded-full mb-3.5 shadow-sm ${activeTheme.badge}`}>
+                              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                               YEAR 0{yearNum} • SEMESTER 0{safeSemIdx + 1}
                             </div>
                             
-                            <h3 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+                            {/* Monumental Gradient Heading */}
+                            <h3 className={`text-4xl sm:text-5xl font-black tracking-tight leading-tight bg-gradient-to-r ${activeTheme.gradient} bg-clip-text text-transparent drop-shadow-xs`}>
                               {activeSem.sem}
                             </h3>
                             
-                            <p className="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+                            <p className="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed font-medium">
                               Utkal University Choice-Based Credit System (CBCS) curriculum, combining rigorous foundational theory with faculty-supervised programming studios.
                             </p>
                           </div>
 
-                          {/* Academic Specs Rail */}
-                          <div className="space-y-3 pt-4 border-t border-zinc-200">
-                            <div className="pl-3.5 border-l-2 border-blue-600">
-                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Credit Load</div>
-                              <div className="text-lg font-mono font-extrabold text-zinc-950">
+                          {/* Academic Specs Rail with Colorful Borders */}
+                          <div className="space-y-4 pt-4 border-t border-zinc-200">
+                            <div className="pl-4 border-l-4 border-blue-600">
+                              <div className="text-[11px] font-mono font-bold text-blue-600 uppercase tracking-wider">Total Semester Credits</div>
+                              <div className="text-2xl sm:text-3xl font-mono font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent mt-0.5">
                                 <SpeedometerCounter value="24" duration={1.2} /> Credits Total
                               </div>
                             </div>
-                            <div className="pl-3.5 border-l-2 border-indigo-600">
-                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Evaluation Scheme</div>
-                              <div className="text-sm font-semibold text-zinc-800">CBCS Continuous Grading (SGPA / CGPA)</div>
+                            
+                            <div className="pl-4 border-l-4 border-purple-600">
+                              <div className="text-[11px] font-mono font-bold text-purple-600 uppercase tracking-wider">Evaluation Framework</div>
+                              <div className="text-sm font-bold text-zinc-900 mt-0.5">CBCS Continuous Grading (SGPA / CGPA)</div>
+                              <div className="text-[11px] text-purple-700 font-medium">Internal Sessional &amp; Semester Examination</div>
                             </div>
-                            <div className="pl-3.5 border-l-2 border-purple-600">
-                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Curriculum Weight</div>
-                              <div className="text-sm font-semibold text-zinc-800">{activeSem.subjects.length} Total Papers &amp; Studios</div>
+                            
+                            <div className="pl-4 border-l-4 border-emerald-600">
+                              <div className="text-[11px] font-mono font-bold text-emerald-600 uppercase tracking-wider">Curriculum Weight</div>
+                              <div className="text-sm font-bold text-zinc-900 mt-0.5">{activeSem.subjects.length} Total Papers &amp; Studios</div>
+                              <div className="text-[11px] text-emerald-700 font-medium">{theorySubjects.length} Theory Papers + {labSubjects.length} Practical Labs</div>
                             </div>
                           </div>
 
@@ -1118,7 +1201,7 @@ export default function ProgrammesPage() {
                               <span>Prev Sem</span>
                             </button>
 
-                            <span className="text-xs font-mono text-zinc-400 font-semibold">
+                            <span className="text-xs font-mono font-bold text-zinc-500">
                               0{safeSemIdx + 1} of 0{current.semesters.length}
                             </span>
 
@@ -1126,7 +1209,7 @@ export default function ProgrammesPage() {
                               type="button"
                               disabled={safeSemIdx === current.semesters.length - 1}
                               onClick={() => setSelectedSemIdx((prev) => Math.min(current.semesters.length - 1, prev + 1))}
-                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700 text-white shadow-sm active:scale-95"
+                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 active:scale-95"
                             >
                               <span>Next Sem</span>
                               <span>→</span>
@@ -1134,80 +1217,103 @@ export default function ProgrammesPage() {
                           </div>
                         </div>
 
-                        {/* Right Column: Theory & Lab Studio Tracks */}
+                        {/* Right Column: Theory & Lab Studio Tracks (Rich Colours) */}
                         <div className="lg:col-span-8 space-y-8">
                           
                           {/* 1. Theory Papers */}
                           <div>
                             <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200">
-                              <span className="text-xs font-mono uppercase tracking-widest font-bold text-zinc-500">
+                              <span className="text-xs font-mono uppercase tracking-widest font-extrabold text-blue-700 flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-blue-600" />
                                 Theoretical Disciplines ({theorySubjects.length} Papers)
                               </span>
-                              <span className="text-[11px] font-mono text-blue-700 font-semibold">
+                              <span className="text-[11px] font-mono text-indigo-700 font-bold px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-200">
                                 CBCS Core &amp; Electives
                               </span>
                             </div>
 
-                            <div className="space-y-3">
-                              {theorySubjects.map((sub, sIdx) => (
-                                <div
-                                  key={sIdx}
-                                  className="group flex items-start justify-between gap-4 py-2.5 px-3 rounded-xl hover:bg-zinc-50 transition-colors"
-                                >
-                                  <div className="flex items-start gap-3 min-w-0">
-                                    <span className="w-6 h-6 rounded-md bg-zinc-100 border border-zinc-300/80 text-[10px] font-mono font-bold text-zinc-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
-                                      0{sIdx + 1}
-                                    </span>
-                                    <div>
-                                      <div className="text-sm font-bold text-zinc-950 group-hover:text-blue-700 transition-colors leading-snug">
-                                        {sub}
-                                      </div>
-                                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
-                                        Lecture Hours: 4 hrs/week • Continuous Internal Assessment + End-Term Exam
+                            <div className="space-y-3.5">
+                              {theorySubjects.map((sub, sIdx) => {
+                                const badgeGrad = subjectGradients[sIdx % subjectGradients.length];
+                                const tag = disciplineTags[sIdx % disciplineTags.length];
+
+                                return (
+                                  <div
+                                    key={sIdx}
+                                    className="group flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-3 px-3.5 rounded-2xl hover:bg-gradient-to-r hover:from-blue-50/70 hover:via-indigo-50/40 hover:to-transparent transition-all duration-200 border-b border-zinc-100 last:border-b-0"
+                                  >
+                                    <div className="flex items-start sm:items-center gap-3.5 min-w-0">
+                                      {/* Colorful Gradient Number */}
+                                      <span className={`w-8 h-8 rounded-xl ${badgeGrad} text-xs font-mono font-black flex items-center justify-center shrink-0`}>
+                                        0{sIdx + 1}
+                                      </span>
+                                      
+                                      <div>
+                                        <div className="flex flex-wrap items-center gap-2">
+                                          <div className="text-sm sm:text-base font-bold text-zinc-950 group-hover:text-blue-700 transition-colors leading-snug">
+                                            {sub}
+                                          </div>
+                                          <span className={`text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${tag.color}`}>
+                                            {tag.label}
+                                          </span>
+                                        </div>
+                                        <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
+                                          Lecture Hours: 4 hrs/week • Internal Continuous Sessional + End-Semester University Exam
+                                        </div>
                                       </div>
                                     </div>
+
+                                    {/* Colorful Credits Badge */}
+                                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs shrink-0 self-start sm:self-center">
+                                      4 Credits
+                                    </span>
                                   </div>
-                                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-zinc-100 text-zinc-600 shrink-0">
-                                    4 Credits
-                                  </span>
-                                </div>
-                              ))}
+                                );
+                              })}
                             </div>
                           </div>
 
-                          {/* 2. Practical & Lab Studios */}
+                          {/* 2. Practical & Lab Studios with Rich Cyan & Emerald Accents */}
                           {labSubjects.length > 0 && (
-                            <div className="pt-4 border-t border-zinc-200">
-                              <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200">
-                                <span className="text-xs font-mono uppercase tracking-widest font-bold text-cyan-700 flex items-center gap-1.5">
-                                  <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+                            <div className="pt-6 border-t border-zinc-200">
+                              <div className="flex items-center justify-between pb-3 mb-4 border-b border-cyan-200">
+                                <span className="text-xs font-mono uppercase tracking-widest font-extrabold text-cyan-700 flex items-center gap-2">
+                                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
                                   Hands-On Computing Studios &amp; Practicals ({labSubjects.length} Labs)
                                 </span>
-                                <span className="text-[11px] font-mono text-cyan-700 font-semibold">
+                                <span className="text-[11px] font-mono text-cyan-800 font-bold px-3 py-0.5 rounded-full bg-cyan-100 border border-cyan-300">
                                   High-Density Terminal Labs
                                 </span>
                               </div>
 
-                              <div className="space-y-3">
+                              <div className="space-y-3.5">
                                 {labSubjects.map((sub, sIdx) => (
                                   <div
                                     key={sIdx}
-                                    className="group pl-4 py-2 border-l-2 border-cyan-500 flex items-start justify-between gap-4 hover:bg-cyan-50/30 transition-colors"
+                                    className="group pl-4 py-3 border-l-4 border-cyan-500 rounded-r-2xl bg-gradient-to-r from-cyan-50/80 via-blue-50/40 to-transparent flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:from-cyan-100/90 hover:via-blue-100/60 transition-all duration-200"
                                   >
-                                    <div>
-                                      <div className="flex items-center gap-2">
-                                        <span className="text-cyan-600 text-xs">⚡</span>
-                                        <div className="text-sm font-bold text-zinc-950 group-hover:text-cyan-800 transition-colors leading-snug">
+                                    <div className="flex items-center gap-3">
+                                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
+                                        ⚡
+                                      </div>
+                                      <div>
+                                        <div className="text-sm sm:text-base font-bold text-zinc-950 group-hover:text-cyan-800 transition-colors leading-snug">
                                           {sub}
                                         </div>
-                                      </div>
-                                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5 ml-4">
-                                        Hands-On Machine Problem Solving • Continuous Lab Log + Viva-Voce
+                                        <div className="text-[11px] text-zinc-600 font-mono mt-0.5">
+                                          Hands-On Machine Coding • Continuous Lab Journal Record + Viva-Voce Assessment
+                                        </div>
                                       </div>
                                     </div>
-                                    <span className="text-[10px] font-mono font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 shrink-0">
-                                      Practical
-                                    </span>
+
+                                    <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                        2 Credits
+                                      </span>
+                                      <span className="text-[10px] font-mono font-extrabold uppercase px-3 py-1 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-xs">
+                                        Practical Lab
+                                      </span>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -1217,70 +1323,75 @@ export default function ProgrammesPage() {
                         </div>
                       </motion.div>
                     </AnimatePresence>
-                  );
-                })()}
+                  )}
 
-                {/* 2B. All Semesters Matrix View (Cardless Open Spread with Hairline Dividers) */}
-                {curriculumViewMode === "matrix" && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/90 gap-y-10 md:gap-y-0 pt-4 border-t border-zinc-200">
-                    {current.semesters.map((s, idx) => (
-                      <div
-                        key={s.sem}
-                        className="py-6 md:py-4 px-0 md:px-6 lg:px-8 first:md:pl-0 last:md:pr-0 flex flex-col justify-between"
-                      >
-                        <div>
-                          {/* Header */}
-                          <div className="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100">
-                            <span className="text-xs font-mono font-bold text-blue-700 uppercase tracking-widest">
-                              {s.sem}
-                            </span>
-                            <span className="text-[10px] font-mono text-zinc-400">
-                              24 Credits
-                            </span>
+                  {/* 2B. All Semesters Matrix View (Colourful Open Spread with Hairline Dividers) */}
+                  {curriculumViewMode === "matrix" && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/90 gap-y-10 md:gap-y-0 pt-4 border-t border-zinc-200">
+                      {current.semesters.map((s, idx) => {
+                        const theme = semThemes[idx % semThemes.length];
+                        return (
+                          <div
+                            key={s.sem}
+                            className="py-6 md:py-4 px-0 md:px-6 lg:px-8 first:md:pl-0 last:md:pr-0 flex flex-col justify-between"
+                          >
+                            <div>
+                              {/* Header */}
+                              <div className="flex items-center justify-between mb-4 pb-2 border-b border-zinc-200">
+                                <span className={`text-sm font-mono font-extrabold uppercase tracking-widest ${theme.text} flex items-center gap-2`}>
+                                  <span className={`w-2 h-2 rounded-full ${theme.dot}`} />
+                                  {s.sem}
+                                </span>
+                                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-700 border border-zinc-200">
+                                  24 Credits
+                                </span>
+                              </div>
+
+                              {/* Subjects list */}
+                              <ul className="space-y-3 text-xs text-zinc-800">
+                                {s.subjects.map((sub, sIdx) => {
+                                  const isLab = 
+                                    sub.toLowerCase().includes("practical") || 
+                                    sub.toLowerCase().includes("lab");
+
+                                  if (isLab) {
+                                    return (
+                                      <li key={sIdx} className="pl-3 border-l-2 border-cyan-500 py-1 bg-cyan-50/50 rounded-r-lg">
+                                        <div className="font-bold text-cyan-950 text-xs flex items-center gap-1.5">
+                                          <span className="text-cyan-600">⚡</span>
+                                          <span>{sub}</span>
+                                        </div>
+                                      </li>
+                                    );
+                                  }
+
+                                  const badgeGrad = subjectGradients[sIdx % subjectGradients.length];
+                                  return (
+                                    <li key={sIdx} className="flex items-start gap-2.5 py-0.5">
+                                      <span className={`w-5 h-5 rounded-md ${badgeGrad} text-[9px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5`}>
+                                        0{sIdx + 1}
+                                      </span>
+                                      <span className="font-semibold text-zinc-800 leading-snug">
+                                        {sub}
+                                      </span>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+
+                            <div className="pt-4 mt-6 border-t border-zinc-200 flex items-center justify-between text-[10px] font-mono">
+                              <span className="text-zinc-500 font-semibold">Utkal Univ CBCS</span>
+                              <span className={`font-bold ${theme.text}`}>Phase 0{Math.floor(idx / 2) + 1}</span>
+                            </div>
                           </div>
-
-                          {/* Subjects list */}
-                          <ul className="space-y-2.5 text-xs text-zinc-800">
-                            {s.subjects.map((sub, sIdx) => {
-                              const isLab = 
-                                sub.toLowerCase().includes("practical") || 
-                                sub.toLowerCase().includes("lab");
-
-                              if (isLab) {
-                                return (
-                                  <li key={sIdx} className="pl-3 border-l-2 border-cyan-500 py-1">
-                                    <div className="font-bold text-cyan-950 text-xs flex items-center gap-1.5">
-                                      <span>⚡</span>
-                                      <span>{sub}</span>
-                                    </div>
-                                  </li>
-                                );
-                              }
-
-                              return (
-                                <li key={sIdx} className="flex items-start gap-2.5 py-0.5">
-                                  <span className="text-[10px] font-mono text-zinc-400 font-bold shrink-0 mt-0.5">
-                                    0{sIdx + 1}
-                                  </span>
-                                  <span className="font-medium text-zinc-800 leading-snug">
-                                    {sub}
-                                  </span>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </div>
-
-                        <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[10px] font-mono text-zinc-400">
-                          <span>Utkal Univ CBCS</span>
-                          <span className="text-blue-600 font-bold">Phase 0{Math.floor(idx / 2) + 1}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            )}
+                        );
+                      })}
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })()}
 
             {/* ========================================================================= */}
             {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS (CARDLESS OPEN RAIL) */}
