@@ -64,6 +64,8 @@ export default function ProgrammesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<"bca" | "bba">("bca");
   const [activeTab, setActiveTab] = useState<"curriculum" | "certifications" | "labs" | "eligibility" | "careers">("curriculum");
+  const [selectedSemIdx, setSelectedSemIdx] = useState<number>(0);
+  const [curriculumViewMode, setCurriculumViewMode] = useState<"inspector" | "matrix">("inspector");
 
   const programmes = {
     bca: {
@@ -931,28 +933,23 @@ export default function ProgrammesPage() {
                 {current.summary}
               </p>
 
-              {/* 4 Feature Highlights with Colorful Transitions */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* 4 Feature Highlights (Cardless Open Stream) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-zinc-200/80 mb-8">
                 {current.highlights.map((h, i) => (
                   <div 
                     key={i} 
-                    className={`p-4 rounded-2xl bg-white/90 border text-xs sm:text-[13px] text-zinc-800 font-medium flex items-center gap-3 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 ${
-                      selectedCourse === "bca"
-                        ? "border-blue-100 hover:border-blue-300 hover:bg-blue-50/40"
-                        : "border-purple-100 hover:border-purple-300 hover:bg-purple-50/40"
-                    }`}
+                    className="pl-4 border-l-2 border-blue-600 py-1"
                   >
-                    <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-                      selectedCourse === "bca" ? "bg-blue-600" : "bg-purple-600"
-                    }`} />
-                    <span>{h}</span>
+                    <span className="text-xs sm:text-[13px] text-zinc-800 font-semibold leading-relaxed block">
+                      {h}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 5-Tab Navigation Bar with Kinetic Motion Capsule */}
-            <div className="flex p-1.5 rounded-2xl bg-zinc-100/90 border border-zinc-200/80 mb-10 overflow-x-auto relative no-scrollbar gap-1.5 backdrop-blur-md">
+            {/* 5-Tab Navigation Bar (Seamless Cardless Tab Axis) */}
+            <div className="flex border-b border-zinc-200 mb-10 overflow-x-auto no-scrollbar gap-2 sm:gap-6">
               {[
                 { id: "curriculum", label: "01. Semester Curriculum" },
                 { id: "certifications", label: "02. Included Certifications" },
@@ -965,16 +962,14 @@ export default function ProgrammesPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`relative py-3 px-5 font-semibold text-xs sm:text-sm whitespace-nowrap transition-all duration-300 cursor-pointer rounded-xl flex items-center gap-2 ${
+                    className={`relative py-3.5 px-2 font-mono text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
                       isActive
-                        ? selectedCourse === "bca"
-                          ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25 font-bold"
-                          : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/25 font-bold"
-                        : "text-zinc-600 hover:text-zinc-950 hover:bg-white/80"
+                        ? "text-blue-700 font-bold border-b-2 border-blue-600"
+                        : "text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent"
                     }`}
                   >
                     {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
                     )}
                     {tab.label}
                   </button>
@@ -983,278 +978,362 @@ export default function ProgrammesPage() {
             </div>
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM WITH ADVANCED ANIMATIONS & VIBRANT PALETTES */}
+            {/* SUB-TAB 1: SEMESTER-WISE CURRICULUM (CARDLESS ARCHITECTURAL HORIZON) */}
             {/* ========================================================================= */}
             {activeTab === "curriculum" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7"
+                className="space-y-10"
               >
-                {current.semesters.map((s, idx) => {
-                  // Dedicated progressive phase themes across the curriculum
-                  const phaseConfigs = [
-                    {
-                      beam: "from-blue-600 via-cyan-400 to-indigo-600",
-                      cardBg: "bg-gradient-to-br from-blue-50/70 via-white via-60% to-cyan-50/40",
-                      borderColor: "border-blue-200/90 hover:border-blue-500 hover:shadow-blue-500/20",
-                      pill: "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-blue-500/25",
-                      phase: "Phase 01 • Computational Foundations",
-                      textColor: "text-blue-700",
-                      badgeBg: "bg-blue-100/80 text-blue-900 border-blue-200",
-                    },
-                    {
-                      beam: "from-blue-600 via-indigo-600 to-cyan-400",
-                      cardBg: "bg-gradient-to-br from-cyan-50/60 via-white via-60% to-blue-50/40",
-                      borderColor: "border-cyan-200/90 hover:border-cyan-500 hover:shadow-cyan-500/20",
-                      pill: "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-cyan-500/25",
-                      phase: "Phase 01 • Advanced Core Algorithms",
-                      textColor: "text-cyan-800",
-                      badgeBg: "bg-cyan-100/80 text-cyan-900 border-cyan-200",
-                    },
-                    {
-                      beam: "from-indigo-600 via-purple-500 to-pink-500",
-                      cardBg: "bg-gradient-to-br from-indigo-50/70 via-white via-60% to-purple-50/40",
-                      borderColor: "border-indigo-200/90 hover:border-indigo-500 hover:shadow-indigo-500/20",
-                      pill: "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-500/25",
-                      phase: "Phase 02 • Core Systems Architecture",
-                      textColor: "text-indigo-700",
-                      badgeBg: "bg-indigo-100/80 text-indigo-900 border-indigo-200",
-                    },
-                    {
-                      beam: "from-purple-600 via-fuchsia-500 to-pink-500",
-                      cardBg: "bg-gradient-to-br from-purple-50/70 via-white via-60% to-pink-50/40",
-                      borderColor: "border-purple-200/90 hover:border-purple-500 hover:shadow-purple-500/20",
-                      pill: "bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white shadow-purple-500/25",
-                      phase: "Phase 02 • Full-Stack Cloud Engineering",
-                      textColor: "text-purple-700",
-                      badgeBg: "bg-purple-100/80 text-purple-900 border-purple-200",
-                    },
-                    {
-                      beam: "from-fuchsia-600 via-pink-500 to-rose-400",
-                      cardBg: "bg-gradient-to-br from-pink-50/70 via-white via-60% to-rose-50/40",
-                      borderColor: "border-pink-200/90 hover:border-pink-500 hover:shadow-pink-500/20",
-                      pill: "bg-gradient-to-r from-pink-600 to-rose-600 text-white shadow-pink-500/25",
-                      phase: "Phase 03 • AI Foundations & Shell Networks",
-                      textColor: "text-pink-700",
-                      badgeBg: "bg-pink-100/80 text-pink-900 border-pink-200",
-                    },
-                    {
-                      beam: "from-rose-500 via-pink-500 to-purple-600",
-                      cardBg: "bg-gradient-to-br from-rose-50/70 via-white via-60% to-purple-50/40",
-                      borderColor: "border-rose-200/90 hover:border-rose-500 hover:shadow-rose-500/20",
-                      pill: "bg-gradient-to-r from-rose-600 to-purple-600 text-white shadow-rose-500/25",
-                      phase: "Phase 03 • Capstone Project & Viva-Voce",
-                      textColor: "text-rose-700",
-                      badgeBg: "bg-rose-100/80 text-rose-900 border-rose-200",
-                    },
-                    {
-                      beam: "from-emerald-600 via-teal-500 to-cyan-500",
-                      cardBg: "bg-gradient-to-br from-emerald-50/70 via-white via-60% to-teal-50/40",
-                      borderColor: "border-emerald-200/90 hover:border-emerald-500 hover:shadow-emerald-500/20",
-                      pill: "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-emerald-500/25",
-                      phase: "Phase 04 • Strategic Management Honors",
-                      textColor: "text-emerald-700",
-                      badgeBg: "bg-emerald-100/80 text-emerald-900 border-emerald-200",
-                    },
-                    {
-                      beam: "from-indigo-600 via-blue-600 to-cyan-500",
-                      cardBg: "bg-gradient-to-br from-teal-50/70 via-white via-60% to-blue-50/40",
-                      borderColor: "border-teal-200/90 hover:border-teal-500 hover:shadow-teal-500/20",
-                      pill: "bg-gradient-to-r from-teal-600 to-blue-600 text-white shadow-teal-500/25",
-                      phase: "Phase 04 • Executive Corporate Thesis",
-                      textColor: "text-teal-700",
-                      badgeBg: "bg-teal-100/80 text-teal-900 border-teal-200",
-                    },
-                  ];
-                  const cfg = phaseConfigs[idx % phaseConfigs.length];
+                {/* 1. Master Semester Horizon Selector Rail (Cardless Open Strip) */}
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200">
+                  {/* Semester Pickers */}
+                  <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1">
+                    {current.semesters.map((s, idx) => {
+                      const isActive = selectedSemIdx === idx;
+                      return (
+                        <button
+                          key={s.sem}
+                          type="button"
+                          onClick={() => setSelectedSemIdx(idx)}
+                          className={`group relative py-2 px-3 sm:px-4 rounded-xl font-mono text-xs transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+                            isActive
+                              ? "bg-slate-900 text-white shadow-sm font-bold"
+                              : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
+                          }`}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full ${
+                            isActive ? "bg-cyan-400 animate-pulse" : "bg-zinc-400 group-hover:bg-zinc-600"
+                          }`} />
+                          <span>SEM 0{idx + 1}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* View Mode Toggle Button */}
+                  <div className="flex items-center gap-1 p-1 bg-zinc-100 rounded-xl text-[11px] font-mono">
+                    <button
+                      type="button"
+                      onClick={() => setCurriculumViewMode("inspector")}
+                      className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
+                        curriculumViewMode === "inspector"
+                          ? "bg-white text-zinc-950 shadow-2xs font-bold"
+                          : "text-zinc-500 hover:text-zinc-800"
+                      }`}
+                    >
+                      ✦ Focused Stepper
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCurriculumViewMode("matrix")}
+                      className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer font-semibold ${
+                        curriculumViewMode === "matrix"
+                          ? "bg-white text-zinc-950 shadow-2xs font-bold"
+                          : "text-zinc-500 hover:text-zinc-800"
+                      }`}
+                    >
+                      ☰ All Semesters Matrix
+                    </button>
+                  </div>
+                </div>
+
+                {/* 2A. Focused Stepper View (Completely Cardless & Box-Free) */}
+                {curriculumViewMode === "inspector" && (() => {
+                  const safeSemIdx = Math.min(selectedSemIdx, current.semesters.length - 1);
+                  const activeSem = current.semesters[safeSemIdx];
+                  const theorySubjects = activeSem.subjects.filter(
+                    (sub) => !sub.toLowerCase().includes("practical") && !sub.toLowerCase().includes("lab")
+                  );
+                  const labSubjects = activeSem.subjects.filter(
+                    (sub) => sub.toLowerCase().includes("practical") || sub.toLowerCase().includes("lab")
+                  );
 
                   return (
-                    <motion.div
-                      key={s.sem}
-                      whileHover={{ y: -8, scale: 1.015 }}
-                      transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                      className={`p-6 sm:p-7 rounded-3xl ${cfg.cardBg} border ${cfg.borderColor} shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-xl`}
-                    >
-                      {/* Top Kinetic Glowing Gradient Shimmer Beam */}
-                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${cfg.beam} overflow-hidden`}>
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-                      </div>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeSem.sem}
+                        initial={{ opacity: 0, x: 12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -12 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                        className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start"
+                      >
+                        {/* Left Column: Semester Meta & Milestones */}
+                        <div className="lg:col-span-4 space-y-6">
+                          <div>
+                            <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-3">
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                              ACADEMIC MILESTONE • SEMESTER 0{safeSemIdx + 1}
+                            </div>
+                            
+                            <h3 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+                              {activeSem.sem}
+                            </h3>
+                            
+                            <p className="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed">
+                              Utkal University Choice-Based Credit System (CBCS) curriculum, combining rigorous foundational theory with faculty-supervised programming studios.
+                            </p>
+                          </div>
 
-                      {/* Corner Ambient Glow */}
-                      <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-bl from-blue-300/20 via-purple-300/10 to-transparent rounded-full blur-xl pointer-events-none group-hover:scale-125 transition-transform duration-500" />
+                          {/* Academic Specs Rail */}
+                          <div className="space-y-3 pt-4 border-t border-zinc-200">
+                            <div className="pl-3.5 border-l-2 border-blue-600">
+                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Credit Load</div>
+                              <div className="text-lg font-mono font-extrabold text-zinc-950">24 Credits Total</div>
+                            </div>
+                            <div className="pl-3.5 border-l-2 border-indigo-600">
+                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Evaluation Scheme</div>
+                              <div className="text-sm font-semibold text-zinc-800">CBCS Continuous Grading (SGPA / CGPA)</div>
+                            </div>
+                            <div className="pl-3.5 border-l-2 border-purple-600">
+                              <div className="text-xs font-mono font-bold text-zinc-400 uppercase">Curriculum Weight</div>
+                              <div className="text-sm font-semibold text-zinc-800">{activeSem.subjects.length} Total Papers &amp; Studios</div>
+                            </div>
+                          </div>
 
-                      <div className="relative z-10">
-                        {/* Header Badge Row */}
-                        <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-zinc-200/70">
-                          <span className={`inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-md ${cfg.pill}`}>
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                          {/* Stepper Quick Navigation */}
+                          <div className="pt-6 border-t border-zinc-200 flex items-center justify-between">
+                            <button
+                              type="button"
+                              disabled={safeSemIdx === 0}
+                              onClick={() => setSelectedSemIdx((prev) => Math.max(0, prev - 1))}
+                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-zinc-100 hover:bg-zinc-200 text-zinc-800"
+                            >
+                              <span>←</span>
+                              <span>Prev Sem</span>
+                            </button>
+
+                            <span className="text-xs font-mono text-zinc-400 font-semibold">
+                              0{safeSemIdx + 1} of 0{current.semesters.length}
                             </span>
-                            {s.sem}
-                          </span>
-                          <span className={`text-[10px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-full border shadow-2xs ${cfg.badgeBg}`}>
-                            Utkal Univ CBCS
-                          </span>
+
+                            <button
+                              type="button"
+                              disabled={safeSemIdx === current.semesters.length - 1}
+                              onClick={() => setSelectedSemIdx((prev) => Math.min(current.semesters.length - 1, prev + 1))}
+                              className="px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700 text-white shadow-sm"
+                            >
+                              <span>Next Sem</span>
+                              <span>→</span>
+                            </button>
+                          </div>
                         </div>
 
-                        {/* Subjects List with Rich Lab & Practical Highlighting */}
-                        <ul className="space-y-2.5 text-xs text-zinc-800">
-                          {s.subjects.map((sub, sIdx) => {
-                            const isLab = 
-                              sub.toLowerCase().includes("practical") || 
-                              sub.toLowerCase().includes("lab") || 
-                              sub.toLowerCase().includes("project");
+                        {/* Right Column: Theory & Lab Studio Tracks */}
+                        <div className="lg:col-span-8 space-y-8">
+                          
+                          {/* 1. Theory Papers */}
+                          <div>
+                            <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200">
+                              <span className="text-xs font-mono uppercase tracking-widest font-bold text-zinc-500">
+                                Theoretical Disciplines ({theorySubjects.length} Papers)
+                              </span>
+                              <span className="text-[11px] font-mono text-blue-700 font-semibold">
+                                CBCS Core &amp; Electives
+                              </span>
+                            </div>
 
-                            if (isLab) {
-                              return (
-                                <li 
-                                  key={sIdx} 
-                                  className="flex items-center justify-between gap-2 p-2 rounded-xl bg-gradient-to-r from-blue-500/12 via-indigo-500/8 to-cyan-500/10 border border-blue-300/80 hover:border-blue-500 hover:shadow-xs transition-all duration-200"
+                            <div className="space-y-3">
+                              {theorySubjects.map((sub, sIdx) => (
+                                <div
+                                  key={sIdx}
+                                  className="group flex items-start justify-between gap-4 py-2.5 px-3 rounded-xl hover:bg-zinc-50 transition-colors"
                                 >
-                                  <div className="flex items-center gap-2 min-w-0">
-                                    <span className="text-base shrink-0">⚡</span>
-                                    <span className="font-bold text-blue-950 text-xs truncate">
-                                      {sub}
+                                  <div className="flex items-start gap-3 min-w-0">
+                                    <span className="w-6 h-6 rounded-md bg-zinc-100 border border-zinc-300/80 text-[10px] font-mono font-bold text-zinc-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+                                      0{sIdx + 1}
+                                    </span>
+                                    <div>
+                                      <div className="text-sm font-bold text-zinc-950 group-hover:text-blue-700 transition-colors leading-snug">
+                                        {sub}
+                                      </div>
+                                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5">
+                                        Lecture Hours: 4 hrs/week • Continuous Internal Assessment + End-Term Exam
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-zinc-100 text-zinc-600 shrink-0">
+                                    4 Credits
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* 2. Practical & Lab Studios */}
+                          {labSubjects.length > 0 && (
+                            <div className="pt-4 border-t border-zinc-200">
+                              <div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200">
+                                <span className="text-xs font-mono uppercase tracking-widest font-bold text-cyan-700 flex items-center gap-1.5">
+                                  <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+                                  Hands-On Computing Studios &amp; Practicals ({labSubjects.length} Labs)
+                                </span>
+                                <span className="text-[11px] font-mono text-cyan-700 font-semibold">
+                                  High-Density Terminal Labs
+                                </span>
+                              </div>
+
+                              <div className="space-y-3">
+                                {labSubjects.map((sub, sIdx) => (
+                                  <div
+                                    key={sIdx}
+                                    className="group pl-4 py-2 border-l-2 border-cyan-500 flex items-start justify-between gap-4 hover:bg-cyan-50/30 transition-colors"
+                                  >
+                                    <div>
+                                      <div className="flex items-center gap-2">
+                                        <span className="text-cyan-600 text-xs">⚡</span>
+                                        <div className="text-sm font-bold text-zinc-950 group-hover:text-cyan-800 transition-colors leading-snug">
+                                          {sub}
+                                        </div>
+                                      </div>
+                                      <div className="text-[11px] text-zinc-500 font-mono mt-0.5 ml-4">
+                                        Hands-On Machine Problem Solving • Continuous Lab Log + Viva-Voce
+                                      </div>
+                                    </div>
+                                    <span className="text-[10px] font-mono font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-cyan-100 text-cyan-800 shrink-0">
+                                      Practical
                                     </span>
                                   </div>
-                                  <span className="text-[9px] font-mono font-extrabold uppercase px-2 py-0.5 rounded-md bg-blue-600 text-white shrink-0 shadow-2xs">
-                                    PRACTICAL
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  );
+                })()}
+
+                {/* 2B. All Semesters Matrix View (Cardless Open Spread with Hairline Dividers) */}
+                {curriculumViewMode === "matrix" && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/90 gap-y-10 md:gap-y-0 pt-4 border-t border-zinc-200">
+                    {current.semesters.map((s, idx) => (
+                      <div
+                        key={s.sem}
+                        className="py-6 md:py-4 px-0 md:px-6 lg:px-8 first:md:pl-0 last:md:pr-0 flex flex-col justify-between"
+                      >
+                        <div>
+                          {/* Header */}
+                          <div className="flex items-center justify-between mb-4 pb-2 border-b border-zinc-100">
+                            <span className="text-xs font-mono font-bold text-blue-700 uppercase tracking-widest">
+                              {s.sem}
+                            </span>
+                            <span className="text-[10px] font-mono text-zinc-400">
+                              24 Credits
+                            </span>
+                          </div>
+
+                          {/* Subjects list */}
+                          <ul className="space-y-2.5 text-xs text-zinc-800">
+                            {s.subjects.map((sub, sIdx) => {
+                              const isLab = 
+                                sub.toLowerCase().includes("practical") || 
+                                sub.toLowerCase().includes("lab");
+
+                              if (isLab) {
+                                return (
+                                  <li key={sIdx} className="pl-3 border-l-2 border-cyan-500 py-1">
+                                    <div className="font-bold text-cyan-950 text-xs flex items-center gap-1.5">
+                                      <span>⚡</span>
+                                      <span>{sub}</span>
+                                    </div>
+                                  </li>
+                                );
+                              }
+
+                              return (
+                                <li key={sIdx} className="flex items-start gap-2.5 py-0.5">
+                                  <span className="text-[10px] font-mono text-zinc-400 font-bold shrink-0 mt-0.5">
+                                    0{sIdx + 1}
+                                  </span>
+                                  <span className="font-medium text-zinc-800 leading-snug">
+                                    {sub}
                                   </span>
                                 </li>
                               );
-                            }
+                            })}
+                          </ul>
+                        </div>
 
-                            return (
-                              <li key={sIdx} className="flex items-center gap-2.5 py-1 group/sub">
-                                <span className="w-5 h-5 rounded-md bg-white border border-zinc-200/90 text-[10px] font-mono font-bold text-zinc-500 flex items-center justify-center shrink-0 group-hover/sub:bg-blue-600 group-hover/sub:text-white group-hover/sub:border-blue-600 transition-colors shadow-2xs">
-                                  0{sIdx + 1}
-                                </span>
-                                <span className="text-xs font-semibold text-zinc-800 group-hover/sub:text-blue-700 transition-colors leading-relaxed">
-                                  {sub}
-                                </span>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                        <div className="pt-4 mt-6 border-t border-zinc-100 flex items-center justify-between text-[10px] font-mono text-zinc-400">
+                          <span>Utkal Univ CBCS</span>
+                          <span className="text-blue-600 font-bold">Phase 0{Math.floor(idx / 2) + 1}</span>
+                        </div>
                       </div>
-
-                      {/* Card Footer Bar */}
-                      <div className="pt-4 mt-6 border-t border-zinc-200/80 flex items-center justify-between text-[11px] font-mono relative z-10">
-                        <span className="font-bold text-zinc-600 truncate mr-2">
-                          {cfg.phase}
-                        </span>
-                        <span className="text-blue-700 font-bold flex items-center gap-1.5 shrink-0">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          24 Credits
-                        </span>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+                    ))}
+                  </div>
+                )}
               </motion.div>
             )}
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS WITH VIBRANT VENDOR BADGES */}
+            {/* SUB-TAB 2: INCLUDED INDUSTRY CERTIFICATIONS (CARDLESS OPEN RAIL) */}
             {/* ========================================================================= */}
             {activeTab === "certifications" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7"
+                className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 pt-4 border-t border-zinc-200"
               >
-                {current.certifications.map((c, cIdx) => {
-                  const certThemes = [
-                    {
-                      beam: "from-blue-600 via-indigo-600 to-cyan-400",
-                      bg: "bg-gradient-to-br from-blue-50/70 via-white to-cyan-50/30",
-                      border: "border-blue-200 hover:border-blue-400 hover:shadow-blue-500/20",
-                      badge: "bg-blue-600 text-white",
-                    },
-                    {
-                      beam: "from-amber-500 via-orange-500 to-yellow-400",
-                      bg: "bg-gradient-to-br from-amber-50/70 via-white to-orange-50/30",
-                      border: "border-amber-200 hover:border-amber-400 hover:shadow-amber-500/20",
-                      badge: "bg-amber-600 text-white",
-                    },
-                    {
-                      beam: "from-emerald-600 via-teal-500 to-cyan-400",
-                      bg: "bg-gradient-to-br from-emerald-50/70 via-white to-teal-50/30",
-                      border: "border-emerald-200 hover:border-emerald-400 hover:shadow-emerald-500/20",
-                      badge: "bg-emerald-600 text-white",
-                    },
-                    {
-                      beam: "from-purple-600 via-pink-500 to-rose-400",
-                      bg: "bg-gradient-to-br from-purple-50/70 via-white to-pink-50/30",
-                      border: "border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20",
-                      badge: "bg-purple-600 text-white",
-                    },
-                  ];
-                  const t = certThemes[cIdx % certThemes.length];
-
-                  return (
-                    <motion.div
-                      key={c.name}
-                      whileHover={{ y: -6, scale: 1.01 }}
-                      transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                      className={`p-8 rounded-3xl ${t.bg} border ${t.border} shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between`}
-                    >
-                      <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${t.beam}`} />
-                      
-                      <div>
-                        <div className="flex items-center justify-between gap-3 mb-5">
-                          <span className="text-3xl p-2.5 rounded-2xl bg-white shadow-sm border border-zinc-200/80">{c.icon}</span>
-                          <span className={`text-xs font-mono font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full shadow-sm ${t.badge}`}>
-                            {c.badge}
-                          </span>
-                        </div>
-
-                        <div className="text-xs tracking-widest font-bold uppercase text-zinc-500 mb-1.5 font-mono">
-                          {c.provider}
-                        </div>
-
-                        <h3 className="text-xl font-extrabold text-zinc-950 mb-3 group-hover:text-blue-700 transition-colors">
-                          {c.name}
-                        </h3>
-
-                        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
-                          {c.desc}
-                        </p>
-                      </div>
-
-                      <div className="pt-4 border-t border-zinc-200/70 flex items-center justify-between text-xs font-mono text-emerald-700 font-bold">
-                        <span className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                          Zero Extra Tuition Cost
+                {current.certifications.map((c, cIdx) => (
+                  <div
+                    key={c.name}
+                    className="pl-5 border-l-2 border-blue-600 flex flex-col justify-between py-1 group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <span className="text-2xl">{c.icon}</span>
+                        <span className="text-[10px] font-mono font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+                          {c.badge}
                         </span>
-                        <span className="text-zinc-500 bg-white px-2.5 py-1 rounded-lg border border-zinc-200 shadow-2xs">Included in Curriculum</span>
                       </div>
-                    </motion.div>
-                  );
-                })}
+
+                      <div className="text-[11px] tracking-widest font-bold uppercase text-zinc-400 font-mono">
+                        {c.provider}
+                      </div>
+
+                      <h3 className="text-lg font-bold text-zinc-950 mt-1 mb-2 group-hover:text-blue-700 transition-colors">
+                        {c.name}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                        {c.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 mt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-emerald-700 font-bold">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Zero Extra Tuition Cost
+                      </span>
+                      <span className="text-zinc-500 text-[11px]">Included in Curriculum</span>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
             )}
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 3: COMPUTING & MANAGEMENT LAB FACILITIES (PHOTO SHOWCASE) */}
+            {/* SUB-TAB 3: COMPUTING & MANAGEMENT LAB FACILITIES (CARDLESS PHOTO STREAM) */}
             {/* ========================================================================= */}
             {activeTab === "labs" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 pt-4 border-t border-zinc-200"
               >
                 {current.labFacilities.map((lab, idx) => (
                   <div
                     key={idx}
-                    className="rounded-3xl bg-white border border-zinc-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-zinc-300 transition-all duration-300 group flex flex-col justify-between"
+                    className="group flex flex-col space-y-4"
                   >
-                    <div className="relative h-60 w-full overflow-hidden bg-slate-900">
+                    <div className="relative h-60 sm:h-64 w-full rounded-2xl overflow-hidden bg-slate-900">
                       <Image
                         src={lab.img}
                         alt={lab.title}
@@ -1272,8 +1351,8 @@ export default function ProgrammesPage() {
                       </div>
                     </div>
 
-                    <div className="p-6 sm:p-7">
-                      <h3 className="text-lg font-bold text-zinc-950 mb-2 group-hover:text-blue-700 transition-colors">
+                    <div>
+                      <h3 className="text-lg font-bold text-zinc-950 mb-1.5 group-hover:text-blue-700 transition-colors">
                         {lab.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
@@ -1286,23 +1365,25 @@ export default function ProgrammesPage() {
             )}
 
             {/* ========================================================================= */}
-            {/* SUB-TAB 4: ELIGIBILITY & ADMISSION ROADMAP */}
+            {/* SUB-TAB 4: ELIGIBILITY & ADMISSION ROADMAP (CARDLESS EDITORIAL) */}
             {/* ========================================================================= */}
             {activeTab === "eligibility" && (
               <motion.div 
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pt-4 border-t border-zinc-200"
               >
                 {/* Guidelines Left */}
-                <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8 sm:p-9 shadow-sm">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 mb-4">
-                    Statutory Norms
+                <div className="lg:col-span-7 space-y-6">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 mb-3">
+                      Statutory Norms
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 tracking-tight">
+                      Utkal University Eligibility Guidelines for {current.code}
+                    </h3>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 mb-6 tracking-tight">
-                    Utkal University Eligibility Guidelines for {current.code}
-                  </h3>
 
                   <div className="space-y-4 text-xs sm:text-sm text-zinc-700 pt-2 border-t border-zinc-200/80">
                     <div className="pl-4 border-l-2 border-blue-500 py-1 space-y-0.5">
@@ -1327,8 +1408,9 @@ export default function ProgrammesPage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-zinc-200 flex flex-wrap gap-4">
+                  <div className="pt-6 border-t border-zinc-200 flex flex-wrap gap-4">
                     <button
+                      type="button"
                       onClick={() => setIsModalOpen(true)}
                       className="px-6 py-3 rounded-xl bg-black text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-colors shadow-md cursor-pointer"
                     >
@@ -1369,8 +1451,8 @@ export default function ProgrammesPage() {
                     </div>
                   </div>
 
-                  {/* 4-Step Process Box */}
-                  <div className="p-6 rounded-3xl bg-gradient-to-br from-indigo-50/70 via-white to-purple-50/50 border border-indigo-150 shadow-sm">
+                  {/* 4-Step Process (Cardless Open Spread) */}
+                  <div className="pt-4 border-t border-zinc-200">
                     <div className="text-xs font-mono font-bold text-indigo-700 uppercase tracking-widest mb-4">
                       4-Step Admission Pathway
                     </div>
@@ -1382,7 +1464,7 @@ export default function ProgrammesPage() {
                         { step: "04", text: "Provisional seat allotment under Utkal Univ" },
                       ].map((item) => (
                         <div key={item.step} className="flex items-center gap-3 text-xs text-slate-800">
-                          <span className="w-6 h-6 rounded-lg bg-blue-600 text-white font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">
+                          <span className="w-5 h-5 rounded-md bg-blue-600 text-white font-mono font-bold flex items-center justify-center shrink-0 text-[10px]">
                             {item.step}
                           </span>
                           <span>{item.text}</span>
