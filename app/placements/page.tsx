@@ -10,11 +10,10 @@ import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
 import { Hero7, Hero7Slide } from "@/components/blocks/hero-7";
+import StructuredTrainingConsole, { TrainingPhase } from "@/components/StructuredTrainingConsole";
 
 export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTrainingPhase, setActiveTrainingPhase] = useState(0);
-  const [showAllRoadmap, setShowAllRoadmap] = useState(false);
 
   const stats = [
     { value: "138+", label: "Recruiters (2026)", sub: "Placements 2026" },
@@ -85,7 +84,7 @@ export default function PlacementsPage() {
     },
   ];
 
-  const trainingTiers = [
+  const trainingTiers: TrainingPhase[] = [
     {
       tier: "PHASE 01",
       step: "01",
@@ -99,6 +98,7 @@ export default function PlacementsPage() {
       icon: "⚡",
       accent: "text-blue-600",
       glowColor: "rgba(37, 99, 235, 0.12)",
+      terminalType: "algo",
       desc: "From the 2nd year onwards, comprehensive problem-solving techniques upon Data Structures & Algorithm are imparted to candidates of BBA & BCA. Post-completion, aptitude & programming competence are evaluated via online assessments.",
       highlightChips: [
         "LeetCode & HackerRank Benchmarked Competence",
@@ -106,10 +106,10 @@ export default function PlacementsPage() {
         "1:1 Faculty Technical Mentorship & Performance Review",
       ],
       modules: [
-        { name: "Data Structures & Algorithm Optimization", tag: "ALGO BENCHMARK", desc: "Arrays, Trees, Graphs & Dynamic Programming fundamentals" },
-        { name: "Online Assessment & Aptitude Benchmarking", tag: "SPEED LOGIC", desc: "Corporate-pattern quantitative, verbal & reasoning timed evaluations" },
-        { name: "Aptitude Competence Segregation for Technology Tracks", tag: "TIER SEGREGATION", desc: "Cohort division into specialized technical focus clusters" },
-        { name: "Speed Programming & Mathematical Logic", tag: "PROCTORED SPRINTS", desc: "High-pressure coding simulations with real-time test case analysis" },
+        { name: "Data Structures & Algorithm Optimization", tag: "ALGO BENCHMARK", desc: "Arrays, Trees, Graphs & Dynamic Programming fundamentals", mastery: 98 },
+        { name: "Online Assessment & Aptitude Benchmarking", tag: "SPEED LOGIC", desc: "Corporate-pattern quantitative, verbal & reasoning timed evaluations", mastery: 95 },
+        { name: "Aptitude Competence Segregation for Technology Tracks", tag: "TIER SEGREGATION", desc: "Cohort division into specialized technical focus clusters", mastery: 92 },
+        { name: "Speed Programming & Mathematical Logic", tag: "PROCTORED SPRINTS", desc: "High-pressure coding simulations with real-time test case analysis", mastery: 96 },
       ],
     },
     {
@@ -125,6 +125,7 @@ export default function PlacementsPage() {
       icon: "💻",
       accent: "text-indigo-600",
       glowColor: "rgba(99, 102, 241, 0.12)",
+      terminalType: "bootcamp",
       desc: "Based on grading systems & group segregation, candidates are trained in an intensive Bootcamp model on 4 specific technologies: Python & Data Science, Java Full-Stack, Android/React & Node.js, and Cloud Web Development.",
       highlightChips: [
         "Production-Grade Full-Stack Frameworks & Modern Tooling",
@@ -132,10 +133,10 @@ export default function PlacementsPage() {
         "Industry-Certified Lead Instructors with Enterprise Experience",
       ],
       modules: [
-        { name: "Track 1: Python & Applied Data Science", tag: "DATA & ML LAB", desc: "Pandas, NumPy, Scikit-Learn, data visualization & exploratory analytics" },
-        { name: "Track 2: Enterprise Java Full-Stack Engineering", tag: "SPRING & ENTERPRISE", desc: "Core Java, Spring Boot microservices, Hibernate ORM & REST APIs" },
-        { name: "Track 3: Android, React & Node.js Ecosystems", tag: "MOBILE & WEB", desc: "Modern React 19, Next.js, React Native & Node express services" },
-        { name: "Track 4: Full-Stack Web & Cloud Deployment", tag: "CLOUD & DEVOPS", desc: "CI/CD pipelines, containerization, Git workflows & modern serverless" },
+        { name: "Track 1: Python & Applied Data Science", tag: "DATA & ML LAB", desc: "Pandas, NumPy, Scikit-Learn, data visualization & exploratory analytics", mastery: 96 },
+        { name: "Track 2: Enterprise Java Full-Stack Engineering", tag: "SPRING & ENTERPRISE", desc: "Core Java, Spring Boot microservices, Hibernate ORM & REST APIs", mastery: 94 },
+        { name: "Track 3: Android, React & Node.js Ecosystems", tag: "MOBILE & WEB", desc: "Modern React 19, Next.js, React Native & Node express services", mastery: 97 },
+        { name: "Track 4: Full-Stack Web & Cloud Deployment", tag: "CLOUD & DEVOPS", desc: "CI/CD pipelines, containerization, Git workflows & modern serverless", mastery: 93 },
       ],
     },
     {
@@ -151,6 +152,7 @@ export default function PlacementsPage() {
       icon: "🚀",
       accent: "text-emerald-600",
       glowColor: "rgba(16, 185, 129, 0.12)",
+      terminalType: "capstone",
       desc: "In the 3rd Year after completing technology-specific training, candidates transition to project mentoring sessions where they tackle real-time enterprise problem statements guided by external industry experts for final prototype submission.",
       highlightChips: [
         "External Tech Leads & Architects from Tier-1 IT Corporates",
@@ -158,10 +160,10 @@ export default function PlacementsPage() {
         "Final Capstone Project Defense & Live Recruiter Demo Day",
       ],
       modules: [
-        { name: "Real-Time Industry Problem Statements", tag: "ENTERPRISE SPEC", desc: "Direct enterprise case studies provided by partnered software houses" },
-        { name: "Weekly Milestone Review by Corporate Tech Leads", tag: "INDUSTRY REVIEW", desc: "Continuous sprint reviews with feedback from visiting technical leads" },
-        { name: "Prototype Architectural Validation & Testing", tag: "QA & BENCHMARK", desc: "Rigorous unit testing, integration tests & security verification" },
-        { name: "Final Capstone Project Defense & Code Review", tag: "DEMO DAY", desc: "Formal presentation and defense before academic & industry jury" },
+        { name: "Real-Time Industry Problem Statements", tag: "ENTERPRISE SPEC", desc: "Direct enterprise case studies provided by partnered software houses", mastery: 100 },
+        { name: "Weekly Milestone Review by Corporate Tech Leads", tag: "INDUSTRY REVIEW", desc: "Continuous sprint reviews with feedback from visiting technical leads", mastery: 98 },
+        { name: "Prototype Architectural Validation & Testing", tag: "QA & BENCHMARK", desc: "Rigorous unit testing, integration tests & security verification", mastery: 95 },
+        { name: "Final Capstone Project Defense & Code Review", tag: "DEMO DAY", desc: "Formal presentation and defense before academic & industry jury", mastery: 99 },
       ],
     },
     {
@@ -177,6 +179,7 @@ export default function PlacementsPage() {
       icon: "🏆",
       accent: "text-amber-600",
       glowColor: "rgba(217, 119, 6, 0.12)",
+      terminalType: "ppo",
       desc: "Post-completion of live projects, candidates intern with our partnered companies to gain real production experience, leading directly to Pre-Placement Offers (PPOs) based on performance.",
       highlightChips: [
         "Direct Corporate Pre-Placement Offer (PPO) Evaluations",
@@ -184,10 +187,10 @@ export default function PlacementsPage() {
         "Simulated Technical & Leadership HR Behavioral Panels",
       ],
       modules: [
-        { name: "Corporate Internship with Partnered Tech Firms", tag: "ON-SITE IMMERSION", desc: "Direct production exposure in verified enterprise development cycles" },
-        { name: "Pre-Placement Offer (PPO) Conversion Evaluations", tag: "DIRECT CONVERSION", desc: "Performance benchmarking resulting in early employment offers" },
-        { name: "Industry Interface with TCS, CISCO (CCNA) & Cloudbite", tag: "ALLIANCE TRACKS", desc: "Certified co-branded programs and technology accreditation" },
-        { name: "Mock Technical & HR Leadership Behavioral Panels", tag: "INTERVIEW MASTERY", desc: "Acoustically treated GD suite drills & executive panel simulations" },
+        { name: "Corporate Internship with Partnered Tech Firms", tag: "ON-SITE IMMERSION", desc: "Direct production exposure in verified enterprise development cycles", mastery: 98 },
+        { name: "Pre-Placement Offer (PPO) Conversion Evaluations", tag: "DIRECT CONVERSION", desc: "Performance benchmarking resulting in early employment offers", mastery: 94 },
+        { name: "Industry Interface with TCS, CISCO (CCNA) & Cloudbite", tag: "ALLIANCE TRACKS", desc: "Certified co-branded programs and technology accreditation", mastery: 96 },
+        { name: "Mock Technical & HR Leadership Behavioral Panels", tag: "INTERVIEW MASTERY", desc: "Acoustically treated GD suite drills & executive panel simulations", mastery: 97 },
       ],
     },
   ];
@@ -361,7 +364,7 @@ export default function PlacementsPage() {
           </section>
         </AnimatedBackground>
 
-        {/* STRUCTURED 4-PHASE CAREER TRAINING BLUEPRINT (INTERACTIVE ARCHITECTURAL CONSOLE) */}
+        {/* STRUCTURED 4-PHASE CAREER TRAINING BLUEPRINT (ADVANCED ANIMATED CONSOLE) */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
           {/* Subtle Ambient Background Aura */}
           <div className="absolute inset-0 pointer-events-none">
@@ -371,281 +374,27 @@ export default function PlacementsPage() {
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
             {/* Section Header */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div className="max-w-2xl animate-fadeInUp">
-                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3 bg-blue-50 border border-blue-200/80 px-3.5 py-1 rounded-full shadow-2xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                  <span>Preparation Blueprint • 4 Phases</span>
-                </div>
-                <h2 className="text-3xl sm:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
-                  Structured Corporate{" "}
-                  <span className="font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                    Training Pipeline
-                  </span>
-                </h2>
-                <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
-                  Corporate readiness is not an afterthought at TAPS. Every student undergoes rigorous, multi-semester preparation from algorithmic logic to specialized technology bootcamps and corporate PPOs.
-                </p>
+            <div className="max-w-3xl mb-12 animate-fadeInUp">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold text-blue-700 mb-3 bg-blue-50 border border-blue-200/80 px-3.5 py-1 rounded-full shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                <span>Preparation Blueprint • 4 Phases</span>
               </div>
-
-              {/* View Switcher (Interactive Stage vs Full Timeline) */}
-              <div className="flex items-center gap-1 p-1 rounded-full bg-zinc-100 border border-zinc-200/80 self-start md:self-end shrink-0 shadow-xs">
-                <button
-                  type="button"
-                  onClick={() => setShowAllRoadmap(false)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
-                    !showAllRoadmap
-                      ? "bg-zinc-950 text-white shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200/60"
-                  }`}
-                >
-                  ✨ Interactive Stage
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowAllRoadmap(true)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
-                    showAllRoadmap
-                      ? "bg-zinc-950 text-white shadow-sm"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200/60"
-                  }`}
-                >
-                  📋 Complete 4-Year Rail
-                </button>
-              </div>
+              <h2 className="text-3xl sm:text-5xl font-light text-zinc-950 tracking-tight leading-tight">
+                Structured Corporate{" "}
+                <span className="font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                  Training Pipeline
+                </span>
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
+                Corporate readiness is not an afterthought at TAPS. Every student undergoes rigorous, multi-semester preparation from algorithmic logic to specialized technology bootcamps and corporate PPOs.
+              </p>
             </div>
 
-            {/* Architectural Milestone Navigation Rail */}
-            <div className="border-y border-zinc-200/90 py-2 sm:py-3 mb-12">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 md:divide-x md:divide-zinc-200/90">
-                {trainingTiers.map((tier, idx) => {
-                  const isCurrent = activeTrainingPhase === idx && !showAllRoadmap;
-                  return (
-                    <button
-                      key={tier.tier}
-                      type="button"
-                      onClick={() => {
-                        setActiveTrainingPhase(idx);
-                        setShowAllRoadmap(false);
-                      }}
-                      className={`relative px-4 py-3 sm:py-3.5 text-left transition-all duration-200 cursor-pointer group rounded-lg ${
-                        isCurrent
-                          ? "bg-blue-50/50 text-zinc-950"
-                          : "hover:bg-zinc-50 text-zinc-600 hover:text-zinc-950"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className={`text-[11px] font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 ${
-                          isCurrent ? "text-blue-600" : "text-zinc-400 group-hover:text-zinc-700"
-                        }`}>
-                          <span className={`w-1.5 h-1.5 rounded-full ${isCurrent ? "bg-blue-600 animate-pulse" : "bg-zinc-300"}`} />
-                          Phase 0{idx + 1}
-                        </span>
-                        <span className="text-xs">{tier.icon}</span>
-                      </div>
-                      <div className={`text-xs sm:text-sm font-bold truncate ${isCurrent ? "text-zinc-950" : "text-zinc-800"}`}>
-                        {tier.shortTitle}
-                      </div>
-                      <div className="text-[10px] font-mono text-zinc-400 mt-0.5 truncate">
-                        {tier.year}
-                      </div>
-
-                      {/* Active Laser Line */}
-                      {isCurrent && (
-                        <motion.div
-                          layoutId="pipelineLaserUnderline"
-                          className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600"
-                          transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                        />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Interactive Stage View */}
-            {!showAllRoadmap && (
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTrainingPhase}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -14 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start"
-                >
-                  {/* Left Column: Big Metrics & Phase Narrative (Cardless Editorial) */}
-                  <div className="lg:col-span-5 space-y-6 relative">
-                    {/* Background Faint Watermark */}
-                    <div className="absolute -top-8 -left-4 text-8xl sm:text-9xl font-mono font-black text-zinc-100/80 select-none -z-10 pointer-events-none">
-                      {trainingTiers[activeTrainingPhase].step}
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
-                          {trainingTiers[activeTrainingPhase].tier}
-                        </span>
-                        <span className="text-xs font-mono font-semibold text-zinc-500">
-                          {trainingTiers[activeTrainingPhase].year}
-                        </span>
-                      </div>
-
-                      {/* Rolling Speedometer Metric */}
-                      <div className="flex items-baseline gap-2.5 mt-3 mb-2">
-                        <span className="text-4xl sm:text-5xl font-mono font-black text-blue-600 tracking-tight">
-                          <SpeedometerCounter value={trainingTiers[activeTrainingPhase].statValue} duration={1.1} />
-                          {trainingTiers[activeTrainingPhase].statSuffix}
-                        </span>
-                        <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-bold">
-                          • {trainingTiers[activeTrainingPhase].statLabel}
-                        </span>
-                      </div>
-
-                      <h3 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-snug">
-                        {trainingTiers[activeTrainingPhase].title}
-                      </h3>
-                      <div className="text-xs font-mono text-indigo-600 font-semibold mt-1.5">
-                        {trainingTiers[activeTrainingPhase].focus}
-                      </div>
-                    </div>
-
-                    <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
-                      {trainingTiers[activeTrainingPhase].desc}
-                    </p>
-
-                    {/* Key Execution Milestones */}
-                    <div className="space-y-2.5 pt-4 border-t border-zinc-200/80">
-                      <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-400 mb-2">
-                        Execution Highlights
-                      </div>
-                      {trainingTiers[activeTrainingPhase].highlightChips.map((chip, i) => (
-                        <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-800">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0 mt-1.5" />
-                          <span className="font-medium leading-relaxed">{chip}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setIsModalOpen(true)}
-                        className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-zinc-950 hover:bg-blue-600 text-white text-xs font-bold transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer group"
-                      >
-                        <span>Inquire About Curriculum Details</span>
-                        <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Right Column: Cardless Open Module Matrix */}
-                  <div className="lg:col-span-7">
-                    <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-400 mb-4 flex items-center justify-between border-b border-zinc-200/80 pb-2">
-                      <span>Curriculum Modules &amp; Deliverables</span>
-                      <span className="text-blue-600 font-mono">4 Core Modules</span>
-                    </div>
-
-                    <div className="divide-y divide-zinc-200/80 border-b border-zinc-200/80">
-                      {trainingTiers[activeTrainingPhase].modules.map((mod, idx) => (
-                        <div
-                          key={idx}
-                          className="py-4 px-3 -mx-3 rounded-xl hover:bg-blue-50/40 transition-colors duration-150 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
-                        >
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                              <span className="text-[10px] font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60">
-                                0{idx + 1}
-                              </span>
-                              <div className="text-sm font-bold text-zinc-900 group-hover:text-blue-600 transition-colors leading-snug">
-                                {mod.name}
-                              </div>
-                            </div>
-                            <p className="text-xs text-zinc-500 pl-7 leading-relaxed font-normal">
-                              {mod.desc}
-                            </p>
-                          </div>
-
-                          <div className="sm:self-center shrink-0 pl-7 sm:pl-0 flex items-center gap-2">
-                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-2.5 py-1 rounded-full border border-cyan-200">
-                              {mod.tag}
-                            </span>
-                            <span className="text-zinc-300 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all">
-                              →
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-4 flex items-center justify-between text-[11px] font-mono text-zinc-400 px-1">
-                      <span>Verified Academic Progression</span>
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                        Faculty Supervised &amp; Evaluated
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            )}
-
-            {/* Complete 4-Year Rail View (Continuous Vertical Timeline) */}
-            {showAllRoadmap && (
-              <div className="relative border-l-2 border-blue-500/30 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-14 animate-fadeInUp">
-                {trainingTiers.map((tier, idx) => (
-                  <div key={tier.tier} className="relative group">
-                    {/* Glowing Timeline Node */}
-                    <div className="absolute -left-[33px] sm:-left-[49px] top-1 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-mono font-bold ring-4 ring-white shadow-sm">
-                      {idx + 1}
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                      {/* Left: Phase Title & Meta */}
-                      <div className="lg:col-span-5 space-y-3">
-                        <div className="flex items-center gap-2">
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-600 text-white">
-                            {tier.tier}
-                          </span>
-                          <span className="text-xs font-mono font-semibold text-zinc-500">
-                            {tier.year}
-                          </span>
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
-                          {tier.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                          {tier.desc}
-                        </p>
-                        <div className="text-xs font-mono text-blue-600 font-semibold pt-1">
-                          Key Metric: {tier.statValue}{tier.statSuffix} • {tier.statLabel}
-                        </div>
-                      </div>
-
-                      {/* Right: Modules List */}
-                      <div className="lg:col-span-7 divide-y divide-zinc-200/80 border-y border-zinc-200/80">
-                        {tier.modules.map((mod, i) => (
-                          <div key={i} className="py-3 px-2 flex items-center justify-between gap-3">
-                            <div className="flex items-center gap-2">
-                              <span className="text-[10px] font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/60">
-                                0{i + 1}
-                              </span>
-                              <span className="text-xs sm:text-sm font-semibold text-zinc-900">
-                                {mod.name}
-                              </span>
-                            </div>
-                            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-md shrink-0">
-                              {mod.tag}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+            {/* Advanced Animated Training Console with Spotlight, Terminal Telemetry & Live Gauges */}
+            <StructuredTrainingConsole
+              phases={trainingTiers}
+              onOpenQuery={() => setIsModalOpen(true)}
+            />
 
           </section>
         </AnimatedBackground>
