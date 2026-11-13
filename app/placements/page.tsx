@@ -9,6 +9,7 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
+import { Hero7, Hero7Slide } from "@/components/blocks/hero-7";
 
 export default function PlacementsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,6 +30,49 @@ export default function PlacementsPage() {
     { year: "2021", count: "91 Recruiters" },
     { year: "2020", count: "70 Recruiters" },
     { year: "2019", count: "56 Recruiters" },
+  ];
+
+  const placementHero7Slides: Hero7Slide[] = [
+    {
+      id: "aptitude-halls",
+      title: "Aptitude Examination Halls",
+      desc: "Spacious test centers equipped with 600+ terminals for concurrent online screening exams.",
+      img: "/images/drive_third/Placement_Trident-Placement-2.jpg",
+      tag: "Testing Halls",
+      metric: "600+ Terminals",
+    },
+    {
+      id: "gd-suites",
+      title: "Group Discussion Suites",
+      desc: "Acoustically optimized round-table rooms for candidate evaluation and team assessments.",
+      img: "/images/drive_third/Placement_GD-Halls.jpg",
+      tag: "GD Suites",
+      metric: "Acoustic Rooms",
+    },
+    {
+      id: "recruitment-delegates",
+      title: "Corporate Recruitment Delegates",
+      desc: "Senior corporate delegates, enterprise HR directors, and panel executives during campus recruitment.",
+      img: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
+      tag: "Executive Panels",
+      metric: "Corporate Panels",
+    },
+    {
+      id: "recruiter-network",
+      title: "Major Recruiter Network & Hiring Partners",
+      desc: "Over 138 corporate recruiting partners visiting each season including TCS, Infosys, Wipro, and Cognizant.",
+      img: "/images/drive_third/Placement_Trident-Placement-1.jpeg",
+      tag: "Hiring Partners",
+      metric: "138+ Companies",
+    },
+    {
+      id: "transcend-felicitation",
+      title: "Annual Transcend Recruitment Felicitation",
+      desc: "Annual recruitment celebration honoring students with multi-corporate appointment offers.",
+      img: "/images/drive_third/Placement_recruitment.JPG",
+      tag: "Transcend Drive",
+      metric: "Offer Letters",
+    },
   ];
 
   const trainingTiers = [
@@ -241,83 +285,17 @@ export default function PlacementsPage() {
           </section>
         </AnimatedBackground>
 
-        {/* ON-CAMPUS RECRUITMENT INFRASTRUCTURE & PROCESS */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+        {/* REACT BITS PRO: HERO 7 (3D ROTATING CAROUSEL WITH A GLOW BAR) */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-            <div className="text-center max-w-2xl mx-auto mb-12 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-900 mb-3 bg-zinc-100 border border-zinc-300 px-3.5 py-1 rounded-full shadow-2xs">
-                Live Drive Infrastructure
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
-                Dedicated Campus Placement Suites
-              </h2>
-              <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
-                From online assessments to final HR interviews, TAPS hosts visiting recruiters across modern facilities within the campus.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  title: "Aptitude Examination Halls",
-                  desc: "Spacious test centers equipped for concurrent online screening exams.",
-                  img: "/images/drive_third/Placement_Trident-Placement-2.jpg",
-                  tag: "Testing Halls",
-                },
-                {
-                  title: "Group Discussion Suites",
-                  desc: "Acoustically optimized round-table rooms for candidate evaluation.",
-                  img: "/images/drive_third/Placement_GD-Halls.jpg",
-                  tag: "GD Suites",
-                },
-                {
-                  title: "Corporate Recruitment Delegates",
-                  desc: "Senior corporate delegates and HR executives during campus recruitment.",
-                  img: "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
-                  tag: "Executive Panels",
-                },
-                {
-                  title: "Major Recruiter Network",
-                  desc: "Over 100 corporate recruiting partners visiting each season.",
-                  img: "/images/drive_third/Placement_Trident-Placement-1.jpeg",
-                  tag: "Hiring Partners",
-                },
-              ].map((c, idx) => (
-                <motion.div
-                  key={c.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="group flex flex-col justify-between space-y-3 cursor-default"
-                >
-                  <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-zinc-100 shadow-sm">
-                    <Image
-                      src={c.img}
-                      alt={c.title}
-                      fill
-                      loading="lazy"
-                      quality={90}
-                      className="object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-black shadow-xs">
-                        {c.tag}
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-base font-bold text-zinc-950 mb-1 group-hover:text-blue-700 transition-colors">
-                      {c.title}
-                    </h4>
-                    <p className="text-xs text-zinc-600 leading-relaxed font-normal">
-                      {c.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <Hero7
+              badge="LIVE DRIVE INFRASTRUCTURE • HERO 7"
+              title="Dedicated Campus Placement"
+              highlightText="Suites & Recruiter Hub"
+              description="From online screening assessments to final round-table HR interviews, TAPS hosts visiting recruiters across modern facilities within the campus."
+              slides={placementHero7Slides}
+              autoPlayInterval={3800}
+            />
           </section>
         </AnimatedBackground>
 
