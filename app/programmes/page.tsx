@@ -676,40 +676,31 @@ export default function ProgrammesPage() {
             {/* Advanced Animated Dual Glassmorphic Showcase */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 relative z-10">
               
-              {/* 1. BCA SHOWCASE */}
+              {/* 1. BCA SHOWCASE (Cardless Kinetic Rail) */}
               <motion.div
-                whileHover={{ y: -8, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ x: 4 }}
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 onClick={() => {
                   setSelectedCourse("bca");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`rounded-3xl p-8 sm:p-11 transition-all duration-500 cursor-pointer flex flex-col justify-between relative group overflow-hidden ${
+                className={`pl-6 sm:pl-8 py-4 border-l-4 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
                   selectedCourse === "bca"
-                    ? "bg-gradient-to-br from-white via-blue-50/60 to-cyan-50/30 border-2 border-blue-500 shadow-[0_25px_60px_-15px_rgba(59,130,246,0.25)] ring-4 ring-blue-500/10"
-                    : "bg-white/90 backdrop-blur-xl border border-zinc-200/90 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400/80"
+                    ? "border-blue-600 bg-gradient-to-r from-blue-50/70 via-indigo-50/30 to-transparent"
+                    : "border-zinc-300 hover:border-blue-400 bg-transparent"
                 }`}
               >
-                {/* Top Kinetic Shimmer Ribbon */}
-                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-600 via-cyan-400 via-indigo-600 to-sky-400 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                </div>
-
-                {/* Subtle Ambient Hover Glow in Corner */}
-                <div className="absolute -top-12 -right-12 w-64 h-64 bg-gradient-to-bl from-blue-400/20 via-cyan-400/10 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm shadow-blue-500/30">
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xs">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                       </span>
                       BCA • 3-YEAR TRACK
                     </span>
-                    <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 border border-blue-200/80 px-3 py-1 rounded-full shadow-2xs">
+                    <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 border border-blue-200/80 px-3 py-0.5 rounded-full">
                       128 Seats Approved
                     </span>
                   </div>
@@ -718,28 +709,28 @@ export default function ProgrammesPage() {
                     Bachelor of Computer Applications
                   </h3>
                   <div className="mb-4">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/80 rounded-lg px-3 py-1.5 inline-block shadow-2xs">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700">
                       Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
                     Comprehensive full-stack software development, cloud virtualization clusters, discrete algorithms, and applied machine learning foundations.
                   </p>
 
-                  {/* 4 Core Competency Interactive Chips */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                  {/* 4 Core Competency Cardless Chips */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {programmes.bca.keySkills.map((k, i) => (
                       <div 
                         key={i} 
-                        className="group/chip relative p-3.5 rounded-2xl bg-white/95 border border-blue-100/90 hover:border-blue-400 hover:shadow-md hover:shadow-blue-500/10 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 backdrop-blur-sm overflow-hidden"
+                        className="flex items-start gap-2.5 py-1.5"
                       >
-                        <div className="w-1 h-8 rounded-full bg-gradient-to-b from-blue-600 to-cyan-400 shrink-0 group-hover/chip:h-10 transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
                         <div>
-                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover/chip:text-blue-700 transition-colors">
+                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover:text-blue-700 transition-colors">
                             {k.name}
                           </div>
-                          <div className="text-[10px] font-mono font-semibold text-blue-700 mt-1 inline-block px-2 py-0.5 rounded-md bg-blue-50 border border-blue-100">
+                          <div className="text-[10px] font-mono font-semibold text-blue-700">
                             {k.tag}
                           </div>
                         </div>
@@ -748,19 +739,18 @@ export default function ProgrammesPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-blue-100/90 flex items-center justify-between relative z-10">
+                <div className="pt-4 border-t border-zinc-200 flex items-center justify-between">
                   <span className="text-xs font-mono text-zinc-600 font-semibold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     138+ Annual Recruiters
                   </span>
                   
                   {selectedCourse === "bca" ? (
-                    <span className="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold shadow-md shadow-blue-500/30 flex items-center gap-1.5">
-                      <span>✓</span>
-                      <span>Currently Viewing Track</span>
+                    <span className="px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold shadow-xs flex items-center gap-1.5">
+                      <span>✓ Currently Viewing Track</span>
                     </span>
                   ) : (
-                    <span className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-2xs group-hover:translate-x-1">
+                    <span className="text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
                       <span>Switch to BCA Track</span>
                       <span>→</span>
                     </span>
@@ -768,40 +758,31 @@ export default function ProgrammesPage() {
                 </div>
               </motion.div>
 
-              {/* 2. BBA SHOWCASE */}
+              {/* 2. BBA SHOWCASE (Cardless Kinetic Rail) */}
               <motion.div
-                whileHover={{ y: -8, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
+                whileHover={{ x: 4 }}
                 transition={{ type: "spring", stiffness: 350, damping: 25 }}
                 onClick={() => {
                   setSelectedCourse("bba");
                   const el = document.getElementById("deep-dive");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`rounded-3xl p-8 sm:p-11 transition-all duration-500 cursor-pointer flex flex-col justify-between relative group overflow-hidden ${
+                className={`pl-6 sm:pl-8 py-4 border-l-4 transition-all duration-300 cursor-pointer flex flex-col justify-between relative group ${
                   selectedCourse === "bba"
-                    ? "bg-gradient-to-br from-white via-purple-50/60 to-pink-50/30 border-2 border-purple-500 shadow-[0_25px_60px_-15px_rgba(168,85,247,0.25)] ring-4 ring-purple-500/10"
-                    : "bg-white/90 backdrop-blur-xl border border-zinc-200/90 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-400/80"
+                    ? "border-purple-600 bg-gradient-to-r from-purple-50/70 via-pink-50/30 to-transparent"
+                    : "border-zinc-300 hover:border-purple-400 bg-transparent"
                 }`}
               >
-                {/* Top Kinetic Shimmer Ribbon */}
-                <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-600 via-fuchsia-500 via-pink-500 to-rose-400 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                </div>
-
-                {/* Subtle Ambient Hover Glow in Corner */}
-                <div className="absolute -top-12 -right-12 w-64 h-64 bg-gradient-to-bl from-purple-400/20 via-pink-400/10 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm shadow-purple-500/30">
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <span className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase px-3.5 py-1 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xs">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-300 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                       </span>
                       BBA • 4-YEAR NEP TRACK
                     </span>
-                    <span className="text-xs font-mono font-bold text-purple-900 bg-purple-100/80 border border-purple-200/80 px-3 py-1 rounded-full shadow-2xs">
+                    <span className="text-xs font-mono font-bold text-purple-900 bg-purple-100/80 border border-purple-200/80 px-3 py-0.5 rounded-full">
                       128 Seats Approved
                     </span>
                   </div>
@@ -810,28 +791,28 @@ export default function ProgrammesPage() {
                     Bachelor of Business Administration
                   </h3>
                   <div className="mb-4">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-700 bg-purple-50 border border-purple-200/80 rounded-lg px-3 py-1.5 inline-block shadow-2xs">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-700">
                       Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-8">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
                     Executive leadership acumen, DCF financial modeling, corporate marketing strategies, and supply chain ERP simulations.
                   </p>
 
-                  {/* 4 Core Competency Interactive Chips */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                  {/* 4 Core Competency Cardless Chips */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {programmes.bba.keySkills.map((k, i) => (
                       <div 
                         key={i} 
-                        className="group/chip relative p-3.5 rounded-2xl bg-white/95 border border-purple-100/90 hover:border-purple-400 hover:shadow-md hover:shadow-purple-500/10 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3 backdrop-blur-sm overflow-hidden"
+                        className="flex items-start gap-2.5 py-1.5"
                       >
-                        <div className="w-1 h-8 rounded-full bg-gradient-to-b from-purple-600 to-pink-400 shrink-0 group-hover/chip:h-10 transition-all duration-300" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-1.5 shrink-0" />
                         <div>
-                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover/chip:text-purple-700 transition-colors">
+                          <div className="font-bold text-zinc-900 text-xs sm:text-[13px] group-hover:text-purple-700 transition-colors">
                             {k.name}
                           </div>
-                          <div className="text-[10px] font-mono font-semibold text-purple-700 mt-1 inline-block px-2 py-0.5 rounded-md bg-purple-50 border border-purple-100">
+                          <div className="text-[10px] font-mono font-semibold text-purple-700">
                             {k.tag}
                           </div>
                         </div>
@@ -840,19 +821,18 @@ export default function ProgrammesPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-purple-100/90 flex items-center justify-between relative z-10">
+                <div className="pt-4 border-t border-zinc-200 flex items-center justify-between">
                   <span className="text-xs font-mono text-zinc-600 font-semibold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     138+ Annual Recruiters
                   </span>
                   
                   {selectedCourse === "bba" ? (
-                    <span className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-bold shadow-md shadow-purple-500/30 flex items-center gap-1.5">
-                      <span>✓</span>
-                      <span>Currently Viewing Track</span>
+                    <span className="px-4 py-1.5 rounded-full bg-purple-600 text-white text-xs font-bold shadow-xs flex items-center gap-1.5">
+                      <span>✓ Currently Viewing Track</span>
                     </span>
                   ) : (
-                    <span className="px-4 py-2 rounded-xl bg-purple-50 hover:bg-purple-600 text-purple-700 hover:text-white border border-purple-200 text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-2xs group-hover:translate-x-1">
+                    <span className="text-xs font-bold text-purple-600 group-hover:translate-x-1 transition-transform flex items-center gap-1">
                       <span>Switch to BBA Track</span>
                       <span>→</span>
                     </span>
@@ -875,82 +855,202 @@ export default function ProgrammesPage() {
 
           <section id="deep-dive" className="relative z-10 py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            {/* Header Card for Active Track */}
-            <div className={`relative border rounded-3xl p-8 sm:p-10 shadow-lg mb-10 overflow-hidden transition-all duration-500 backdrop-blur-xl ${
-              selectedCourse === "bca"
-                ? "bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/20 border-blue-200/80 shadow-blue-500/5"
-                : "bg-gradient-to-br from-white via-purple-50/40 to-pink-50/20 border-purple-200/80 shadow-purple-500/5"
-            }`}>
-              {/* Dynamic Animated Top Shimmer Beam */}
-              <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r overflow-hidden ${
-                selectedCourse === "bca"
-                  ? "from-blue-600 via-cyan-400 via-indigo-600 to-sky-400"
-                  : "from-purple-600 via-fuchsia-500 via-pink-500 to-rose-400"
-              }`}>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-[shimmer_3s_infinite]" />
+            {/* Master Console for Active Track (Completely Cardless & Advanced Animated) */}
+            <div className="relative pb-10 mb-10 border-b border-zinc-200/90">
+              {/* Dynamic Animated Top Shimmer Laser Line */}
+              <div className="relative h-1 w-full overflow-hidden mb-8 rounded-full bg-zinc-200/60">
+                <div className={`absolute inset-0 bg-gradient-to-r ${
+                  selectedCourse === "bca"
+                    ? "from-blue-600 via-cyan-400 via-indigo-600 to-sky-400"
+                    : "from-purple-600 via-fuchsia-500 via-pink-500 to-rose-400"
+                } animate-[shimmer_2.5s_infinite]`} />
               </div>
               
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 border-b border-zinc-200/80 pb-8 mb-8">
-                <div>
-                  <div className={`inline-flex items-center gap-2 text-[11px] font-mono tracking-widest uppercase font-bold px-3.5 py-1.5 rounded-full border mb-3 shadow-2xs ${
-                    selectedCourse === "bca"
-                      ? "text-blue-700 bg-blue-50 border-blue-200"
-                      : "text-purple-700 bg-purple-50 border-purple-200"
-                  }`}>
-                    <span className={`w-2 h-2 rounded-full animate-ping ${
-                      selectedCourse === "bca" ? "bg-blue-500" : "bg-purple-500"
+              {/* Status Pill & Fast Degree Switcher */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div className={`inline-flex items-center gap-2.5 text-[11px] font-mono tracking-widest uppercase font-bold px-4 py-1.5 rounded-full border shadow-2xs backdrop-blur-md ${
+                  selectedCourse === "bca"
+                    ? "text-blue-700 bg-blue-50/90 border-blue-200/80"
+                    : "text-purple-700 bg-purple-50/90 border-purple-200/80"
+                }`}>
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${
+                      selectedCourse === "bca" ? "bg-cyan-400" : "bg-pink-400"
+                    } opacity-75`} />
+                    <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
+                      selectedCourse === "bca" ? "bg-blue-600" : "bg-purple-600"
                     }`} />
-                    Interactive Degree Console • {current.code}
-                  </div>
-                  <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight leading-tight">
-                    {current.title}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-zinc-600 mt-2 font-medium">
-                    {current.degree} • {current.affiliation}
-                  </p>
+                  </span>
+                  <span>Interactive Degree Console • {current.code} Track</span>
+                  <span className="text-zinc-300">|</span>
+                  <span className="text-[10px] text-zinc-500 font-semibold">128 Approved Seats</span>
                 </div>
+
+                {/* Instant Track Toggle Capsule */}
+                <div className="inline-flex items-center p-1 rounded-full bg-zinc-100/90 border border-zinc-200 backdrop-blur-md">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCourse("bca")}
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                      selectedCourse === "bca"
+                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25"
+                        : "text-zinc-600 hover:text-zinc-950"
+                    }`}
+                  >
+                    <span>✦</span>
+                    <span>BCA Track</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCourse("bba")}
+                    className={`relative px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-1.5 ${
+                      selectedCourse === "bba"
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-500/25"
+                        : "text-zinc-600 hover:text-zinc-950"
+                    }`}
+                  >
+                    <span>✦</span>
+                    <span>BBA Track</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Title & Actions */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-zinc-200/80 mb-8">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={current.code}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -14 }}
+                    transition={{ duration: 0.35 }}
+                    className="space-y-2 max-w-3xl"
+                  >
+                    <h2 className={`text-3xl sm:text-5xl font-black tracking-tight leading-tight ${
+                      selectedCourse === "bca"
+                        ? "text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600"
+                        : "text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600"
+                    }`}>
+                      {current.title}
+                    </h2>
+                    <p className="text-xs sm:text-sm text-zinc-600 font-mono font-medium flex flex-wrap items-center gap-2">
+                      <span className="text-zinc-900 font-semibold">{current.degree}</span>
+                      <span className="text-zinc-400">•</span>
+                      <span>{current.affiliation}</span>
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
 
                 <div className="flex flex-wrap items-center gap-3 shrink-0">
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className={`px-6 py-3 rounded-xl font-bold text-xs sm:text-sm text-white shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 ${
+                    className={`relative group overflow-hidden px-7 py-3.5 rounded-full font-bold text-xs sm:text-sm text-white shadow-xl transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 ${
                       selectedCourse === "bca"
-                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-blue-500/30"
-                        : "bg-gradient-to-r from-purple-600 to-pink-600 hover:shadow-purple-500/30"
+                        ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 hover:shadow-blue-500/35"
+                        : "bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 hover:shadow-purple-500/35"
                     }`}
                   >
-                    Apply for {current.code} 2026 →
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                    <span className="relative flex items-center gap-2">
+                      <span>Apply for {current.code} 2026</span>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
                   </button>
                   <Link
                     href="/admission"
-                    className="px-5 py-3 rounded-xl bg-white text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-100 transition-all duration-300 shadow-2xs"
+                    className="px-6 py-3.5 rounded-full bg-white text-zinc-800 border border-zinc-300 font-semibold text-xs sm:text-sm hover:bg-zinc-100 hover:border-zinc-400 transition-all duration-300 shadow-2xs flex items-center gap-1.5"
                   >
-                    Admission Guidelines
+                    <span>Admission Guidelines</span>
+                    <span className="text-zinc-400">↗</span>
                   </Link>
                 </div>
               </div>
 
-              <p className="text-sm sm:text-base text-zinc-700 leading-relaxed max-w-4xl font-normal mb-8">
-                {current.summary}
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.p 
+                  key={current.code + "-summary"}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-base sm:text-lg text-zinc-700 leading-relaxed max-w-4xl font-normal mb-10"
+                >
+                  {current.summary}
+                </motion.p>
+              </AnimatePresence>
 
-              {/* 4 Feature Highlights (Cardless Open Stream) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-zinc-200/80 mb-8">
-                {current.highlights.map((h, i) => (
-                  <div 
-                    key={i} 
-                    className="pl-4 border-l-2 border-blue-600 py-1"
-                  >
-                    <span className="text-xs sm:text-[13px] text-zinc-800 font-semibold leading-relaxed block">
-                      {h}
+              {/* 4 Feature Highlights (Advanced Animated Speedometer Pillars - Cardless) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-6 border-t border-zinc-200/80 mb-6">
+                {/* Metric 1 */}
+                <div className="group pl-5 border-l-3 border-blue-600 transition-all duration-300 hover:border-cyan-400 hover:translate-x-1">
+                  <div className="flex items-baseline gap-1.5 mb-1">
+                    <span className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-blue-600 group-hover:text-cyan-600 transition-colors">
+                      <SpeedometerCounter value="138+" duration={1.6} />
                     </span>
                   </div>
-                ))}
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 group-hover:animate-ping" />
+                    Annual Recruiters
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Tier-1 corporate recruiters &amp; MNC placement partners in 2026 cycle.
+                  </p>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="group pl-5 border-l-3 border-purple-600 transition-all duration-300 hover:border-pink-400 hover:translate-x-1">
+                  <div className="flex items-baseline gap-1.5 mb-1">
+                    <span className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-purple-600 group-hover:text-pink-600 transition-colors">
+                      <SpeedometerCounter value="100%" duration={1.6} />
+                    </span>
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping" />
+                    Doctoral Faculty
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    All regular faculty are M.Tech/NET qualified and actively pursuing Ph.D.
+                  </p>
+                </div>
+
+                {/* Metric 3 */}
+                <div className="group pl-5 border-l-3 border-emerald-600 transition-all duration-300 hover:border-teal-400 hover:translate-x-1">
+                  <div className="flex items-baseline gap-1.5 mb-1">
+                    <span className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-emerald-600 group-hover:text-teal-600 transition-colors">
+                      <SpeedometerCounter value="24" duration={1.6} />
+                    </span>
+                    <span className="text-xs font-mono font-bold text-emerald-700">Credits/Sem</span>
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 group-hover:animate-ping" />
+                    Utkal Univ CBCS
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Rigorous Choice-Based Credit System mapped to state university norms.
+                  </p>
+                </div>
+
+                {/* Metric 4 */}
+                <div className="group pl-5 border-l-3 border-amber-500 transition-all duration-300 hover:border-orange-400 hover:translate-x-1">
+                  <div className="flex items-baseline gap-1.5 mb-1">
+                    <span className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-amber-500 group-hover:text-orange-600 transition-colors">
+                      <SpeedometerCounter value="128" duration={1.6} />
+                    </span>
+                    <span className="text-xs font-mono font-bold text-amber-600">Seats</span>
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-950 mb-1 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 group-hover:animate-ping" />
+                    AICTE Approved
+                  </div>
+                  <p className="text-xs text-zinc-600 leading-relaxed">
+                    Sanctioned by Govt. of Odisha Higher Education Dept with scholarships.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* 5-Tab Navigation Bar (Seamless Cardless Tab Axis) */}
-            <div className="flex border-b border-zinc-200 mb-10 overflow-x-auto no-scrollbar gap-2 sm:gap-6">
+            {/* 5-Tab Navigation Bar (Seamless Cardless Tab Axis with Sliding Underline) */}
+            <div className="relative flex border-b border-zinc-200 mb-10 overflow-x-auto no-scrollbar gap-2 sm:gap-6">
               {[
                 { id: "curriculum", label: "01. Semester Curriculum" },
                 { id: "certifications", label: "02. Included Certifications" },
@@ -963,12 +1063,19 @@ export default function ProgrammesPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`relative py-3.5 px-2 font-mono text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
+                    className={`relative py-3.5 px-3 font-mono text-xs sm:text-sm whitespace-nowrap transition-colors duration-200 cursor-pointer flex items-center gap-2 ${
                       isActive
-                        ? "text-blue-700 font-bold border-b-2 border-blue-600"
-                        : "text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent"
+                        ? "text-blue-700 font-bold"
+                        : "text-zinc-500 hover:text-zinc-900"
                     }`}
                   >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeProgrammesSubTab"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
                     {isActive && (
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
                     )}
