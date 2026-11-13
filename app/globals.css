@@ -121,18 +121,6 @@ img, svg, video, canvas {
   animation-play-state: paused;
 }
 
-.animate-marquee-left {
-  display: flex;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-
-.animate-marquee-right {
-  display: flex;
-  width: max-content;
-  animation: marquee-reverse 34s linear infinite;
-}
-
 /* Smooth Fade In Up Animation */
 @keyframes fadeInUp {
   from {

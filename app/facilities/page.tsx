@@ -9,7 +9,6 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SpeedometerCounter from "@/components/SpeedometerCounter";
-import { Features3, FeatureMarqueeItem } from "@/components/blocks/features-3";
 
 interface GalleryItem {
   label: string;
@@ -541,151 +540,6 @@ export default function FacilitiesPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [nextSlide, prevSlide]);
 
-  // React Bits Pro "Features 3" Marquee Tracks (Opposite-Scrolling Grids)
-  const marqueeTrack1: FeatureMarqueeItem[] = [
-    {
-      id: "technoplex-block",
-      title: "Primary Academic Facade & Portico",
-      subtitle: "Undergraduate lecture complexes & analytics centers",
-      category: "ACADEMICS",
-      image: "/images/drive_new/313302072_5505727856213384_7957099719361660144_n.jpg",
-      metric: "6 Blocks",
-      tag: "INFOCITY",
-    },
-    {
-      id: "computer-lab",
-      title: "High-Density Cloud Computing Clusters",
-      subtitle: "Enterprise rack servers & gigabit fibre LAN",
-      category: "COMPUTING",
-      image: "/images/drive_third/Lab_CSE.png",
-      metric: "600+ Workstations",
-      tag: "CLOUD LAB",
-    },
-    {
-      id: "applied-sciences",
-      title: "Applied Sciences & Embedded IoT Labs",
-      subtitle: "Advanced simulation, VLSI & optics workstations",
-      category: "ELECTRONICS",
-      image: "/images/drive/lab.jpg",
-      metric: "18 State Labs",
-      tag: "RESEARCH",
-    },
-    {
-      id: "central-library",
-      title: "Central Library & Digital IEEE Vault",
-      subtitle: "Over 70,000 volumes with online journals",
-      category: "REPOSITORY",
-      image: "/images/drive_third/Library_Library.JPG",
-      metric: "70k+ Volumes",
-      tag: "VAULT",
-    },
-    {
-      id: "ict-classrooms",
-      title: "Spacious ICT Classrooms & 400-Seat Auditorium",
-      subtitle: "Smart boards, acoustic lining & central AC",
-      category: "LECTURE HALLS",
-      image: "/images/drive_new/DSC_0150.jpg",
-      metric: "400 Seats",
-      tag: "CENTRAL AUDITORIUM",
-    },
-  ];
-
-  const marqueeTrack2: FeatureMarqueeItem[] = [
-    {
-      id: "hostels",
-      title: "Sapphire & Ruby Residential Hostels",
-      subtitle: "Furnished rooms, hygienic mess & Wi-Fi coverage",
-      category: "RESIDENTIAL",
-      image: "/images/drive_facilities/_dsc1862.jpg",
-      metric: "1,200 Capacity",
-      tag: "3 WINGS",
-    },
-    {
-      id: "sports-grounds",
-      title: "Infocity Sports Complex & Tournament Hardcourt",
-      subtitle: "Regulation basketball, volleyball & athletics turf",
-      category: "ATHLETICS",
-      image: "/images/drive_facilities/_dsc1859.jpg",
-      metric: "Tournament Grade",
-      tag: "HARDCOURT",
-    },
-    {
-      id: "food-court",
-      title: "Centralized Multi-Cuisine Food Court",
-      subtitle: "Round-the-clock dining, Odia thalis & espresso bar",
-      category: "DINING",
-      image: "/images/drive/cafeteria.jpg",
-      metric: "24/7 Service",
-      tag: "CAFETERIA",
-    },
-    {
-      id: "transport-wellness",
-      title: "Campus Transit Bus Fleet & Green Plazas",
-      subtitle: "Connecting 6 key Bhubaneswar city routes daily",
-      category: "LOGISTICS",
-      image: "/images/drive_facilities/_dsc1854.jpg",
-      metric: "6 Routes",
-      tag: "BUS FLEET",
-    },
-    {
-      id: "botanical-campus",
-      title: "11-Acre Botanical Campus & Meditation Lawns",
-      subtitle: "Landscaped greens, botanical garden & open-air gym",
-      category: "ECO CAMPUS",
-      image: "/images/drive_facilities/_dsc1858.jpg",
-      metric: "11 Acres",
-      tag: "BOTANICAL",
-    },
-  ];
-
-  const marqueeTrack3: FeatureMarqueeItem[] = [
-    {
-      id: "technoplex-block",
-      title: "Block-5 Center for Business Analytics",
-      subtitle: "Specialized corporate finishing school & interview suites",
-      category: "ACADEMICS",
-      image: "/images/drive_facilities/_dsc1861.jpg",
-      metric: "Analytics Hub",
-      tag: "BLOCK 5",
-    },
-    {
-      id: "applied-sciences",
-      title: "Modern Language & Communication Studio",
-      subtitle: "Interactive digital audio booths & GD arena",
-      category: "COMMUNICATION",
-      image: "/images/drive_third/Lab_Language.JPG",
-      metric: "Interactive Audio",
-      tag: "GD ARENA",
-    },
-    {
-      id: "computer-lab",
-      title: "Programming Studio & Linux Computing Cluster",
-      subtitle: "High-density coding terminals with Python & Java",
-      category: "SOFTWARE",
-      image: "/images/drive_facilities/DSC06830.JPG",
-      metric: "High Density",
-      tag: "TERMINALS",
-    },
-    {
-      id: "sports-grounds",
-      title: "Campus Botanical Greenhouse & Athletic Lawn",
-      subtitle: "Air purification flora beside sports hardcourts",
-      category: "GREEN INFRA",
-      image: "/images/drive_facilities/_dsc1857.jpg",
-      metric: "Eco Zone",
-      tag: "GREENHOUSE",
-    },
-    {
-      id: "hostels",
-      title: "Modern Ruby Residential Facade & Portico",
-      subtitle: "Contemporary blue-glass architectural facade",
-      category: "LIVING",
-      image: "/images/drive_facilities/_dsc1863.jpg",
-      metric: "Modern Wing",
-      tag: "RUBY BLOCK",
-    },
-  ];
-
   const activeSlide = filteredSlides[currentSlideIndex] || filteredSlides[0];
 
   return (
@@ -888,32 +742,10 @@ export default function FacilitiesPage() {
         </AnimatedBackground>
 
         {/* ========================================================================= */}
-        {/* REACT BITS PRO: FEATURES 3 (GRID WITH OPPOSITE-SCROLLING MARQUEES) */}
-        {/* ========================================================================= */}
-        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
-          <Features3
-            badge="CAMPUS INFRASTRUCTURE • FEATURES 3"
-            title="Explore 10 World-Class Facilities Across"
-            highlightText="Opposite-Scrolling Tracks"
-            description="Continuous dual-direction marquee grid showcasing high-density computing clusters, residential wings, tournament hardcourts, and dining pavilions. Click any card to inspect live specifications below."
-            track1={marqueeTrack1}
-            track2={marqueeTrack2}
-            track3={marqueeTrack3}
-            activeId={activeFacilityId}
-            onItemSelect={(item) => {
-              setActiveFacilityId(item.id);
-              setCurrentStudioImageIndex(0);
-              const el = document.getElementById("interactive-studio-console");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-          />
-        </AnimatedBackground>
-
-        {/* ========================================================================= */}
         {/* INTERACTIVE CAMPUS FACILITY STUDIO CONSOLE (ZERO BOXES, MULTI-ANGLE VIEWER) */}
         {/* ========================================================================= */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
-          <section id="interactive-studio-console" className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+          <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
             <div className="text-center max-w-2xl mx-auto mb-14 animate-fadeInUp">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-blue-700 mb-3 bg-blue-50 border border-blue-200 px-3.5 py-1 rounded-full shadow-2xs">
