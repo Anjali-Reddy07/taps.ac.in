@@ -801,145 +801,164 @@ export default function FacilitiesPage() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
               >
-                {/* Visual Half: Hero 6 3D Rotating Carousel with Multi-Segment Progress Line */}
+                {/* Visual Half: React Bits Pro "Hero 6" 3D Multi-Card Rotating Carousel with Progress Line */}
                 <div className="lg:col-span-7 relative group">
                   <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-40 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
-                  
+
+                  {/* Top Progress Line (Continuous Live Timer) */}
+                  <div className="relative mb-3 flex items-center gap-2 px-1">
+                    <div className="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden shadow-inner">
+                      <motion.div
+                        key={`hero6-line-${activeFacilityId}-${safeStudioIndex}`}
+                        initial={{ width: "0%" }}
+                        animate={{ width: isStudioAutoPlaying ? "100%" : "50%" }}
+                        transition={{ duration: 3.5, ease: "linear" }}
+                        className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
+                      />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider shrink-0">
+                      0{safeStudioIndex + 1} / 0{currentFacilityGallery.length}
+                    </span>
+                  </div>
+
+                  {/* 3D Rotating Carousel Canvas (Hero 6 Multi-Card 3D Stage) */}
                   <div 
                     onMouseEnter={() => setIsStudioAutoPlaying(false)}
                     onMouseLeave={() => setIsStudioAutoPlaying(true)}
-                    style={{ perspective: 1200 }}
-                    className="relative h-72 sm:h-96 lg:h-[490px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group/slider"
+                    className="relative h-72 sm:h-96 lg:h-[480px] w-full flex items-center justify-center [perspective:1400px] [transform-style:preserve-3d] select-none"
                   >
-                    {/* Hero 6 Signature Multi-Segment Progress Line (Top Track) */}
-                    <div className="absolute top-0 left-0 right-0 z-30 flex items-center gap-2 px-4 pt-3.5 pb-3 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
-                      {currentFacilityGallery.map((_, sIdx) => {
-                        const isPast = sIdx < safeStudioIndex;
-                        const isCurrent = sIdx === safeStudioIndex;
-                        return (
-                          <button
-                            key={sIdx}
-                            type="button"
-                            onClick={() => {
-                              setStudioSlideDirection(sIdx > safeStudioIndex ? 1 : -1);
-                              setCurrentStudioImageIndex(sIdx);
-                            }}
-                            className="group/segment relative flex-1 h-2 rounded-full overflow-hidden bg-white/25 hover:bg-white/45 transition-colors cursor-pointer"
-                            aria-label={`Jump to slide ${sIdx + 1}`}
-                          >
-                            {isPast && (
-                              <div className="h-full w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
-                            )}
-                            {isCurrent && (
-                              <motion.div
-                                key={`${activeFacilityId}-${safeStudioIndex}`}
-                                initial={{ width: "0%" }}
-                                animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
-                                transition={{ duration: 3.5, ease: "linear" }}
-                                className="h-full bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,1)]"
-                              />
-                            )}
-                          </button>
-                        );
-                      })}
-                    </div>
+                    {currentFacilityGallery.map((item, idx) => {
+                      const total = currentFacilityGallery.length;
+                      let offset = idx - safeStudioIndex;
+                      if (offset > total / 2) offset -= total;
+                      if (offset < -total / 2) offset += total;
 
-                    {/* 3D Rotating Carousel Canvas with AnimatePresence */}
-                    <AnimatePresence initial={false} custom={studioSlideDirection} mode="popLayout">
-                      <motion.div
-                        key={activeSlideItem.src}
-                        custom={studioSlideDirection}
-                        variants={{
-                          enter: (direction: number) => ({
-                            rotateY: direction > 0 ? 35 : -35,
-                            x: direction > 0 ? "75%" : "-75%",
-                            scale: 0.92,
-                            opacity: 0,
-                            transformOrigin: direction > 0 ? "right center" : "left center",
-                          }),
-                          center: {
-                            rotateY: 0,
-                            x: 0,
-                            scale: 1,
-                            opacity: 1,
-                            transition: {
-                              rotateY: { type: "spring", stiffness: 240, damping: 26 },
-                              x: { type: "spring", stiffness: 240, damping: 26 },
-                              scale: { duration: 0.45 },
-                              opacity: { duration: 0.35 },
-                            },
-                          },
-                          exit: (direction: number) => ({
-                            rotateY: direction < 0 ? 35 : -35,
-                            x: direction < 0 ? "75%" : "-75%",
-                            scale: 0.92,
-                            opacity: 0,
-                            transformOrigin: direction < 0 ? "right center" : "left center",
-                            transition: {
-                              rotateY: { type: "spring", stiffness: 240, damping: 26 },
-                              x: { type: "spring", stiffness: 240, damping: 26 },
-                              scale: { duration: 0.45 },
-                              opacity: { duration: 0.35 },
-                            },
-                          }),
-                        }}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="absolute inset-0 w-full h-full"
-                      >
-                        <Image
-                          src={activeSlideItem.src}
-                          alt={activeSlideItem.caption || currentFacility.title}
-                          fill
-                          className="object-cover object-center scale-100 transition-transform duration-700 ease-out"
-                          sizes="(max-width: 1024px) 100vw, 60vw"
-                          priority
-                          quality={92}
-                        />
-                      </motion.div>
-                    </AnimatePresence>
+                      const isActive = offset === 0;
+                      const isVisible = Math.abs(offset) <= 1 || (total <= 3);
 
-                    {/* Subtle Gradient Shade for Legibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none z-10" />
+                      return (
+                        <motion.div
+                          key={item.src}
+                          onClick={() => {
+                            if (!isActive) {
+                              setStudioSlideDirection(offset > 0 ? 1 : -1);
+                              setCurrentStudioImageIndex(idx);
+                            }
+                          }}
+                          initial={false}
+                          animate={{
+                            x: offset === 0 ? "0%" : offset > 0 ? "35%" : "-35%",
+                            scale: offset === 0 ? 1 : 0.84,
+                            rotateY: offset === 0 ? 0 : offset > 0 ? -24 : 24,
+                            z: offset === 0 ? 40 : -80,
+                            opacity: offset === 0 ? 1 : isVisible ? 0.65 : 0,
+                            zIndex: offset === 0 ? 30 : 20 - Math.abs(offset),
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 240,
+                            damping: 26,
+                          }}
+                          className={`absolute inset-0 m-auto w-[82%] sm:w-[86%] h-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
+                            isActive ? "ring-2 ring-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" : "hover:opacity-90"
+                          }`}
+                        >
+                          <Image
+                            src={item.src}
+                            alt={item.caption || item.label}
+                            fill
+                            className="object-cover object-center"
+                            sizes="(max-width: 1024px) 100vw, 60vw"
+                            priority={isActive}
+                            quality={92}
+                          />
 
-                    {/* Badge & Monospace Counter on Top Left */}
-                    <div className="absolute top-8 left-4 z-20 flex items-center gap-2">
-                      <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
-                        {currentFacility.badge}
-                      </span>
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
-                        0{safeStudioIndex + 1} / 0{currentFacilityGallery.length}
-                      </span>
-                    </div>
+                          {/* Gradient Vignette for Legibility */}
+                          <div className={`absolute inset-0 transition-opacity duration-300 ${
+                            isActive ? "bg-gradient-to-t from-black/90 via-black/25 to-black/30" : "bg-black/55"
+                          }`} />
 
-                    {/* Multi-Angle Gallery Switcher on Top Right */}
-                    {currentFacilityGallery.length > 1 && (
-                      <div className="absolute top-8 right-4 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
-                        {currentFacilityGallery.map((g, idx) => {
-                          const isSelected = safeStudioIndex === idx;
-                          return (
-                            <button
-                              key={g.label + idx}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setStudioSlideDirection(idx > safeStudioIndex ? 1 : -1);
-                                setCurrentStudioImageIndex(idx);
-                              }}
-                              className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                                isSelected
-                                  ? "bg-white text-zinc-950 shadow-md scale-105"
-                                  : "text-zinc-300 hover:text-white hover:bg-white/10"
-                              }`}
-                            >
-                              {g.label}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
+                          {/* Badge & Monospace Counter on Active Slide */}
+                          {isActive && (
+                            <>
+                              <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
+                                <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
+                                  {currentFacility.badge}
+                                </span>
+                                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
+                                  0{safeStudioIndex + 1} / 0{total}
+                                </span>
+                              </div>
 
-                    {/* Floating Prev / Next Arrow Controls */}
+                              {/* Multi-Angle View Switcher on Active Slide */}
+                              {total > 1 && (
+                                <div className="absolute top-5 right-5 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
+                                  {currentFacilityGallery.map((g, gIdx) => {
+                                    const isSelected = safeStudioIndex === gIdx;
+                                    return (
+                                      <button
+                                        key={g.label + gIdx}
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setStudioSlideDirection(gIdx > safeStudioIndex ? 1 : -1);
+                                          setCurrentStudioImageIndex(gIdx);
+                                        }}
+                                        className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
+                                          isSelected
+                                            ? "bg-white text-zinc-950 shadow-md scale-105"
+                                            : "text-zinc-300 hover:text-white hover:bg-white/10"
+                                        }`}
+                                      >
+                                        {g.label}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              )}
+
+                              {/* Bottom Floating Title & Caption */}
+                              <div className="absolute bottom-5 left-5 right-5 text-white z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                                <div className="max-w-md">
+                                  <div className="text-lg sm:text-2xl font-bold tracking-tight mb-1 drop-shadow-md text-white">
+                                    {currentFacility.title}
+                                  </div>
+                                  <div className="text-xs font-mono text-cyan-300 drop-shadow-sm flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                                    <span>{item.caption || item.label}</span>
+                                  </div>
+                                </div>
+
+                                <div className="flex items-center gap-1.5 shrink-0 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
+                                  {currentFacilityGallery.map((_, dotIdx) => {
+                                    const isDotActive = safeStudioIndex === dotIdx;
+                                    return (
+                                      <button
+                                        key={dotIdx}
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setStudioSlideDirection(dotIdx > safeStudioIndex ? 1 : -1);
+                                          setCurrentStudioImageIndex(dotIdx);
+                                        }}
+                                        className={`transition-all duration-300 cursor-pointer rounded-full ${
+                                          isDotActive
+                                            ? "w-6 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-sm"
+                                            : "w-2 h-2 bg-white/40 hover:bg-white/80"
+                                        }`}
+                                        aria-label={`Slide ${dotIdx + 1}`}
+                                      />
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </motion.div>
+                      );
+                    })}
+
+                    {/* Left / Right Rotating Controls */}
                     {currentFacilityGallery.length > 1 && (
                       <>
                         <button
@@ -948,8 +967,8 @@ export default function FacilitiesPage() {
                             e.stopPropagation();
                             prevStudioImage();
                           }}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-xl"
-                          aria-label="Previous Image"
+                          className="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/70 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
+                          aria-label="Rotate Previous"
                         >
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -961,8 +980,8 @@ export default function FacilitiesPage() {
                             e.stopPropagation();
                             nextStudioImage();
                           }}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-xl"
-                          aria-label="Next Image"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/70 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
+                          aria-label="Rotate Next"
                         >
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -970,45 +989,6 @@ export default function FacilitiesPage() {
                         </button>
                       </>
                     )}
-
-                    {/* Bottom Floating Caption Overlay & Interactive Dots */}
-                    <div className="absolute bottom-5 left-5 right-5 text-white z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-                      <div className="max-w-md">
-                        <div className="text-lg sm:text-2xl font-bold tracking-tight mb-1 drop-shadow-md text-white">
-                          {currentFacility.title}
-                        </div>
-                        <div className="text-xs font-mono text-cyan-300 drop-shadow-sm flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                          <span>{activeSlideItem.caption || activeSlideItem.label}</span>
-                        </div>
-                      </div>
-
-                      {/* Rotating Carousel Indicators */}
-                      {currentFacilityGallery.length > 1 && (
-                        <div className="flex items-center gap-1.5 shrink-0 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-                          {currentFacilityGallery.map((_, dotIdx) => {
-                            const isDotActive = safeStudioIndex === dotIdx;
-                            return (
-                              <button
-                                key={dotIdx}
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setStudioSlideDirection(dotIdx > safeStudioIndex ? 1 : -1);
-                                  setCurrentStudioImageIndex(dotIdx);
-                                }}
-                                className={`transition-all duration-300 cursor-pointer rounded-full ${
-                                  isDotActive
-                                    ? "w-6 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-sm"
-                                    : "w-2 h-2 bg-white/40 hover:bg-white/80"
-                                }`}
-                                aria-label={`Slide ${dotIdx + 1}`}
-                              />
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
                   </div>
 
                   {/* React Bits Pro "Hero 6" Multi-Track Segmented Progress Station */}
