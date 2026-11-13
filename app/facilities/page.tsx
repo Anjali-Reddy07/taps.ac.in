@@ -801,52 +801,85 @@ export default function FacilitiesPage() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
               >
-                {/* Visual Half: Borderless Floating Canvas with Sliding Images One After One */}
+                {/* Visual Half: Hero 6 3D Rotating Carousel with Multi-Segment Progress Line */}
                 <div className="lg:col-span-7 relative group">
                   <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-40 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
                   
                   <div 
                     onMouseEnter={() => setIsStudioAutoPlaying(false)}
                     onMouseLeave={() => setIsStudioAutoPlaying(true)}
-                    className="relative h-72 sm:h-96 lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group/slider"
+                    style={{ perspective: 1200 }}
+                    className="relative h-72 sm:h-96 lg:h-[490px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group/slider"
                   >
-                    {/* Live Progress Bar for Automatic Sliding Countdown */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-30 overflow-hidden">
-                      {isStudioAutoPlaying && (
-                        <motion.div
-                          key={`${activeFacilityId}-${safeStudioIndex}`}
-                          initial={{ width: "0%" }}
-                          animate={{ width: "100%" }}
-                          transition={{ duration: 3.5, ease: "linear" }}
-                          className="h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500"
-                        />
-                      )}
+                    {/* Hero 6 Signature Multi-Segment Progress Line */}
+                    <div className="absolute top-0 left-0 right-0 z-30 flex items-center gap-1.5 px-4 pt-3 pb-4 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
+                      {currentFacilityGallery.map((_, sIdx) => {
+                        const isPast = sIdx < safeStudioIndex;
+                        const isCurrent = sIdx === safeStudioIndex;
+                        return (
+                          <button
+                            key={sIdx}
+                            type="button"
+                            onClick={() => {
+                              setStudioSlideDirection(sIdx > safeStudioIndex ? 1 : -1);
+                              setCurrentStudioImageIndex(sIdx);
+                            }}
+                            className="group/segment relative flex-1 h-1.5 rounded-full overflow-hidden bg-white/20 hover:bg-white/40 transition-colors cursor-pointer"
+                            aria-label={`Jump to slide ${sIdx + 1}`}
+                          >
+                            {isPast && (
+                              <div className="h-full w-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+                            )}
+                            {isCurrent && (
+                              <motion.div
+                                key={`${activeFacilityId}-${safeStudioIndex}`}
+                                initial={{ width: "0%" }}
+                                animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
+                                transition={{ duration: 3.5, ease: "linear" }}
+                                className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.9)]"
+                              />
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
 
-                    {/* Sliding Image Canvas with AnimatePresence */}
+                    {/* 3D Rotating Carousel Canvas with AnimatePresence */}
                     <AnimatePresence initial={false} custom={studioSlideDirection} mode="popLayout">
                       <motion.div
                         key={activeSlideItem.src}
                         custom={studioSlideDirection}
                         variants={{
                           enter: (direction: number) => ({
-                            x: direction > 0 ? "100%" : "-100%",
+                            rotateY: direction > 0 ? 35 : -35,
+                            x: direction > 0 ? "75%" : "-75%",
+                            scale: 0.92,
                             opacity: 0,
+                            transformOrigin: direction > 0 ? "right center" : "left center",
                           }),
                           center: {
+                            rotateY: 0,
                             x: 0,
+                            scale: 1,
                             opacity: 1,
                             transition: {
-                              x: { type: "spring", stiffness: 280, damping: 28 },
-                              opacity: { duration: 0.3 },
+                              rotateY: { type: "spring", stiffness: 240, damping: 26 },
+                              x: { type: "spring", stiffness: 240, damping: 26 },
+                              scale: { duration: 0.45 },
+                              opacity: { duration: 0.35 },
                             },
                           },
                           exit: (direction: number) => ({
-                            x: direction < 0 ? "100%" : "-100%",
+                            rotateY: direction < 0 ? 35 : -35,
+                            x: direction < 0 ? "75%" : "-75%",
+                            scale: 0.92,
                             opacity: 0,
+                            transformOrigin: direction < 0 ? "right center" : "left center",
                             transition: {
-                              x: { type: "spring", stiffness: 280, damping: 28 },
-                              opacity: { duration: 0.3 },
+                              rotateY: { type: "spring", stiffness: 240, damping: 26 },
+                              x: { type: "spring", stiffness: 240, damping: 26 },
+                              scale: { duration: 0.45 },
+                              opacity: { duration: 0.35 },
                             },
                           }),
                         }}
@@ -870,19 +903,19 @@ export default function FacilitiesPage() {
                     {/* Subtle Gradient Shade for Legibility */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none z-10" />
 
-                    {/* Badge on Top Left */}
-                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                    {/* Badge & Monospace Counter on Top Left */}
+                    <div className="absolute top-8 left-4 z-20 flex items-center gap-2">
                       <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
                         {currentFacility.badge}
                       </span>
                       <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
-                        {safeStudioIndex + 1} / {currentFacilityGallery.length}
+                        0{safeStudioIndex + 1} / 0{currentFacilityGallery.length}
                       </span>
                     </div>
 
                     {/* Multi-Angle Gallery Switcher on Top Right */}
                     {currentFacilityGallery.length > 1 && (
-                      <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
+                      <div className="absolute top-8 right-4 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
                         {currentFacilityGallery.map((g, idx) => {
                           const isSelected = safeStudioIndex === idx;
                           return (
@@ -950,7 +983,7 @@ export default function FacilitiesPage() {
                         </div>
                       </div>
 
-                      {/* Sliding Dot Indicators */}
+                      {/* Rotating Carousel Indicators */}
                       {currentFacilityGallery.length > 1 && (
                         <div className="flex items-center gap-1.5 shrink-0 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
                           {currentFacilityGallery.map((_, dotIdx) => {
