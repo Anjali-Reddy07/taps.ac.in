@@ -193,7 +193,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </Link>
             </div>
 
-            {/* CENTER / DESKTOP: BOLD UPPERCASE NAVIGATION LINKS */}
+            {/* CENTER / DESKTOP: BOLD UPPERCASE NAVIGATION LINKS WITH ANIMATED HOVER LINE */}
             <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-2 xl:px-4">
               <nav aria-label="Main Navigation" className="flex items-center gap-6 xl:gap-8">
                 {navItems.map((item) => {
@@ -202,13 +202,22 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`text-xs xl:text-sm font-bold tracking-wider select-none transition-colors ${
+                      className={`relative py-1 text-xs xl:text-sm font-bold tracking-wider select-none transition-colors group ${
                         isActive
                           ? "text-blue-600 font-extrabold"
                           : "text-[#1E293B] hover:text-blue-600"
                       }`}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+
+                      {/* Smooth Animated Hover Line with Gradient & Subtle Glow */}
+                      <span
+                        className={`absolute bottom-0 left-0 right-0 h-[2.5px] rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 transition-all duration-300 ease-out origin-left ${
+                          isActive
+                            ? "scale-x-100 shadow-[0_0_8px_rgba(37,99,235,0.7)]"
+                            : "scale-x-0 group-hover:scale-x-100 group-hover:shadow-[0_0_8px_rgba(37,99,235,0.5)]"
+                        }`}
+                      />
                     </Link>
                   );
                 })}
