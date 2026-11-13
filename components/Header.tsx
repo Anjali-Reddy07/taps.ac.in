@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import PillNav from "./PillNav";
 
 interface HeaderProps {
   onOpenQuery?: () => void;
@@ -40,12 +39,12 @@ export default function Header({ onOpenQuery }: HeaderProps) {
 
   return (
     <>
-      {/* FIXED PERMANENT NAVBAR */}
-      <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/80 shadow-xs transition-all duration-300">
+      {/* FIXED PERMANENT NAVBAR (NO ANIMATIONS) */}
+      <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/80 shadow-xs">
         {/* TOP SUB-NAVBAR: Social Media Icons (Left) & Search Symbol (Right) */}
         <div
-          className={`bg-zinc-50 border-b border-zinc-200 text-xs text-zinc-600 transition-all duration-300 overflow-hidden ${
-            isScrolled ? "max-h-0 opacity-0 py-0 border-transparent pointer-events-none" : "max-h-12 opacity-100 py-1.5"
+          className={`bg-zinc-50 border-b border-zinc-200 text-xs text-zinc-600 overflow-hidden ${
+            isScrolled ? "hidden" : "py-1.5"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 flex items-center justify-between">
@@ -162,9 +161,9 @@ export default function Header({ onOpenQuery }: HeaderProps) {
           </div>
         </div>
 
-        {/* MAIN NAVIGATION BAR WITH ANIMATED PILLNAV */}
-        <nav
-          className={`w-full transition-all duration-300 ${
+        {/* MAIN NAVIGATION BAR (STATIC, NO ANIMATIONS) */}
+        <div
+          className={`w-full ${
             isScrolled ? "py-1.5 sm:py-2" : "py-2 sm:py-2.5"
           }`}
         >
@@ -173,7 +172,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
             <div className="flex items-center gap-3 flex-shrink-0">
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden text-zinc-900 hover:text-black p-1 -ml-1 transition-colors"
+                className="lg:hidden text-zinc-900 hover:text-black p-1 -ml-1"
                 aria-label="Open Navigation Menu"
               >
                 <svg className="w-6 h-6 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,8 +180,8 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 </svg>
               </button>
 
-              <Link href="/" className="flex items-center group py-0.5" aria-label="Trident Academy Home">
-                <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-[1.02]">
+              <Link href="/" className="flex items-center py-0.5" aria-label="Trident Academy Home">
+                <div className="flex-shrink-0">
                   <Image
                     src="/asset/logo.png"
                     alt="Trident Academy of Professional Studies"
@@ -197,41 +196,44 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </Link>
             </div>
 
-            {/* CENTER / DESKTOP: ANIMATED PILLNAV COMPONENT FROM REACT BITS */}
+            {/* CENTER / DESKTOP: CLEAN STATIC NAVIGATION LINKS (NO ANIMATIONS) */}
             <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-1 xl:px-2">
-              <PillNav
-                items={navItems}
-                activeHref={pathname}
-                linkComponent={Link}
-                theme="light"
-                surface="glass"
-                itemStyle="pill"
-                hoverEffect="fill"
-                indicator="dot"
-                size="sm"
-                collapse="never"
-                highlightColor="#2563eb"
-                highlightTextColor="#ffffff"
-                className="shadow-xs xl:scale-105 transition-transform"
-              />
+              <nav aria-label="Main Navigation" className="flex items-center gap-1 xl:gap-1.5">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`px-3 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-sm select-none ${
+                        isActive
+                          ? "bg-blue-600 text-white font-bold"
+                          : "text-zinc-700 font-semibold hover:text-blue-700 hover:bg-zinc-100"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
             </div>
 
             {/* RIGHT: CALL TO ACTION "APPLY NOW" BUTTON */}
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={onOpenQuery}
-                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-[11px] sm:text-xs xl:text-sm tracking-wide px-3 sm:px-5 xl:px-6 py-1.5 sm:py-2.5 rounded-full transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-md shadow-blue-500/25 cursor-pointer whitespace-nowrap hover-lift"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-[11px] sm:text-xs xl:text-sm tracking-wide px-3 sm:px-5 xl:px-6 py-1.5 sm:py-2.5 rounded-full shadow-sm cursor-pointer whitespace-nowrap"
               >
                 Apply Now
               </button>
             </div>
           </div>
-        </nav>
+        </div>
       </header>
 
       {/* HEADER SPACER: Offsets the page content so it starts right below the fixed navbar */}
       <div
-        className={`w-full transition-all duration-300 ${
+        className={`w-full ${
           isScrolled ? "h-16 sm:h-[72px]" : "h-20 sm:h-24 lg:h-[104px]"
         }`}
         aria-hidden="true"
