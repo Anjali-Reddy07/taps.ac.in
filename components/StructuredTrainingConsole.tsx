@@ -122,7 +122,7 @@ export default function StructuredTrainingConsole({
         </div>
 
         {/* View Mode Toggle */}
-        <div className="flex items-center gap-1 p-1 rounded-full bg-zinc-100 border border-zinc-200/80 self-start sm:self-auto shrink-0 shadow-xs">
+        <div className="flex items-center gap-1 p-1 rounded-full bg-zinc-100/75 backdrop-blur-xs border border-zinc-200/60 self-start sm:self-auto shrink-0 shadow-xs">
           <button
             type="button"
             onClick={() => {
@@ -159,7 +159,7 @@ export default function StructuredTrainingConsole({
       {/* ========================================================================= */}
       <div className="relative mb-12">
         {/* Background Connecting High-Tech Laser Tube */}
-        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-0.5 bg-zinc-200 hidden md:block" />
+        <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-0.5 bg-zinc-200/60 hidden md:block" />
 
         <div className="relative grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {phases.map((phase, idx) => {
@@ -174,10 +174,10 @@ export default function StructuredTrainingConsole({
                   setIsPlaying(false);
                   setExpandedModule(null);
                 }}
-                className={`relative p-4 sm:p-4.5 rounded-2xl text-left transition-all duration-300 cursor-pointer group overflow-hidden ${
+                className={`relative p-4 sm:p-4.5 rounded-2xl text-left transition-all duration-300 cursor-pointer group overflow-hidden backdrop-blur-md ${
                   isCurrent
                     ? "bg-zinc-950 text-white shadow-xl scale-[1.02] ring-2 ring-blue-500/80"
-                    : "bg-white/85 hover:bg-white border border-zinc-200/90 text-zinc-900 shadow-2xs hover:shadow-md"
+                    : "bg-gradient-to-br from-white/55 via-white/30 to-white/10 hover:from-white/75 hover:via-white/45 hover:to-white/20 border border-white/60 text-zinc-900 shadow-xs hover:shadow-md"
                 }`}
               >
                 {/* Laser Fill Line for Current Active Stage (when playing) */}
@@ -277,9 +277,9 @@ export default function StructuredTrainingConsole({
               </p>
 
               {/* LIVE SIMULATION HUD TERMINAL */}
-              <div className="rounded-2xl bg-zinc-950 border border-zinc-800 text-white shadow-2xl overflow-hidden">
+              <div className="rounded-2xl bg-gradient-to-br from-zinc-950/90 via-zinc-950/80 to-zinc-900/65 backdrop-blur-md border border-zinc-800/70 text-white shadow-xl overflow-hidden">
                 {/* Terminal Window Header Bar */}
-                <div className="px-4 py-2.5 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between text-[11px] font-mono">
+                <div className="px-4 py-2.5 bg-zinc-900/75 backdrop-blur-xs border-b border-zinc-800/70 flex items-center justify-between text-[11px] font-mono">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
@@ -402,11 +402,11 @@ export default function StructuredTrainingConsole({
                         <span className="text-amber-400 font-bold">94% CONVERSION</span>
                       </div>
                       <div className="grid grid-cols-2 gap-2 text-[11px]">
-                        <div className="p-2 rounded-lg bg-zinc-900/90 border border-zinc-800">
+                        <div className="p-2 rounded-lg bg-zinc-900/60 backdrop-blur-xs border border-zinc-800/70">
                           <div className="text-zinc-400 text-[9px] uppercase">Corporate Clearance</div>
                           <div className="text-emerald-400 font-bold mt-0.5">✔ 100% Verified</div>
                         </div>
-                        <div className="p-2 rounded-lg bg-zinc-900/90 border border-zinc-800">
+                        <div className="p-2 rounded-lg bg-zinc-900/60 backdrop-blur-xs border border-zinc-800/70">
                           <div className="text-zinc-400 text-[9px] uppercase">HR Panel Rounds</div>
                           <div className="text-cyan-400 font-bold mt-0.5">Cleared (GD Suite)</div>
                         </div>
@@ -463,16 +463,20 @@ export default function StructuredTrainingConsole({
                       key={mod.name}
                       layout
                       onClick={() => setExpandedModule(isExpanded ? null : idx)}
-                      className={`relative p-4 sm:p-4.5 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group ${
+                      style={{
+                        WebkitMaskImage: "linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 65%, rgba(0,0,0,0.72) 100%)",
+                        maskImage: "linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 65%, rgba(0,0,0,0.72) 100%)",
+                      }}
+                      className={`relative p-4 sm:p-4.5 rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden group backdrop-blur-md ${
                         isExpanded
-                          ? "bg-white border-blue-400 shadow-lg ring-1 ring-blue-500/30"
-                          : "bg-white/80 hover:bg-white border-zinc-200/90 shadow-2xs hover:shadow-md hover:border-blue-300"
+                          ? "bg-gradient-to-br from-white/80 via-white/60 to-white/35 border-blue-400/80 shadow-lg ring-1 ring-blue-500/20"
+                          : "bg-gradient-to-br from-white/50 via-white/25 to-white/10 hover:from-white/70 hover:via-white/40 hover:to-white/20 border-white/60 hover:border-blue-300/60 shadow-xs hover:shadow-md"
                       }`}
                     >
                       {/* Top Bar of Module Card */}
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-start gap-2.5">
-                          <span className="text-[11px] font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/80 shrink-0">
+                          <span className="text-[11px] font-mono font-bold text-blue-600 bg-blue-50/80 backdrop-blur-xs px-2 py-0.5 rounded-md border border-blue-200/70 shrink-0">
                             0{idx + 1}
                           </span>
                           <div>
@@ -486,7 +490,7 @@ export default function StructuredTrainingConsole({
                         </div>
 
                         <div className="shrink-0 flex items-center gap-1.5">
-                          <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded-full border border-cyan-200">
+                          <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-cyan-700 bg-cyan-50/80 backdrop-blur-xs px-2 py-0.5 rounded-full border border-cyan-200/70">
                             {mod.tag}
                           </span>
                           <span className="text-zinc-400 text-xs transition-transform duration-200 group-hover:text-blue-600">
@@ -496,10 +500,10 @@ export default function StructuredTrainingConsole({
                       </div>
 
                       {/* Animated Mastery Progress Line */}
-                      <div className="mt-3.5 pt-2.5 border-t border-zinc-100 flex items-center justify-between gap-3 text-[11px] font-mono text-zinc-500">
+                      <div className="mt-3.5 pt-2.5 border-t border-zinc-200/50 flex items-center justify-between gap-3 text-[11px] font-mono text-zinc-500">
                         <span>Cohort Proficiency Benchmark</span>
                         <div className="flex items-center gap-2">
-                          <div className="w-24 sm:w-28 h-1.5 rounded-full bg-zinc-100 overflow-hidden">
+                          <div className="w-24 sm:w-28 h-1.5 rounded-full bg-zinc-200/50 backdrop-blur-xs overflow-hidden">
                             <motion.div
                               initial={{ width: 0 }}
                               animate={{ width: `${masteryPercentage}%` }}
@@ -519,7 +523,7 @@ export default function StructuredTrainingConsole({
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.25, ease: "easeOut" }}
-                            className="mt-3.5 pt-3 border-t border-zinc-100 text-xs space-y-2 text-zinc-600"
+                            className="mt-3.5 pt-3 border-t border-zinc-200/60 text-xs space-y-2 text-zinc-600"
                           >
                             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-blue-600">
                               Core Academic Competencies &amp; Lab Defense:
