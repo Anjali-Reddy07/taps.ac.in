@@ -811,8 +811,8 @@ export default function FacilitiesPage() {
                     style={{ perspective: 1200 }}
                     className="relative h-72 sm:h-96 lg:h-[490px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group/slider"
                   >
-                    {/* Hero 6 Signature Multi-Segment Progress Line */}
-                    <div className="absolute top-0 left-0 right-0 z-30 flex items-center gap-1.5 px-4 pt-3 pb-4 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
+                    {/* Hero 6 Signature Multi-Segment Progress Line (Top Track) */}
+                    <div className="absolute top-0 left-0 right-0 z-30 flex items-center gap-2 px-4 pt-3.5 pb-3 bg-gradient-to-b from-black/85 via-black/40 to-transparent">
                       {currentFacilityGallery.map((_, sIdx) => {
                         const isPast = sIdx < safeStudioIndex;
                         const isCurrent = sIdx === safeStudioIndex;
@@ -824,7 +824,7 @@ export default function FacilitiesPage() {
                               setStudioSlideDirection(sIdx > safeStudioIndex ? 1 : -1);
                               setCurrentStudioImageIndex(sIdx);
                             }}
-                            className="group/segment relative flex-1 h-1.5 rounded-full overflow-hidden bg-white/20 hover:bg-white/40 transition-colors cursor-pointer"
+                            className="group/segment relative flex-1 h-2 rounded-full overflow-hidden bg-white/25 hover:bg-white/45 transition-colors cursor-pointer"
                             aria-label={`Jump to slide ${sIdx + 1}`}
                           >
                             {isPast && (
@@ -836,7 +836,7 @@ export default function FacilitiesPage() {
                                 initial={{ width: "0%" }}
                                 animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
                                 transition={{ duration: 3.5, ease: "linear" }}
-                                className="h-full bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-500 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.9)]"
+                                className="h-full bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,1)]"
                               />
                             )}
                           </button>
@@ -1010,6 +1010,72 @@ export default function FacilitiesPage() {
                       )}
                     </div>
                   </div>
+
+                  {/* React Bits Pro "Hero 6" Multi-Track Segmented Progress Station */}
+                  {currentFacilityGallery.length > 1 && (
+                    <div className="mt-4 pt-3 border-t border-zinc-200/80">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                          Hero 6 Progress Station ({safeStudioIndex + 1}/{currentFacilityGallery.length})
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setIsStudioAutoPlaying(!isStudioAutoPlaying)}
+                          className="text-[10px] font-mono font-semibold text-zinc-500 hover:text-zinc-800 transition-colors flex items-center gap-1 cursor-pointer"
+                        >
+                          <span>{isStudioAutoPlaying ? "⏸ Pause Track" : "▶ Resume Auto"}</span>
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        {currentFacilityGallery.map((slide, sIdx) => {
+                          const isPast = sIdx < safeStudioIndex;
+                          const isCurrent = sIdx === safeStudioIndex;
+                          return (
+                            <button
+                              key={slide.label + sIdx}
+                              type="button"
+                              onClick={() => {
+                                setStudioSlideDirection(sIdx > safeStudioIndex ? 1 : -1);
+                                setCurrentStudioImageIndex(sIdx);
+                              }}
+                              className="text-left group/track p-1.5 rounded-lg hover:bg-zinc-50 transition-colors cursor-pointer"
+                            >
+                              {/* Hero 6 Track Progress Line */}
+                              <div className="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden mb-1.5">
+                                {isPast && (
+                                  <div className="h-full w-full bg-blue-600 rounded-full" />
+                                )}
+                                {isCurrent && (
+                                  <motion.div
+                                    key={`sub-progress-${activeFacilityId}-${safeStudioIndex}`}
+                                    initial={{ width: "0%" }}
+                                    animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
+                                    transition={{ duration: 3.5, ease: "linear" }}
+                                    className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                                  />
+                                )}
+                              </div>
+                              {/* Track Index and Slide Label */}
+                              <div className="flex items-center gap-1.5">
+                                <span className={`text-[10px] font-mono font-bold transition-colors ${
+                                  isCurrent ? "text-blue-600" : "text-zinc-600 group-hover/track:text-zinc-600"
+                                }`}>
+                                  0{sIdx + 1}
+                                </span>
+                                <span className={`text-xs truncate transition-colors ${
+                                  isCurrent ? "text-zinc-950 font-bold" : "text-zinc-500 group-hover/track:text-zinc-700 font-medium"
+                                }`}>
+                                  {slide.label}
+                                </span>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Narrative Half: Open Typography & Floating Specifications */}
