@@ -173,61 +173,6 @@ export default function NoticesPage() {
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
-            {/* 2 Official Academic & Corporate Bulletin Photo Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-              <div className="relative h-48 sm:h-56 rounded-3xl overflow-hidden border border-zinc-200 shadow-sm group">
-                <Image
-                  src="/images/drive_third/ClassRooms_Academic.JPG"
-                  alt="Academic & Examination Circulars"
-                  fill
-                  loading="lazy"
-                  quality={90}
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
-                    Academic Notices
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
-                    Utkal University CBCS Schedules
-                  </div>
-                  <div className="text-base font-bold text-white mt-0.5">
-                    Semester Forms, Evaluation Rubrics &amp; Timetables
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative h-48 sm:h-56 rounded-3xl overflow-hidden border border-zinc-200 shadow-sm group">
-                <Image
-                  src="/images/drive_third/Placement_Trident-Placement-1.jpeg"
-                  alt="Corporate Placement Circulars"
-                  fill
-                  loading="lazy"
-                  quality={90}
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-600 text-white shadow-xs">
-                    Placement Circulars
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-[11px] font-mono uppercase tracking-widest text-cyan-300 font-bold">
-                    Campus Recruitment Schedules
-                  </div>
-                  <div className="text-base font-bold text-white mt-0.5">
-                    TCS, Infosys, Wipro, Capgemini &amp; CGI Drive Dates
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Category Filter Pills with Framer Motion Spring Pill */}
             <div className="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-zinc-200">
               <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mr-2">
