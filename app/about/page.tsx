@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,10 +9,13 @@ import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import InfiniteSpiral from "@/components/InfiniteSpiral";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 export default function AboutPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTimelineYear, setSelectedTimelineYear] = useState<string>("1991");
+  const [isTimelineAutoPlaying, setIsTimelineAutoPlaying] = useState<boolean>(true);
+  const [timelineProgress, setTimelineProgress] = useState<number>(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [show3DHelix, setShow3DHelix] = useState(true);
 
@@ -233,6 +236,50 @@ export default function AboutPage() {
     setShow3DHelix(false);
     setCurrentSlide((prev) => (prev - 1 + aboutSlides.length) % aboutSlides.length);
   };
+
+  // Auto-advance timeline exhibition smoothly every 5 seconds with live progress
+  const selectEra = useCallback((year: string) => {
+    setSelectedTimelineYear(year);
+    setTimelineProgress(0);
+  }, []);
+
+  const nextMilestone = useCallback(() => {
+    setSelectedTimelineYear((currentYear) => {
+      const currentIdx = milestones.findIndex((m) => m.year === currentYear);
+      const nextIdx = (currentIdx + 1) % milestones.length;
+      return milestones[nextIdx].year;
+    });
+    setTimelineProgress(0);
+  }, [milestones]);
+
+  const prevMilestone = useCallback(() => {
+    setSelectedTimelineYear((currentYear) => {
+      const currentIdx = milestones.findIndex((m) => m.year === currentYear);
+      const prevIdx = (currentIdx - 1 + milestones.length) % milestones.length;
+      return milestones[prevIdx].year;
+    });
+    setTimelineProgress(0);
+  }, [milestones]);
+
+  useEffect(() => {
+    if (!isTimelineAutoPlaying) return;
+
+    const intervalTime = 50;
+    const totalDuration = 5000;
+    const increment = (intervalTime / totalDuration) * 100;
+
+    const timer = setInterval(() => {
+      setTimelineProgress((prev) => {
+        if (prev >= 100) {
+          nextMilestone();
+          return 0;
+        }
+        return prev + increment;
+      });
+    }, intervalTime);
+
+    return () => clearInterval(timer);
+  }, [isTimelineAutoPlaying, nextMilestone]);
 
   const pillars = [
     {
@@ -692,7 +739,11 @@ export default function AboutPage() {
                           {item.badge}
                         </span>
                         <span className="text-2xl font-mono font-extrabold text-blue-600">
-                          {item.stat}
+                          {item.stat === "AICTE" ? (
+                            <span>AICTE</span>
+                          ) : (
+                            <SpeedometerCounter value={item.stat} duration={1.6} delay={idx * 0.1} />
+                          )}
                         </span>
                       </div>
                       <div className="font-bold text-base text-zinc-950 group-hover:text-blue-700 transition-colors">
@@ -760,11 +811,15 @@ export default function AboutPage() {
 
                   <div className="grid grid-cols-2 gap-6 pt-4 border-t border-indigo-100">
                     <div className="pl-4 border-l-2 border-blue-600">
-                      <div className="text-xl font-mono font-bold text-blue-700">26+ Yrs</div>
+                      <div className="text-xl font-mono font-bold text-blue-700">
+                        <SpeedometerCounter value="26+" duration={1.6} /> Yrs
+                      </div>
                       <div className="text-[11px] text-slate-500 font-medium">Educational Legacy</div>
                     </div>
                     <div className="pl-4 border-l-2 border-purple-600">
-                      <div className="text-xl font-mono font-bold text-purple-700">138+</div>
+                      <div className="text-xl font-mono font-bold text-purple-700">
+                        <SpeedometerCounter value="138+" duration={1.6} />
+                      </div>
                       <div className="text-[11px] text-slate-500 font-medium">Visiting Recruiters</div>
                     </div>
                   </div>
@@ -1076,78 +1131,123 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 1. Kinetic Horizon Era Ribbon (Progress Rail) */}
-            <div className="relative max-w-4xl mx-auto mb-12 sm:mb-16 px-4">
-              {/* Connecting glowing progress line */}
-              <div className="absolute top-1/2 left-8 right-8 -translate-y-1/2 h-1 bg-zinc-800 rounded-full hidden sm:block">
+            {/* 1. Kinetic Master Timeline Horizon Axis (Cardless Architectural Rail) */}
+            <div className="relative max-w-6xl mx-auto mb-10 sm:mb-12">
+              
+              {/* Timeline Header & Autoplay Controls Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-3 border-b border-zinc-800/80">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)] animate-pulse" />
+                  <span>35-Year Archival Chronology</span>
+                  <span className="text-zinc-600">•</span>
+                  <span className="text-amber-300 font-semibold">{selectedTimelineYear} Milestone</span>
+                </div>
+
+                {/* Auto-cycle Play/Pause Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsTimelineAutoPlaying((prev) => !prev);
+                    setTimelineProgress(0);
+                  }}
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono font-semibold transition-all cursor-pointer bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-700/80 shadow-xs active:scale-95"
+                  title={isTimelineAutoPlaying ? "Pause Auto-Advancing" : "Resume Auto-Advancing"}
+                >
+                  <span className={`w-2 h-2 rounded-full ${isTimelineAutoPlaying ? "bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.9)]" : "bg-amber-400"}`} />
+                  <span>{isTimelineAutoPlaying ? "Auto-Advancing (5s)" : "Paused"}</span>
+                  <span className="text-zinc-500 font-normal">|</span>
+                  <span className="text-amber-400">{isTimelineAutoPlaying ? "⏸" : "▶"}</span>
+                </button>
+              </div>
+
+              {/* Connecting Laser Rail (Hidden on very small screens) */}
+              <div className="relative w-full h-1 bg-zinc-800/80 rounded-full mb-6 hidden sm:block overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-amber-400 via-cyan-400 via-indigo-500 to-purple-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-amber-400 via-cyan-400 via-indigo-500 to-purple-500 rounded-full shadow-[0_0_12px_rgba(251,191,36,0.8)]"
                   animate={{
                     width: `${((milestones.findIndex((m) => m.year === selectedTimelineYear)) / (milestones.length - 1)) * 100}%`,
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 28 }}
                 />
               </div>
 
-              {/* 5 Milestone Points */}
-              <div className="relative z-10 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar py-2">
+              {/* 5 Seamless Open Era Stations */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
                 {milestones.map((m, idx) => {
                   const isActive = selectedTimelineYear === m.year;
                   return (
                     <button
                       key={m.year}
-                      onClick={() => setSelectedTimelineYear(m.year)}
-                      className="group flex flex-col items-center gap-2 cursor-pointer focus:outline-hidden"
+                      type="button"
+                      onClick={() => selectEra(m.year)}
+                      className="group text-left relative py-3 px-3.5 rounded-2xl transition-all duration-300 cursor-pointer focus:outline-hidden"
                     >
-                      <div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center font-mono font-bold text-xs sm:text-sm transition-all duration-300 ${
+                      {/* Active Era Progress Line (Linear 5s countdown when active) */}
+                      {isActive && (
+                        <div className="absolute bottom-0 left-2 right-2 h-0.5 bg-zinc-800 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300"
+                            style={{ width: `${timelineProgress}%` }}
+                            transition={{ duration: 0.05, ease: "linear" }}
+                          />
+                        </div>
+                      )}
+
+                      {/* Timeline Pip & Era indicator */}
+                      <div className="flex items-center justify-between mb-2">
+                        <span className={`text-[10px] font-mono uppercase tracking-widest font-bold ${
+                          isActive ? "text-amber-400" : "text-zinc-500 group-hover:text-zinc-400"
+                        }`}>
+                          ERA 0{idx + 1}
+                        </span>
+                        <span className={`w-2.5 h-2.5 rounded-full transition-all ${
                           isActive
-                            ? "bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 shadow-[0_0_25px_rgba(251,191,36,0.6)] scale-110 ring-4 ring-amber-400/20"
-                            : "bg-zinc-900/90 text-zinc-400 border border-zinc-700/80 hover:border-amber-400 hover:text-white hover:scale-105"
-                        }`}
-                      >
-                        {isActive ? (
-                          <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-slate-950" />
-                          </span>
-                        ) : (
-                          <span>0{idx + 1}</span>
-                        )}
+                            ? "bg-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.9)] scale-125"
+                            : "bg-zinc-700 group-hover:bg-zinc-500"
+                        }`} />
                       </div>
-                      <span className={`text-xs font-mono font-bold transition-colors ${
-                        isActive ? "text-amber-400" : "text-zinc-400 group-hover:text-zinc-200"
+
+                      {/* Year in large font */}
+                      <div className={`text-2xl sm:text-3xl font-mono font-black tracking-tight transition-all duration-300 ${
+                        isActive
+                          ? "bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent scale-102"
+                          : "text-zinc-400 group-hover:text-white"
                       }`}>
                         {m.year}
-                      </span>
+                      </div>
+
+                      <h4 className={`text-xs font-semibold leading-relaxed mt-1.5 line-clamp-2 transition-colors ${
+                        isActive ? "text-zinc-100" : "text-zinc-500 group-hover:text-zinc-300"
+                      }`}>
+                        {m.title}
+                      </h4>
+
+                      <div className="mt-3 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-zinc-600">Exhibit 0{idx + 1}</span>
+                        <span className={isActive ? "text-amber-400 font-bold" : "text-zinc-500 group-hover:text-zinc-400"}>
+                          {isActive ? "Active ●" : "Select →"}
+                        </span>
+                      </div>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* 2. Spotlight Cinema Stage: Large Cinematic Split Showcase with AnimatePresence */}
+            {/* 2. Spotlight Cinema Stage: Large Cinematic Split Showcase */}
             {(() => {
               const currentMilestoneIdx = milestones.findIndex((m) => m.year === selectedTimelineYear);
               const currentMilestone = milestones[currentMilestoneIdx >= 0 ? currentMilestoneIdx : 0];
-              const handlePrevMilestone = () => {
-                const prev = (currentMilestoneIdx - 1 + milestones.length) % milestones.length;
-                setSelectedTimelineYear(milestones[prev].year);
-              };
-              const handleNextMilestone = () => {
-                const next = (currentMilestoneIdx + 1) % milestones.length;
-                setSelectedTimelineYear(milestones[next].year);
-              };
 
               return (
-                <div className="relative max-w-6xl mx-auto mb-16 sm:mb-20">
+                <div className="relative max-w-6xl mx-auto mb-12 sm:mb-16">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentMilestone.year}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      initial={{ opacity: 0, y: 16, scale: 0.99 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -16, scale: 0.99 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                       className="rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-zinc-900/90 via-zinc-900/70 to-zinc-950/90 border border-zinc-800/90 shadow-2xl backdrop-blur-2xl relative overflow-hidden"
                     >
                       {/* Dynamic Ambient Glow matching Era */}
@@ -1212,8 +1312,9 @@ export default function AboutPage() {
                           {/* Navigation Controls */}
                           <div className="pt-6 border-t border-zinc-800 flex items-center justify-between">
                             <button
-                              onClick={handlePrevMilestone}
-                              className="px-4 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2"
+                              type="button"
+                              onClick={prevMilestone}
+                              className="px-4 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-2 active:scale-95"
                             >
                               <span>←</span>
                               <span>Previous Era</span>
@@ -1221,20 +1322,24 @@ export default function AboutPage() {
 
                             <div className="flex items-center gap-1.5">
                               {milestones.map((m, dIdx) => (
-                                <span
+                                <button
                                   key={dIdx}
-                                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                                  type="button"
+                                  onClick={() => selectEra(m.year)}
+                                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                                     dIdx === currentMilestoneIdx
                                       ? "w-6 bg-amber-400"
-                                      : "w-2 bg-zinc-700"
+                                      : "w-2 bg-zinc-700 hover:bg-zinc-500"
                                   }`}
+                                  aria-label={`Jump to ${m.year}`}
                                 />
                               ))}
                             </div>
 
                             <button
-                              onClick={handleNextMilestone}
-                              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-mono font-bold text-xs transition-all cursor-pointer flex items-center gap-2 shadow-lg shadow-amber-400/20"
+                              type="button"
+                              onClick={nextMilestone}
+                              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-mono font-bold text-xs transition-all cursor-pointer flex items-center gap-2 shadow-lg shadow-amber-400/20 active:scale-95"
                             >
                               <span>Next Era</span>
                               <span>→</span>
@@ -1243,9 +1348,24 @@ export default function AboutPage() {
 
                         </div>
 
-                        {/* Right Column: Cinematic 3D Archival Window */}
+                        {/* Right Column: Cinematic 3D Archival Window with Scanner Line */}
                         <div className="lg:col-span-6 relative">
                           <div className="relative h-72 sm:h-96 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/10 group/window">
+                            
+                            {/* Animated Holographic Laser Scanner Beam */}
+                            <motion.div
+                              className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_14px_rgba(34,211,238,0.95)] z-20 pointer-events-none"
+                              animate={{
+                                top: ["0%", "100%", "0%"],
+                                opacity: [0.3, 0.95, 0.3],
+                              }}
+                              transition={{
+                                duration: 4.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            />
+
                             <Image
                               src={currentMilestone.image}
                               alt={currentMilestone.visualTitle}
@@ -1289,76 +1409,33 @@ export default function AboutPage() {
               );
             })()}
 
-            {/* 3. Panoramic Milestone Rail: Continuous Archival Timeline Stream (Cardless & Box-Free) */}
-            <div className="max-w-6xl mx-auto mb-16 sm:mb-20">
-              <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
-                Explore 35-Year Archival Timeline (1991 – 2026)
-              </div>
-
-              {/* Seamless Connected Timeline Axis */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 border-t border-zinc-800 pt-6">
-                {milestones.map((m, idx) => {
-                  const isActive = selectedTimelineYear === m.year;
-                  return (
-                    <div
-                      key={m.year}
-                      onClick={() => setSelectedTimelineYear(m.year)}
-                      className="cursor-pointer group flex flex-col justify-between py-2 transition-all"
-                    >
-                      <div>
-                        {/* Timeline Pip & Era indicator */}
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className={`w-2.5 h-2.5 rounded-full transition-all ${
-                            isActive ? "bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.8)] scale-125" : "bg-zinc-700 group-hover:bg-zinc-500"
-                          }`} />
-                          <span className={`text-[10px] font-mono uppercase tracking-wider font-bold ${
-                            isActive ? "text-amber-300" : "text-zinc-500 group-hover:text-zinc-400"
-                          }`}>
-                            ERA 0{idx + 1}
-                          </span>
-                        </div>
-
-                        {/* Year in large font */}
-                        <div className={`text-2xl sm:text-3xl font-mono font-black transition-colors ${
-                          isActive ? "text-amber-400" : "text-zinc-400 group-hover:text-white"
-                        }`}>
-                          {m.year}
-                        </div>
-
-                        <h4 className={`text-xs font-semibold leading-relaxed mt-1.5 transition-colors ${
-                          isActive ? "text-zinc-100" : "text-zinc-500 group-hover:text-zinc-300"
-                        }`}>
-                          {m.title}
-                        </h4>
-                      </div>
-
-                      <div className="mt-4 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono">
-                        <span className="text-zinc-600">Exhibit 0{idx + 1}</span>
-                        <span className={isActive ? "text-amber-400 font-bold" : "text-zinc-500 group-hover:text-zinc-400"}>
-                          {isActive ? "Active ●" : "Select →"}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom 4-Column Legacy Metrics Banner (Seamless Cardless Metric Rail) */}
-            <div className="mt-16 sm:mt-24 pt-12 border-t border-zinc-800/80 max-w-5xl mx-auto">
+            {/* 3. Bottom 4-Column Legacy Metrics Banner (Seamless Cardless Metric Rail with Speedometer Counters) */}
+            <div className="mt-12 sm:mt-16 pt-10 border-t border-zinc-800/80 max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800/80 gap-4 sm:gap-0">
                 {[
-                  { stat: "35+ Yrs", label: "Educational Excellence", sub: "Since 1991 Inception" },
-                  { stat: "500+", label: "Software Engineers", sub: "Trained in TSPL Finishing School" },
-                  { stat: "Permanent", label: "Govt. Recognition", sub: "AICTE & Utkal University" },
-                  { stat: "138+", label: "Corporate Partners", sub: "Global Recruitment Linkages" },
+                  { stat: "35+", suffix: " Yrs", label: "Educational Excellence", sub: "Since 1991 Inception" },
+                  { stat: "500+", suffix: "", label: "Software Engineers", sub: "Trained in TSPL Finishing School" },
+                  { stat: "Permanent", suffix: "", label: "Govt. Recognition", sub: "AICTE & Utkal University" },
+                  { stat: "138+", suffix: "", label: "Corporate Partners", sub: "Global Recruitment Linkages" },
                 ].map((item, idx) => (
-                  <div key={idx} className="py-4 px-5 text-center group">
-                    <div className="text-3xl sm:text-4xl font-mono font-black bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                      {item.stat}
+                  <div key={idx} className="py-4 px-5 text-center group cursor-default">
+                    <div className="text-3xl sm:text-4xl font-mono font-black bg-gradient-to-r from-amber-300 via-orange-300 to-yellow-200 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                      {item.stat === "Permanent" ? (
+                        <span>Permanent</span>
+                      ) : (
+                        <SpeedometerCounter
+                          value={item.stat}
+                          duration={1.8}
+                          delay={idx * 0.12}
+                          className="font-mono font-black"
+                        />
+                      )}
+                      {item.suffix && <span className="text-xl sm:text-2xl text-amber-200 ml-1">{item.suffix}</span>}
                     </div>
-                    <div className="text-xs font-bold text-white mt-1.5">{item.label}</div>
+                    <div className="text-xs font-bold text-white mt-1.5 flex items-center justify-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 group-hover:animate-ping" />
+                      <span>{item.label}</span>
+                    </div>
                     <div className="text-[10px] font-mono text-zinc-400 mt-0.5">{item.sub}</div>
                   </div>
                 ))}
