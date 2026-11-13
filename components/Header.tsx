@@ -3,59 +3,54 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface HeaderProps {
   onOpenQuery?: () => void;
 }
 
 export default function Header({ onOpenQuery }: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
+  const router = useRouter();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 15) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/notices?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Academics", href: "/programmes" },
-    { label: "Facilities", href: "/facilities" },
-    { label: "Placements", href: "/placements" },
-    { label: "Notices", href: "/notices" },
-    { label: "Admission", href: "/admission" },
-    { label: "Contact", href: "/contact" }
+    { label: "ABOUT", href: "/about" },
+    { label: "ACADEMICS", href: "/programmes" },
+    { label: "FACILITIES", href: "/facilities" },
+    { label: "PLACEMENTS", href: "/placements" },
+    { label: "NOTICES", href: "/notices" },
+    { label: "ADMISSION", href: "/admission" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   return (
     <>
-      {/* FIXED PERMANENT NAVBAR (NO ANIMATIONS) */}
-      <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/80 shadow-xs">
-        {/* TOP SUB-NAVBAR: Social Media Icons (Left) & Search Symbol (Right) */}
-        <div
-          className={`bg-zinc-50 border-b border-zinc-200 text-xs text-zinc-600 overflow-hidden ${
-            isScrolled ? "hidden" : "py-1.5"
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 flex items-center justify-between">
-            {/* Left Corner: Social Media Icons */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 text-zinc-600">
+      {/* FIXED PERMANENT DUAL-TIER NAVBAR MATCHING DESIGN SPECIFICATION */}
+      <header className="fixed top-0 inset-x-0 z-50 w-full bg-white/98 backdrop-blur-md border-b border-zinc-200/90 shadow-2xs">
+        
+        {/* ===================================================================== */}
+        {/* TOP UTILITY BAR: Social Icons (Left) & Search Pill (Right) */}
+        {/* ===================================================================== */}
+        <div className="bg-white border-b border-zinc-100 py-1.5 text-xs text-zinc-600">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            
+            {/* Left: 6 Social Media Icons */}
+            <div className="flex items-center gap-2 sm:gap-3 text-zinc-600">
               {/* Facebook */}
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-blue-600 transition-colors"
                 title="Facebook"
                 aria-label="Facebook"
               >
@@ -69,7 +64,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-pink-600 transition-colors"
                 title="Instagram"
                 aria-label="Instagram"
               >
@@ -83,7 +78,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-blue-700 transition-colors"
                 title="LinkedIn"
                 aria-label="LinkedIn"
               >
@@ -97,7 +92,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-red-600 transition-colors"
                 title="YouTube"
                 aria-label="YouTube"
               >
@@ -106,12 +101,12 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 </svg>
               </a>
 
-              {/* Twitter / X */}
+              {/* X / Twitter */}
               <a
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-black transition-colors"
                 title="X (Twitter)"
                 aria-label="X (Twitter)"
               >
@@ -120,59 +115,61 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 </svg>
               </a>
 
-              {/* WhatsApp */}
+              {/* Globe / Web */}
               <a
-                href="https://wa.me/916371512551"
+                href="https://taps.ac.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-zinc-200 hover:text-black transition-colors"
-                title="WhatsApp"
-                aria-label="WhatsApp"
+                className="w-5 h-5 flex items-center justify-center text-zinc-600 hover:text-blue-600 transition-colors"
+                title="Official Portal"
+                aria-label="Official Portal"
               >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.158.572 4.183 1.571 5.932l-1.667 6.096 6.273-1.644c1.687.923 3.626 1.446 5.823 1.446 6.627 0 12-5.373 12-12s-5.373-12-12-12zm0 21.6c-1.896 0-3.663-.538-5.167-1.469l-.371-.228-3.722.976.994-3.627-.25-.397c-1.02-1.62-1.558-3.504-1.558-5.461 0-5.293 4.307-9.6 9.6-9.6 5.293 0 9.6 4.307 9.6 9.6 0 5.293-4.307 9.6-9.6 9.6z" />
+                <svg className="w-3.5 h-3.5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                 </svg>
               </a>
             </div>
 
-            {/* Right Corner: Search Icon Symbol & Bar */}
-            <div className="flex items-center gap-2">
-              <div className="relative flex items-center">
-                <input
-                  type="text"
-                  placeholder="Search TAPS..."
-                  className="pl-7 pr-2.5 py-0.5 text-[11px] bg-white border border-zinc-200 rounded-full focus:outline-none focus:border-black text-zinc-900 placeholder-zinc-400 w-24 sm:w-36 focus:w-44 transition-all"
+            {/* Right: Search Input Pill */}
+            <form onSubmit={handleSearchSubmit} className="relative flex items-center">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search TAPS..."
+                className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-zinc-300 rounded-full focus:outline-none focus:border-blue-600 text-zinc-800 placeholder-zinc-400 w-32 sm:w-44 transition-all shadow-2xs"
+              />
+              <svg
+                className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 pointer-events-none"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
-                <svg
-                  className="w-3.5 h-3.5 text-zinc-500 absolute left-2 pointer-events-none"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2.5"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+              </svg>
+            </form>
+
           </div>
         </div>
 
-        {/* MAIN NAVIGATION BAR (STATIC, NO ANIMATIONS) */}
-        <div
-          className={`w-full ${
-            isScrolled ? "py-1.5 sm:py-2" : "py-2 sm:py-2.5"
-          }`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
+        {/* ===================================================================== */}
+        {/* MAIN NAVIGATION BAR: Logo | Uppercase Nav Links | Apply Now Pill */}
+        {/* ===================================================================== */}
+        <div className="w-full py-2 sm:py-2.5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-6">
+            
             {/* LEFT: Official Trident Logo */}
             <div className="flex items-center gap-3 flex-shrink-0">
               <button
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden text-zinc-900 hover:text-black p-1 -ml-1"
+                className="lg:hidden text-zinc-900 hover:text-black p-1 -ml-1 cursor-pointer"
                 aria-label="Open Navigation Menu"
               >
                 <svg className="w-6 h-6 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +177,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 </svg>
               </button>
 
-              <Link href="/" className="flex items-center py-0.5" aria-label="Trident Academy Home">
+              <Link href="/" className="flex items-center" aria-label="Trident Academy Home">
                 <div className="flex-shrink-0">
                   <Image
                     src="/asset/logo.png"
@@ -190,25 +187,25 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                     priority
                     fetchPriority="high"
                     quality={100}
-                    className="h-8 sm:h-10 lg:h-11 w-auto object-contain block"
+                    className="h-8 sm:h-9 lg:h-10 w-auto object-contain block"
                   />
                 </div>
               </Link>
             </div>
 
-            {/* CENTER / DESKTOP: CLEAN STATIC NAVIGATION LINKS (NO ANIMATIONS) */}
-            <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-1 xl:px-2">
-              <nav aria-label="Main Navigation" className="flex items-center gap-1 xl:gap-1.5">
+            {/* CENTER / DESKTOP: BOLD UPPERCASE NAVIGATION LINKS */}
+            <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-2 xl:px-4">
+              <nav aria-label="Main Navigation" className="flex items-center gap-6 xl:gap-8">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`px-3 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-sm select-none ${
+                      className={`text-xs xl:text-sm font-bold tracking-wider select-none transition-colors ${
                         isActive
-                          ? "bg-blue-600 text-white font-bold"
-                          : "text-zinc-700 font-semibold hover:text-blue-700 hover:bg-zinc-100"
+                          ? "text-blue-600 font-extrabold"
+                          : "text-[#1E293B] hover:text-blue-600"
                       }`}
                     >
                       {item.label}
@@ -218,26 +215,23 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               </nav>
             </div>
 
-            {/* RIGHT: CALL TO ACTION "APPLY NOW" BUTTON */}
+            {/* RIGHT: GRADIENT "APPLY NOW" PILL BUTTON */}
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
+                type="button"
                 onClick={onOpenQuery}
-                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-[11px] sm:text-xs xl:text-sm tracking-wide px-3 sm:px-5 xl:px-6 py-1.5 sm:py-2.5 rounded-full shadow-sm cursor-pointer whitespace-nowrap"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xs sm:text-sm tracking-wide px-5 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 transition-all duration-200 cursor-pointer whitespace-nowrap active:scale-95"
               >
                 Apply Now
               </button>
             </div>
+
           </div>
         </div>
       </header>
 
       {/* HEADER SPACER: Offsets the page content so it starts right below the fixed navbar */}
-      <div
-        className={`w-full ${
-          isScrolled ? "h-16 sm:h-[72px]" : "h-20 sm:h-24 lg:h-[104px]"
-        }`}
-        aria-hidden="true"
-      />
+      <div className="w-full h-[76px] sm:h-[84px] lg:h-[92px]" aria-hidden="true" />
 
       {/* RESPONSIVE MOBILE DRAWER */}
       {mobileMenuOpen && (
@@ -262,11 +256,30 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-600 hover:text-black"
+                  className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-600 hover:text-black cursor-pointer"
                 >
                   ✕
                 </button>
               </div>
+
+              {/* Mobile Search */}
+              <form onSubmit={handleSearchSubmit} className="mt-4 relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search TAPS..."
+                  className="w-full pl-8 pr-3 py-2 text-xs bg-zinc-50 border border-zinc-300 rounded-full focus:outline-none focus:border-blue-600 text-zinc-800"
+                />
+                <svg
+                  className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </form>
 
               {/* Mobile Nav Links */}
               <div className="py-4 space-y-2 text-xs font-bold tracking-wider uppercase">
@@ -280,7 +293,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                       className={`block px-3 py-2.5 rounded-xl transition-colors ${
                         isActive
                           ? "bg-blue-600 text-white font-extrabold shadow-sm"
-                          : "text-zinc-800 hover:bg-zinc-100"
+                          : "text-[#1E293B] hover:bg-zinc-100"
                       }`}
                     >
                       {item.label}
@@ -292,11 +305,12 @@ export default function Header({ onOpenQuery }: HeaderProps) {
 
             <div className="pt-4 border-t border-zinc-200">
               <button
+                type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (onOpenQuery) onOpenQuery();
                 }}
-                className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold py-3 rounded-full text-center text-xs tracking-wider uppercase shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-purple-700 transition-colors"
+                className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold py-3 rounded-full text-center text-xs tracking-wider uppercase shadow-md shadow-blue-500/25 hover:from-blue-700 hover:to-purple-700 transition-colors cursor-pointer"
               >
                 Apply Online Now
               </button>
