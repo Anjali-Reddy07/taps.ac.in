@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import SpeedometerCounter from "@/components/SpeedometerCounter";
 
 interface GalleryItem {
   label: string;
@@ -58,6 +59,39 @@ export default function FacilitiesPage() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
   const [lightboxImage, setLightboxImage] = useState<CampusDriveSlide | null>(null);
+
+  // Dynamic Multi-Angle Hero Architecture Backgrounds
+  const [heroSlideIndex, setHeroSlideIndex] = useState<number>(0);
+  const heroBackgroundSlides = [
+    {
+      src: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
+      label: "11-Acre Technoplex Campus Complex",
+      tag: "INFOCITY PATIA TECH CORRIDOR",
+    },
+    {
+      src: "/images/drive_facilities/_dsc1828.jpg",
+      label: "Trident Academy Main Architectural Facade & Portico",
+      tag: "CENTRAL ACADEMIC ADMINISTRATION",
+    },
+    {
+      src: "/images/drive_facilities/_dsc1843.jpg",
+      label: "Four-Storeyed Modern Institutional Complex",
+      tag: "CAMPUS ARCHITECTURE & IT LABS",
+    },
+    {
+      src: "/images/facilities-concert-hero.jpg",
+      label: "Cultural Conclaves, Sports Meets & Campus Life",
+      tag: "VIBRANT STUDENT LIFE",
+    },
+  ];
+
+  // Auto-advance hero background slides smoothly
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlideIndex((prev) => (prev + 1) % heroBackgroundSlides.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [heroBackgroundSlides.length]);
 
   const facilities: Facility[] = [
     {
@@ -513,50 +547,196 @@ export default function FacilitiesPage() {
       <Header onOpenQuery={() => setIsModalOpen(true)} />
 
       <main className="flex-1">
-        {/* HERO BANNER: DARK VARIANT */}
+        {/* HERO BANNER: DYNAMIC MULTI-SCENE WITH KINETIC STATS */}
         <AnimatedBackground variant="dark" className="border-b border-zinc-800 relative overflow-hidden">
+          {/* Animated Ambient Aurora Color Orbs */}
+          <div className="absolute -top-24 -left-24 w-[600px] h-[600px] bg-gradient-to-tr from-blue-600/30 via-cyan-500/20 to-transparent rounded-full blur-[130px] pointer-events-none animate-pulse" />
+          <div className="absolute top-1/3 -right-24 w-[600px] h-[600px] bg-gradient-to-bl from-purple-600/25 via-pink-500/15 to-transparent rounded-full blur-[130px] pointer-events-none animate-pulse" />
+
+          {/* Dynamic Background Slideshow with Smooth Crossfade */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-            <Image
-              src="/images/facilities-concert-hero.jpg"
-              alt="TAPS Campus Fest, Cultural Performances & Student Life"
-              fill
-              priority
-              quality={92}
-              className="object-cover object-[68%_40%] filter contrast-105 saturate-110 opacity-95 scale-100"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-50% to-[#070D21]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={heroSlideIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroBackgroundSlides[heroSlideIndex].src}
+                  alt={heroBackgroundSlides[heroSlideIndex].label}
+                  fill
+                  priority
+                  quality={92}
+                  className="object-cover object-center filter contrast-105 saturate-110"
+                  sizes="100vw"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Gradient Overlays for High Contrast Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/85 via-55% to-[#070D21]/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/40" />
           </div>
 
-          <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
-            <div className="max-w-3xl animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900/90 border border-zinc-700/80 px-4 py-1.5 rounded-full shadow-2xs backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span>Campus Infrastructure &amp; Amenities</span>
-              </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
-                11-Acre Modern Technoplex in Infocity
-              </h1>
-              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
-                From high-density cloud computing labs to research libraries, tournament basketball hardcourts, and comfortable on-campus residential hostels,
-                TAPS provides a world-class environment designed for academic rigor, innovation, and holistic living.
-              </p>
+          <section className="relative z-10 py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+              
+              {/* Left Column: Headline, Narrative & Interactive CTAs */}
+              <div className="lg:col-span-7 space-y-6">
+                {/* Status Pill Badge */}
+                <div className="inline-flex items-center gap-2.5 text-xs font-mono font-bold tracking-widest uppercase px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-cyan-300 backdrop-blur-md shadow-lg">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300" />
+                  </span>
+                  <span>Campus Infrastructure &amp; Amenities</span>
+                  <span className="text-white/30 hidden sm:inline">•</span>
+                  <span className="text-white/80 font-medium hidden sm:inline">Infocity IT Corridor</span>
+                </div>
 
-              <div className="flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-300 shadow-md cursor-pointer hover-lift"
-                >
-                  Book a Campus Visit →
-                </button>
-                <Link
-                  href="/admission"
-                  className="px-6 py-3 rounded-full bg-zinc-900/90 text-zinc-200 border border-zinc-700 font-semibold text-sm hover:border-zinc-400 hover:text-white transition-all duration-300 backdrop-blur-sm"
-                >
-                  Admissions 2026 Guidelines
-                </Link>
+                {/* Animated Gradient Headline */}
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+                  <span className="bg-gradient-to-r from-white via-cyan-100 to-blue-300 bg-clip-text text-transparent">
+                    11-Acre Modern Technoplex
+                  </span>
+                  <br />
+                  <span className="font-light text-2xl sm:text-4xl lg:text-5xl text-zinc-200">
+                    in Infocity IT Corridor
+                  </span>
+                </h1>
+
+                <p className="text-sm sm:text-base lg:text-lg text-zinc-300 font-normal leading-relaxed max-w-2xl">
+                  Equipped with high-density cloud computing clusters, a 70,000+ volume IEEE central research library, 
+                  tournament basketball hardcourts, and 1,200-capacity in-campus residential pavilions flanking Bhubaneswar&apos;s global IT leaders.
+                </p>
+
+                {/* Action Row */}
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="relative group overflow-hidden px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-xs sm:text-sm shadow-xl shadow-blue-500/30 transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                    <span className="relative flex items-center gap-2">
+                      <span>Book a Campus Visit</span>
+                      <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
+                  </button>
+                  <Link
+                    href="/admission"
+                    className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs sm:text-sm backdrop-blur-md transition-all duration-300 shadow-md flex items-center gap-1.5"
+                  >
+                    <span>Admissions 2026 Guidelines</span>
+                    <span className="text-zinc-400">↗</span>
+                  </Link>
+                </div>
+
+                {/* Active Background Caption Indicator */}
+                <div className="pt-4 flex items-center gap-3 text-xs font-mono text-zinc-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>Viewing: {heroBackgroundSlides[heroSlideIndex].label}</span>
+                  <div className="flex items-center gap-1.5 ml-auto">
+                    {heroBackgroundSlides.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        type="button"
+                        onClick={() => setHeroSlideIndex(dotIdx)}
+                        className={`transition-all duration-300 rounded-full cursor-pointer ${
+                          heroSlideIndex === dotIdx
+                            ? "w-5 h-1.5 bg-cyan-400"
+                            : "w-1.5 h-1.5 bg-white/30 hover:bg-white/70"
+                        }`}
+                        aria-label={`View slide ${dotIdx + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* Right Column: Cardless Live Infrastructure Metric Stream */}
+              <div className="lg:col-span-5 grid grid-cols-2 gap-6 lg:gap-8 pt-4 lg:pt-0">
+                {/* Stat 1 */}
+                <div className="pl-4 border-l-2 border-cyan-400 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-cyan-300 group-hover:text-cyan-200 transition-colors">
+                    <SpeedometerCounter value="11" duration={1.5} /> Acres
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    Technoplex Complex
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    Infocity IT Hub, Chandaka
+                  </div>
+                </div>
+
+                {/* Stat 2 */}
+                <div className="pl-4 border-l-2 border-blue-500 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-blue-400 group-hover:text-blue-300 transition-colors">
+                    <SpeedometerCounter value="6" duration={1.5} /> Blocks
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    Academic Wings
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    Multi-Storey Lecture Pods
+                  </div>
+                </div>
+
+                {/* Stat 3 */}
+                <div className="pl-4 border-l-2 border-purple-500 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-purple-400 group-hover:text-purple-300 transition-colors">
+                    <SpeedometerCounter value="600+" duration={1.6} />
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    AI &amp; Cloud Terminals
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    1000 Mbps Gigabit LAN
+                  </div>
+                </div>
+
+                {/* Stat 4 */}
+                <div className="pl-4 border-l-2 border-amber-400 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-amber-300 group-hover:text-amber-200 transition-colors">
+                    <SpeedometerCounter value="1,200" duration={1.6} />
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    Hostel Residents
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    Sapphire &amp; Ruby Pavilions
+                  </div>
+                </div>
+
+                {/* Stat 5 */}
+                <div className="pl-4 border-l-2 border-emerald-400 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-emerald-300 group-hover:text-emerald-200 transition-colors">
+                    <SpeedometerCounter value="70,000+" duration={1.8} />
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    Library Volumes
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    IEEE, ACM &amp; ScienceDirect
+                  </div>
+                </div>
+
+                {/* Stat 6 */}
+                <div className="pl-4 border-l-2 border-rose-400 transition-all duration-300 hover:translate-x-1 group">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-rose-300 group-hover:text-rose-200 transition-colors">
+                    <SpeedometerCounter value="400" duration={1.5} /> Seats
+                  </div>
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                    Central Auditorium
+                  </div>
+                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                    Air-Conditioned Hall
+                  </div>
+                </div>
+              </div>
+
             </div>
           </section>
         </AnimatedBackground>
