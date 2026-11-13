@@ -32,11 +32,10 @@ export function Hero7({
   highlightText = "Suites & Recruiter Hub",
   description = "Explore our acoustically optimized GD suites, 600-terminal concurrent examination halls, and corporate interview lounges in a dynamic 3D rotating stage.",
   slides,
-  autoPlayInterval = 3800,
+  autoPlayInterval = 3600,
   className = "",
 }: Hero7Props) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const total = slides.length;
 
   const nextSlide = useCallback(() => {
@@ -47,16 +46,23 @@ export function Hero7({
     setActiveIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Autoplay timer
+  // Automated Continuous Loop: smoothly advances every autoPlayInterval without pausing on hover
   useEffect(() => {
-    if (!isAutoPlaying || total <= 1) return;
+    if (total <= 1) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % total);
     }, autoPlayInterval);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, total, autoPlayInterval]);
+  }, [total, autoPlayInterval, activeIndex]);
 
-  const activeSlide = slides[activeIndex];
+  // Calculate circular offset around a 3D cylindrical carousel
+  const getOffset = (idx: number) => {
+    let diff = (idx - activeIndex + total) % total;
+    if (diff > total / 2) {
+      diff -= total;
+    }
+    return diff;
+  };
 
   return (
     <div className={`relative py-8 sm:py-12 select-none ${className}`}>
@@ -84,20 +90,14 @@ export function Hero7({
         )}
       </div>
 
-      {/* 3D Rotating Carousel Stage with Perspective */}
-      <div 
-        onMouseEnter={() => setIsAutoPlaying(false)}
-        onMouseLeave={() => setIsAutoPlaying(true)}
-        className="relative max-w-5xl mx-auto px-4"
-      >
+      {/* 3D Rotating Carousel Stage with Perspective (Automated Infinite Loop) */}
+      <div className="relative max-w-5xl mx-auto px-4">
         <div className="relative h-80 sm:h-96 lg:h-[460px] w-full flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d]">
           {slides.map((slide, idx) => {
-            let offset = idx - activeIndex;
-            if (offset > total / 2) offset -= total;
-            if (offset < -total / 2) offset += total;
-
+            const offset = getOffset(idx);
             const isActive = offset === 0;
-            const isVisible = Math.abs(offset) <= 1 || (total <= 3);
+            const absOffset = Math.abs(offset);
+            const isVisible = absOffset <= 2;
 
             return (
               <motion.div
@@ -107,22 +107,33 @@ export function Hero7({
                 }}
                 initial={false}
                 animate={{
-                  x: offset === 0 ? "0%" : offset > 0 ? "46%" : "-46%",
-                  scale: offset === 0 ? 1 : 0.83,
-                  rotateY: offset === 0 ? 0 : offset > 0 ? -24 : 24,
-                  z: offset === 0 ? 45 : -70,
-                  opacity: offset === 0 ? 1 : isVisible ? 0.65 : 0,
-                  zIndex: offset === 0 ? 30 : 20 - Math.abs(offset),
+                  x:
+                    offset === 0
+                      ? "0%"
+                      : offset === 1
+                      ? "48%"
+                      : offset === -1
+                      ? "-48%"
+                      : offset === 2
+                      ? "78%"
+                      : offset === -2
+                      ? "-78%"
+                      : "0%",
+                  scale: offset === 0 ? 1 : absOffset === 1 ? 0.84 : 0.68,
+                  rotateY: offset === 0 ? 0 : offset > 0 ? -22 : 22,
+                  z: offset === 0 ? 50 : absOffset === 1 ? -50 : -140,
+                  opacity: offset === 0 ? 1 : absOffset === 1 ? 0.72 : isVisible ? 0.28 : 0,
+                  zIndex: offset === 0 ? 30 : 20 - absOffset * 5,
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 250,
+                  stiffness: 240,
                   damping: 26,
                 }}
-                className={`absolute inset-0 m-auto w-[82%] sm:w-[76%] lg:w-[68%] h-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
+                className={`absolute inset-0 m-auto w-[84%] sm:w-[78%] lg:w-[70%] h-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
                   isActive
                     ? "ring-2 ring-white/30 shadow-[0_25px_60px_-15px_rgba(59,130,246,0.35)]"
-                    : "hover:opacity-85"
+                    : "hover:opacity-90"
                 }`}
               >
                 <Image
@@ -130,7 +141,7 @@ export function Hero7({
                   alt={slide.title}
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 1024px) 90vw, 50vw"
+                  sizes="(max-width: 1024px) 90vw, 55vw"
                   priority={isActive}
                   quality={92}
                 />
@@ -159,7 +170,7 @@ export function Hero7({
                 {/* Active Slide Bottom Floating Glass Caption */}
                 {isActive && (
                   <div className="absolute bottom-5 left-5 right-5 z-20 text-white">
-                    <div className="p-4 rounded-2xl bg-black/70 backdrop-blur-md border border-white/15 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div className="p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-white/15 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
                         <div className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
@@ -216,7 +227,7 @@ export function Hero7({
         </div>
 
         {/* ========================================================================= */}
-        {/* REACT BITS PRO SIGNATURE GLOW BAR */}
+        {/* REACT BITS PRO SIGNATURE GLOW BAR (CONTINUOUS AUTOMATED LOOP) */}
         {/* ========================================================================= */}
         <div className="relative mt-8 sm:mt-10 max-w-3xl mx-auto px-4">
           {/* Outer Diffused Glow Layer */}
@@ -224,11 +235,11 @@ export function Hero7({
 
           {/* Primary High-Intensity Laser Glow Bar */}
           <div className="relative h-2 w-full rounded-full bg-zinc-200 overflow-hidden shadow-[0_0_20px_rgba(34,211,238,0.7)]">
-            {/* Animated Laser Track */}
+            {/* Animated Laser Track: Re-triggers on activeIndex to fill linearly across autoPlayInterval */}
             <motion.div
               key={`glow-fill-${activeIndex}`}
               initial={{ width: "0%" }}
-              animate={{ width: isAutoPlaying ? "100%" : "60%" }}
+              animate={{ width: "100%" }}
               transition={{ duration: autoPlayInterval / 1000, ease: "linear" }}
               className="h-full bg-gradient-to-r from-blue-600 via-cyan-400 via-indigo-500 to-purple-600 rounded-full shadow-[0_0_12px_rgba(34,211,238,1)]"
             />
