@@ -224,24 +224,24 @@ export default function PlacementsPage() {
               alt="TAPS Undergraduate Student in Campus Placement Interview"
               fill
               priority
-              quality={92}
-              className="object-cover object-[75%_30%] filter contrast-105 opacity-80 scale-100"
+              quality={95}
+              className="object-cover object-[75%_30%] filter contrast-105 opacity-95 scale-100"
               sizes="100vw"
             />
-            {/* Smooth one-sided scrim: deep dark on left for text legibility, clear and vibrant on right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/98 via-[#070D21]/80 via-50% to-[#070D21]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/60 via-transparent to-transparent" />
+            {/* Softened gradient mask allowing the full placement scene to be clearly visible while maintaining sharp text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/78 via-[#070D21]/50 via-50% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/35 via-transparent to-transparent" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900 border border-zinc-700 px-3.5 py-1 rounded-full shadow-2xs">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900/90 border border-zinc-700/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-xs">
                 Training &amp; Placement Cell
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
                 Where Undergraduate Ambition Meets Global Industry
               </h1>
-              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-zinc-200 font-light leading-relaxed mb-8 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
                 The Placement Cell of the Institute conducts extensive research on the recruitment process of numerous companies to guide its students to their preferred jobs in their area of specialization.
               </p>
 
