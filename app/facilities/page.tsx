@@ -47,7 +47,11 @@ interface CampusDriveSlide {
 export default function FacilitiesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFacilityId, setActiveFacilityId] = useState<string>("technoplex-block");
-  const [selectedGalleryImage, setSelectedGalleryImage] = useState<string | null>(null);
+  
+  // Interactive Studio Carousel state (automatic sliding one after one)
+  const [currentStudioImageIndex, setCurrentStudioImageIndex] = useState<number>(0);
+  const [studioSlideDirection, setStudioSlideDirection] = useState<number>(1);
+  const [isStudioAutoPlaying, setIsStudioAutoPlaying] = useState<boolean>(true);
 
   // 3D Cinematic Horizon Slider States
   const [galleryFilter, setGalleryFilter] = useState<string>("all");
@@ -76,6 +80,7 @@ export default function FacilitiesPage() {
         { label: "Main Entrance", src: "/images/drive_facilities/_dsc1828.jpg", caption: "Trident Academy of Creative Technology main entrance and portico" },
         { label: "Block 5 Complex", src: "/images/drive_facilities/_dsc1852.jpg", caption: "Block 5 housing Business Analytics, Sustainability & Placements" },
         { label: "Learning Circles", src: "/images/drive_facilities/_dsc1824.jpg", caption: "Trident Learning Circles hub and digital display screen" },
+        { label: "Campus Facade", src: "/images/drive_facilities/_dsc1843.jpg", caption: "Four-storeyed modern academic facility in Infocity IT corridor" },
       ],
       glow: "from-cyan-600/30 via-blue-500/20 to-transparent",
     },
@@ -95,6 +100,11 @@ export default function FacilitiesPage() {
         "Dedicated Power Backup with Central Online UPS Systems",
       ],
       image: "/images/drive/computer-lab.jpg",
+      gallery: [
+        { label: "AI Computing Lab", src: "/images/drive/computer-lab.jpg", caption: "600 high-performance workstations connected over 1000 Mbps gigabit LAN" },
+        { label: "Online Testing Lab", src: "/images/drive_third/Placement_examhalls.jpg", caption: "Specialized computer terminal testing halls for technical assessments" },
+        { label: "Hackathon Pods", src: "/images/drive_third/Placement_GD-Halls.jpg", caption: "Collaborative computing clusters for programming sprints & competitions" },
+      ],
       glow: "from-blue-600/30 via-cyan-500/20 to-transparent",
     },
     {
@@ -136,6 +146,12 @@ export default function FacilitiesPage() {
         "Interactive Digital Smart Boards & Cloud Archives",
       ],
       image: "/images/drive_third/ClassRooms_Academic.JPG",
+      gallery: [
+        { label: "Smart Classroom", src: "/images/drive_third/ClassRooms_Academic.JPG", caption: "Spacious air-conditioned smart classroom with faculty interaction" },
+        { label: "400-Seat Auditorium", src: "/images/drive_third/MBA_seminar_1.jpeg", caption: "Central air-conditioned auditorium hosting institutional symposiums" },
+        { label: "Lecture Theatre", src: "/images/drive_third/ClassRooms_carousel_.JPG", caption: "Tiered executive amphitheatre with high-definition digital displays" },
+        { label: "Seminar Hall", src: "/images/drive_third/MBA_Seminar_3.jpeg", caption: "Departmental executive seminar chambers for corporate workshops" },
+      ],
       glow: "from-indigo-600/30 via-purple-500/20 to-transparent",
     },
     {
@@ -154,6 +170,11 @@ export default function FacilitiesPage() {
         "Dedicated Literature Mining Terminals with High-Speed Internet",
       ],
       image: "/images/drive_third/Library_Library.JPG",
+      gallery: [
+        { label: "Central Library Wing", src: "/images/drive_third/Library_Library.JPG", caption: "Over 70,000 text and reference volumes across multi-storey stacks" },
+        { label: "Digital Research Pods", src: "/images/drive_third/Library_research.jpg", caption: "High-speed digital workstations for IEEE, ScienceDirect & ACM access" },
+        { label: "Reading Hall", src: "/images/drive_third/Library_Facilities12.JPG", caption: "Spacious air-conditioned quiet reading floors and literature archives" },
+      ],
       glow: "from-emerald-600/30 via-teal-500/20 to-transparent",
     },
     {
@@ -240,6 +261,10 @@ export default function FacilitiesPage() {
         "Close Proximity to Infocity Cafes (CCD, Barista, Berrys)",
       ],
       image: "/images/drive/cafeteria.jpg",
+      gallery: [
+        { label: "Central Cafeteria", src: "/images/drive/cafeteria.jpg", caption: "Multi-cuisine food court serving fresh meals and refreshments" },
+        { label: "Dining Pavilion", src: "/images/drive_third/Out_side_Class_Room_1744605959382.jpeg", caption: "Outdoor open-air dining and refreshment plaza on campus grounds" },
+      ],
       glow: "from-rose-600/30 via-red-500/20 to-transparent",
     },
     {
@@ -268,7 +293,33 @@ export default function FacilitiesPage() {
   ];
 
   const currentFacility = facilities.find((f) => f.id === activeFacilityId) || facilities[0];
-  const activeDisplayImage = selectedGalleryImage || currentFacility.image;
+  const currentFacilityGallery = currentFacility.gallery && currentFacility.gallery.length > 0
+    ? currentFacility.gallery
+    : [{ label: "Main View", src: currentFacility.image, caption: currentFacility.subtitle }];
+  
+  const safeStudioIndex = currentStudioImageIndex % currentFacilityGallery.length;
+  const activeSlideItem = currentFacilityGallery[safeStudioIndex];
+  const activeDisplayImage = activeSlideItem.src;
+
+  const nextStudioImage = useCallback(() => {
+    setStudioSlideDirection(1);
+    setCurrentStudioImageIndex((prev) => (prev + 1) % currentFacilityGallery.length);
+  }, [currentFacilityGallery.length]);
+
+  const prevStudioImage = useCallback(() => {
+    setStudioSlideDirection(-1);
+    setCurrentStudioImageIndex((prev) => (prev - 1 + currentFacilityGallery.length) % currentFacilityGallery.length);
+  }, [currentFacilityGallery.length]);
+
+  // Continuous auto-sliding one after one every 3.5 seconds
+  useEffect(() => {
+    if (!isStudioAutoPlaying || currentFacilityGallery.length <= 1) return;
+    const timer = setInterval(() => {
+      setStudioSlideDirection(1);
+      setCurrentStudioImageIndex((prev) => (prev + 1) % currentFacilityGallery.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [isStudioAutoPlaying, currentFacilityGallery.length, activeFacilityId]);
 
   // Real campus gallery slides from Google Drive with tailored futuristic visual tokens
   const campusDriveSlides: CampusDriveSlide[] = [
@@ -537,7 +588,8 @@ export default function FacilitiesPage() {
                     key={f.id}
                     onClick={() => {
                       setActiveFacilityId(f.id);
-                      setSelectedGalleryImage(null);
+                      setCurrentStudioImageIndex(0);
+                      setStudioSlideDirection(1);
                     }}
                     className={`relative px-4 py-2.5 rounded-full text-xs font-mono font-bold tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2 ${
                       isActive
@@ -569,25 +621,65 @@ export default function FacilitiesPage() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
               >
-                {/* Visual Half: Borderless Floating Canvas */}
+                {/* Visual Half: Borderless Floating Canvas with Sliding Images One After One */}
                 <div className="lg:col-span-7 relative group">
                   <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-40 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
                   
-                  <div className="relative h-72 sm:h-96 lg:h-[460px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950">
-                    <AnimatePresence mode="wait">
+                  <div 
+                    onMouseEnter={() => setIsStudioAutoPlaying(false)}
+                    onMouseLeave={() => setIsStudioAutoPlaying(true)}
+                    className="relative h-72 sm:h-96 lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group/slider"
+                  >
+                    {/* Live Progress Bar for Automatic Sliding Countdown */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 z-30 overflow-hidden">
+                      {isStudioAutoPlaying && (
+                        <motion.div
+                          key={`${activeFacilityId}-${safeStudioIndex}`}
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{ duration: 3.5, ease: "linear" }}
+                          className="h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-indigo-500"
+                        />
+                      )}
+                    </div>
+
+                    {/* Sliding Image Canvas with AnimatePresence */}
+                    <AnimatePresence initial={false} custom={studioSlideDirection} mode="popLayout">
                       <motion.div
-                        key={activeDisplayImage}
-                        initial={{ opacity: 0, scale: 1.02 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.35 }}
-                        className="absolute inset-0"
+                        key={activeSlideItem.src}
+                        custom={studioSlideDirection}
+                        variants={{
+                          enter: (direction: number) => ({
+                            x: direction > 0 ? "100%" : "-100%",
+                            opacity: 0,
+                          }),
+                          center: {
+                            x: 0,
+                            opacity: 1,
+                            transition: {
+                              x: { type: "spring", stiffness: 280, damping: 28 },
+                              opacity: { duration: 0.3 },
+                            },
+                          },
+                          exit: (direction: number) => ({
+                            x: direction < 0 ? "100%" : "-100%",
+                            opacity: 0,
+                            transition: {
+                              x: { type: "spring", stiffness: 280, damping: 28 },
+                              opacity: { duration: 0.3 },
+                            },
+                          }),
+                        }}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        className="absolute inset-0 w-full h-full"
                       >
                         <Image
-                          src={activeDisplayImage}
-                          alt={currentFacility.title}
+                          src={activeSlideItem.src}
+                          alt={activeSlideItem.caption || currentFacility.title}
                           fill
-                          className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                          className="object-cover object-center scale-100 transition-transform duration-700 ease-out"
                           sizes="(max-width: 1024px) 100vw, 60vw"
                           priority
                           quality={92}
@@ -595,26 +687,31 @@ export default function FacilitiesPage() {
                       </motion.div>
                     </AnimatePresence>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
-                    
+                    {/* Subtle Gradient Shade for Legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 pointer-events-none z-10" />
+
                     {/* Badge on Top Left */}
-                    <div className="absolute top-4 left-4 z-10">
+                    <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
                       <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
                         {currentFacility.badge}
+                      </span>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
+                        {safeStudioIndex + 1} / {currentFacilityGallery.length}
                       </span>
                     </div>
 
                     {/* Multi-Angle Gallery Switcher on Top Right */}
-                    {currentFacility.gallery && currentFacility.gallery.length > 1 && (
-                      <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
-                        {currentFacility.gallery.map((g) => {
-                          const isSelected = activeDisplayImage === g.src;
+                    {currentFacilityGallery.length > 1 && (
+                      <div className="absolute top-4 right-4 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
+                        {currentFacilityGallery.map((g, idx) => {
+                          const isSelected = safeStudioIndex === idx;
                           return (
                             <button
-                              key={g.label}
+                              key={g.label + idx}
                               onClick={(e) => {
                                 e.stopPropagation();
-                                setSelectedGalleryImage(g.src);
+                                setStudioSlideDirection(idx > safeStudioIndex ? 1 : -1);
+                                setCurrentStudioImageIndex(idx);
                               }}
                               className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
                                 isSelected
@@ -629,16 +726,75 @@ export default function FacilitiesPage() {
                       </div>
                     )}
 
-                    {/* Bottom Caption Overlay */}
-                    <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-                      <div className="text-xl sm:text-2xl font-bold tracking-tight mb-1 drop-shadow-md">
-                        {currentFacility.title}
+                    {/* Floating Prev / Next Arrow Controls */}
+                    {currentFacilityGallery.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            prevStudioImage();
+                          }}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-xl"
+                          aria-label="Previous Image"
+                        >
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            nextStudioImage();
+                          }}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-xl"
+                          aria-label="Next Image"
+                        >
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+                      </>
+                    )}
+
+                    {/* Bottom Floating Caption Overlay & Interactive Dots */}
+                    <div className="absolute bottom-5 left-5 right-5 text-white z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+                      <div className="max-w-md">
+                        <div className="text-lg sm:text-2xl font-bold tracking-tight mb-1 drop-shadow-md text-white">
+                          {currentFacility.title}
+                        </div>
+                        <div className="text-xs font-mono text-cyan-300 drop-shadow-sm flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                          <span>{activeSlideItem.caption || activeSlideItem.label}</span>
+                        </div>
                       </div>
-                      <div className="text-xs font-mono text-cyan-300">
-                        {selectedGalleryImage && currentFacility.gallery
-                          ? currentFacility.gallery.find((g) => g.src === selectedGalleryImage)?.caption
-                          : currentFacility.subtitle}
-                      </div>
+
+                      {/* Sliding Dot Indicators */}
+                      {currentFacilityGallery.length > 1 && (
+                        <div className="flex items-center gap-1.5 shrink-0 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
+                          {currentFacilityGallery.map((_, dotIdx) => {
+                            const isDotActive = safeStudioIndex === dotIdx;
+                            return (
+                              <button
+                                key={dotIdx}
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setStudioSlideDirection(dotIdx > safeStudioIndex ? 1 : -1);
+                                  setCurrentStudioImageIndex(dotIdx);
+                                }}
+                                className={`transition-all duration-300 cursor-pointer rounded-full ${
+                                  isDotActive
+                                    ? "w-6 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-sm"
+                                    : "w-2 h-2 bg-white/40 hover:bg-white/80"
+                                }`}
+                                aria-label={`Slide ${dotIdx + 1}`}
+                              />
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
