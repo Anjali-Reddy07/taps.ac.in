@@ -98,22 +98,22 @@ export default function FacilitiesPage() {
       id: "technoplex-block",
       num: "01",
       badge: "ACADEMIC BLOCKS",
-      title: "Trident Academy of Creative Technology Main Facade",
+      title: "Primary Academic Complex & Portico",
       subtitle: "Six Multi-Storey Blocks • Business Analytics & Placement Division",
       stat: "6 Blocks",
       statLabel: "Academic & Research Wings",
       spec: "The primary institution campus at Infocity housing undergraduate lecture complexes, the Center for Business Analytics, Center for Sustainability Research, corporate finishing schools, and specialized placement interview suites.",
       features: [
-        "Iconic Trident Academy of Creative Technology Primary Facade & Portico",
-        "Block-5 Center for Business Analytics & Sustainability Research",
-        "Central Corporate Training & Placement Interview Suites",
-        "Integrated Outdoor Digital Information Screen & Discussion Plazas",
+        "Primary Entrance & Executive Portico",
+        "Block-5 Center for Business Analytics & Research",
+        "Corporate Training & Placement Interview Suites",
+        "Digital Information Displays & Discussion Plazas",
       ],
       image: "/images/drive_facilities/_dsc1828.jpg",
       gallery: [
-        { label: "Main Entrance", src: "/images/drive_facilities/_dsc1828.jpg", caption: "Trident Academy of Creative Technology main entrance and portico" },
+        { label: "Main Entrance", src: "/images/drive_facilities/_dsc1828.jpg", caption: "Primary institution entrance and executive portico" },
         { label: "Block 5 Complex", src: "/images/drive_facilities/_dsc1852.jpg", caption: "Block 5 housing Business Analytics, Sustainability & Placements" },
-        { label: "Learning Circles", src: "/images/drive_facilities/_dsc1824.jpg", caption: "Trident Learning Circles hub and digital display screen" },
+        { label: "Learning Circles", src: "/images/drive_facilities/_dsc1824.jpg", caption: "Learning Circles hub and digital display screen" },
         { label: "Campus Facade", src: "/images/drive_facilities/_dsc1843.jpg", caption: "Four-storeyed modern academic facility in Infocity IT corridor" },
       ],
       glow: "from-cyan-600/30 via-blue-500/20 to-transparent",
@@ -801,177 +801,79 @@ export default function FacilitiesPage() {
                 transition={{ duration: 0.4 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
               >
-                {/* Visual Half: React Bits Pro "Hero 6" 3D Multi-Card Rotating Carousel with Progress Line */}
-                <div className="lg:col-span-7 relative group">
-                  <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-40 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
+                {/* Visual Half: Expansive Cinema Viewport with Smooth Perspective Transitions */}
+                <div className="lg:col-span-7 relative">
+                  {/* Subtle Background Glow */}
+                  <div className={`absolute -inset-4 rounded-3xl blur-3xl opacity-35 bg-gradient-to-tr ${currentFacility.glow} pointer-events-none`} />
 
-                  {/* Top Progress Line (Continuous Live Timer) */}
-                  <div className="relative mb-3 flex items-center gap-2 px-1">
-                    <div className="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden shadow-inner">
-                      <motion.div
-                        key={`hero6-line-${activeFacilityId}-${safeStudioIndex}`}
-                        initial={{ width: "0%" }}
-                        animate={{ width: isStudioAutoPlaying ? "100%" : "50%" }}
-                        transition={{ duration: 3.5, ease: "linear" }}
-                        className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"
-                      />
-                    </div>
-                    <span className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider shrink-0">
-                      0{safeStudioIndex + 1} / 0{currentFacilityGallery.length}
-                    </span>
-                  </div>
-
-                  {/* 3D Rotating Carousel Canvas (Hero 6 Multi-Card 3D Stage) */}
+                  {/* Main Architectural Viewport */}
                   <div 
                     onMouseEnter={() => setIsStudioAutoPlaying(false)}
                     onMouseLeave={() => setIsStudioAutoPlaying(true)}
-                    className="relative h-72 sm:h-96 lg:h-[480px] w-full flex items-center justify-center [perspective:1400px] [transform-style:preserve-3d] select-none"
+                    className="relative h-80 sm:h-96 lg:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 select-none group"
                   >
-                    {currentFacilityGallery.map((item, idx) => {
-                      const total = currentFacilityGallery.length;
-                      let offset = idx - safeStudioIndex;
-                      if (offset > total / 2) offset -= total;
-                      if (offset < -total / 2) offset += total;
+                    {/* Active Slide Image with Smooth Cinematic Crossfade */}
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeSlideItem.src}
+                        initial={{ opacity: 0, scale: 1.04 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="absolute inset-0 w-full h-full"
+                      >
+                        <Image
+                          src={activeSlideItem.src}
+                          alt={activeSlideItem.caption || currentFacility.title}
+                          fill
+                          className="object-cover object-center"
+                          sizes="(max-width: 1024px) 100vw, 58vw"
+                          priority
+                          quality={92}
+                        />
+                      </motion.div>
+                    </AnimatePresence>
 
-                      const isActive = offset === 0;
-                      const isVisible = Math.abs(offset) <= 1 || (total <= 3);
+                    {/* Gradient Shadows for High Legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
-                      return (
-                        <motion.div
-                          key={item.src}
-                          onClick={() => {
-                            if (!isActive) {
-                              setStudioSlideDirection(offset > 0 ? 1 : -1);
-                              setCurrentStudioImageIndex(idx);
-                            }
-                          }}
-                          initial={false}
-                          animate={{
-                            x: offset === 0 ? "0%" : offset > 0 ? "35%" : "-35%",
-                            scale: offset === 0 ? 1 : 0.84,
-                            rotateY: offset === 0 ? 0 : offset > 0 ? -24 : 24,
-                            z: offset === 0 ? 40 : -80,
-                            opacity: offset === 0 ? 1 : isVisible ? 0.65 : 0,
-                            zIndex: offset === 0 ? 30 : 20 - Math.abs(offset),
-                          }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 240,
-                            damping: 26,
-                          }}
-                          className={`absolute inset-0 m-auto w-[82%] sm:w-[86%] h-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
-                            isActive ? "ring-2 ring-white/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]" : "hover:opacity-90"
-                          }`}
-                        >
-                          <Image
-                            src={item.src}
-                            alt={item.caption || item.label}
-                            fill
-                            className="object-cover object-center"
-                            sizes="(max-width: 1024px) 100vw, 60vw"
-                            priority={isActive}
-                            quality={92}
-                          />
+                    {/* Top Left: Facility Category Badge */}
+                    <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
+                      <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
+                        {currentFacility.badge}
+                      </span>
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
+                        {currentFacility.num} / 10
+                      </span>
+                    </div>
 
-                          {/* Gradient Vignette for Legibility */}
-                          <div className={`absolute inset-0 transition-opacity duration-300 ${
-                            isActive ? "bg-gradient-to-t from-black/90 via-black/25 to-black/30" : "bg-black/55"
-                          }`} />
-
-                          {/* Badge & Monospace Counter on Active Slide */}
-                          {isActive && (
-                            <>
-                              <div className="absolute top-5 left-5 z-20 flex items-center gap-2">
-                                <span className="px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
-                                  {currentFacility.badge}
-                                </span>
-                                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
-                                  0{safeStudioIndex + 1} / 0{total}
-                                </span>
-                              </div>
-
-                              {/* Multi-Angle View Switcher on Active Slide */}
-                              {total > 1 && (
-                                <div className="absolute top-5 right-5 z-20 hidden sm:flex items-center gap-1.5 bg-black/75 backdrop-blur-md p-1.5 rounded-full border border-white/20 shadow-lg">
-                                  {currentFacilityGallery.map((g, gIdx) => {
-                                    const isSelected = safeStudioIndex === gIdx;
-                                    return (
-                                      <button
-                                        key={g.label + gIdx}
-                                        type="button"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          setStudioSlideDirection(gIdx > safeStudioIndex ? 1 : -1);
-                                          setCurrentStudioImageIndex(gIdx);
-                                        }}
-                                        className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                                          isSelected
-                                            ? "bg-white text-zinc-950 shadow-md scale-105"
-                                            : "text-zinc-300 hover:text-white hover:bg-white/10"
-                                        }`}
-                                      >
-                                        {g.label}
-                                      </button>
-                                    );
-                                  })}
-                                </div>
-                              )}
-
-                              {/* Bottom Floating Title & Caption */}
-                              <div className="absolute bottom-5 left-5 right-5 text-white z-20 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-                                <div className="max-w-md">
-                                  <div className="text-lg sm:text-2xl font-bold tracking-tight mb-1 drop-shadow-md text-white">
-                                    {currentFacility.title}
-                                  </div>
-                                  <div className="text-xs font-mono text-cyan-300 drop-shadow-sm flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                                    <span>{item.caption || item.label}</span>
-                                  </div>
-                                </div>
-
-                                <div className="flex items-center gap-1.5 shrink-0 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-                                  {currentFacilityGallery.map((_, dotIdx) => {
-                                    const isDotActive = safeStudioIndex === dotIdx;
-                                    return (
-                                      <button
-                                        key={dotIdx}
-                                        type="button"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          setStudioSlideDirection(dotIdx > safeStudioIndex ? 1 : -1);
-                                          setCurrentStudioImageIndex(dotIdx);
-                                        }}
-                                        className={`transition-all duration-300 cursor-pointer rounded-full ${
-                                          isDotActive
-                                            ? "w-6 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-sm"
-                                            : "w-2 h-2 bg-white/40 hover:bg-white/80"
-                                        }`}
-                                        aria-label={`Slide ${dotIdx + 1}`}
-                                      />
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            </>
-                          )}
-                        </motion.div>
-                      );
-                    })}
-
-                    {/* Left / Right Rotating Controls */}
+                    {/* Top Right: Minimal Slide Indicator */}
                     {currentFacilityGallery.length > 1 && (
-                      <>
+                      <div className="absolute top-5 right-5 z-20 flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                        <span className="text-[10px] font-mono font-bold text-white">
+                          0{safeStudioIndex + 1}
+                        </span>
+                        <span className="text-[10px] font-mono text-zinc-400">/</span>
+                        <span className="text-[10px] font-mono text-zinc-400">
+                          0{currentFacilityGallery.length}
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Left / Right Arrow Controls (Minimal Floating) */}
+                    {currentFacilityGallery.length > 1 && (
+                      <div className="absolute inset-y-0 inset-x-3 flex items-center justify-between pointer-events-none z-20">
                         <button
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
                             prevStudioImage();
                           }}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/70 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
-                          aria-label="Rotate Previous"
+                          className="w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 pointer-events-auto cursor-pointer hover:scale-105 active:scale-95 shadow-lg"
+                          aria-label="Previous Perspective"
                         >
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                           </svg>
                         </button>
                         <button
@@ -980,127 +882,150 @@ export default function FacilitiesPage() {
                             e.stopPropagation();
                             nextStudioImage();
                           }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/70 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
-                          aria-label="Rotate Next"
+                          className="w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 pointer-events-auto cursor-pointer hover:scale-105 active:scale-95 shadow-lg"
+                          aria-label="Next Perspective"
                         >
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </button>
-                      </>
+                      </div>
                     )}
+
+                    {/* Bottom Floating Glass Plate: Perspective Name & Description */}
+                    <div className="absolute bottom-5 left-5 right-5 z-20">
+                      <div className="p-4 rounded-2xl bg-black/65 backdrop-blur-md border border-white/15 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl">
+                        <div>
+                          <div className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                            <span>{activeSlideItem.label}</span>
+                          </div>
+                          <div className="text-xs text-zinc-300 font-light mt-0.5 line-clamp-1">
+                            {activeSlideItem.caption}
+                          </div>
+                        </div>
+
+                        {/* Interactive Dots for Direct Navigation */}
+                        {currentFacilityGallery.length > 1 && (
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            {currentFacilityGallery.map((_, dotIdx) => {
+                              const isDotActive = safeStudioIndex === dotIdx;
+                              return (
+                                <button
+                                  key={dotIdx}
+                                  type="button"
+                                  onClick={() => setCurrentStudioImageIndex(dotIdx)}
+                                  className={`transition-all duration-300 rounded-full cursor-pointer ${
+                                    isDotActive
+                                      ? "w-6 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-500 shadow-sm"
+                                      : "w-1.5 h-1.5 bg-white/40 hover:bg-white/80"
+                                  }`}
+                                  aria-label={`Go to slide ${dotIdx + 1}`}
+                                />
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Razor-Thin Bottom Countdown Progress Line */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/15 z-30">
+                      <motion.div
+                        key={`line-${activeFacilityId}-${safeStudioIndex}`}
+                        initial={{ width: "0%" }}
+                        animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
+                        transition={{ duration: 3.5, ease: "linear" }}
+                        className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 shadow-[0_0_8px_rgba(34,211,238,0.9)]"
+                      />
+                    </div>
                   </div>
 
-                  {/* React Bits Pro "Hero 6" Multi-Track Segmented Progress Station */}
+                  {/* Clean Multi-Perspective Selector Dock (Directly Beneath Viewport) */}
                   {currentFacilityGallery.length > 1 && (
-                    <div className="mt-4 pt-3 border-t border-zinc-200/80">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-600 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                          Hero 6 Progress Station ({safeStudioIndex + 1}/{currentFacilityGallery.length})
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setIsStudioAutoPlaying(!isStudioAutoPlaying)}
-                          className="text-[10px] font-mono font-semibold text-zinc-500 hover:text-zinc-800 transition-colors flex items-center gap-1 cursor-pointer"
-                        >
-                          <span>{isStudioAutoPlaying ? "⏸ Pause Track" : "▶ Resume Auto"}</span>
-                        </button>
-                      </div>
-
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                        {currentFacilityGallery.map((slide, sIdx) => {
-                          const isPast = sIdx < safeStudioIndex;
-                          const isCurrent = sIdx === safeStudioIndex;
-                          return (
-                            <button
-                              key={slide.label + sIdx}
-                              type="button"
-                              onClick={() => {
-                                setStudioSlideDirection(sIdx > safeStudioIndex ? 1 : -1);
-                                setCurrentStudioImageIndex(sIdx);
-                              }}
-                              className="text-left group/track p-1.5 rounded-lg hover:bg-zinc-50 transition-colors cursor-pointer"
-                            >
-                              {/* Hero 6 Track Progress Line */}
-                              <div className="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden mb-1.5">
-                                {isPast && (
-                                  <div className="h-full w-full bg-blue-600 rounded-full" />
-                                )}
-                                {isCurrent && (
-                                  <motion.div
-                                    key={`sub-progress-${activeFacilityId}-${safeStudioIndex}`}
-                                    initial={{ width: "0%" }}
-                                    animate={{ width: isStudioAutoPlaying ? "100%" : "60%" }}
-                                    transition={{ duration: 3.5, ease: "linear" }}
-                                    className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"
-                                  />
-                                )}
-                              </div>
-                              {/* Track Index and Slide Label */}
-                              <div className="flex items-center gap-1.5">
-                                <span className={`text-[10px] font-mono font-bold transition-colors ${
-                                  isCurrent ? "text-blue-600" : "text-zinc-600 group-hover/track:text-zinc-600"
-                                }`}>
-                                  0{sIdx + 1}
-                                </span>
-                                <span className={`text-xs truncate transition-colors ${
-                                  isCurrent ? "text-zinc-950 font-bold" : "text-zinc-500 group-hover/track:text-zinc-700 font-medium"
-                                }`}>
-                                  {slide.label}
-                                </span>
-                              </div>
-                            </button>
-                          );
-                        })}
-                      </div>
+                    <div className="mt-3.5 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                      {currentFacilityGallery.map((g, gIdx) => {
+                        const isSelected = safeStudioIndex === gIdx;
+                        return (
+                          <button
+                            key={g.label + gIdx}
+                            type="button"
+                            onClick={() => setCurrentStudioImageIndex(gIdx)}
+                            className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+                              isSelected
+                                ? "bg-zinc-900 text-white shadow-md scale-102 font-bold"
+                                : "text-zinc-600 hover:text-zinc-900 bg-zinc-100 hover:bg-zinc-200/80"
+                            }`}
+                          >
+                            <span className={isSelected ? "text-cyan-400" : "text-zinc-400"}>0{gIdx + 1}</span>
+                            <span>{g.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
 
-                {/* Narrative Half: Open Typography & Floating Specifications */}
+                {/* Narrative Half: Open Editorial Typography & Feature Matrix */}
                 <div className="lg:col-span-5 space-y-6">
                   <div>
+                    {/* Large Prominent Metric */}
                     <div className="flex items-baseline gap-3 mb-2">
-                      <span className="text-4xl sm:text-5xl font-mono font-black text-blue-600">
+                      <span className="text-4xl sm:text-5xl font-mono font-black text-blue-600 tracking-tight">
                         {currentFacility.stat}
                       </span>
                       <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest font-semibold">
                         {currentFacility.statLabel}
                       </span>
                     </div>
-                    
+
+                    {/* Headline */}
                     <h3 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-snug">
                       {currentFacility.title}
                     </h3>
+                    <p className="text-xs font-mono text-blue-600 mt-1 font-semibold tracking-wide">
+                      {currentFacility.subtitle}
+                    </p>
                   </div>
 
+                  {/* Description */}
                   <p className="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal">
                     {currentFacility.spec}
                   </p>
 
-                  {/* Specification Lines */}
-                  <div className="pt-4 border-t border-zinc-200/80 space-y-3">
-                    <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-400">
-                      Technical &amp; Living Capabilities
+                  {/* 2x2 Clean Capability Tiles */}
+                  <div className="pt-2">
+                    <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-zinc-400 mb-3">
+                      Core Technical &amp; Living Capabilities
                     </div>
-                    <div className="space-y-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {currentFacility.features.map((feat, idx) => (
-                        <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-800">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
-                          <span className="leading-snug">{feat}</span>
+                        <div 
+                          key={idx} 
+                          className="p-3 rounded-xl bg-zinc-50 border border-zinc-200/70 hover:border-blue-300 hover:bg-blue-50/30 transition-all duration-200"
+                        >
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                            <span className="text-[10px] font-mono font-bold uppercase text-zinc-500">
+                              Feature 0{idx + 1}
+                            </span>
+                          </div>
+                          <div className="text-xs font-medium text-zinc-800 leading-snug">
+                            {feat}
+                          </div>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-2 flex items-center gap-4">
+                  {/* CTA Action */}
+                  <div className="pt-2">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 group cursor-pointer"
+                      className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-zinc-950 hover:bg-blue-600 text-white text-xs font-bold transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer group"
                     >
                       <span>Inquire About Facility Access</span>
-                      <span className="group-hover:translate-x-1.5 transition-transform duration-200">→</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                     </button>
                   </div>
                 </div>
