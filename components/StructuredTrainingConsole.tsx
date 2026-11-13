@@ -161,7 +161,7 @@ export default function StructuredTrainingConsole({
         {/* Background Connecting High-Tech Laser Tube */}
         <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-0.5 bg-zinc-200/60 hidden md:block" />
 
-        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
           {phases.map((phase, idx) => {
             const isCurrent = activePhase === idx && !showFullRoadmap;
             return (
@@ -174,7 +174,7 @@ export default function StructuredTrainingConsole({
                   setIsPlaying(false);
                   setExpandedModule(null);
                 }}
-                className={`relative p-4 sm:p-4.5 rounded-2xl text-left transition-all duration-300 cursor-pointer group overflow-hidden backdrop-blur-md ${
+                className={`relative p-3 sm:p-4.5 rounded-xl sm:rounded-2xl text-left transition-all duration-300 cursor-pointer group overflow-hidden backdrop-blur-md ${
                   isCurrent
                     ? "bg-zinc-950 text-white shadow-xl scale-[1.02] ring-2 ring-blue-500/80"
                     : "bg-gradient-to-br from-white/55 via-white/30 to-white/10 hover:from-white/75 hover:via-white/45 hover:to-white/20 border border-white/60 text-zinc-900 shadow-xs hover:shadow-md"

@@ -269,7 +269,7 @@ export default function AdmissionPage() {
               </div>
 
               {/* Right Column: Telemetry Statistics Cards (Partially Dissolved Frosted Glass) */}
-              <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-3.5">
+              <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
                 <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/15 backdrop-blur-md shadow-xl">
                   <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-300 mb-1 flex items-center justify-between">
                     <span>UTKAL AFFILIATION</span>
@@ -432,7 +432,7 @@ export default function AdmissionPage() {
                             <label className="block text-xs font-mono font-bold text-zinc-800 mb-2 uppercase tracking-wider">
                               Select Target Undergraduate Degree *
                             </label>
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                               <button
                                 type="button"
                                 onClick={() => setFormData({ ...formData, course: "BCA" })}

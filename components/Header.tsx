@@ -44,7 +44,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             
             {/* Left: 6 Social Media Icons */}
-            <div className="flex items-center gap-2 sm:gap-3 text-zinc-600">
+            <div className="flex items-center gap-1.5 sm:gap-3 text-zinc-600 shrink-0">
               {/* Facebook */}
               <a
                 href="https://facebook.com"
@@ -139,7 +139,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search TAPS..."
-                className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-zinc-300 rounded-full focus:outline-none focus:border-blue-600 text-zinc-800 placeholder-zinc-400 w-32 sm:w-44 transition-all shadow-2xs"
+                className="pl-7 pr-3 py-0.5 text-[11px] bg-white border border-zinc-300 rounded-full focus:outline-none focus:border-blue-600 text-zinc-800 placeholder-zinc-400 w-28 sm:w-44 transition-all shadow-2xs"
               />
               <svg
                 className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 pointer-events-none"
@@ -229,7 +229,7 @@ export default function Header({ onOpenQuery }: HeaderProps) {
               <button
                 type="button"
                 onClick={onOpenQuery}
-                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xs sm:text-sm tracking-wide px-5 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 transition-all duration-200 cursor-pointer whitespace-nowrap active:scale-95"
+                className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xs sm:text-sm tracking-wide px-3.5 sm:px-6 py-1.5 sm:py-2.5 rounded-full shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 transition-all duration-200 cursor-pointer whitespace-nowrap active:scale-95"
               >
                 Apply Now
               </button>

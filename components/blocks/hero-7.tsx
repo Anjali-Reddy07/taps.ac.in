@@ -68,10 +68,10 @@ export function Hero7({
   };
 
   return (
-    <div className={`relative py-8 sm:py-12 select-none ${className}`}>
+    <div className={`relative py-8 sm:py-12 select-none overflow-hidden ${className}`}>
       
       {/* Header Block */}
-      <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 px-4 animate-fadeInUp">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14 px-4 animate-fadeInUp">
         {badge && (
           <div className={`inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-bold mb-3.5 px-4 py-1.5 rounded-full shadow-2xs ${
             isDark
@@ -93,7 +93,7 @@ export function Hero7({
         </h2>
 
         {description && (
-          <p className={`text-sm sm:text-base mt-3.5 font-normal leading-relaxed max-w-2xl mx-auto ${
+          <p className={`text-xs sm:text-base mt-3 sm:mt-3.5 font-normal leading-relaxed max-w-2xl mx-auto ${
             isDark ? "text-zinc-300" : "text-zinc-600"
           }`}>
             {description}
@@ -101,9 +101,9 @@ export function Hero7({
         )}
       </div>
 
-      {/* 3D Rotating Carousel Stage with Perspective (Automated Infinite Loop) */}
-      <div className="relative max-w-5xl mx-auto px-4">
-        <div className="relative h-80 sm:h-96 lg:h-[460px] w-full flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d]">
+      {/* 3D Rotating Carousel Stage with Perspective (Responsive for All Devices) */}
+      <div className="relative max-w-5xl mx-auto px-2 sm:px-4 overflow-hidden">
+        <div className="relative h-72 sm:h-96 lg:h-[460px] w-full flex items-center justify-center [perspective:900px] sm:[perspective:1200px] [transform-style:preserve-3d]">
           {slides.map((slide, idx) => {
             const offset = getOffset(idx);
             const isActive = offset === 0;
@@ -122,18 +122,18 @@ export function Hero7({
                     offset === 0
                       ? "0%"
                       : offset === 1
-                      ? "48%"
+                      ? "42%"
                       : offset === -1
-                      ? "-48%"
+                      ? "-42%"
                       : offset === 2
-                      ? "78%"
+                      ? "70%"
                       : offset === -2
-                      ? "-78%"
+                      ? "-70%"
                       : "0%",
                   scale: offset === 0 ? 1 : absOffset === 1 ? 0.84 : 0.68,
-                  rotateY: offset === 0 ? 0 : offset > 0 ? -22 : 22,
+                  rotateY: offset === 0 ? 0 : offset > 0 ? -20 : 20,
                   z: offset === 0 ? 50 : absOffset === 1 ? -50 : -140,
-                  opacity: offset === 0 ? 1 : absOffset === 1 ? 0.72 : isVisible ? 0.28 : 0,
+                  opacity: offset === 0 ? 1 : absOffset === 1 ? 0.72 : isVisible ? 0.25 : 0,
                   zIndex: offset === 0 ? 30 : 20 - absOffset * 5,
                 }}
                 transition={{
@@ -141,7 +141,7 @@ export function Hero7({
                   stiffness: 240,
                   damping: 26,
                 }}
-                className={`absolute inset-0 m-auto w-[84%] sm:w-[78%] lg:w-[70%] h-full rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
+                className={`absolute inset-0 m-auto w-[88%] sm:w-[78%] lg:w-[70%] h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 cursor-pointer origin-center transition-shadow duration-300 ${
                   isActive
                     ? "ring-2 ring-white/30 shadow-[0_25px_60px_-15px_rgba(59,130,246,0.35)]"
                     : "hover:opacity-90"
@@ -152,7 +152,7 @@ export function Hero7({
                   alt={slide.title}
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 1024px) 90vw, 55vw"
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 80vw, 55vw"
                   priority={isActive}
                   quality={92}
                 />
@@ -167,12 +167,12 @@ export function Hero7({
                 />
 
                 {/* Tag & Monospace Index on Top */}
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-widest bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
+                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-20 flex items-center gap-1.5 sm:gap-2">
+                  <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest bg-black/75 backdrop-blur-md text-cyan-300 border border-white/20 shadow-md">
                     {slide.tag}
                   </span>
                   {slide.metric && (
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
+                    <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/10">
                       {slide.metric}
                     </span>
                   )}
@@ -180,20 +180,20 @@ export function Hero7({
 
                 {/* Active Slide Bottom Floating Glass Caption */}
                 {isActive && (
-                  <div className="absolute bottom-5 left-5 right-5 z-20 text-white">
-                    <div className="p-4 rounded-2xl bg-black/75 backdrop-blur-md border border-white/15 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div>
-                        <div className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                          <span>{slide.title}</span>
+                  <div className="absolute bottom-3 sm:bottom-5 left-3 sm:left-5 right-3 sm:right-5 z-20 text-white">
+                    <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-black/80 backdrop-blur-md border border-white/15 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
+                      <div className="min-w-0">
+                        <div className="text-sm sm:text-lg font-bold text-white tracking-tight flex items-center gap-2 truncate">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
+                          <span className="truncate">{slide.title}</span>
                         </div>
-                        <div className="text-xs text-zinc-300 font-light mt-0.5 line-clamp-2">
+                        <div className="text-[11px] sm:text-xs text-zinc-300 font-light mt-0.5 line-clamp-1 sm:line-clamp-2">
                           {slide.desc}
                         </div>
                       </div>
 
-                      <div className="shrink-0 flex items-center gap-1.5">
-                        <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800">
+                      <div className="shrink-0 flex items-center gap-1.5 self-end sm:self-auto">
+                        <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-800">
                           0{activeIndex + 1} / 0{total}
                         </span>
                       </div>
@@ -213,10 +213,10 @@ export function Hero7({
                   e.stopPropagation();
                   prevSlide();
                 }}
-                className="absolute left-1 sm:-left-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
+                className="absolute left-1 sm:-left-2 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
                 aria-label="Previous Slide"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
@@ -226,10 +226,10 @@ export function Hero7({
                   e.stopPropagation();
                   nextSlide();
                 }}
-                className="absolute right-1 sm:-right-3 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
+                className="absolute right-1 sm:-right-2 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/75 hover:bg-black text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-all duration-200 cursor-pointer hover:scale-110 active:scale-95 shadow-2xl"
                 aria-label="Next Slide"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -240,7 +240,7 @@ export function Hero7({
         {/* ========================================================================= */}
         {/* REACT BITS PRO SIGNATURE GLOW BAR (CONTINUOUS AUTOMATED LOOP) */}
         {/* ========================================================================= */}
-        <div className="relative mt-8 sm:mt-10 max-w-3xl mx-auto px-4">
+        <div className="relative mt-7 sm:mt-10 max-w-3xl mx-auto px-4">
           {/* Outer Diffused Glow Layer */}
           <div className="absolute inset-0 -top-2 h-6 bg-gradient-to-r from-blue-500/50 via-cyan-400/70 via-indigo-500/60 to-purple-600/50 rounded-full blur-xl opacity-80 pointer-events-none animate-pulse" />
 
@@ -260,8 +260,8 @@ export function Hero7({
           <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-48 h-3 bg-cyan-300 rounded-full blur-md opacity-90 pointer-events-none" />
         </div>
 
-        {/* Interactive Segment Badges Directly Under Glow Bar */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        {/* Interactive Segment Badges Directly Under Glow Bar (Scrollable on Mobile) */}
+        <div className="mt-5 sm:mt-6 flex items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-none px-2 max-w-full">
           {slides.map((s, sIdx) => {
             const isSelected = activeIndex === sIdx;
             return (
@@ -269,7 +269,7 @@ export function Hero7({
                 key={s.id || sIdx}
                 type="button"
                 onClick={() => setActiveIndex(sIdx)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+                className={`px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold transition-all duration-300 cursor-pointer whitespace-nowrap shrink-0 flex items-center gap-1.5 sm:gap-2 ${
                   isSelected
                     ? isDark
                       ? "bg-white text-black shadow-lg scale-105 ring-2 ring-cyan-400"
