@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import TactFooter from "@/components/TactFooter";
 import QueryModal from "@/components/QueryModal";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import { Download7 } from "@/components/blocks/download-7";
 
 export default function ContactPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -290,6 +291,20 @@ export default function ContactPage() {
             </div>
 
           </section>
+        </AnimatedBackground>
+
+        {/* REACT BITS PRO: DOWNLOAD 7 (MOBILE APP HERO WITH STORE BADGES) */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <Download7
+            badge="MOBILE APP • CAMPUS CONNECT"
+            title="Download the Official TAPS"
+            highlightText="Mobile Portal"
+            description="Access real-time lecture timetables, automated attendance logs, university semester exam admit cards, live college bus GPS tracking, and 24/7 direct communication with academic advisors."
+            appStoreUrl="https://apps.apple.com"
+            playStoreUrl="https://play.google.com"
+            rating="4.9"
+            reviewCount="3,800+"
+          />
         </AnimatedBackground>
 
         {/* TRANSIT GUIDE: LIGHT VARIANT (CARDLESS OPEN RAIL) */}
