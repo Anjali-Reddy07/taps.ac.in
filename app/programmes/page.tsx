@@ -1304,26 +1304,26 @@ export default function ProgrammesPage() {
                     Utkal University Eligibility Guidelines for {current.code}
                   </h3>
 
-                  <div className="space-y-4 text-xs sm:text-sm text-zinc-700">
-                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
-                      <strong className="block text-zinc-950 font-bold mb-1">Qualifying Examination:</strong>
-                      <span>{current.eligibility.qualification}</span>
+                  <div className="space-y-4 text-xs sm:text-sm text-zinc-700 pt-2 border-t border-zinc-200/80">
+                    <div className="pl-4 border-l-2 border-blue-500 py-1 space-y-0.5">
+                      <strong className="block text-zinc-950 font-bold">Qualifying Examination:</strong>
+                      <span className="text-zinc-600">{current.eligibility.qualification}</span>
                     </div>
-                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
-                      <strong className="block text-zinc-950 font-bold mb-1">Recognized Educational Boards:</strong>
-                      <span>{current.eligibility.board}</span>
+                    <div className="pl-4 border-l-2 border-indigo-500 py-1 space-y-0.5">
+                      <strong className="block text-zinc-950 font-bold">Recognized Educational Boards:</strong>
+                      <span className="text-zinc-600">{current.eligibility.board}</span>
                     </div>
-                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
-                      <strong className="block text-zinc-950 font-bold mb-1">Minimum Qualifying Marks:</strong>
-                      <span>{current.eligibility.marks}</span>
+                    <div className="pl-4 border-l-2 border-purple-500 py-1 space-y-0.5">
+                      <strong className="block text-zinc-950 font-bold">Minimum Qualifying Marks:</strong>
+                      <span className="text-zinc-600">{current.eligibility.marks}</span>
                     </div>
-                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
-                      <strong className="block text-zinc-950 font-bold mb-1">Subject Preferences:</strong>
-                      <span>{current.eligibility.preferred}</span>
+                    <div className="pl-4 border-l-2 border-emerald-500 py-1 space-y-0.5">
+                      <strong className="block text-zinc-950 font-bold">Subject Preferences:</strong>
+                      <span className="text-zinc-600">{current.eligibility.preferred}</span>
                     </div>
-                    <div className="p-4 rounded-2xl bg-zinc-50 border border-zinc-200">
-                      <strong className="block text-zinc-950 font-bold mb-1">Selection Norms:</strong>
-                      <span>{current.eligibility.process}</span>
+                    <div className="pl-4 border-l-2 border-cyan-500 py-1 space-y-0.5">
+                      <strong className="block text-zinc-950 font-bold">Selection Norms:</strong>
+                      <span className="text-zinc-600">{current.eligibility.process}</span>
                     </div>
                   </div>
 
@@ -1438,12 +1438,12 @@ export default function ProgrammesPage() {
                   </div>
                 </div>
 
-                {/* Career Track Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Career Tracks Stream (Cardless Open Flow) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80 pt-6 border-t border-zinc-200/80">
                   {current.careers.map((c, idx) => (
                     <div
                       key={idx}
-                      className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                      className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0 flex flex-col justify-between"
                     >
                       <div>
                         <div className="flex items-center justify-between gap-2 text-[10px] font-mono tracking-widest uppercase text-zinc-500 mb-3">
@@ -1453,7 +1453,7 @@ export default function ProgrammesPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-base font-bold text-zinc-950 mb-2">
+                        <h3 className="text-lg font-bold text-zinc-950 mb-2">
                           {c.role}
                         </h3>
 

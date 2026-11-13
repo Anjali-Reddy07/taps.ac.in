@@ -153,10 +153,10 @@ export default function AdmissionPage() {
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               
-              {/* Left Column: Interactive Admission Enquiry Form */}
-              <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs animate-fadeInUp">
-                <div className="border-b border-zinc-100 pb-6 mb-8">
-                  <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+              {/* Left Column: Interactive Admission Enquiry Form (Cardless Open Stream) */}
+              <div className="lg:col-span-7 pt-2 lg:pt-0 animate-fadeInUp">
+                <div className="border-b border-zinc-200 pb-4 mb-6">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-blue-700 mb-2">
                     Online Lead Registration
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
@@ -168,8 +168,8 @@ export default function AdmissionPage() {
                 </div>
 
                 {isSubmitted ? (
-                  <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200 text-center space-y-4">
-                    <div className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mx-auto text-xl">
+                  <div className="py-10 text-center space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto text-xl shadow-md">
                       ✓
                     </div>
                     <h3 className="text-xl font-medium text-zinc-950">
@@ -401,24 +401,23 @@ export default function AdmissionPage() {
                   </h2>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 pt-4 border-t border-zinc-200/80">
                   {steps.map((st, idx) => (
                     <motion.div
                       key={st.step}
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: idx * 0.1 }}
-                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className="p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-indigo-400 hover:shadow-lg transition-all duration-300 relative group card-sheen"
+                      transition={{ duration: 0.4, delay: idx * 0.08 }}
+                      className="pl-5 border-l-2 border-indigo-300 hover:border-blue-600 transition-colors py-2 group cursor-default"
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200/60">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-indigo-700">
                           STEP {st.step}
                         </span>
-                        <span className="w-2 h-2 rounded-full bg-blue-600 group-hover:scale-125 transition-transform" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                       </div>
-                      <h3 className="text-base font-bold text-zinc-950 mb-2 group-hover:text-blue-700 transition-colors">
+                      <h3 className="text-base font-bold text-zinc-950 mb-1 group-hover:text-blue-700 transition-colors">
                         {st.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
@@ -450,18 +449,18 @@ export default function AdmissionPage() {
               </p>
             </div>
 
-            {/* Fee Tables Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Fee Tables Grid (Cardless Open Comparison Spread) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-indigo-100 pt-6 border-t border-indigo-100/80 mb-12">
               
-              {/* BBA Fee Card */}
-              <div className="p-8 rounded-3xl bg-white border border-indigo-100 shadow-md hover:border-blue-400 transition-all card-sheen">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              {/* BBA Fee Column */}
+              <div className="py-6 lg:py-2 px-0 lg:px-8 first:pl-0">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700">
                     4-YEAR COURSE • 8 SEMESTERS
                   </span>
                   <span className="text-xs font-semibold text-slate-500">Utkal University</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-950 mb-2">
+                <h3 className="text-2xl font-bold text-slate-950 mb-2">
                   Bachelor of Business Administration (BBA)
                 </h3>
                 <p className="text-xs text-slate-600 mb-6">
@@ -489,15 +488,15 @@ export default function AdmissionPage() {
                 </div>
               </div>
 
-              {/* BCA Fee Card */}
-              <div className="p-8 rounded-3xl bg-white border border-indigo-100 shadow-md hover:border-blue-400 transition-all card-sheen">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+              {/* BCA Fee Column */}
+              <div className="py-6 lg:py-2 px-0 lg:px-8 last:pr-0">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-indigo-700">
                     3-YEAR / 4-YEAR COURSE
                   </span>
                   <span className="text-xs font-semibold text-slate-500">Utkal University</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-950 mb-2">
+                <h3 className="text-2xl font-bold text-slate-950 mb-2">
                   Bachelor of Computer Applications (BCA)
                 </h3>
                 <p className="text-xs text-slate-600 mb-6">
@@ -527,10 +526,10 @@ export default function AdmissionPage() {
 
             </div>
 
-            {/* Optional Residential & Transport Amenities Charges */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start gap-4">
-                <span className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 font-bold">
+            {/* Optional Residential & Transport Amenities Charges (Cardless Rail) */}
+            <div className="pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex items-start gap-4 pl-4 border-l-2 border-blue-500">
+                <span className="w-10 h-10 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 font-bold shadow-xs">
                   🏢
                 </span>
                 <div>
@@ -638,14 +637,15 @@ export default function AdmissionPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Scholarships & Merit Grants (Cardless Open Spread) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80 pt-6 border-t border-zinc-200/80">
               {scholarships.map((sch) => (
                 <div
                   key={sch.name}
-                  className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-400 transition-all duration-300 shadow-2xs flex flex-col justify-between"
+                  className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0 flex flex-col justify-between"
                 >
                   <div>
-                    <h3 className="text-base font-semibold text-zinc-950 mb-3">
+                    <h3 className="text-base font-bold text-zinc-950 mb-3">
                       {sch.name}
                     </h3>
                     <div className="text-xs text-zinc-600 space-y-2">

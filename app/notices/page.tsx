@@ -286,9 +286,8 @@ export default function NoticesPage() {
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: idx * 0.05 }}
-                    whileHover={{ x: 6, transition: { duration: 0.2 } }}
-                    className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-indigo-400 transition-all duration-300 shadow-2xs hover:shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-6 card-sheen"
+                    transition={{ duration: 0.35, delay: idx * 0.04 }}
+                    className="py-6 border-b border-zinc-200/90 flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:pl-2 transition-all duration-200"
                   >
                     <div className="space-y-2 max-w-3xl">
                       <div className="flex flex-wrap items-center gap-3">

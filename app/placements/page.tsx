@@ -154,21 +154,19 @@ export default function PlacementsPage() {
           </section>
         </AnimatedBackground>
 
-        {/* 4 STATS COUNTER STRIP: LIGHT VARIANT WITH HOVER LIFT & ANIMATED GLOW */}
+        {/* 4 STATS COUNTER STRIP: LIGHT VARIANT (CARDLESS OPEN RAIL) */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-12 sm:py-16 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-zinc-200/80 pt-4 border-t border-zinc-200/80">
               {stats.map((s, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="p-6 rounded-2xl bg-white border border-zinc-200/90 hover:border-indigo-400 shadow-2xs hover:shadow-lg transition-all duration-300 text-center relative overflow-hidden group card-sheen"
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="py-4 sm:py-2 px-0 sm:px-6 text-center group cursor-default"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-950 tracking-tight mb-2 font-serif group-hover:text-blue-700 transition-colors flex items-center justify-center">
                     <SpeedometerCounter
                       value={s.value}
@@ -177,7 +175,7 @@ export default function PlacementsPage() {
                       maxBlur={8}
                     />
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-zinc-900 mb-1">
+                  <div className="text-xs sm:text-sm font-semibold text-zinc-900 mb-0.5">
                     {s.label}
                   </div>
                   <div className="text-[11px] text-zinc-500 font-normal">
@@ -187,9 +185,9 @@ export default function PlacementsPage() {
               ))}
             </div>
 
-            {/* SUPER-30 ANAND KUMAR AWARD: DIRECT PHOTO & CAPTION FROM TAPS.AC.IN */}
-            <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-white border border-indigo-100 shadow-xl overflow-hidden flex flex-col md:flex-row items-center gap-6">
-              <div className="relative w-full md:w-80 h-48 rounded-2xl overflow-hidden border border-slate-200 shrink-0 shadow-md bg-slate-100">
+            {/* SUPER-30 ANAND KUMAR AWARD: OPEN EDITORIAL SHOWCASE (CARDLESS) */}
+            <div className="mt-14 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center gap-8">
+              <div className="relative w-full md:w-80 h-48 rounded-2xl overflow-hidden shrink-0 shadow-md bg-slate-100">
                 <Image
                   src="/images/taps_official/anand_kumar_award.jpg"
                   alt="Mr. Anand Kumar of SUPER-30 awarding TRIDENT at Ranchi"
@@ -204,7 +202,7 @@ export default function PlacementsPage() {
                 <span className="text-[11px] font-mono uppercase tracking-widest text-blue-700 font-bold bg-blue-50 border border-blue-200 px-3 py-1 rounded-full inline-block mb-3">
                   OFFICIAL INSTITUTIONAL AWARD
                 </span>
-                <h3 className="text-base sm:text-xl font-bold text-slate-950 tracking-tight leading-snug">
+                <h3 className="text-lg sm:text-2xl font-bold text-slate-950 tracking-tight leading-snug">
                   Mr. Anand Kumar of &ldquo;SUPER-30&rdquo; awarding TRIDENT at Ranchi
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
@@ -213,8 +211,8 @@ export default function PlacementsPage() {
               </div>
             </div>
 
-            {/* YEAR-WISE RECRUITER TRAJECTORY: TAPS.AC.IN */}
-            <div className="mt-10 pt-8 border-t border-slate-200">
+            {/* YEAR-WISE RECRUITER TRAJECTORY: OPEN METRIC RAIL */}
+            <div className="mt-14 pt-8 border-t border-slate-200">
               <div className="text-center mb-6">
                 <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
                   Historical Recruiter Growth
@@ -223,16 +221,16 @@ export default function PlacementsPage() {
                   Year-Wise Corporate Recruiters (2019 – 2026)
                 </h3>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 divide-x divide-zinc-200/80 pt-4 border-t border-zinc-200/80">
                 {yearWiseRecruiters.map((rec) => (
                   <div
                     key={rec.year}
-                    className="p-3.5 rounded-2xl bg-white border border-indigo-100 hover:border-blue-400 shadow-2xs hover:shadow-md transition-all text-center group"
+                    className="py-3 px-2 text-center group"
                   >
-                    <span className="text-xs font-mono font-bold text-slate-500 block mb-1 group-hover:text-blue-700">
+                    <span className="text-xs font-mono font-bold text-slate-500 block mb-0.5 group-hover:text-blue-700">
                       {rec.year}
                     </span>
-                    <span className="text-xs sm:text-sm font-bold text-slate-950 font-mono">
+                    <span className="text-base sm:text-lg font-bold text-slate-950 font-mono">
                       {rec.count}
                     </span>
                   </div>
@@ -258,7 +256,7 @@ export default function PlacementsPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   title: "Aptitude Examination Halls",
@@ -290,11 +288,10 @@ export default function PlacementsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                  className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-2xs hover:border-indigo-400 hover:shadow-xl transition-all duration-300 group card-sheen"
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="group flex flex-col justify-between space-y-3 cursor-default"
                 >
-                  <div className="relative h-44 w-full overflow-hidden bg-zinc-100">
+                  <div className="relative h-44 w-full rounded-2xl overflow-hidden bg-zinc-100 shadow-sm">
                     <Image
                       src={c.img}
                       alt={c.title}
@@ -305,13 +302,13 @@ export default function PlacementsPage() {
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black shadow-xs">
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/95 text-black shadow-xs">
                         {c.tag}
                       </span>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <h4 className="text-sm sm:text-base font-bold text-zinc-950 mb-1 group-hover:text-blue-700 transition-colors">
+                  <div>
+                    <h4 className="text-base font-bold text-zinc-950 mb-1 group-hover:text-blue-700 transition-colors">
                       {c.title}
                     </h4>
                     <p className="text-xs text-zinc-600 leading-relaxed font-normal">
@@ -340,18 +337,19 @@ export default function PlacementsPage() {
               </p>
             </div>
 
-            <div className="space-y-8 max-w-5xl mx-auto">
+            {/* 3-Tier Training Progression (Cardless Open Flow) */}
+            <div className="space-y-12 max-w-5xl mx-auto divide-y divide-zinc-200/80">
               {trainingTiers.map((tier) => (
                 <div
                   key={tier.tier}
-                  className="bg-white border border-zinc-200 hover:border-zinc-400 rounded-3xl p-8 sm:p-10 shadow-2xs transition-all duration-300 hover-lift"
+                  className="pt-10 first:pt-0 pl-6 border-l-2 border-indigo-400 space-y-4"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-100 pb-4 mb-6">
-                    <div>
-                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mr-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-700">
                         {tier.tier}
                       </span>
-                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700">
+                      <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700">
                         {tier.year}
                       </span>
                     </div>
@@ -360,18 +358,18 @@ export default function PlacementsPage() {
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-2xl font-light text-zinc-950 tracking-tight mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
                     {tier.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                     {tier.desc}
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-zinc-100">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
                     {tier.modules.map((mod, i) => (
                       <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-800">
-                        <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0 mt-1.5" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 mt-1.5" />
                         <span className="font-normal leading-snug">{mod}</span>
                       </div>
                     ))}
@@ -426,22 +424,23 @@ export default function PlacementsPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {/* Cardless Recruiter Stream */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-zinc-800">
               {recruiters.map((r) => (
                 <div
                   key={r.name}
-                  className="p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-500 transition-all duration-300 shadow-sm"
+                  className="py-3 border-b border-zinc-800/80 group"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider uppercase bg-white text-black">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-cyan-400">
                       {r.tag}
                     </span>
-                    <span className="text-[10px] text-zinc-400">Regular Recruiter</span>
+                    <span className="text-[10px] text-zinc-500">Regular Recruiter</span>
                   </div>
-                  <div className="text-sm font-semibold text-white mb-1">
+                  <div className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {r.name}
                   </div>
-                  <div className="text-xs text-zinc-400 font-light">
+                  <div className="text-xs text-zinc-400 font-light mt-0.5">
                     Role: {r.role}
                   </div>
                 </div>

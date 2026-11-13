@@ -90,46 +90,46 @@ export default function ContactPage() {
           </section>
         </AnimatedBackground>
 
-        {/* 2-COLUMN CONTACT CHANNELS & MESSAGE FORM: LIGHT VARIANT */}
+        {/* 2-COLUMN CONTACT CHANNELS & MESSAGE FORM: LIGHT VARIANT (CARDLESS & BOX-FREE) */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               
-              {/* Left Column: Direct Institutional Channels */}
+              {/* Left Column: Direct Institutional Channels (Open Typographic Rail) */}
               <div className="lg:col-span-5 space-y-8 animate-fadeInUp">
                 <div>
-                  <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-blue-700 mb-2">
                     Institutional Office
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
+                  <h2 className="text-2xl sm:text-4xl font-light text-zinc-950 tracking-tight leading-tight">
                     Campus Coordinates &amp; Office Desk
                   </h2>
                 </div>
 
-                <div className="space-y-4 text-xs sm:text-sm text-zinc-700">
-                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
+                <div className="space-y-6 pt-4 border-t border-zinc-200/80 text-xs sm:text-sm text-zinc-700">
+                  <div className="pl-5 border-l-2 border-blue-500 space-y-1">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-blue-700 font-bold">
                       Campus Address
                     </div>
-                    <p className="font-semibold text-zinc-950 text-sm">
+                    <p className="font-bold text-zinc-950 text-sm">
                       Trident Academy of Professional Studies (TAPS)
                     </p>
-                    <p className="text-zinc-600 mt-1 leading-relaxed">
+                    <p className="text-zinc-600 leading-relaxed">
                       F-2, Chandaka Industrial Estate, In front of Infocity,<br />
                       Bhubaneswar, Odisha — 751024, India
                     </p>
-                    <div className="mt-2 text-xs text-zinc-500 font-medium">
+                    <div className="text-xs text-zinc-500 font-medium">
                       Landmark: In front of Infocity • Chandaka Industrial Estate
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
+                  <div className="pl-5 border-l-2 border-indigo-500 space-y-1">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-indigo-700 font-bold">
                       Admission Contact &amp; Phones
                     </div>
-                    <div className="space-y-1">
-                      <p className="font-semibold text-zinc-950 font-mono text-sm">
+                    <div className="space-y-0.5">
+                      <p className="font-bold text-zinc-950 font-mono text-sm">
                         +91 98611 91195
                       </p>
                       <p className="text-zinc-700 font-mono text-sm">
@@ -141,12 +141,12 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
+                  <div className="pl-5 border-l-2 border-purple-500 space-y-1">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-purple-700 font-bold">
                       Email Communication
                     </div>
-                    <div className="space-y-1">
-                      <p className="font-semibold text-zinc-950">
+                    <div className="space-y-0.5">
+                      <p className="font-bold text-zinc-950">
                         admissions@taps.ac.in
                       </p>
                       <p className="text-zinc-600 text-xs">
@@ -155,24 +155,24 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold mb-1.5">
+                  <div className="pl-5 border-l-2 border-emerald-500 space-y-1">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-700 font-bold">
                       Office Working Hours
                     </div>
                     <p className="text-zinc-950 font-medium">
                       Monday to Saturday: 9:00 AM – 5:30 PM
                     </p>
-                    <p className="text-zinc-500 text-xs mt-0.5">
+                    <p className="text-zinc-500 text-xs">
                       Admission Cell remains open on Sundays during peak admission cycles.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column: Direct Message Box */}
-              <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-3xl p-8 sm:p-10 shadow-2xs animate-fadeInUp">
-                <div className="border-b border-zinc-100 pb-6 mb-8">
-                  <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+              {/* Right Column: Direct Message Form (Cardless Open Spread) */}
+              <div className="lg:col-span-7 pt-2 lg:pt-0 animate-fadeInUp">
+                <div className="border-b border-zinc-200 pb-4 mb-6">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-blue-700 mb-2">
                     Send a Message
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
@@ -181,8 +181,8 @@ export default function ContactPage() {
                 </div>
 
                 {isSent ? (
-                  <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200 text-center space-y-4">
-                    <div className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mx-auto text-xl">
+                  <div className="py-12 text-center space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto text-xl shadow-md">
                       ✓
                     </div>
                     <h3 className="text-xl font-medium text-zinc-950">
@@ -194,7 +194,7 @@ export default function ContactPage() {
                     </p>
                     <button
                       onClick={() => setIsSent(false)}
-                      className="px-6 py-2.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-zinc-800 transition-colors"
+                      className="px-6 py-2.5 rounded-full bg-black text-white text-xs font-semibold hover:bg-zinc-800 transition-colors"
                     >
                       Send Another Inquiry
                     </button>
@@ -211,7 +211,7 @@ export default function ContactPage() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Your full name"
-                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/80 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       />
                     </div>
 
@@ -226,7 +226,7 @@ export default function ContactPage() {
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
                           placeholder="name@example.com"
-                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/80 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-600"
                         />
                       </div>
 
@@ -240,7 +240,7 @@ export default function ContactPage() {
                           value={form.phone}
                           onChange={(e) => setForm({ ...form, phone: e.target.value })}
                           placeholder="10-digit number"
-                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                          className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/80 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-600"
                         />
                       </div>
                     </div>
@@ -252,7 +252,7 @@ export default function ContactPage() {
                       <select
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/80 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       >
                         <option value="General Admission Inquiry">General Admission Inquiry (BCA / BBA)</option>
                         <option value="Campus Tour Booking">Campus Tour &amp; Facility Inspection</option>
@@ -272,14 +272,14 @@ export default function ContactPage() {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         placeholder="Please write your questions or preferred appointment schedule..."
-                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-black"
+                        className="w-full px-4 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/80 text-sm text-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full py-3.5 rounded-xl bg-black hover:bg-zinc-800 text-white font-bold text-sm tracking-wide transition-all duration-300 shadow-md cursor-pointer disabled:opacity-50"
+                      className="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm tracking-wide transition-all duration-300 shadow-md cursor-pointer disabled:opacity-50"
                     >
                       {submitting ? "Sending..." : "Send Inquiry to TAPS →"}
                     </button>
@@ -292,11 +292,11 @@ export default function ContactPage() {
           </section>
         </AnimatedBackground>
 
-        {/* TRANSIT GUIDE: LIGHT VARIANT */}
+        {/* TRANSIT GUIDE: LIGHT VARIANT (CARDLESS OPEN RAIL) */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200">
           <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             <div className="max-w-2xl mb-10 animate-fadeInUp">
-              <div className="text-xs uppercase tracking-widest font-semibold text-zinc-500 mb-2">
+              <div className="text-xs uppercase tracking-widest font-semibold text-blue-700 mb-2">
                 Transit &amp; Accessibility
               </div>
               <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
@@ -304,9 +304,9 @@ export default function ContactPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                <div className="text-base font-semibold text-zinc-950 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80 pt-6 border-t border-zinc-200/80">
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
                   🚆 From Railway Station (BBS)
                 </div>
                 <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
@@ -314,8 +314,8 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                <div className="text-base font-semibold text-zinc-950 mb-2">
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
                   ✈️ From Airport (BBI)
                 </div>
                 <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
@@ -323,8 +323,8 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-2xs">
-                <div className="text-base font-semibold text-zinc-950 mb-2">
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
                   🚌 From Baramunda Bus Terminal (ISBT)
                 </div>
                 <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">

@@ -676,8 +676,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Elevated Fluid Accreditation Stream */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                {/* Elevated Fluid Accreditation Stream (Cardless Open Rail) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 pt-4 border-t border-slate-200/80">
                   {accreditations.map((item, idx) => (
                     <motion.div 
                       key={item.title}
@@ -685,14 +685,13 @@ export default function AboutPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.08 }}
-                      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className="relative p-4 rounded-2xl bg-white/70 backdrop-blur-md border border-slate-200/80 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 hover:bg-gradient-to-r hover:from-blue-50/60 hover:to-white transition-all duration-300 group cursor-default"
+                      className="relative pl-4 border-l-2 border-indigo-200 hover:border-blue-600 transition-colors duration-300 group cursor-default"
                     >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-700 bg-indigo-50/90 border border-indigo-200/60 px-2 py-0.5 rounded-md">
+                      <div className="flex items-baseline justify-between mb-1">
+                        <span className="text-[10px] font-mono tracking-wider font-bold uppercase text-indigo-600">
                           {item.badge}
                         </span>
-                        <span className="text-xl font-mono font-extrabold text-blue-600">
+                        <span className="text-2xl font-mono font-extrabold text-blue-600">
                           {item.stat}
                         </span>
                       </div>
@@ -811,43 +810,35 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 3 Luxury Institutional Pillars (Card Architectural Triad with Transition Colours) */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* 3 Luxury Institutional Pillars (Cardless Open Spread with Minimal Hairline Dividers) */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-zinc-200/80 pt-4 border-t border-zinc-200/80">
               {pillars.map((pillar, idx) => (
                 <motion.div
                   key={pillar.id}
-                  initial={{ opacity: 0, y: 28 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.55, delay: idx * 0.12 }}
-                  whileHover={{ y: -8, transition: { duration: 0.28, ease: "easeOut" } }}
-                  className={`p-8 sm:p-10 rounded-3xl bg-white/85 backdrop-blur-xl border border-zinc-200/90 shadow-sm flex flex-col justify-between relative group overflow-hidden transition-all duration-500 ease-out hover:shadow-2xl ${pillar.glowShadow} ${pillar.glowBorder}`}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="py-8 lg:py-4 px-0 lg:px-8 first:lg:pl-0 last:lg:pr-0 flex flex-col justify-between relative group"
                 >
-                  {/* Top Glowing Shimmer Gradient Beam Accent */}
-                  <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${pillar.gradient}`} />
-
-                  {/* Subtle Internal Transition Color Hover Pool */}
-                  <div className={`absolute inset-0 bg-gradient-to-b ${pillar.cardHoverBg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-
-                  <div className="relative z-10">
-                    {/* Header Strip with Glowing Pillar Badge & Icon */}
-                    <div className="flex items-center justify-between gap-2 mb-6">
-                      <span className={`inline-flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider uppercase px-3 py-1 rounded-full border shadow-2xs transition-transform duration-300 group-hover:scale-105 ${pillar.tagColor}`}>
-                        <span className="relative flex h-2 w-2 mr-0.5">
-                          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${pillar.beaconColor}`}></span>
-                          <span className={`relative inline-flex rounded-full h-2 w-2 ${pillar.beaconColor}`}></span>
+                  <div>
+                    {/* Header Strip with Number & Floating Accent Icon */}
+                    <div className="flex items-center justify-between gap-2 mb-5">
+                      <div className="flex items-center gap-2">
+                        <span className={`w-2 h-2 rounded-full ${pillar.beaconColor}`} />
+                        <span className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-400 group-hover:text-blue-700 transition-colors">
+                          PILLAR {pillar.number}
                         </span>
-                        {pillar.number}
-                      </span>
-                      <div className={`w-11 h-11 rounded-2xl ${pillar.iconGradient} flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-md`}>
+                      </div>
+                      <div className={`w-10 h-10 rounded-xl ${pillar.iconGradient} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-sm text-white`}>
                         {pillar.icon}
                       </div>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2 group-hover:text-blue-900 transition-colors duration-200">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-1.5 group-hover:text-blue-700 transition-colors duration-200">
                       {pillar.title}
                     </h3>
-                    <div className={`text-xs font-mono font-semibold uppercase tracking-wider mb-4 ${pillar.learnMoreColor}`}>
+                    <div className={`text-[11px] font-mono font-semibold uppercase tracking-wider mb-4 ${pillar.learnMoreColor}`}>
                       {pillar.subtitle}
                     </div>
 
@@ -855,22 +846,22 @@ export default function AboutPage() {
                       {pillar.desc}
                     </p>
 
-                    {/* Bullet Points with glowing pips */}
-                    <ul className="space-y-2.5 pt-4 border-t border-slate-100/90">
+                    {/* Bullet Points with subtle pips */}
+                    <ul className="space-y-2.5 pt-4 border-t border-slate-100">
                       {pillar.points.map((pt, pIdx) => (
                         <li 
                           key={pIdx} 
-                          className="flex items-start gap-2.5 text-xs text-slate-700 leading-snug p-2 -mx-2 rounded-xl hover:bg-white/80 transition-colors duration-200"
+                          className="flex items-start gap-2.5 text-xs text-slate-700 leading-relaxed"
                         >
-                          <span className={`w-2 h-2 rounded-full ${pillar.dotGradient} shrink-0 mt-1 shadow-xs`} />
+                          <span className={`w-1.5 h-1.5 rounded-full ${pillar.dotGradient} shrink-0 mt-1.5 shadow-2xs`} />
                           <span className="font-normal">{pt}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="relative z-10 pt-6 mt-6 border-t border-slate-100/90 flex items-center justify-between text-xs font-mono text-slate-400">
-                    <span className="font-semibold text-[11px] tracking-wider text-slate-400">TRIDENT CHARTER</span>
+                  <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-400">
+                    <span className="font-semibold text-[10px] tracking-wider uppercase text-slate-400">TRIDENT CHARTER</span>
                     <span className={`font-bold inline-flex items-center gap-1 ${pillar.learnMoreColor} group-hover:translate-x-1.5 transition-transform duration-200`}>
                       Core Commitment <span>→</span>
                     </span>
@@ -906,74 +897,60 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Seamless Elevated Pedagogical Stream with Transition Colours */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {progressivePractices.map((practice, idx) => (
-                <motion.div
-                  key={practice.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={{ y: -8, transition: { duration: 0.25, ease: "easeOut" } }}
-                  className="relative p-7 sm:p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-zinc-200/90 shadow-sm hover:shadow-xl hover:border-indigo-300/80 flex flex-col justify-between group overflow-hidden transition-all duration-500"
-                >
-                  {/* Fluid Hover Ambient Light Pool */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl">
-                    <div className={`absolute -inset-2 bg-gradient-to-b ${practice.blobGradient} blur-2xl opacity-40`} />
-                    <div className="absolute inset-0 bg-white/70 backdrop-blur-xs rounded-3xl" />
-                  </div>
+            {/* Seamless Open Pedagogical Stream (Completely Cardless & Box-Free) */}
+            <div className="relative pt-6">
+              {/* Continuous Top Architectural Rail */}
+              <div className="hidden lg:block absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 via-purple-500 to-emerald-500 opacity-60" />
 
-                  {/* Top Animated Light Rail */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-zinc-200 to-transparent group-hover:from-transparent group-hover:to-transparent transition-colors overflow-hidden">
-                    <motion.div 
-                      className={`h-full w-full bg-gradient-to-r ${practice.topGradient}`}
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "0%" }}
-                      transition={{ duration: 0.4 }}
-                    />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-indigo-100/90 gap-y-10 md:gap-y-0">
+                {progressivePractices.map((practice, idx) => (
+                  <motion.div
+                    key={practice.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: idx * 0.09 }}
+                    className="py-6 md:py-4 px-0 md:px-6 lg:px-8 first:md:pl-0 last:md:pr-0 flex flex-col justify-between group relative"
+                  >
+                    <div>
+                      {/* Floating Indicator & Icon */}
+                      <div className="flex items-center justify-between mb-5">
+                        <motion.div 
+                          whileHover={{ rotate: 8, scale: 1.12 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                          className={`w-11 h-11 rounded-full ${practice.iconBg} ${practice.iconText} flex items-center justify-center shadow-md transition-transform`}
+                        >
+                          {practice.icon}
+                        </motion.div>
 
-                  {/* Content Floating Freely */}
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                      {/* Illuminated Floating Icon Pedestal */}
-                      <motion.div 
-                        whileHover={{ rotate: 6, scale: 1.1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                        className={`w-12 h-12 rounded-2xl ${practice.iconBg} ${practice.iconText} ${practice.iconShadow} flex items-center justify-center shadow-lg transition-transform`}
-                      >
-                        {practice.icon}
-                      </motion.div>
+                        <span className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-0.5 rounded-full border ${practice.tagBadge}`}>
+                          {practice.tag}
+                        </span>
+                      </div>
 
-                      {/* Floating Micro-Badge */}
-                      <span className={`text-[10px] font-mono tracking-wider uppercase px-2.5 py-1 rounded-full border shadow-2xs ${practice.tagBadge}`}>
-                        {practice.tag}
+                      <div className="text-[10px] font-mono font-bold tracking-widest text-indigo-700/80 uppercase mb-1">
+                        PRACTICE 0{idx + 1}
+                      </div>
+
+                      <h3 className={`text-lg font-bold text-zinc-950 mb-2.5 ${practice.titleHover} transition-colors leading-snug`}>
+                        {practice.title}
+                      </h3>
+                      
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                        {practice.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Minimal Interactive Link */}
+                    <div className="pt-6 mt-6 border-t border-indigo-100/70 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                      <span className="text-[11px] font-semibold text-slate-400">TAPS Standard</span>
+                      <span className="text-blue-600 font-bold group-hover:translate-x-1.5 transition-transform duration-200">
+                        Learn More →
                       </span>
                     </div>
-
-                    <div className="text-[10px] font-mono font-bold tracking-widest text-zinc-400 uppercase mb-1">
-                      PRACTICE 0{idx + 1}
-                    </div>
-
-                    <h3 className={`text-lg font-bold text-zinc-950 mb-3 ${practice.titleHover} transition-colors leading-snug`}>
-                      {practice.title}
-                    </h3>
-                    
-                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                      {practice.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom Interactive Arrow Indicator */}
-                  <div className="relative z-10 pt-6 mt-6 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-zinc-900 transition-colors">
-                    <span className="text-[11px] font-semibold text-slate-400">TAPS Standard</span>
-                    <span className="text-blue-600 font-bold group-hover:translate-x-1.5 transition-transform duration-200">
-                      Learn More →
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </section>
         </AnimatedBackground>
@@ -1312,61 +1289,57 @@ export default function AboutPage() {
               );
             })()}
 
-            {/* 3. Panoramic Milestone Shelf: 5 Eras Cards side by side */}
+            {/* 3. Panoramic Milestone Rail: Continuous Archival Timeline Stream (Cardless & Box-Free) */}
             <div className="max-w-6xl mx-auto mb-16 sm:mb-20">
-              <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold mb-5 flex items-center gap-2">
+              <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 font-bold mb-6 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
-                Explore Complete 35-Year Archival Timeline
+                Explore 35-Year Archival Timeline (1991 – 2026)
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {/* Seamless Connected Timeline Axis */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 border-t border-zinc-800 pt-6">
                 {milestones.map((m, idx) => {
                   const isActive = selectedTimelineYear === m.year;
                   return (
-                    <motion.div
+                    <div
                       key={m.year}
-                      whileHover={{ y: -6, scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 350, damping: 25 }}
                       onClick={() => setSelectedTimelineYear(m.year)}
-                      className={`rounded-2xl p-4 transition-all duration-300 cursor-pointer flex flex-col justify-between border relative overflow-hidden ${
-                        isActive
-                          ? "bg-zinc-800/90 border-amber-400 shadow-xl shadow-amber-500/15 ring-2 ring-amber-400/30"
-                          : "bg-zinc-900/70 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/50"
-                      }`}
+                      className="cursor-pointer group flex flex-col justify-between py-2 transition-all"
                     >
-                      {/* Top thumbnail */}
-                      <div className="relative h-28 w-full rounded-xl overflow-hidden mb-3 border border-zinc-700/60">
-                        <Image
-                          src={m.image}
-                          alt={m.title}
-                          fill
-                          loading="lazy"
-                          quality={85}
-                          className="object-cover object-center group-hover:scale-108 transition-transform duration-500"
-                          sizes="(max-width: 640px) 100vw, 20vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                        <span className="absolute bottom-1.5 left-2 text-[10px] font-mono font-bold text-amber-300 uppercase">
-                          ERA 0{idx + 1}
-                        </span>
-                      </div>
-
                       <div>
-                        <div className="text-xl font-mono font-black text-white mb-1">
+                        {/* Timeline Pip & Era indicator */}
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`w-2.5 h-2.5 rounded-full transition-all ${
+                            isActive ? "bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.8)] scale-125" : "bg-zinc-700 group-hover:bg-zinc-500"
+                          }`} />
+                          <span className={`text-[10px] font-mono uppercase tracking-wider font-bold ${
+                            isActive ? "text-amber-300" : "text-zinc-500 group-hover:text-zinc-400"
+                          }`}>
+                            ERA 0{idx + 1}
+                          </span>
+                        </div>
+
+                        {/* Year in large font */}
+                        <div className={`text-2xl sm:text-3xl font-mono font-black transition-colors ${
+                          isActive ? "text-amber-400" : "text-zinc-400 group-hover:text-white"
+                        }`}>
                           {m.year}
                         </div>
-                        <h4 className="text-xs font-bold text-zinc-200 line-clamp-2 leading-snug mb-1">
+
+                        <h4 className={`text-xs font-semibold leading-relaxed mt-1.5 transition-colors ${
+                          isActive ? "text-zinc-100" : "text-zinc-500 group-hover:text-zinc-300"
+                        }`}>
                           {m.title}
                         </h4>
                       </div>
 
-                      <div className="pt-2 mt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono">
-                        <span className="text-zinc-500">Exhibit 0{idx + 1}</span>
-                        <span className={isActive ? "text-amber-400 font-bold" : "text-zinc-400"}>
-                          {isActive ? "Viewing ●" : "Select →"}
+                      <div className="mt-4 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-zinc-600">Exhibit 0{idx + 1}</span>
+                        <span className={isActive ? "text-amber-400 font-bold" : "text-zinc-500 group-hover:text-zinc-400"}>
+                          {isActive ? "Active ●" : "Select →"}
                         </span>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
