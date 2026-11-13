@@ -22,17 +22,6 @@ export default function PlacementsPage() {
     { value: "102", label: "Recruiters (2023)", sub: "Placements 2023" },
   ];
 
-  const yearWiseRecruiters = [
-    { year: "2026", count: "138+ Recruiters" },
-    { year: "2025", count: "260 Recruiters" },
-    { year: "2024", count: "112 Recruiters" },
-    { year: "2023", count: "102 Recruiters" },
-    { year: "2022", count: "102 Recruiters" },
-    { year: "2021", count: "91 Recruiters" },
-    { year: "2020", count: "70 Recruiters" },
-    { year: "2019", count: "56 Recruiters" },
-  ];
-
   const placementHero7Slides: Hero7Slide[] = [
     {
       id: "aptitude-halls",
@@ -317,33 +306,6 @@ export default function PlacementsPage() {
                 <p className="text-xs sm:text-sm text-slate-600 mt-2 font-normal leading-relaxed">
                   Mr. Anand Kumar of &ldquo;SUPER-30&rdquo; awarding TRIDENT at Ranchi for being EASTERN INDIA&rsquo;s fastest growing college in CAMPUS PLACEMENTS.
                 </p>
-              </div>
-            </div>
-
-            {/* YEAR-WISE RECRUITER TRAJECTORY: OPEN METRIC RAIL */}
-            <div className="mt-14 pt-8 border-t border-slate-200">
-              <div className="text-center mb-6">
-                <span className="text-xs uppercase tracking-widest font-mono font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full">
-                  Historical Recruiter Growth
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-950 mt-2">
-                  Year-Wise Corporate Recruiters (2019 – 2026)
-                </h3>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 divide-x divide-zinc-200/80 pt-4 border-t border-zinc-200/80">
-                {yearWiseRecruiters.map((rec) => (
-                  <div
-                    key={rec.year}
-                    className="py-3 px-2 text-center group"
-                  >
-                    <span className="text-xs font-mono font-bold text-slate-500 block mb-0.5 group-hover:text-blue-700">
-                      {rec.year}
-                    </span>
-                    <span className="text-base sm:text-lg font-bold text-slate-950 font-mono">
-                      {rec.count}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
 
