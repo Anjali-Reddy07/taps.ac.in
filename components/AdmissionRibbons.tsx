@@ -319,7 +319,7 @@ export default function AdmissionRibbons({ onOpenQuery }: AdmissionRibbonsProps)
                 <>
                   <div className="p-4 rounded-2xl bg-blue-50/60 border border-blue-100 text-[#001D4A] space-y-2">
                     <p className="font-bold text-[#0020D6]">Official Notice No: TAPS/ADM/2026-01</p>
-                    <p>Applications are invited for admissions into 3-Year Regular BCA &amp; BBA courses affiliated to Utkal University for Academic Session 2026–2027.</p>
+                    <p>Applications are invited for admissions into 4-Year Regular BCA &amp; BBA Honours courses affiliated to Utkal University for Academic Session 2026–2027.</p>
                   </div>
                   <ul className="space-y-2 pl-2">
                     <li>• Commencement of Registration: March 2026</li>

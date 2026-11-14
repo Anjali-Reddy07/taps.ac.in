@@ -72,7 +72,7 @@ export default function ProgrammesPage() {
     bca: {
       code: "BCA",
       title: "Bachelor of Computer Applications",
-      degree: "3-Year Degree / 4-Year Honours with Research • 6 to 8 Semesters (NEP-2020 Framework)",
+      degree: "4-Year Full-Time Honours Degree • 8 Semesters (NEP-2020 Framework)",
       affiliation: "Affiliated to Utkal University • Approved by AICTE, OSHEC & Govt. of Odisha",
       intake: "128 Seats Approved",
       heroBg: "/images/drive_new/1721020760290.jpg",
@@ -543,7 +543,7 @@ export default function ProgrammesPage() {
                         01. BCA — Computer Applications
                       </span>
                       <span className="relative z-10 text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900/10 font-bold">
-                        3 Yrs
+                        4 Yrs NEP
                       </span>
                     </button>
 
@@ -715,7 +715,7 @@ export default function ProgrammesPage() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                       </span>
-                      BCA • 3-YR / 4-YR NEP-2020 TRACK
+                      BCA • 4-YEAR NEP-2020 TRACK
                     </span>
                     <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 border border-blue-200/80 px-3 py-0.5 rounded-full">
                       128 Seats Approved

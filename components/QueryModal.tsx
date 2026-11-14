@@ -206,8 +206,8 @@ export default function QueryModal({ isOpen, onClose }: QueryModalProps) {
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                   className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-indigo-50/30 border border-indigo-100 rounded-xl outline-none focus:border-blue-600 focus:bg-white text-slate-900 cursor-pointer font-medium"
                 >
-                  <option value="bca">BCA — Bachelor of Computer Applications (3 Years)</option>
-                  <option value="bba">BBA — Bachelor of Business Administration (3 Years)</option>
+                  <option value="bca">BCA — Bachelor of Computer Applications (4 Years NEP)</option>
+                  <option value="bba">BBA — Bachelor of Business Administration (4 Years NEP)</option>
                 </select>
               </div>
 

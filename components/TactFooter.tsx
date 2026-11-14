@@ -75,8 +75,8 @@ export default function TactFooter({ onOpenQuery }: TactFooterProps) {
             </div>
             <ul className="space-y-3 text-sm sm:text-[15px] text-zinc-300 font-normal">
               {[
-                { name: "BCA — Computer Applications (3 Yrs)", href: "/programmes" },
-                { name: "BBA — Business Administration (3 Yrs)", href: "/programmes" },
+                { name: "BCA — Computer Applications (4 Yrs)", href: "/programmes" },
+                { name: "BBA — Business Administration (4 Yrs)", href: "/programmes" },
                 { name: "Academic Regulations & Syllabi", href: "/programmes" },
                 { name: "Utkal University Regulations", href: "/about" },
                 { name: "Semester Examination Calendar", href: "/notices" },

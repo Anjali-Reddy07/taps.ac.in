@@ -18,12 +18,12 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
       num: "01",
       title: "Bachelor of Computer Applications",
       fullName: "BCA (Bachelor in Computer Application)",
-      degree: "3-Year Degree / 4-Year Honours with Research • NEP-2020",
+      degree: "4-Year Honours Degree • 8 Semesters (NEP-2020)",
       affiliation: "Affiliated to Utkal University • Approved by AICTE & OSHEC",
       tagline: "NEP-2020 Model Curriculum • Full-Stack Development, Cloud Architecture, Data Science & AI Foundations",
       tag: "Highest Campus Placement",
       metrics: [
-        { label: "Duration", value: "3 or 4 Yrs", sub: "6 to 8 Semesters (NEP)" },
+        { label: "Duration", value: "4 Years", sub: "8 Semesters (NEP-2020)" },
         { label: "Placement Network", value: "138+", sub: "Corporate Recruiters" },
         { label: "Practical Lab Hours", value: "450+ Hrs", sub: "Cloud & AI Clusters" },
         { label: "Faculty Mentorship", value: "1:15", sub: "Dedicated Research Guides" },
@@ -103,12 +103,12 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
       num: "02",
       title: "Bachelor of Business Administration",
       fullName: "BBA (Bachelor in Business Administration)",
-      degree: "3-Year Undergraduate Degree • Full Time",
+      degree: "4-Year Honours Degree • 8 Semesters (NEP Framework)",
       affiliation: "Affiliated to Utkal University • AICTE Approved",
       tagline: "Corporate Strategic Management, Financial Analytics, Marketing & Venture Incubation",
       tag: "Corporate Leadership Track",
       metrics: [
-        { label: "Duration", value: "3 Years", sub: "6 Semesters" },
+        { label: "Duration", value: "4 Years", sub: "8 Semesters (NEP)" },
         { label: "Corporate Immersion", value: "100%", sub: "Live Industry Projects" },
         { label: "Case Study Pedagogy", value: "300+ Cases", sub: "Harvard & IIM Frameworks" },
         { label: "Executive Mentors", value: "25+", sub: "Fortune 500 Leaders" },
@@ -145,6 +145,17 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             "Entrepreneurship & Venture Capital Modeling",
             "Summer Internship Project (SIP) Dissertation",
             "Corporate Placement Assessment & GD/PI Simulations",
+          ],
+        },
+        {
+          period: "Year 4 (Semesters VII & VIII • Research Track)",
+          title: "Advanced Specialization, Research Thesis & Leadership",
+          topics: [
+            "AI for Business Analytics & Digital Transformation",
+            "Advanced Financial Econometrics & Global Strategic Management",
+            "Discipline Electives in FinTech, HR Analytics & SCM",
+            "Major Research Dissertation / Industry Immersion Defense",
+            "Degree Milestone: 4-Year BBA Honours with Research Degree",
           ],
         },
       ],
@@ -192,7 +203,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
             Interactive Programme Explorer
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3 font-normal leading-relaxed">
-            Choose between our premier three-year undergraduate degree tracks. Compare curricula, career trajectories, lab infrastructure, and eligibility criteria in a clean, unified view.
+            Choose between our premier four-year undergraduate honours degree tracks under the NEP-2020 curriculum. Compare curricula, career trajectories, lab infrastructure, and eligibility criteria in a clean, unified view.
           </p>
         </div>
 
@@ -231,7 +242,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                 <div className={`text-xs ${
                   selectedCourse === "bca" ? "text-blue-100" : "text-slate-500"
                 }`}>
-                  Computer Applications (3 Yrs)
+                  Computer Applications (4 Yrs)
                 </div>
               </div>
             </div>
@@ -274,7 +285,7 @@ export default function TactProgrammes({ onOpenQuery }: TactProgrammesProps) {
                 <div className={`text-xs ${
                   selectedCourse === "bba" ? "text-purple-100" : "text-slate-500"
                 }`}>
-                  Business Administration (3 Yrs)
+                  Business Administration (4 Yrs)
                 </div>
               </div>
             </div>

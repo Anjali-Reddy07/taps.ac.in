@@ -18,7 +18,7 @@ export default function HomeContent({ onOpenQuery }: HomeContentProps) {
     {
       code: "BCA",
       title: "Bachelor in Computer Application",
-      duration: "3 Years • Full-Time",
+      duration: "4 Years (NEP-2020) • Full-Time",
       eyebrow: "School of Computing",
       desc: "An intensive undergraduate degree combining algorithmic thinking, modern full-stack engineering, cloud architecture, and foundational AI systems.",
       eligibility: "10+2 with Mathematics / Stats / CS",
@@ -28,7 +28,7 @@ export default function HomeContent({ onOpenQuery }: HomeContentProps) {
     {
       code: "BBA",
       title: "Bachelor in Business Administration",
-      duration: "3 Years • Full-Time",
+      duration: "4 Years (NEP-2020) • Full-Time",
       eyebrow: "School of Management",
       desc: "Designed to cultivate strategic foresight, financial literacy, organizational leadership, and modern digital marketing acumen for aspiring executives.",
       eligibility: "10+2 in Any Academic Stream",

@@ -165,7 +165,7 @@ export default function AdmissionPage() {
               <div className="animate-marquee whitespace-nowrap text-xs font-mono text-zinc-300 flex items-center gap-8">
                 <span className="flex items-center gap-2">
                   <strong className="text-amber-400 font-bold">● ADMISSIONS 2026–27:</strong>
-                  Full-Time 3-Year / 4-Year BCA &amp; 4-Year BBA under Utkal University. First-cum-first-served seat allotment.
+                  Full-Time 4-Year Honours BCA &amp; 4-Year BBA under Utkal University (NEP-2020). First-cum-first-served seat allotment.
                 </span>
                 <span className="text-cyan-600">•</span>
                 <span className="flex items-center gap-2">
@@ -971,7 +971,7 @@ export default function AdmissionPage() {
                 </span>
               </h2>
               <p className="text-sm sm:text-base text-zinc-600 mt-3 font-normal leading-relaxed">
-                Directly matching the published guidelines on taps.ac.in for 4-Year BBA and 3-Year / 4-Year BCA courses under Utkal University.
+                Directly matching the published guidelines on taps.ac.in for 4-Year BBA and 4-Year BCA Honours courses under Utkal University (NEP-2020).
               </p>
 
               {/* Course Switcher Tabs */}
