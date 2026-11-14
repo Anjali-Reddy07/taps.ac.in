@@ -173,6 +173,25 @@ export default function ContactPage() {
         {/* 2-COLUMN CONTACT CHANNELS & HYPERREALISTIC LIQUID GLASS SMARTPHONE */}
         {/* ========================================================================= */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Subtle Masked Background Architecture Scrim - Specific to this section only */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+            <Image
+              src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
+              alt="TAPS Campus Environment"
+              fill
+              quality={90}
+              className="object-cover object-center opacity-40 filter contrast-105 saturate-110"
+              sizes="100vw"
+            />
+            {/* Smooth adjusted one-sided gradient mask: soft opacity on left for crystal-clear text readability, revealing vibrant campus landscape on right behind the phone */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FBFBFF] via-[#FBFBFF]/85 via-48% to-[#FBFBFF]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFF] via-transparent to-[#FBFBFF]/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FBFBFF]/60 via-transparent to-[#FBFBFF]" />
+            
+            {/* Stylized Radiant Stage Mask Behind Smartphone */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/2 h-[90%] bg-gradient-to-l from-indigo-500/10 via-blue-500/5 to-transparent [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
+          </div>
+
           {/* Subtle Ambient Radial Lighting Blobs */}
           <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-gradient-to-bl from-blue-400/25 via-indigo-300/15 to-transparent blur-[140px] pointer-events-none" />
           <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-purple-400/20 via-cyan-200/15 to-transparent blur-[120px] pointer-events-none" />
