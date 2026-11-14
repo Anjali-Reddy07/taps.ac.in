@@ -186,20 +186,8 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
               isActive ? "opacity-100 z-20 pointer-events-auto" : "opacity-0 pointer-events-none z-0"
             }`}
           >
-            {/* Top Right Floating Campus Location Tag + View Mode Toggle */}
+            {/* Top Right Floating Campus Location Tag */}
             <div className="absolute top-6 right-6 sm:right-12 z-20 hidden sm:flex items-center gap-2.5">
-              <button
-                type="button"
-                onClick={() => setShowReel((prev) => !prev)}
-                className="flex items-center gap-1.5 bg-[#070D21]/80 hover:bg-[#070D21] backdrop-blur-md border border-indigo-500/30 px-3 py-1.5 rounded-full text-[11px] text-indigo-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
-                title={showReel ? "Switch to single photo slides" : "Switch to multi-photo grid reel"}
-              >
-                <span className={`w-2 h-2 rounded-full ${showReel ? "bg-amber-400 animate-pulse" : "bg-cyan-400"}`} />
-                <span className="font-semibold uppercase tracking-wider">
-                  {showReel ? "Reel View" : "Photo Slides"}
-                </span>
-              </button>
-
               <div className="flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] text-indigo-200">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
                 <span className="font-bold text-white uppercase tracking-wider">{slide.tag}</span>

@@ -456,7 +456,7 @@ export default function AboutPage() {
 
       <main className="flex-1">
         
-        {/* 1ST SECTION: DUAL-MODE HERO WITH PARTIAL BLACK SHADED MASK (3D HELIX FOR 5S -> AUTO PHOTO SLIDES JUST LIKE MAIN PAGE) */}
+        {/* 1ST SECTION: DUAL-MODE HERO WITH PARTIAL BLACK SHADED MASK (3D HELIX FOR 5S -> AUTO TRANSITION TO CAMPUS ARCHIVES) */}
         <section
           aria-roledescription="carousel"
           aria-label="Campus highlights and 3D Helix"
@@ -524,21 +524,9 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/40 via-transparent to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#070D21]/30 via-transparent to-transparent z-10 pointer-events-none" />
 
-          {/* 4. Top Right Floating Controls: View Mode Toggle & Location/Tag Pill */}
-          <div className="absolute top-6 right-6 sm:right-12 z-30 flex items-center gap-2.5">
-            <button
-              type="button"
-              onClick={() => setShow3DHelix((prev) => !prev)}
-              className="flex items-center gap-1.5 bg-[#070D21]/80 hover:bg-[#070D21] backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-indigo-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95"
-              title={show3DHelix ? "Switch to single photo slides" : "Switch to 3D Helix motion"}
-            >
-              <span className={`w-2 h-2 rounded-full ${show3DHelix ? "bg-cyan-400 animate-pulse" : "bg-emerald-400"}`} />
-              <span className="font-semibold uppercase tracking-wider font-mono">
-                {show3DHelix ? "3D Helix Motion" : "Photo Slides"}
-              </span>
-            </button>
-
-            <div className="hidden sm:flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-indigo-200 font-mono">
+          {/* 4. Top Right Floating Controls: Location/Tag Pill */}
+          <div className="absolute top-6 right-6 sm:right-12 z-30 hidden sm:flex items-center gap-2.5">
+            <div className="flex items-center gap-2 bg-[#070D21]/80 backdrop-blur-md border border-indigo-500/30 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs text-indigo-200 font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] animate-pulse" />
               <span className="font-bold text-white uppercase tracking-wider">{aboutSlides[currentSlide].tag}</span>
               <span className="text-indigo-400">•</span>
@@ -579,7 +567,7 @@ export default function AboutPage() {
                     }}
                     className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 shadow-xl shadow-blue-600/30 hover-lift cursor-pointer active:scale-95"
                   >
-                    Explore Photo Slides →
+                    Explore Campus Highlights →
                   </button>
 
                   <Link
@@ -593,7 +581,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* 6. Sequential Photo Slide Content Layers (Cross-fade when show3DHelix is false) */}
+          {/* 6. Sequential Campus Slide Content Layers (Cross-fade when show3DHelix is false) */}
           {aboutSlides.map((slide, index) => {
             const isActive = !show3DHelix && index === currentSlide;
             return (
