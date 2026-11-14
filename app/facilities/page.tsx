@@ -50,11 +50,6 @@ export default function FacilitiesPage() {
       tag: "TRIFEST CULTURAL HERITAGE",
     },
     {
-      src: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
-      label: "11-Acre Technoplex Campus Complex",
-      tag: "INFOCITY PATIA TECH CORRIDOR",
-    },
-    {
       src: "/images/drive_facilities/_dsc1828.jpg",
       label: "Trident Academy Main Architectural Facade & Portico",
       tag: "CENTRAL ACADEMIC ADMINISTRATION",
