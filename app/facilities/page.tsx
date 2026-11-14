@@ -45,6 +45,11 @@ export default function FacilitiesPage() {
   const [heroSlideIndex, setHeroSlideIndex] = useState<number>(0);
   const heroBackgroundSlides = [
     {
+      src: "/images/facilities-odissi-stage.webp",
+      label: "Trifest Cultural Festival & Odissi Performing Arts",
+      tag: "TRIFEST CULTURAL HERITAGE",
+    },
+    {
       src: "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
       label: "11-Acre Technoplex Campus Complex",
       tag: "INFOCITY PATIA TECH CORRIDOR",
@@ -431,16 +436,16 @@ export default function FacilitiesPage() {
                   alt={heroBackgroundSlides[heroSlideIndex].label}
                   fill
                   priority
-                  quality={92}
-                  className="object-cover object-center filter contrast-105 saturate-110"
+                  quality={95}
+                  className="object-cover object-center filter contrast-105 saturate-110 brightness-105"
                   sizes="100vw"
                 />
               </motion.div>
             </AnimatePresence>
 
-            {/* Gradient Overlays for High Contrast Readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/95 via-[#070D21]/85 via-55% to-[#070D21]/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21] via-transparent to-[#070D21]/40" />
+            {/* Softened Gradient Overlays: Images clearly visible while preserving high text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/80 via-[#070D21]/45 via-48% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/50 via-transparent to-transparent" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
@@ -460,17 +465,17 @@ export default function FacilitiesPage() {
                 </div>
 
                 {/* Animated Gradient Headline */}
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
                   <span className="bg-gradient-to-r from-white via-cyan-100 to-blue-300 bg-clip-text text-transparent">
                     11-Acre Modern Technoplex
                   </span>
                   <br />
-                  <span className="font-light text-2xl sm:text-4xl lg:text-5xl text-zinc-200">
+                  <span className="font-light text-2xl sm:text-4xl lg:text-5xl text-zinc-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                     in Infocity IT Corridor
                   </span>
                 </h1>
 
-                <p className="text-sm sm:text-base lg:text-lg text-zinc-300 font-normal leading-relaxed max-w-2xl">
+                <p className="text-sm sm:text-base lg:text-lg text-zinc-100 font-normal leading-relaxed max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
                   Equipped with high-density cloud computing clusters, a 70,000+ volume IEEE central research library, 
                   tournament basketball hardcourts, and 1,200-capacity in-campus residential pavilions flanking Bhubaneswar&apos;s global IT leaders.
                 </p>
@@ -522,78 +527,78 @@ export default function FacilitiesPage() {
               <div className="lg:col-span-5 grid grid-cols-2 gap-6 lg:gap-8 pt-4 lg:pt-0">
                 {/* Stat 1 */}
                 <div className="pl-4 border-l-2 border-cyan-400 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-cyan-300 group-hover:text-cyan-200 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-cyan-300 group-hover:text-cyan-200 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="11" duration={1.5} /> Acres
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     Technoplex Complex
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     Infocity IT Hub, Chandaka
                   </div>
                 </div>
 
                 {/* Stat 2 */}
                 <div className="pl-4 border-l-2 border-blue-500 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-blue-400 group-hover:text-blue-300 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-blue-400 group-hover:text-blue-300 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="6" duration={1.5} /> Blocks
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     Academic Wings
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     Multi-Storey Lecture Pods
                   </div>
                 </div>
 
                 {/* Stat 3 */}
                 <div className="pl-4 border-l-2 border-purple-500 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-purple-400 group-hover:text-purple-300 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-purple-400 group-hover:text-purple-300 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="600+" duration={1.6} />
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     AI &amp; Cloud Terminals
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     1000 Mbps Gigabit LAN
                   </div>
                 </div>
 
                 {/* Stat 4 */}
                 <div className="pl-4 border-l-2 border-amber-400 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-amber-300 group-hover:text-amber-200 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-amber-300 group-hover:text-amber-200 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="1,200" duration={1.6} />
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     Hostel Residents
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     Sapphire &amp; Ruby Pavilions
                   </div>
                 </div>
 
                 {/* Stat 5 */}
                 <div className="pl-4 border-l-2 border-emerald-400 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-emerald-300 group-hover:text-emerald-200 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-emerald-300 group-hover:text-emerald-200 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="70,000+" duration={1.8} />
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     Library Volumes
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     IEEE, ACM &amp; ScienceDirect
                   </div>
                 </div>
 
                 {/* Stat 6 */}
                 <div className="pl-4 border-l-2 border-rose-400 transition-all duration-300 hover:translate-x-1 group">
-                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-rose-300 group-hover:text-rose-200 transition-colors">
+                  <div className="text-3xl sm:text-4xl font-black font-mono tracking-tight text-rose-300 group-hover:text-rose-200 transition-colors drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                     <SpeedometerCounter value="400" duration={1.5} /> Seats
                   </div>
-                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1">
+                  <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                     Central Auditorium
                   </div>
-                  <div className="text-[11px] text-zinc-400 font-mono mt-0.5">
+                  <div className="text-[11px] text-zinc-300 font-mono mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                     Air-Conditioned Hall
                   </div>
                 </div>
