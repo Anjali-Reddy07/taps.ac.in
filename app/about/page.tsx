@@ -549,7 +549,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                   Trident Academy of Professional Studies
                 </h1>
 
@@ -601,7 +601,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Main Headline */}
-                    <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-serif max-w-4xl leading-tight sm:leading-none mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                       {slide.headline}
                     </h2>
 
@@ -1168,7 +1168,9 @@ export default function AboutPage() {
                       key={m.year}
                       type="button"
                       onClick={() => selectEra(m.year)}
-                      className="group text-left relative py-3 px-3.5 rounded-2xl transition-all duration-300 cursor-pointer focus:outline-hidden"
+                      className={`group text-left relative py-3 px-3.5 rounded-2xl transition-all duration-300 cursor-pointer focus:outline-hidden ${
+                        idx === milestones.length - 1 ? "col-span-2 sm:col-span-1" : ""
+                      }`}
                     >
                       {/* Active Era Progress Line (Linear 5s countdown when active) */}
                       {isActive && (

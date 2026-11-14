@@ -61,6 +61,19 @@ img, svg, video, canvas {
   max-width: 100%;
 }
 
+/* Responsive typography text-wrapping & touch optimization */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .font-editorial {
   font-family: var(--font-serif);
   font-style: italic;

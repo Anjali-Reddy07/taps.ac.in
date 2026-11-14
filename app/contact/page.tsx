@@ -355,7 +355,7 @@ export default function ContactPage() {
                   {/* ============================================================== */}
                   {/* PHOTOREALISTIC TITANIUM SMARTPHONE CHASSIS */}
                   {/* ============================================================== */}
-                  <div className="max-w-[410px] sm:max-w-[428px] mx-auto relative">
+                  <div className="w-full max-w-[340px] xs:max-w-[380px] sm:max-w-[420px] md:max-w-[428px] mx-auto relative">
                     
                     {/* Realistic Ground Diffusion Shadow */}
                     <div className="absolute -bottom-8 inset-x-6 h-12 bg-blue-950/40 rounded-full blur-2xl -z-10" />
@@ -376,10 +376,10 @@ export default function ContactPage() {
                     <div className="absolute right-[32px] -bottom-[2px] w-[3px] h-[3px] bg-zinc-600 z-10" />
 
                     {/* Outer Brushed Titanium Bezel Frame */}
-                    <div className="rounded-[52px] sm:rounded-[56px] p-[9px] sm:p-[10px] bg-gradient-to-tr from-zinc-700 via-zinc-500 via-40% to-zinc-800 shadow-[0_30px_90px_-15px_rgba(10,25,80,0.5),0_15px_40px_-10px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,255,255,0.65),inset_0_-1px_3px_rgba(0,0,0,0.8)] border-[1.5px] border-zinc-500/80 relative">
+                    <div className="rounded-[44px] sm:rounded-[56px] p-[7px] sm:p-[10px] bg-gradient-to-tr from-zinc-700 via-zinc-500 via-40% to-zinc-800 shadow-[0_30px_90px_-15px_rgba(10,25,80,0.5),0_15px_40px_-10px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,255,255,0.65),inset_0_-1px_3px_rgba(0,0,0,0.8)] border-[1.5px] border-zinc-500/80 relative">
                       
                       {/* Inner Chamfered Dark Rim */}
-                      <div className="rounded-[44px] sm:rounded-[48px] p-[2px] bg-gradient-to-b from-zinc-950 via-black to-zinc-900 shadow-inner">
+                      <div className="rounded-[38px] sm:rounded-[48px] p-[2px] bg-gradient-to-b from-zinc-950 via-black to-zinc-900 shadow-inner">
                         
                         {/* Precision Earpiece Speaker Slit */}
                         <div className="w-14 h-[2.5px] bg-zinc-950 rounded-full mx-auto mb-[2px] border-t border-zinc-800 shadow-xs" />
@@ -387,7 +387,7 @@ export default function ContactPage() {
                         {/* ============================================================== */}
                         {/* LIQUID GLASS OLED DISPLAY SURFACE (REFRACTIVE & TRANSLUCENT) */}
                         {/* ============================================================== */}
-                        <div className="rounded-[40px] sm:rounded-[44px] overflow-hidden relative border border-white/25 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),inset_0_-1.5px_2px_rgba(255,255,255,0.15),0_20px_50px_rgba(0,0,0,0.5)] p-4 sm:p-4.5 flex flex-col justify-between min-h-[610px] bg-[#070D1E]/80 backdrop-blur-3xl text-white">
+                        <div className="rounded-[34px] sm:rounded-[44px] overflow-hidden relative border border-white/25 shadow-[inset_0_1.5px_2px_rgba(255,255,255,0.6),inset_0_-1.5px_2px_rgba(255,255,255,0.15),0_20px_50px_rgba(0,0,0,0.5)] p-3.5 sm:p-4.5 flex flex-col justify-between min-h-[560px] sm:min-h-[610px] bg-[#070D1E]/80 backdrop-blur-3xl text-white">
                           
                           {/* Animated Liquid Chroma Orbs underneath the glass */}
                           <motion.div
