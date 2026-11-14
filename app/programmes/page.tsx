@@ -72,27 +72,27 @@ export default function ProgrammesPage() {
     bca: {
       code: "BCA",
       title: "Bachelor of Computer Applications",
-      degree: "3-Year Full-Time Degree • 6 Semesters",
-      affiliation: "Affiliated to Utkal University • Approved by AICTE & Govt. of Odisha",
+      degree: "3-Year Degree / 4-Year Honours with Research • 6 to 8 Semesters (NEP-2020 Framework)",
+      affiliation: "Affiliated to Utkal University • Approved by AICTE, OSHEC & Govt. of Odisha",
       intake: "128 Seats Approved",
       heroBg: "/images/drive_new/1721020760290.jpg",
       heroTag: "SCHOOL OF COMPUTING • BLOCK-1",
       photo: "/images/drive_third/ClassRooms_Academic.JPG",
       photoCaption: "Smart Computing Amphitheatre • Official TACT Lecture Theatre",
-      tagline: "High-Performance Computational Systems, Full-Stack Development & AI Foundations",
+      tagline: "NEP-2020 Model Curriculum • Full-Stack Software Engineering, Cloud Architecture, Data Science & AI",
       summary:
-        "The BCA programme at TAPS is engineered to transform students into enterprise-ready software developers, cloud architects, and data engineers. Taught by 100% NET/Ph.D qualified faculty with round-the-clock access to cloud computing clusters, practical coding labs, and continuous hackathon mentoring.",
+        "The BCA programme at TAPS is updated to the official NEP-2020 Model Curriculum formulated by the Odisha State Higher Education Council (OSHEC) and Utkal University. Offering flexible multiple entry/exit pathways (Certificate, Diploma, 3-Year BCA Degree, and 4-Year BCA Honours with Research), the course blends foundational algorithmic rigor in C, C++, Java, and Python with advanced tracks in Artificial Intelligence, Cloud Computing, Cyber Security, and Machine Learning.",
       highlights: [
-        "138+ Annual Corporate Recruiters (Placements 2026)",
-        "Dedicated Python, Full-Stack Java & Cloud Computing Labs",
-        "Curriculum mapped to Utkal University CBCS Framework",
-        "Industry certifications included in academic fees",
+        "Official NEP-2020 Model Curriculum (OSHEC & Utkal University)",
+        "Multiple Entry/Exit Options (Certificate, Diploma, BCA Degree & 4-Year Honours with Research)",
+        "Modern Core Tech Stack: Python, C, C++, Java, PHP, DBMS, Cloud & AI/ML Labs",
+        "Industry certifications, hackathons & capstone research projects included",
       ],
       keySkills: [
-        { name: "Full-Stack Software Engineering", tag: "MERN / Spring Boot" },
-        { name: "Cloud Virtualization & DevOps", tag: "AWS / Docker / Linux" },
-        { name: "Applied Python & Data Engineering", tag: "Pandas / NumPy / ML" },
-        { name: "Enterprise Database Systems", tag: "Oracle / MySQL / NoSQL" },
+        { name: "Python, AI & Data Analytics", tag: "Python / AI / R / Machine Learning" },
+        { name: "Data Structures & Algorithms", tag: "C / C++ / Advanced Algorithms" },
+        { name: "Full-Stack Web & Java Systems", tag: "Core Java / PHP / MySQL / Web Tech" },
+        { name: "Cloud, Security & OS", tag: "Linux / Cloud Computing / Cyber Defense" },
       ],
       labFacilities: [
         {
@@ -124,73 +124,90 @@ export default function ProgrammesPage() {
         {
           sem: "Semester I",
           subjects: [
-            "Mathematics-I",
-            "Business Practices",
-            "Digital Electronics",
-            "Computer Fundamentals",
-            "Programming Techniques Using C",
-            "Practical: MS-DOS & Windows Lab",
-            "Practical: C Programming Lab",
+            "Core I: Problem Solving using C Programming",
+            "Core II: Introduction to Python Programming",
+            "SEC: Computer Fundamentals",
+            "AEC: Communicative English / Odia / Hindi",
+            "VAC: Environmental Studies & Disaster Management",
+            "Practical: Problem Solving using C Lab",
+            "Practical: Python Programming Lab",
           ],
         },
         {
           sem: "Semester II",
           subjects: [
-            "Mathematics-II",
-            "Discrete Mathematical Structures",
-            "Principles of Management & Organisational Behaviour",
-            "Computer Organisation & Architecture",
-            "Data Structure",
-            "Practical: MS-Office Suite Lab",
-            "Practical: Data Structure Using C Lab",
+            "Core III: Data Structures",
+            "Core IV: Object Oriented Programming using C++",
+            "SEC: Introduction to Web Technologies (HTML, CSS, JS)",
+            "VAC: Ethics & Values",
+            "Practical: Data Structures using C Lab",
+            "Practical: Programming in C++ Lab",
+            "Practical: Web Technologies Lab",
           ],
         },
         {
           sem: "Semester III",
           subjects: [
-            "Computer Oriented Numerical Methods",
-            "Managerial Economics",
-            "Operating System",
-            "File Structure",
-            "Object Oriented Programming with C++",
-            "Practical: Numerical Computing Lab",
-            "Practical: Programming in C++ Lab",
+            "Core V: Data Base Management System (DBMS)",
+            "Core VI: Computer Organization & Architecture",
+            "Core VII: Operating Systems",
+            "SEC: Internet and Ethical Practices",
+            "Practical: Database Management System (SQL) Lab",
+            "Practical: Operating Systems (Linux & Shell) Lab",
           ],
         },
         {
           sem: "Semester IV",
           subjects: [
-            "Probability & Statistics",
-            "Accounting & Financial Management",
-            "Business Communication Skill",
-            "Database Management System",
-            "Computer Graphics",
-            "Practical: Database Lab (Oracle)",
-            "Practical: Graphics Programming Lab",
+            "Core VIII: Computer Graphics",
+            "Core IX: Web Development with PHP",
+            "Core X: Computer Network",
+            "VAC: Contemporary Cross-Cutting Issues",
+            "Practical: Computer Graphics (OpenGL) Lab",
+            "Practical: Web Development with PHP & MySQL Lab",
+            "Practical: Computer Network & Socket Programming Lab",
           ],
         },
         {
           sem: "Semester V",
           subjects: [
-            "Combinatorics & Graph Theory",
-            "Computer Communications & Networking",
-            "Software Engineering",
-            "Unix & Shell Programming",
-            "Visual & Windows Programming",
-            "Practical: Unix Shell Programming Lab",
-            "Practical: Visual Programming Lab",
+            "Core XI: Software Engineering",
+            "Core XII: Elective Option (A: Intro to AI / B: Data Science with R)",
+            "Core XIII: Programming in Java",
+            "Practical: Programming in Java Lab",
+            "Practical: AI / Data Science with R Programming Lab",
           ],
         },
         {
           sem: "Semester VI",
           subjects: [
-            "Object Oriented Design Using UML",
-            "E-Commerce",
-            "Management Information System (MIS)",
-            "Internet & Java Programming",
-            "Multimedia & Applications",
-            "Practical: Java Programming Lab",
-            "Mini Project & Viva-Voce",
+            "Core XIV: Algorithm Design Techniques",
+            "Core XV: Project Work-I (Structured Capstone Project & Defense)",
+            "Practical: Algorithm Design & Analysis Lab",
+            "Practical: Capstone Project Phase-I Lab",
+          ],
+        },
+        {
+          sem: "Semester VII",
+          subjects: [
+            "Core XVI: Applied Artificial Intelligence",
+            "Core XVII: Data Analytics with Python",
+            "Core XVIII: Cyber Security",
+            "Core XIX: Elective Choice (IoT / Theory of Computation / Android)",
+            "Practical: Applied AI & Deep Learning Lab",
+            "Practical: Data Analytics with Python Lab",
+            "Practical: Cyber Security & Penetration Testing Lab",
+          ],
+        },
+        {
+          sem: "Semester VIII",
+          subjects: [
+            "Core XX: Cloud Computing",
+            "Core XXI: Machine Learning",
+            "Core XXII: Elective Choice (Blockchain / Compiler Design / Info Science)",
+            "Core XXIII: Project Work-II (Advanced Research / Industry Capstone & Viva)",
+            "Practical: Cloud Computing & Virtualization Lab",
+            "Practical: Machine Learning & Predictive Modeling Lab",
           ],
         },
       ],
@@ -225,10 +242,10 @@ export default function ProgrammesPage() {
         },
       ],
       eligibility: {
-        qualification: "Passed 10+2 / Higher Secondary with Mathematics / Statistics / Business Mathematics, OR a 3-year Diploma in Engineering from SCTE&VT Odisha.",
-        board: "CHSE Odisha, CBSE, CISCE, or any recognized State/Central Board.",
+        qualification: "Passed 10+2 / Higher Secondary (Science / Arts / Commerce) with Mathematics / Statistics / Computer Science / Information Technology / Business Mathematics, OR a 3-year Diploma in Engineering from SCTE&VT Odisha.",
+        board: "CHSE Odisha, CBSE, CISCE, or any recognized State/Central Board under NEP-2020 guidelines.",
         marks: "Minimum 45% aggregate in qualifying examination (40% for SC/ST candidates).",
-        preferred: "Mathematics/Statistics or 3-year Engineering Diploma is required by Utkal University.",
+        preferred: "Mathematics/Statistics/CS or 3-year Engineering Diploma is required by Utkal University.",
         process: "Admissions strictly on first-cum-first-serve basis subject to eligibility norms.",
       },
       careers: [
@@ -489,7 +506,7 @@ export default function ProgrammesPage() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
                     </span>
-                    <span>TACT Trust • Utkal Univ CBCS • AICTE Approved</span>
+                    <span>TACT Trust • Utkal Univ NEP-2020 &amp; CBCS • AICTE Approved</span>
                   </div>
 
                   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6">
@@ -698,7 +715,7 @@ export default function ProgrammesPage() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                       </span>
-                      BCA • 3-YEAR TRACK
+                      BCA • 3-YR / 4-YR NEP-2020 TRACK
                     </span>
                     <span className="text-xs font-mono font-bold text-blue-900 bg-blue-100/80 border border-blue-200/80 px-3 py-0.5 rounded-full">
                       128 Seats Approved
@@ -710,7 +727,7 @@ export default function ProgrammesPage() {
                   </h3>
                   <div className="mb-4">
                     <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700">
-                      Utkal University CBCS • AICTE &amp; Higher Education Dept Approved
+                      Utkal University NEP-2020 Model Curriculum • AICTE &amp; Higher Education Dept Approved
                     </span>
                   </div>
 
@@ -1182,6 +1199,69 @@ export default function ProgrammesPage() {
                   <div className="absolute -top-10 left-1/4 w-[450px] h-[350px] rounded-full bg-gradient-to-tr from-blue-400/20 via-purple-300/15 to-transparent blur-[120px] pointer-events-none" />
                   <div className="absolute bottom-10 right-10 w-[450px] h-[350px] rounded-full bg-gradient-to-bl from-pink-400/20 via-cyan-300/15 to-transparent blur-[120px] pointer-events-none" />
 
+                  {/* NEP-2020 Framework Banner (Official OSHEC & Utkal University Regulations) */}
+                  {selectedCourse === "bca" && (
+                    <div className="relative p-5 sm:p-7 rounded-3xl bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900 text-white border border-blue-500/30 overflow-hidden shadow-xl">
+                      <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-cyan-500/20 blur-3xl pointer-events-none" />
+                      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+                        <div className="space-y-2.5">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-cyan-400 text-slate-950">
+                              NEP-2020 Model Curriculum
+                            </span>
+                            <span className="text-[11px] font-mono text-cyan-300 font-semibold">
+                              Odisha State Higher Education Council (OSHEC) • Utkal University
+                            </span>
+                          </div>
+                          <h4 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                            Flexible Multiple Entry &amp; Exit Framework for BCA (3-Year Degree / 4-Year Honours with Research)
+                          </h4>
+                          <p className="text-xs text-zinc-300 leading-relaxed max-w-3xl font-normal">
+                            Updated to the official model curriculum notified by OSHEC, Government of Odisha. Students can exit at designated milestones with certified academic credentials or progress through the 4th-Year Honours with Research track.
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 pt-3 text-xs">
+                            <div className="pl-3 border-l-2 border-cyan-400">
+                              <span className="font-mono text-cyan-300 font-bold block text-[12px]">1-Year Exit (Sem I-II)</span>
+                              <span className="text-zinc-300 text-[11px] leading-tight block">UG Certificate in Computer Applications (40-44 Credits + Summer Internship)</span>
+                            </div>
+                            <div className="pl-3 border-l-2 border-indigo-400">
+                              <span className="font-mono text-indigo-300 font-bold block text-[12px]">2-Year Exit (Sem III-IV)</span>
+                              <span className="text-zinc-300 text-[11px] leading-tight block">UG Diploma in Computer Applications (80-88 Credits + Summer Internship)</span>
+                            </div>
+                            <div className="pl-3 border-l-2 border-emerald-400">
+                              <span className="font-mono text-emerald-300 font-bold block text-[12px]">3-Year Exit (Sem V-VI)</span>
+                              <span className="text-zinc-300 text-[11px] leading-tight block">Bachelor of Computer Applications (BCA) Degree (120-132 Credits)</span>
+                            </div>
+                            <div className="pl-3 border-l-2 border-purple-400">
+                              <span className="font-mono text-purple-300 font-bold block text-[12px]">4-Year Track (Sem VII-VIII)</span>
+                              <span className="text-zinc-300 text-[11px] leading-tight block">BCA (Honours with Research / 4-Year Major) Degree (160-176 Credits)</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+                          <a
+                            href="/docs/BCA-NEP-Syllabus.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-mono text-xs font-bold transition-all shadow-md shadow-cyan-500/25 cursor-pointer active:scale-95"
+                          >
+                            <span>📥</span>
+                            <span>Download NEP Syllabus (PDF)</span>
+                          </a>
+                          <a
+                            href="https://msb.ac.in/wp-content/uploads/2025/01/BCA-NEP-Syllabus.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-zinc-200 font-mono text-xs font-medium border border-white/15 transition-all cursor-pointer"
+                          >
+                            <span>Official Source ↗</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   {/* 1. Master Semester Horizon Selector Rail (Colourful & Cardless) */}
                   <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-zinc-200 relative z-10">
                     {/* Semester Pickers with Dynamic Rainbow Themes */}
@@ -1270,7 +1350,9 @@ export default function ProgrammesPage() {
                             </h3>
                             
                             <p className="text-xs sm:text-sm text-zinc-600 mt-2 leading-relaxed font-medium">
-                              Utkal University Choice-Based Credit System (CBCS) curriculum, combining rigorous foundational theory with faculty-supervised programming studios.
+                              {selectedCourse === "bca"
+                                ? "Official OSHEC & Utkal University NEP-2020 Model Curriculum, balancing foundational programming in C, C++, Java & Python with advanced AI, Cloud & Data Science specializations."
+                                : "Utkal University Choice-Based Credit System (CBCS) & NEP-2020 4-Year Management curriculum, combining business strategy with corporate live projects."}
                             </p>
                           </div>
 
@@ -1279,14 +1361,16 @@ export default function ProgrammesPage() {
                             <div className="pl-4 border-l-4 border-blue-600">
                               <div className="text-[11px] font-mono font-bold text-blue-600 uppercase tracking-wider">Total Semester Credits</div>
                               <div className="text-2xl sm:text-3xl font-mono font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent mt-0.5">
-                                <SpeedometerCounter value="24" duration={1.2} /> Credits Total
+                                <SpeedometerCounter value="22" duration={1.2} /> Credits (Approx)
                               </div>
                             </div>
                             
                             <div className="pl-4 border-l-4 border-purple-600">
                               <div className="text-[11px] font-mono font-bold text-purple-600 uppercase tracking-wider">Evaluation Framework</div>
-                              <div className="text-sm font-bold text-zinc-900 mt-0.5">CBCS Continuous Grading (SGPA / CGPA)</div>
-                              <div className="text-[11px] text-purple-700 font-medium">Internal Sessional &amp; Semester Examination</div>
+                              <div className="text-sm font-bold text-zinc-900 mt-0.5">
+                                {selectedCourse === "bca" ? "NEP-2020 Semester Grading (SGPA / CGPA)" : "CBCS Continuous Grading (SGPA / CGPA)"}
+                              </div>
+                              <div className="text-[11px] text-purple-700 font-medium">Internal Continuous Assessment &amp; Semester Examination</div>
                             </div>
                             
                             <div className="pl-4 border-l-4 border-emerald-600">

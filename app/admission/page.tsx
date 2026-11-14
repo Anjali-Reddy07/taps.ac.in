@@ -233,7 +233,7 @@ export default function AdmissionPage() {
                   </div>
                   <span className="text-xs font-mono text-zinc-400 hidden sm:inline">•</span>
                   <span className="text-xs font-mono text-emerald-300 bg-emerald-950/70 border border-emerald-800/80 px-3 py-1 rounded-full backdrop-blur-xs">
-                    Utkal University CBCS Affiliated
+                    Utkal University NEP-2020 Affiliated
                   </span>
                 </div>
 
@@ -276,10 +276,10 @@ export default function AdmissionPage() {
                     <span className="text-emerald-400 font-bold">✓ GOVT. APPROVED</span>
                   </div>
                   <div className="text-xl sm:text-2xl font-mono font-bold text-white tracking-tight">
-                    CBCS 8-Semesters
+                    NEP-2020 8-Semesters
                   </div>
                   <div className="text-xs text-zinc-300 mt-1 font-light">
-                    Autonomous Syllabus with Cloud &amp; AI Electives
+                    OSHEC Model Syllabus with AI &amp; Cloud Tracks
                   </div>
                 </div>
 
