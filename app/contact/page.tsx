@@ -114,7 +114,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#050814] text-white selection:bg-cyan-500 selection:text-black">
+    <div className="flex min-h-screen flex-col bg-white text-zinc-900 selection:bg-black selection:text-white">
       <Header onOpenQuery={() => setIsModalOpen(true)} />
 
       <main className="flex-1">
@@ -132,19 +132,19 @@ export default function ContactPage() {
               sizes="100vw"
             />
             {/* Smooth adjusted one-sided scrim */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/90 via-[#070D21]/55 via-50% to-[#070D21]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050814] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#070D21]/85 via-[#070D21]/50 via-50% to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070D21]/40 via-transparent to-transparent" />
           </div>
 
           <section className="relative z-10 py-20 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 text-white">
             <div className="max-w-3xl animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-mono font-semibold text-cyan-300 mb-4 bg-cyan-950/70 border border-cyan-800/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-xs">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-zinc-300 mb-4 bg-zinc-900/80 border border-zinc-700/80 px-3.5 py-1 rounded-full shadow-2xs backdrop-blur-xs">
                 Reach Our Infocity Campus
               </div>
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                 Connect with Trident Academy of Professional Studies
               </h1>
-              <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed mb-8 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
+              <p className="text-base sm:text-lg text-zinc-200 font-light leading-relaxed mb-8 drop-shadow-[0_1px_6px_rgba(0,0,0,0.8)]">
                 Located in the heart of Bhubaneswar&apos;s premier IT corridor at Infocity, Patia. 
                 Our admissions officers and academic advisors are available for in-person campus visits, phone consultations, and inquiries.
               </p>
@@ -154,13 +154,13 @@ export default function ContactPage() {
                   href="https://wa.me/916371512551"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-sans font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/25 hover:from-emerald-400 hover:to-teal-400 transition-all cursor-pointer active:scale-95"
+                  className="flex items-center gap-2 bg-white text-black font-sans font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-zinc-200 transition-colors"
                 >
                   <span>Chat on WhatsApp ↗</span>
                 </a>
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-sans font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all cursor-pointer active:scale-95 backdrop-blur-md"
+                  className="flex items-center gap-2 bg-zinc-900 border border-zinc-700 text-white font-sans font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-zinc-800 transition-colors cursor-pointer"
                 >
                   <span>Online Admission Inquiry ↗</span>
                 </button>
@@ -172,88 +172,81 @@ export default function ContactPage() {
         {/* ========================================================================= */}
         {/* 2-COLUMN CONTACT CHANNELS & HYPERREALISTIC LIQUID GLASS SMARTPHONE */}
         {/* ========================================================================= */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800/80 relative overflow-hidden bg-[#060A1C]">
-          {/* Ambient Colorful Aurora Lights Matching the Smartphone Display */}
-          <div className="absolute top-1/4 -right-10 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-blue-500/25 via-indigo-500/20 to-transparent blur-[160px] pointer-events-none" />
-          <div className="absolute -bottom-10 left-0 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-purple-600/20 via-cyan-500/15 to-transparent blur-[150px] pointer-events-none" />
-          <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] rounded-full bg-cyan-600/10 blur-[140px] pointer-events-none" />
-
-          {/* Micro Geometric Dot Pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:28px_28px] opacity-40 pointer-events-none" />
+        <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
+          {/* Subtle Ambient Radial Lighting Blobs */}
+          <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-gradient-to-bl from-blue-400/25 via-indigo-300/15 to-transparent blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-purple-400/20 via-cyan-200/15 to-transparent blur-[120px] pointer-events-none" />
 
           <section className="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               
               {/* Left Column: Direct Institutional Coordinates */}
-              <div className="lg:col-span-5 space-y-6 animate-fadeInUp">
-                <div className="pt-2 sm:pt-4">
-                  <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-extrabold text-cyan-300 mb-3 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/40 shadow-sm backdrop-blur-md">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />
+              <div className="lg:col-span-5 space-y-6 animate-fadeInUp pt-1 sm:pt-3">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-extrabold text-blue-700 mb-2.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80">
+                    <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
                     INFOCITY IT CORRIDOR • BHUBANESWAR
                   </div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight">
-                    Campus Coordinates &amp;{" "}
-                    <span className="font-extrabold bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
-                      Admissions Desk
-                    </span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight">
+                    Campus Coordinates &amp; Admissions Desk
                   </h2>
-                  <p className="text-xs sm:text-sm text-zinc-300 mt-3 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm text-zinc-600 mt-2.5 leading-relaxed font-normal">
                     Direct institutional channels for academic counseling, seat reservations under the NEP-2020 syllabus, and on-campus computing facility tours.
                   </p>
                 </div>
 
-                <div className="space-y-3.5 pt-1 text-xs sm:text-sm">
+                <div className="space-y-3.5 pt-2 text-xs sm:text-sm text-zinc-700">
                   
                   {/* Card 1: Campus Address */}
-                  <div className="group p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl border border-white/10 hover:border-cyan-400/50 hover:bg-white/[0.1] shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300">
+                  <div className="group p-4 rounded-2xl bg-white/80 hover:bg-white border border-zinc-200/90 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-md">
                     <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-400/30 text-cyan-300 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                      <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform">
                         📍
                       </div>
                       <div className="space-y-1">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-cyan-400 font-bold">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-blue-700 font-bold">
                           Official Campus Location
                         </div>
-                        <p className="font-bold text-white text-sm leading-snug">
+                        <p className="font-bold text-zinc-950 text-sm leading-snug">
                           Trident Academy of Professional Studies (TAPS)
                         </p>
-                        <p className="text-zinc-300 text-xs leading-relaxed">
+                        <p className="text-zinc-600 text-xs leading-relaxed">
                           F-2, Chandaka Industrial Estate, In front of Infocity,<br />
                           Bhubaneswar, Odisha — 751024, India
                         </p>
                         <div className="pt-0.5 flex items-center gap-2">
-                          <span className="text-[10px] font-mono text-zinc-400">Landmark: Opposite Infocity Main Gate</span>
+                          <span className="text-[10px] font-mono text-zinc-500 font-semibold">Landmark: Opposite Infocity Main Gate</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Card 2: Hotlines */}
-                  <div className="group p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl border border-white/10 hover:border-indigo-400/50 hover:bg-white/[0.1] shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300">
+                  <div className="group p-4 rounded-2xl bg-white/80 hover:bg-white border border-zinc-200/90 hover:border-indigo-300 transition-all duration-300 shadow-sm hover:shadow-md">
                     <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-400/30 text-indigo-300 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                      <div className="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform">
                         📞
                       </div>
-                      <div className="space-y-1.5 flex-1">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-indigo-300 font-bold">
+                      <div className="space-y-1 flex-1">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-indigo-700 font-bold">
                           Direct Admission Hotlines
                         </div>
                         <div className="flex flex-wrap items-center gap-2">
                           <a
                             href="tel:+919861191195"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/35 border border-indigo-400/30 text-indigo-200 font-mono font-bold text-xs transition-colors"
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-900 font-mono font-bold text-xs transition-colors"
                           >
                             <span>+91 98611 91195</span>
                           </a>
                           <a
                             href="tel:+917008443255"
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-mono font-bold text-xs transition-colors"
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-mono font-bold text-xs transition-colors"
                           >
                             <span>+91 70084 43255</span>
                           </a>
                         </div>
-                        <p className="text-zinc-400 text-[11px] font-medium">
+                        <p className="text-zinc-500 text-[11px] font-medium">
                           Chief Counseling Desk: Mon to Sat (9:00 AM – 5:30 PM)
                         </p>
                       </div>
@@ -261,32 +254,32 @@ export default function ContactPage() {
                   </div>
 
                   {/* Card 3: Email Concierge */}
-                  <div className="group p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl border border-white/10 hover:border-purple-400/50 hover:bg-white/[0.1] shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300">
+                  <div className="group p-4 rounded-2xl bg-white/80 hover:bg-white border border-zinc-200/90 hover:border-purple-300 transition-all duration-300 shadow-sm hover:shadow-md">
                     <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-400/30 text-purple-300 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                      <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform">
                         ✉️
                       </div>
                       <div className="space-y-1">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-purple-300 font-bold">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-purple-700 font-bold">
                           Institutional Email
                         </div>
                         <div className="flex flex-wrap items-center gap-3">
                           <a
                             href="mailto:admissions@taps.ac.in"
-                            className="font-bold text-white hover:text-cyan-300 font-mono text-xs transition-colors"
+                            className="font-bold text-zinc-950 hover:text-purple-700 font-mono text-xs transition-colors"
                           >
                             admissions@taps.ac.in
                           </a>
-                          <span className="text-zinc-500">•</span>
+                          <span className="text-zinc-300">•</span>
                           <a
                             href="mailto:info@taps.ac.in"
-                            className="text-zinc-300 hover:text-white font-mono text-xs transition-colors"
+                            className="text-zinc-600 hover:text-zinc-950 font-mono text-xs transition-colors"
                           >
                             info@taps.ac.in
                           </a>
                         </div>
-                        <div className="text-[10px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5 pt-0.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+                        <div className="text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                           <span>Average Response Window: Under 2 Hours</span>
                         </div>
                       </div>
@@ -294,19 +287,19 @@ export default function ContactPage() {
                   </div>
 
                   {/* Card 4: Working Hours */}
-                  <div className="group p-4 sm:p-4.5 rounded-2xl bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-transparent backdrop-blur-2xl border border-white/10 hover:border-emerald-400/50 hover:bg-white/[0.1] shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-300">
+                  <div className="group p-4 rounded-2xl bg-white/80 hover:bg-white border border-zinc-200/90 hover:border-emerald-300 transition-all duration-300 shadow-sm hover:shadow-md">
                     <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-base shrink-0 group-hover:scale-105 transition-transform">
                         ⏰
                       </div>
                       <div className="space-y-0.5">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-300 font-bold">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-700 font-bold">
                           Visiting Hours &amp; Counseling
                         </div>
-                        <p className="text-white font-bold text-xs sm:text-sm">
+                        <p className="text-zinc-950 font-bold text-xs sm:text-sm">
                           Monday to Saturday: 9:00 AM – 5:30 PM
                         </p>
-                        <p className="text-zinc-400 text-[11px] leading-tight">
+                        <p className="text-zinc-500 text-[11px] leading-tight">
                           Admissions Cell remains open on Sundays during peak academic admission cycles.
                         </p>
                       </div>
@@ -346,7 +339,7 @@ export default function ContactPage() {
                   <div className="max-w-[410px] sm:max-w-[428px] mx-auto relative">
                     
                     {/* Realistic Ground Diffusion Shadow */}
-                    <div className="absolute -bottom-8 inset-x-6 h-12 bg-blue-950/60 rounded-full blur-2xl -z-10" />
+                    <div className="absolute -bottom-8 inset-x-6 h-12 bg-blue-950/40 rounded-full blur-2xl -z-10" />
 
                     {/* Hardware Buttons on Left Rail */}
                     <div className="absolute -left-[3px] top-[90px] w-[3.5px] h-6 bg-gradient-to-r from-zinc-500 via-zinc-400 to-zinc-600 rounded-l-xs shadow-xs z-10" />
@@ -364,7 +357,7 @@ export default function ContactPage() {
                     <div className="absolute right-[32px] -bottom-[2px] w-[3px] h-[3px] bg-zinc-600 z-10" />
 
                     {/* Outer Brushed Titanium Bezel Frame */}
-                    <div className="rounded-[52px] sm:rounded-[56px] p-[9px] sm:p-[10px] bg-gradient-to-tr from-zinc-700 via-zinc-500 via-40% to-zinc-800 shadow-[0_30px_90px_-15px_rgba(10,25,80,0.6),0_15px_40px_-10px_rgba(0,0,0,0.8),inset_0_1px_3px_rgba(255,255,255,0.65),inset_0_-1px_3px_rgba(0,0,0,0.8)] border-[1.5px] border-zinc-500/80 relative">
+                    <div className="rounded-[52px] sm:rounded-[56px] p-[9px] sm:p-[10px] bg-gradient-to-tr from-zinc-700 via-zinc-500 via-40% to-zinc-800 shadow-[0_30px_90px_-15px_rgba(10,25,80,0.5),0_15px_40px_-10px_rgba(0,0,0,0.7),inset_0_1px_3px_rgba(255,255,255,0.65),inset_0_-1px_3px_rgba(0,0,0,0.8)] border-[1.5px] border-zinc-500/80 relative">
                       
                       {/* Inner Chamfered Dark Rim */}
                       <div className="rounded-[44px] sm:rounded-[48px] p-[2px] bg-gradient-to-b from-zinc-950 via-black to-zinc-900 shadow-inner">
@@ -777,58 +770,45 @@ export default function ContactPage() {
           </section>
         </AnimatedBackground>
 
-        {/* TRANSIT GUIDE: DARK LUXURY VARIANT */}
-        <AnimatedBackground variant="dark" className="border-b border-zinc-800/80 bg-[#04060E] relative overflow-hidden">
-          <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-blue-600/10 blur-[130px] pointer-events-none" />
-          
-          <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10 text-white">
+        {/* TRANSIT GUIDE: LIGHT VARIANT (CARDLESS OPEN RAIL) */}
+        <AnimatedBackground variant="light" className="border-b border-zinc-200">
+          <section className="py-16 sm:py-20 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
             <div className="max-w-2xl mb-10 animate-fadeInUp">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-extrabold text-cyan-300 mb-2.5 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30">
-                TRANSIT &amp; ACCESSIBILITY
+              <div className="text-xs uppercase tracking-widest font-semibold text-blue-700 mb-2">
+                Transit &amp; Accessibility
               </div>
-              <h2 className="text-2xl sm:text-4xl font-light text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-light text-zinc-950 tracking-tight leading-tight">
                 How to Reach Our Campus
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
-              
-              <div className="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-cyan-400/40 transition-all duration-300 shadow-md">
-                <div className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-blue-500/20 text-cyan-300 flex items-center justify-center font-bold text-sm border border-blue-400/30">
-                    🚆
-                  </span>
-                  <span>Railway Station (BBS)</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200/80 pt-6 border-t border-zinc-200/80">
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
+                  🚆 From Railway Station (BBS)
                 </div>
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                   Distance: ~12 km. Direct Mo Bus route (Route 10, 11) or auto-rickshaws directly to Infocity Square / Patia.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-indigo-400/40 transition-all duration-300 shadow-md">
-                <div className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-bold text-sm border border-indigo-400/30">
-                    ✈️
-                  </span>
-                  <span>Airport (BBI)</span>
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
+                  ✈️ From Airport (BBI)
                 </div>
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                   Distance: ~16 km. Biju Patnaik International Airport is connected via Nandankanan Road and Jayadev Vihar flyover.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-purple-400/40 transition-all duration-300 shadow-md">
-                <div className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-300 flex items-center justify-center font-bold text-sm border border-purple-400/30">
-                    🚌
-                  </span>
-                  <span>Bus Terminal (ISBT)</span>
+              <div className="py-4 md:py-0 px-0 md:px-6 first:pl-0 last:pr-0">
+                <div className="text-base font-bold text-zinc-950 mb-2">
+                  🚌 From Baramunda Bus Terminal (ISBT)
                 </div>
-                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                   Distance: ~14 km. Frequent direct bus connectivity and taxis available 24/7 along NH-16 towards Patia.
                 </p>
               </div>
-
             </div>
           </section>
         </AnimatedBackground>
