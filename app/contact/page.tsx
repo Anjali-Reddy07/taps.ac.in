@@ -173,35 +173,35 @@ export default function ContactPage() {
         {/* 2-COLUMN CONTACT CHANNELS & HYPERREALISTIC LIQUID GLASS SMARTPHONE */}
         {/* ========================================================================= */}
         <AnimatedBackground variant="light" className="border-b border-zinc-200 relative overflow-hidden">
-          {/* Subtle Masked Background Architecture Scrim - Specific to this section only */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+          {/* Refined Architectural Environmental Backdrop (Confined to phone side with feather mask) */}
+          <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 pointer-events-none overflow-hidden select-none z-0 [mask-image:radial-gradient(ellipse_75%_75%_at_70%_50%,black_35%,transparent_90%)]">
             <Image
               src="/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg"
               alt="TAPS Campus Environment"
               fill
-              quality={90}
-              className="object-cover object-center opacity-40 filter contrast-105 saturate-110"
-              sizes="100vw"
+              quality={95}
+              className="object-cover object-center opacity-30 filter contrast-110 saturate-125"
+              sizes="(max-width: 1024px) 100vw, 60vw"
             />
-            {/* Smooth adjusted one-sided gradient mask: soft opacity on left for crystal-clear text readability, revealing vibrant campus landscape on right behind the phone */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FBFBFF] via-[#FBFBFF]/85 via-48% to-[#FBFBFF]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFF] via-transparent to-[#FBFBFF]/60" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBFBFF]/60 via-transparent to-[#FBFBFF]" />
-            
-            {/* Stylized Radiant Stage Mask Behind Smartphone */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full lg:w-1/2 h-[90%] bg-gradient-to-l from-indigo-500/10 via-blue-500/5 to-transparent [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
+            {/* Subtle light diffusion layer so the phone remains the crisp hero */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FBFBFF] via-[#FBFBFF]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FBFBFF] via-transparent to-[#FBFBFF]/80" />
           </div>
 
-          {/* Subtle Ambient Radial Lighting Blobs */}
-          <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-gradient-to-bl from-blue-400/25 via-indigo-300/15 to-transparent blur-[140px] pointer-events-none" />
-          <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-purple-400/20 via-cyan-200/15 to-transparent blur-[120px] pointer-events-none" />
+          {/* Dedicated Studio Glow Dome for Smartphone Console */}
+          <div className="hidden lg:block absolute right-[8%] top-1/2 -translate-y-1/2 w-[520px] h-[680px] rounded-full bg-gradient-to-tr from-cyan-400/20 via-blue-500/15 to-purple-400/15 blur-[120px] pointer-events-none z-0" />
+          <div className="hidden lg:block absolute right-[15%] top-1/3 w-[360px] h-[360px] rounded-full bg-gradient-to-bl from-indigo-400/20 via-sky-300/15 to-transparent blur-[90px] pointer-events-none z-0" />
 
-          <section className="py-16 sm:py-24 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+          {/* Subtle Ambient Radial Lighting Blobs */}
+          <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-gradient-to-bl from-blue-400/20 via-indigo-300/15 to-transparent blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-10 left-10 w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-purple-400/15 via-cyan-200/15 to-transparent blur-[120px] pointer-events-none" />
+
+          <section className="pt-24 sm:pt-32 pb-20 sm:pb-28 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10 scroll-mt-24">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               
               {/* Left Column: Direct Institutional Coordinates */}
-              <div className="lg:col-span-5 space-y-6 animate-fadeInUp pt-1 sm:pt-3">
+              <div className="lg:col-span-5 space-y-6 animate-fadeInUp pt-2 sm:pt-4">
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-extrabold text-blue-700 mb-2.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80">
                     <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
