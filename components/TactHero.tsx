@@ -38,7 +38,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
       headline: "24-Hour Hackathons & Software Sprints",
       subheadline:
         "High-Performance Cloud Labs, Full-Stack Software Engineering, AI Foundational Tracks & Algorithmic Challenges",
-      image: "/images/drive_fourth/hack_day.png",
+      image: "/images/sports_championship_trophy.jpg",
       tag: "APPER CODING CLUB & HACKATHONS",
       location: "Technology Cluster",
     },
@@ -112,7 +112,7 @@ export default function TactHero({ onOpenQuery }: TactHeroProps) {
             "/images/drive_new/313302072_5505727856213384_7957099915361488478_n.jpg",
             "/images/drive_new/1721020760290.jpg",
             "/images/drive_new/470234356_122200804352040677_3595499250058296861_n.jpg",
-            "/images/drive_fourth/hack_day.png",
+            "/images/sports_championship_trophy.jpg",
             "/images/drive_new/418523663_877202237525747_6377361483820920683_n.jpg",
             "/images/drive_new/487841832_17914511076094364_1416184591585353408_n.jpg",
             "/images/drive_second/321398647_614967553732563_5218244034042291334_n.jpg",
